@@ -22,13 +22,14 @@
       "carousel",
       "delightfulDelicacies",
       "whyuscards",
-      "footer"
+      "footer",
+      "whyUsCards"
     ]
   },
   {
     "id": "carouselBanner",
     "components": [
-      "carouselItem"
+      "carouselSlide"
     ]
   },
   {
@@ -40,23 +41,26 @@
   {
     "id": "delightfulDelicacies",
     "components": [
+      "delicacyCategory"
+    ]
+  },
+  {
+    "id": "delightfulDelicacies",
+    "components": [
       "delicacyItem"
     ]
   },
   {
     "id": "footer",
     "components": [
-      "logo",
       "footerLink",
-      "additionalLink",
-      "socialIcon"
+      "footerSocialIcon"
     ]
   },
   {
     "id": "header",
     "components": [
-      "navLink",
-      "countryOption"
+      "header"
     ]
   },
   {
@@ -66,9 +70,9 @@
     ]
   },
   {
-    "id": "whyuscards",
+    "id": "whyUsCards",
     "components": [
-      "whyuscard"
+      "whyUsCard"
     ]
   }
 ]

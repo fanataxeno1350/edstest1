@@ -2,24 +2,21 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const textModel = block.querySelector('[data-aue-model="text"]');
-  const content = textModel.querySelector('[data-aue-prop="content"]');
+  const textContainer = document.createElement('div');
+  textContainer.classList.add('whyustext-cmp-text');
 
-  const wrapperDiv = document.createElement('div');
-  wrapperDiv.classList.add('whyustext-cmp-text');
+  const contentElement = block.querySelector('[data-aue-prop="content"]');
 
-  if (content) {
-    const h1Elements = content.querySelectorAll('h1');
-    h1Elements.forEach((h1) => {
-      h1.classList.add('whyustext-koi-theme');
-      wrapperDiv.append(h1);
-      moveInstrumentation(h1, h1);
-    });
-    moveInstrumentation(content, wrapperDiv);
+  if (contentElement) {
+    textContainer.append(...Array.from(contentElement.children));
+    moveInstrumentation(contentElement, textContainer);
+  } else {
+    // Fallback for non-aue content or direct text in the block
+    textContainer.append(...Array.from(block.children));
   }
 
   block.textContent = '';
-  block.append(wrapperDiv);
-  block.className = `${block.dataset.blockName} block`;
+  block.append(textContainer);
+  block.className = `text block`;
   block.dataset.blockStatus = 'loaded';
 }

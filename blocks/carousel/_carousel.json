@@ -35,7 +35,6 @@
   "models": [
     {
       "id": "carouselItem",
-      "description": "",
       "fields": [
         {
           "component": "reference",

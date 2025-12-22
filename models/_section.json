@@ -50,8 +50,16 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
-      ,"header","carouselBanner","spaceadderVerticalPaddingSection","carousel","delightfulDelicacies","whyuscards","footer"]
+        "fragment",
+        "header",
+        "carouselBanner",
+        "spaceadderVerticalPaddingSection",
+        "carousel",
+        "delightfulDelicacies",
+        "whyuscards",
+        "footer",
+        "whyUsCards"
+      ]
     }
   ]
 }

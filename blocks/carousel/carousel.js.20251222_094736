@@ -20,10 +20,10 @@ export default function decorate(block) {
   carouselIndicators.classList.add('carousel-indicators');
 
   const carouselItems = Array.from(block.children);
-  carouselItems.forEach((itemNode, index) => {
+  carouselItems.forEach((item, index) => {
     const indicator = document.createElement('li');
     indicator.setAttribute('data-target', '#carousel');
-    indicator.setAttribute('data-slide-to', index.toString());
+    indicator.setAttribute('data-slide-to', index);
     if (index === 0) {
       indicator.classList.add('active');
     }
@@ -35,65 +35,67 @@ export default function decorate(block) {
       carouselItemDiv.classList.add('active');
     }
 
-    const contentWrapper = document.createElement('div');
-    contentWrapper.classList.add('d-md-flex', 'd-block');
+    const dFlexDiv = document.createElement('div');
+    dFlexDiv.classList.add('d-md-flex', 'd-block');
 
-    const imageField = itemNode.querySelector('[data-aue-prop="image"]');
+    const imageField = item.querySelector('[data-aue-prop="image"]');
     let imageElement;
     if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        imageElement = createOptimizedPicture(img.src, img.alt);
-        imageElement.querySelector('img').classList.add('shiftclub-carousel__img', 'd-block', 'w-md-50', 'w-100');
-        contentWrapper.append(imageElement);
-        moveInstrumentation(imageField, imageElement);
-      }
+      imageElement = createOptimizedPicture(imageField.src, imageField.alt, false, [{
+        width: '750'
+      }]);
+      imageElement.querySelector('img').classList.add('shiftclub-carousel__img', 'd-block', 'w-md-50', 'w-100');
+      moveInstrumentation(imageField, imageElement);
     } else {
-      const img = itemNode.querySelector('img');
+      const img = item.querySelector('img');
       if (img) {
-        imageElement = createOptimizedPicture(img.src, img.alt);
+        imageElement = createOptimizedPicture(img.src, img.alt, false, [{
+          width: '750'
+        }]);
         imageElement.querySelector('img').classList.add('shiftclub-carousel__img', 'd-block', 'w-md-50', 'w-100');
-        contentWrapper.append(imageElement);
       }
     }
+    if (imageElement) {
+      dFlexDiv.append(imageElement);
+    }
 
-    const rightWrapper = document.createElement('div');
-    rightWrapper.classList.add('w-md-50', 'w-100', 'shiftclub-right-wrapper', 'read-more');
+    const rightWrapperDiv = document.createElement('div');
+    rightWrapperDiv.classList.add('w-md-50', 'w-100', 'shiftclub-right-wrapper', 'read-more');
 
-    const titleField = itemNode.querySelector('[data-aue-prop="title"]');
+    const titleField = item.querySelector('[data-aue-prop="title"]');
     if (titleField) {
-      const h2 = document.createElement('h2');
-      h2.classList.add('shiftclub-carousel-inner__title');
-      h2.append(...titleField.childNodes);
-      rightWrapper.append(h2);
-      moveInstrumentation(titleField, h2);
+      const title = document.createElement('h2');
+      title.classList.add('shiftclub-carousel-inner__title');
+      title.append(...titleField.childNodes);
+      rightWrapperDiv.append(title);
+      moveInstrumentation(titleField, title);
     } else {
-      const h2 = itemNode.querySelector('h2');
-      if (h2) {
-        h2.classList.add('shiftclub-carousel-inner__title');
-        rightWrapper.append(h2);
+      const title = item.querySelector('h2');
+      if (title) {
+        title.classList.add('shiftclub-carousel-inner__title');
+        rightWrapperDiv.append(title);
       }
     }
 
-    const descriptionField = itemNode.querySelector('[data-aue-prop="description"]');
+    const descriptionField = item.querySelector('[data-aue-prop="description"]');
     if (descriptionField) {
-      const p = document.createElement('p');
-      p.classList.add('shiftclub-carousel-inner__description');
-      p.append(...descriptionField.childNodes);
-      rightWrapper.append(p);
-      moveInstrumentation(descriptionField, p);
+      const description = document.createElement('p');
+      description.classList.add('shiftclub-carousel-inner__description');
+      description.append(...descriptionField.childNodes);
+      rightWrapperDiv.append(description);
+      moveInstrumentation(descriptionField, description);
     } else {
-      const p = itemNode.querySelector('p');
-      if (p) {
-        p.classList.add('shiftclub-carousel-inner__description');
-        rightWrapper.append(p);
+      const description = item.querySelector('p');
+      if (description) {
+        description.classList.add('shiftclub-carousel-inner__description');
+        rightWrapperDiv.append(description);
       }
     }
 
-    contentWrapper.append(rightWrapper);
-    carouselItemDiv.append(contentWrapper);
+    dFlexDiv.append(rightWrapperDiv);
+    carouselItemDiv.append(dFlexDiv);
     carouselInnerDiv.append(carouselItemDiv);
-    moveInstrumentation(itemNode, carouselItemDiv);
+    moveInstrumentation(item, carouselItemDiv);
   });
 
   const prevButton = document.createElement('button');
@@ -115,7 +117,8 @@ export default function decorate(block) {
   containerDiv.append(carouselDiv);
 
   block.textContent = '';
+  block.classList.add('shiftclub-section', 'shiftclub-mx-md-0', 'shiftclub-mx-4');
   block.append(containerDiv);
-  block.className = `${block.dataset.blockName} block shiftclub-section shiftclub-mx-md-0 shiftclub-mx-4`;
+
   block.dataset.blockStatus = 'loaded';
 }
