@@ -19,20 +19,10 @@ export default function decorate(block) {
     const imageField = card.querySelector('[data-aue-prop="image"]');
     let picture;
     if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        picture = createOptimizedPicture(img.src, img.alt);
-        picture.querySelector('img').className = 'whyuscards-w-100 whyuscards-kitchens-image';
-        cardDiv.append(picture);
-        moveInstrumentation(imageField, picture);
-      }
-    } else {
-      const img = card.querySelector('img');
-      if (img) {
-        picture = createOptimizedPicture(img.src, img.alt);
-        picture.querySelector('img').className = 'whyuscards-w-100 whyuscards-kitchens-image';
-        cardDiv.append(picture);
-      }
+      picture = createOptimizedPicture(imageField.src, imageField.alt);
+      picture.querySelector('img').className = 'whyuscards-w-100 whyuscards-kitchens-image';
+      cardDiv.append(picture);
+      moveInstrumentation(imageField, picture);
     }
 
     const cardBody = document.createElement('div');
