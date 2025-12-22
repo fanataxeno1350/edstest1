@@ -278,7 +278,8 @@
           "type": "logo"
         },
         "label": "Logos",
-        "name": "logos"
+        "name": "logos",
+        "fields": []
       },
       {
         "component": "container",
@@ -286,7 +287,8 @@
           "type": "footerLink"
         },
         "label": "Footer Links",
-        "name": "footerLinks"
+        "name": "footerLinks",
+        "fields": []
       },
       {
         "component": "container",
@@ -294,7 +296,8 @@
           "type": "additionalLink"
         },
         "label": "Additional Links",
-        "name": "additionalLinks"
+        "name": "additionalLinks",
+        "fields": []
       },
       {
         "component": "text",
@@ -326,7 +329,8 @@
           "type": "socialIcon"
         },
         "label": "Social Icons",
-        "name": "socialIcons"
+        "name": "socialIcons",
+        "fields": []
       },
       {
         "component": "text",
@@ -435,7 +439,8 @@
         "itemType": "navLink",
         "label": "Navigation Links",
         "name": "navigationLinks",
-        "valueType": "array"
+        "valueType": "array",
+        "fields": []
       },
       {
         "component": "reference",
@@ -460,7 +465,8 @@
         "itemType": "countryOption",
         "label": "Country Options",
         "name": "countryOptions",
-        "valueType": "array"
+        "valueType": "array",
+        "fields": []
       }
     ]
   },
@@ -505,10 +511,6 @@
         "valueType": "string"
       }
     ]
-  },
-  {
-    "id": "spaceadderVerticalPaddingSection",
-    "description": ""
   },
   {
     "id": "text",

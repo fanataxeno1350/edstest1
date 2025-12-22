@@ -60,9 +60,6 @@
     ]
   },
   {
-    "id": "spaceadderVerticalPaddingSection"
-  },
-  {
     "id": "text",
     "components": [
       "text"

@@ -81,7 +81,8 @@
           "itemType": "navLink",
           "label": "Navigation Links",
           "name": "navigationLinks",
-          "valueType": "array"
+          "valueType": "array",
+          "fields": []
         },
         {
           "component": "reference",
@@ -106,7 +107,8 @@
           "itemType": "countryOption",
           "label": "Country Options",
           "name": "countryOptions",
-          "valueType": "array"
+          "valueType": "array",
+          "fields": []
         }
       ]
     },
