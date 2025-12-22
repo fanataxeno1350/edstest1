@@ -15,7 +15,63 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "carouselBanner",
+      "spaceadderVerticalPaddingSection",
+      "carousel",
+      "delightfulDelicacies",
+      "whyuscards",
+      "footer"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "carouselBanner",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "delightfulDelicacies",
+    "components": [
+      "delicacyItem"
+    ]
+  },
+  {
+    "id": "footer",
+    "components": [
+      "logo",
+      "footerLink",
+      "additionalLink",
+      "socialIcon"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "navLink",
+      "countryOption"
+    ]
+  },
+  {
+    "id": "spaceadderVerticalPaddingSection"
+  },
+  {
+    "id": "text",
+    "components": [
+      "text"
+    ]
+  },
+  {
+    "id": "whyuscards",
+    "components": [
+      "whyuscard"
     ]
   }
 ]

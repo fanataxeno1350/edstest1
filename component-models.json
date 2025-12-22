@@ -140,5 +140,410 @@
         ]
       }
     ]
+  },
+  {
+    "id": "carouselItem",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "carouselItem",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Desktop Image",
+        "name": "desktopImage",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Mobile Image",
+        "name": "mobileImage",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Heading",
+        "name": "heading",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "CTA Link",
+        "name": "ctaLink",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "delicacyItem",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "delightfulDelicacies",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Main Image",
+        "name": "mainImage",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Heading",
+        "name": "heading",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Subheading",
+        "name": "subheading",
+        "valueType": "string"
+      },
+      {
+        "component": "block",
+        "itemResourceType": "delicacyItem",
+        "label": "Delicacy Items",
+        "name": "delicacyItems",
+        "valueType": "array"
+      },
+      {
+        "component": "aem-content",
+        "label": "CTA Link",
+        "name": "ctaLink",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "CTA Label",
+        "name": "ctaLabel",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footer",
+    "description": "",
+    "fields": [
+      {
+        "component": "container",
+        "items": {
+          "type": "logo"
+        },
+        "label": "Logos",
+        "name": "logos"
+      },
+      {
+        "component": "container",
+        "items": {
+          "type": "footerLink"
+        },
+        "label": "Footer Links",
+        "name": "footerLinks"
+      },
+      {
+        "component": "container",
+        "items": {
+          "type": "additionalLink"
+        },
+        "label": "Additional Links",
+        "name": "additionalLinks"
+      },
+      {
+        "component": "text",
+        "label": "Grievance Officer Title",
+        "name": "grievanceTitle",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Grievance Officer Name",
+        "name": "grievanceName",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Grievance Officer Contact",
+        "name": "grievanceContact",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Grievance Officer Timing",
+        "name": "grievanceTiming",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "items": {
+          "type": "socialIcon"
+        },
+        "label": "Social Icons",
+        "name": "socialIcons"
+      },
+      {
+        "component": "text",
+        "label": "Copyright",
+        "name": "copyright",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "logo",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Logo Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerLink",
+    "description": "",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Footer Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "additionalLink",
+    "description": "",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Additional Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link Title",
+        "name": "title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "socialIcon",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Social Icon Image",
+        "name": "icon",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Social Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "header",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "logoImage",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Logo Link",
+        "name": "logoLink",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Alternate Logo Image",
+        "name": "logoAltImage",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Alternate Logo Link",
+        "name": "logoAltLink",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "itemType": "navLink",
+        "label": "Navigation Links",
+        "name": "navigationLinks",
+        "valueType": "array"
+      },
+      {
+        "component": "reference",
+        "label": "Search Icon",
+        "name": "searchIcon",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Country Selector Flag IN",
+        "name": "countrySelectorFlagIn",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Country Selector Flag USA",
+        "name": "countrySelectorFlagUsa",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "itemType": "countryOption",
+        "label": "Country Options",
+        "name": "countryOptions",
+        "valueType": "array"
+      }
+    ]
+  },
+  {
+    "id": "navLink",
+    "description": "",
+    "fields": [
+      {
+        "component": "richtext",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "countryOption",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Country Flag",
+        "name": "flag",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Country Name",
+        "name": "countryName",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Country URL",
+        "name": "countryUrl",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "spaceadderVerticalPaddingSection",
+    "description": ""
+  },
+  {
+    "id": "text",
+    "description": "",
+    "fields": [
+      {
+        "component": "richtext",
+        "label": "Content",
+        "name": "content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "whyuscard",
+    "description": "",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      }
+    ]
   }
 ]
