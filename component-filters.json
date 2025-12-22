@@ -26,13 +26,13 @@
     ]
   },
   {
-    "id": "carousel",
+    "id": "carouselBanner",
     "components": [
       "carouselItem"
     ]
   },
   {
-    "id": "carouselBanner",
+    "id": "carousel",
     "components": [
       "carouselItem"
     ]
