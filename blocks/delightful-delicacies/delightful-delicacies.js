@@ -11,9 +11,8 @@ export default function decorate(block) {
   leftImageDiv.id = 'leftDivId';
   const bannerImage = block.querySelector('[data-aue-prop="bannerImage"]');
   if (bannerImage) {
-    const img = bannerImage.querySelector('img');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt);
+    if (bannerImage) {
+      const picture = createOptimizedPicture(bannerImage.src, bannerImage.alt);
       leftImageDiv.append(picture);
       moveInstrumentation(bannerImage, picture);
     }
@@ -73,12 +72,9 @@ export default function decorate(block) {
 
     const imageField = category.querySelector('[data-aue-prop="image"]');
     if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt);
-        healthGoalWrapper.append(picture);
-        moveInstrumentation(imageField, picture);
-      }
+      const picture = createOptimizedPicture(imageField.src, imageField.alt);
+      healthGoalWrapper.append(picture);
+      moveInstrumentation(imageField, picture);
     }
     categoryDiv.append(healthGoalWrapper);
 
