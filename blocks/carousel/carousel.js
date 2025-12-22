@@ -41,9 +41,8 @@ export default function decorate(block) {
     const imageField = itemNode.querySelector('[data-aue-prop="image"]');
     let imageElement;
     if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        imageElement = createOptimizedPicture(img.src, img.alt);
+      if (imageField) {
+        imageElement = createOptimizedPicture(imageField.src, imageField.alt);
         imageElement.querySelector('img').classList.add('shiftclub-carousel__img', 'd-block', 'w-md-50', 'w-100');
         contentWrapper.append(imageElement);
         moveInstrumentation(imageField, imageElement);
