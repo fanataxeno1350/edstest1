@@ -37,18 +37,15 @@ export default function decorate(block) {
     const desktopImageField = slide.querySelector('[data-aue-prop="desktopImage"]');
     const mobileImageField = slide.querySelector('[data-aue-prop="mobileImage"]');
 
-    const desktopImage = desktopImageField ? desktopImageField.querySelector('img') : null;
-    const mobileImage = mobileImageField ? mobileImageField.querySelector('img') : null;
-
-    if (desktopImage) {
-      const picture = createOptimizedPicture(desktopImage.src, desktopImage.alt);
+    if (desktopImageField) {
+      const picture = createOptimizedPicture(desktopImageField.src, desktopImageField.alt);
       picture.classList.add('d-none', 'd-sm-block', 'w-100', 'carousel-desktop-image');
       carouselItem.append(picture);
       moveInstrumentation(desktopImageField, picture);
     }
 
-    if (mobileImage) {
-      const picture = createOptimizedPicture(mobileImage.src, mobileImage.alt);
+    if (mobileImageField) {
+      const picture = createOptimizedPicture(mobileImageField.src, mobileImageField.alt);
       picture.classList.add('d-block', 'd-sm-none', 'w-100', 'carousel-mobile-image');
       carouselItem.append(picture);
       moveInstrumentation(mobileImageField, picture);
