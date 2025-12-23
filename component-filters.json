@@ -15,7 +15,55 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "mainBanner",
+      "whySavlon",
+      "productCarousel",
+      "youtubeSlider",
+      "footer"
+    ]
+  },
+  {
+    "id": "footer",
+    "components": [
+      "footerLink"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "navItem"
+    ]
+  },
+  {
+    "id": "navItem",
+    "components": [
+      "subNavItem"
+    ]
+  },
+  {
+    "id": "mainBanner",
+    "components": [
+      "mainBannerSlide"
+    ]
+  },
+  {
+    "id": "productCarousel",
+    "components": [
+      "product"
+    ]
+  },
+  {
+    "id": "whySavlon",
+    "components": [
+      "whySavlon"
+    ]
+  },
+  {
+    "id": "youtubeSlider",
+    "components": [
+      "youtubeSliderItem"
     ]
   }
 ]

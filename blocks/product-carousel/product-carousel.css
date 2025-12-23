@@ -1,0 +1,252 @@
+.product-carousel-box {
+  max-width: 1150px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 2% 0;
+  position: relative;
+}
+.product-carousel-box h2 {
+  margin-bottom: 40px;
+}
+.product-carousel-box .product-carousel-bx-wrapper {
+  width: 91%;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.product-carousel-box .product-carousel-bx-wrapper ul li {
+  position: relative;
+}
+.product-carousel-box .product-carousel-pagers-slid {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  z-index: 999;
+  text-align: center;
+  width: 100%;
+  padding: 7px 0 0 0;
+}
+.product-carousel-box .product-carousel-pagers-slid li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 2px;
+  width: 3%;
+}
+.product-carousel-box .product-carousel-pagers-slid li a {
+  background-color: transparent;
+  opacity: 0.3;
+}
+.product-carousel-box .product-carousel-pagers-slid li a:hover,
+.product-carousel-box .product-carousel-pagers-slid li a.active {
+  opacity: 100;
+}
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-controls-direction a {
+  height: 40px;
+  width: 22px;
+}
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-prev {
+  background: url("../images/files/left-arw.png") 0 0 / cover no-repeat;
+  left: -45px;
+}
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-next {
+  background: url("../images/files/right-arw.png") 0 0 / cover no-repeat;
+  right: -50px;
+}
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-prev:hover,
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-next:hover {
+  background-position: 0 0;
+}
+.product-carousel-box .product-carousel-bxslider li figure {
+  width: 50%;
+  float: left;
+  text-align: center !important;
+  border: 1px solid #ffffff;
+  margin: 0;
+  padding: 20px 20px 10px;
+}
+.product-carousel-box .product-carousel-bxslider li figure img {
+  max-width: 100%;
+  width: auto;
+  margin: 0 auto;
+}
+.product-carousel-box .product-carousel-bxslider li .product-carousel-dtl {
+  width: 50%;
+  float: left;
+  text-align: center !important;
+  padding: 15% 5% 10%;
+}
+.product-carousel-box .product-carousel-bxslider li .product-carousel-dtl h1 {
+  font-family: "DINPro-Regular";
+  font-size: 2.1875rem; /* Equivalent to 35px assuming 16px base */
+  line-height: 2.375rem; /* Equivalent to 38px assuming 16px base */
+  color: #f36a1c;
+  text-transform: uppercase;
+  margin: 10px auto;
+  text-align: center;
+}
+.product-carousel-box .product-carousel-bxslider li .product-carousel-dtl p {
+  color: #555555;
+  font-size: 1.5625rem; /* Equivalent to 25px assuming 16px base */
+  line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-pager,
+.product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-controls-auto {
+  bottom: -30px;
+}
+
+.product-carousel-white {
+  font-family: "DINPro-Medium";
+  color: #ffffff;
+  font-size: 1.5625rem; /* Equivalent to 25px assuming 16px base */
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 10px 15px;
+  text-align: center;
+  display: block;
+  margin: 0 0 20px 0;
+  font-weight: normal;
+}
+.product-carousel-white::after {
+  background: url("../images/files/blue-border.jpg") 0 0 no-repeat;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100px;
+  height: 2px;
+  content: "";
+  margin-left: -25px;
+}
+
+.product-carousel-font-weight-100 {
+  font-weight: 100;
+}
+
+.product-carousel-dis {
+  font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  line-height: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  color: #333333;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  padding: 0 5px;
+  text-align: center !important;
+}
+
+.product-carousel-item-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.product-carousel-item-list ul li {
+  list-style: none;
+}
+
+.product-carousel-r-more {
+  font-family: "DINPro-Medium";
+  text-decoration: none;
+  background-color: #2d2b74;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 11px 27px;
+  display: block;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.product-carousel-bulletPoints ul {
+  text-align: center;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.product-carousel-bulletPoints ul li {
+  background: url("../images/files/p-bullet.png") 0 5px no-repeat !important;
+  list-style-position: outside;
+  margin: 8px 0;
+  padding: 0 0 5px 25px;
+  background-size: 20px;
+  font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  color: #555555;
+  text-align: left;
+}
+
+.product-carousel-bx-wrapper .product-carousel-bx-pager,
+.product-carousel-bx-wrapper .product-carousel-bx-controls-auto {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.product-carousel-bx-wrapper .product-carousel-bx-pager.product-carousel-bx-default-pager a {
+  background: #f8a677;
+  text-indent: -9999px;
+  display: block;
+  width: 21px;
+  height: 5px;
+  margin: 0 5px;
+  outline: 0;
+}
+
+.product-carousel-bx-wrapper .product-carousel-bx-pager.product-carousel-bx-default-pager a:hover,
+.product-carousel-bx-wrapper .product-carousel-bx-pager.product-carousel-bx-default-pager a.product-carousel-active {
+  background: #ffffff;
+}
+
+.product-carousel-bx-wrapper .product-carousel-bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: 0;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+.product-carousel-bx-wrapper .product-carousel-bx-controls-direction a.product-carousel-disabled {
+  display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .product-carousel-box .product-carousel-bxslider li .product-carousel-dtl h1 {
+    font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+    line-height: 2.0625rem; /* Equivalent to 33px assuming 16px base */
+  }
+  .product-carousel-box .product-carousel-bxslider li .product-carousel-dtl p {
+    font-size: 1.0625rem; /* Equivalent to 17px assuming 16px base */
+    line-height: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  }
+  .product-carousel-white {
+    font-size: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    padding: 10px;
+    font-weight: bold;
+  }
+  .product-carousel-box .product-carousel-bxslider li figure {
+    width: 100%;
+  }
+  .product-carousel-box .product-carousel-bxslider li figure img {
+    width: 50%;
+  }
+  .product-carousel-box .product-carousel-bxslider li .product-carousel-dtl {
+    width: 100%;
+    padding: 0px 10px 10px;
+  }
+  .product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-controls-direction a {
+    height: 22px;
+    width: 12px;
+  }
+  .product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-next {
+    right: -20px;
+  }
+  .product-carousel-box .product-carousel-bx-wrapper .product-carousel-bx-prev {
+    left: -20px;
+  }
+}

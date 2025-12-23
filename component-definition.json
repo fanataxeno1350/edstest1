@@ -81,7 +81,194 @@
     {
       "title": "Blocks",
       "id": "blocks",
-      "components": []
+      "components": [
+        {
+          "title": "Footer",
+          "id": "footer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "footer",
+                  "model": "footer",
+                  "name": "Footer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer Link",
+          "id": "footerLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "footerLink",
+                  "name": "Footer Link"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Header",
+          "id": "header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "header",
+                  "model": "header",
+                  "name": "Header"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "NavItem",
+          "id": "navItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "navItem",
+                  "name": "NavItem"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "SubNavItem",
+          "id": "subNavItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "subNavItem",
+                  "name": "SubNavItem"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Main-Banner",
+          "id": "mainBanner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "mainBanner",
+                  "model": "mainBanner",
+                  "name": "Main-Banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Main-Banner-Slide",
+          "id": "mainBannerSlide",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "mainBannerSlide",
+                  "name": "Main-Banner-Slide"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product-Carousel",
+          "id": "productCarousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "productCarousel",
+                  "model": "productCarousel",
+                  "name": "Product-Carousel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product",
+          "id": "product",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "product",
+                  "name": "Product"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Why-Savlon",
+          "id": "whySavlon",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "whySavlon",
+                  "model": "whySavlon",
+                  "name": "Why-Savlon"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Youtube-Slider",
+          "id": "youtubeSlider",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "youtubeSlider",
+                  "model": "youtubeSlider",
+                  "name": "Youtube-Slider"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Youtube-Slider-Item",
+          "id": "youtubeSliderItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "youtubeSliderItem",
+                  "name": "Youtube-Slider-Item"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

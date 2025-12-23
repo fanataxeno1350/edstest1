@@ -1,0 +1,485 @@
+.header-main-header {
+  width: 100%;
+  padding: 0 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  background-color: #ffffff;
+  box-shadow: 0 2px 3px #ababab;
+}
+.header-main-header-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.header-logo {
+  margin: 8px 0 0;
+  width: 18%;
+  float: left;
+  position: relative; /* Explicitly defined */
+  z-index: 9; /* Explicitly defined */
+  padding-top: 10px; /* Explicitly defined */
+}
+.header-logo-image {
+  width: 70%;
+  margin-top: 0;
+  max-width: 100%; /* Explicitly defined */
+  vertical-align: top; /* Explicitly defined */
+  display: block; /* Explicitly defined */
+}
+.header-cssmenu {
+  font-family: 'DINPro-Regular';
+  background: #fff;
+  position: relative; /* Explicitly defined */
+  width: 100%; /* Explicitly defined */
+  margin: 0 auto; /* Explicitly defined */
+}
+.header-cssmenu ul,
+.header-cssmenu li,
+.header-cssmenu li a,
+.header-cssmenu #header-head-mobile {
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+.header-cssmenu:after,
+.header-cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.header-cssmenu #header-head-mobile {
+  display: none;
+}
+.header-cssmenu > ul > li {
+  float: left;
+  margin-right: 1px;
+}
+.header-cssmenu ul li a {
+  font-weight: 600;
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  text-transform: uppercase;
+  font-size: 0.9375rem; /* Equivalent to 15px assuming 16px base */
+}
+.header-cssmenu > ul > li > a {
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #474747;
+  display: block;
+  padding: 20px;
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  position: relative; /* Explicitly defined */
+}
+.header-cssmenu > ul > li:hover > a,
+.header-cssmenu ul li.active a {
+  color: #fff;
+}
+.header-cssmenu > ul > li > a:hover::after {
+  background: url("../images/files/active-arow.png") no-repeat 0 0 !important;
+  position: absolute !important;
+  bottom: -18px !important;
+  left: 50% !important;
+  margin-left: -10px !important;
+  content: "" !important;
+  height: 20px !important;
+  width: 20px !important;
+  z-index: 99999 !important;
+}
+.header-cssmenu > ul > li:hover,
+.header-cssmenu ul li.active:hover,
+.header-cssmenu ul li.active,
+.header-cssmenu ul li.header-has-sub.active:hover {
+  background: #e41e2d !important;
+  transition: background 0.3s ease;
+}
+.header-cssmenu > ul > li.header-has-sub > a {
+  padding-right: 30px;
+}
+.header-cssmenu > ul > li.header-has-sub > a:before {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #ddd;
+  content: "";
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+.header-cssmenu > ul > li.header-has-sub:hover > a:before {
+  top: 23px;
+  height: 0;
+  opacity: 0;
+}
+.header-cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+}
+.header-cssmenu ul ul li {
+  height: 0;
+  background: #333;
+  transition: all 0.25s ease;
+}
+.header-cssmenu ul ul li:hover {
+  background: #e41e2d !important;
+}
+.header-cssmenu li:hover > ul {
+  left: auto;
+}
+.header-cssmenu li.header-has-sub > ul {
+  max-height: 307px;
+  overflow: auto;
+}
+.header-cssmenu li:hover > ul > li {
+  height: auto;
+}
+.header-cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 0;
+}
+.header-cssmenu ul ul li a {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+  width: 220px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  padding: 15px 20px;
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  height: auto;
+}
+.header-cssmenu ul ul li:last-child > a,
+.header-cssmenu ul ul li.last-item > a {
+  border-bottom: 0;
+}
+.header-cssmenu ul ul li:hover > a,
+.header-cssmenu ul ul li a:hover {
+  color: #fff;
+}
+.header-cssmenu ul ul li.header-has-sub > a:after {
+  position: absolute;
+  top: 16px;
+  right: 11px;
+  width: 8px;
+  height: 2px;
+  display: block;
+  background: #ddd;
+  content: "";
+  opacity: 0;
+}
+.header-cssmenu ul ul li.header-has-sub > a:before {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #ddd;
+  content: "";
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+.header-cssmenu ul ul > li.header-has-sub:hover > a:before {
+  top: 17px;
+  height: 0;
+  opacity: 0;
+}
+.header-cssmenu ul ul li.header-has-sub:hover,
+.header-cssmenu ul li.header-has-sub ul li.header-has-sub ul li:hover {
+  background: #363636;
+}
+.header-cssmenu ul ul ul li.active a {
+  border-left: 1px solid #333;
+}
+.header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
+.header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+  border-top: 1px solid #333;
+}
+.header-button {
+  width: 55px;
+  height: 46px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 12399994;
+  display: none; /* Explicitly hidden for desktop */
+}
+.header-button:after {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  display: block;
+  height: 4px;
+  width: 20px;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  content: "";
+}
+.header-button:before {
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  display: block;
+  height: 2px;
+  width: 20px;
+  background: #999;
+  content: "";
+}
+.header-button.menu-opened:after {
+  transition: all 0.3s ease;
+  top: 23px;
+  border: 0;
+  height: 2px;
+  width: 19px;
+  background: #999;
+  transform: rotate(45deg);
+}
+.header-button.menu-opened:before {
+  top: 23px;
+  background: #999;
+  width: 19px;
+  transform: rotate(-45deg);
+}
+.header-submenu-button {
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  top: 0;
+  display: block;
+  border-left: 1px solid #ccc;
+  height: 70px;
+  line-height: 70px;
+  width: 46px;
+  cursor: pointer;
+  font-family: 'DINPro-Regular' !important;
+  display: none; /* Explicitly hidden for desktop */
+}
+.header-submenu-button.submenu-opened {
+  background: #262626;
+}
+.header-cssmenu ul ul .header-submenu-button {
+  height: 34px;
+  width: 34px;
+}
+.header-submenu-button:after {
+  position: absolute;
+  top: 35px;
+  right: 16px;
+  width: 14px;
+  height: 2px;
+  display: block;
+  background: #999;
+  content: "";
+}
+.header-cssmenu ul ul .header-submenu-button:after {
+  top: 15px;
+  right: 13px;
+}
+.header-submenu-button.submenu-opened:after {
+  background: #fff;
+}
+.header-submenu-button:before {
+  position: absolute;
+  top: 29px;
+  right: 22px;
+  display: block;
+  width: 2px;
+  height: 14px;
+  background: #999;
+  content: "";
+}
+.header-cssmenu ul ul .header-submenu-button:before {
+  top: 12px;
+  right: 16px;
+}
+.header-submenu-button.submenu-opened:before {
+  display: none;
+}
+.header-cssmenu ul ul ul li.active a {
+  border-left: none;
+}
+.header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
+.header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+  border-top: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .header-cssmenu ul {
+    width: 100%;
+    display: none;
+  }
+  .header-cssmenu ul li {
+    width: 100%;
+    border-top: 1px solid #ccc;
+  }
+  .header-cssmenu ul li:hover {
+    background: #363636;
+  }
+  .header-cssmenu ul ul li,
+  .header-cssmenu li:hover > ul > li {
+    height: auto;
+  }
+  .header-cssmenu ul li a,
+  .header-cssmenu ul ul li a {
+    width: 100%;
+    border-bottom: 0;
+    font-family: 'DINPro-Regular' !important;
+  }
+  .header-cssmenu > ul > li {
+    float: none;
+  }
+  .header-cssmenu ul ul li a {
+    padding-left: 25px;
+    font-family: 'DINPro-Regular' !important;
+  }
+  .header-cssmenu ul ul li {
+    background: #333 !important;
+  }
+  .header-cssmenu ul ul li:hover {
+    background: #363636 !important;
+  }
+  .header-cssmenu ul ul ul li a {
+    font-family: 'DINPro-Regular' !important;
+    padding-left: 35px;
+  }
+  .header-cssmenu ul ul li a {
+    color: #ddd;
+    background: none;
+  }
+  .header-cssmenu ul ul li:hover > a,
+  .header-cssmenu ul ul li.active > a {
+    color: #fff;
+  }
+  .header-cssmenu ul ul,
+  .header-cssmenu ul ul ul {
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    max-height: 285px;
+    overflow: scroll;
+  }
+  .header-cssmenu > ul > li.header-has-sub > a:after,
+  .header-cssmenu > ul > li.header-has-sub > a:before,
+  .header-cssmenu ul ul > li.header-has-sub > a:after,
+  .header-cssmenu ul ul > li.header-has-sub > a:before {
+    display: none;
+  }
+  .header-cssmenu #header-head-mobile {
+    display: block;
+    padding: 23px;
+    color: #ddd;
+    font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+    font-weight: 700;
+  }
+  .header-button {
+    display: block; /* Shown for mobile */
+  }
+  .header-submenu-button {
+    display: block; /* Shown for mobile */
+  }
+  .header-submenu-button:after {
+    top: 35px;
+    right: 16px;
+  }
+  .header-cssmenu ul ul .header-submenu-button:after {
+    top: 15px;
+    right: 13px;
+  }
+  .header-submenu-button:before {
+    top: 29px;
+    right: 22px;
+  }
+  .header-cssmenu ul ul .header-submenu-button:before {
+    top: 12px;
+    right: 16px;
+  }
+  .header-cssmenu ul ul ul li.active a {
+    border-left: none;
+  }
+  .header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
+  .header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+    border-top: none;
+  }
+}
+@media (max-width: 767px) {
+  .header-main-header-container {
+    padding: 0;
+  }
+  .header-logo {
+    margin: 0;
+    width: 55%;
+  }
+  .header-main-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+  .header-cssmenu > ul > li > a {
+    padding: 20px 6px;
+    font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  }
+}
+@media only screen and (min-width: 890px) and (max-width: 1050px) {
+  .header-cssmenu > ul > li > a {
+    font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 890px) {
+  .header-cssmenu > ul > li > a {
+    font-size: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  }
+}
+@media only screen and (width: 768px) and (orientation: portrait) {
+  .header-logo {
+    padding: 5px;
+    width: 18%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header-logo {
+    margin: 17px 0;
+  }
+  .header-main-header {
+    position: relative;
+    float: left;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .header-logo {
+    width: 25%;
+    margin: 0;
+  }
+  .header-main-header {
+    padding: 2%;
+    position: relative;
+    float: left;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+  .header-logo {
+    margin: 15px 0;
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .header-main-header {
+    padding: 0 2%;
+  }
+}

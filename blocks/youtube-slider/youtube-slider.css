@@ -1,0 +1,146 @@
+.youtube-slider-wrapper {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3.125rem 0; /* Equivalent to 50px assuming 16px base */
+  background: rgb(240, 84, 35);
+  position: relative;
+}
+.youtube-slider-wrapper .youtube-slider-video-title {
+  margin-bottom: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  font-family: 'DINPro-Medium';
+  color: #fff;
+  font-size: 1.5625rem; /* Equivalent to 25px assuming 16px base */
+  letter-spacing: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.625rem 0.625rem 0.9375rem; /* Equivalent to 10px 10px 15px assuming 16px base */
+  text-align: center;
+  display: block;
+  margin: 0 0 1.25rem 0; /* Equivalent to 20px assuming 16px base */
+  font-weight: normal;
+  transform: inherit;
+}
+.youtube-slider-wrapper .youtube-slider-video-title::after {
+  background: url(images/files/orange-border.jpg) no-repeat 0 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+  content: "";
+  margin-left: -1.5625rem; /* Equivalent to -25px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container {
+  max-width: 100%;
+  width: 37.5rem; /* Equivalent to 600px assuming 16px base */
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 0 0.625rem; /* Equivalent to 0 10px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-item {
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-item h4 {
+  padding: 0.625rem 0; /* Equivalent to 10px 0 assuming 16px base */
+  color: #fff;
+  text-align: center;
+  font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-item .youtube-slider-clickhere {
+  text-decoration: none;
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-item img {
+  width: 100%;
+  height: auto;
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-youtube-icon {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 0;
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container .youtube-slider-youtube-icon img {
+  width: 2.5rem !important; /* Equivalent to 40px assuming 16px base */
+  border-radius: 3.125rem; /* Equivalent to 50px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-next,
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-prev {
+  position: absolute;
+  top: 40%;
+  background: none;
+  border: 0;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-next {
+  right: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-prev {
+  left: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-next img,
+.youtube-slider-wrapper .youtube-slider-demo .youtube-slider-prev img {
+  width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99999999;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.youtube-slider-wrapper .youtube-slider-overlay .youtube-slider-youtube-play {
+  position: absolute;
+  width: 56.25rem; /* Equivalent to 900px assuming 16px base */
+  height: 26.5625rem; /* Equivalent to 425px assuming 16px base */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999999;
+  background: #000;
+}
+.youtube-slider-wrapper .youtube-slider-overlay .youtube-slider-youtube-play img.youtube-slider-close-video {
+  position: absolute;
+  right: -1.375rem; /* Equivalent to -22px assuming 16px base */
+  top: -1.375rem; /* Equivalent to -22px assuming 16px base */
+  cursor: pointer;
+  width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+.youtube-slider-wrapper .youtube-slider-overlay .youtube-slider-youtube-play iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media only screen and (max-width: 47.9375rem) { /* Equivalent to 767px assuming 16px base */
+  .youtube-slider-wrapper {
+    width: 100%;
+    height: auto;
+  }
+  .youtube-slider-wrapper .youtube-slider-overlay .youtube-slider-youtube-play {
+    height: 18.75rem; /* Equivalent to 300px assuming 16px base */
+    width: 94%;
+  }
+  .youtube-slider-wrapper .youtube-slider-overlay .youtube-slider-youtube-play img.youtube-slider-close-video {
+    right: 0;
+  }
+}
+@media only screen and (min-width: 48rem) { /* Equivalent to 768px assuming 16px base */
+  .youtube-slider-wrapper .youtube-slider-demo .youtube-slider-container {
+    padding: 0;
+  }
+  .youtube-slider-wrapper .youtube-slider-demo .youtube-slider-next {
+    right: -3.125rem; /* Equivalent to -50px assuming 16px base */
+  }
+  .youtube-slider-wrapper .youtube-slider-demo .youtube-slider-prev {
+    left: -3.125rem; /* Equivalent to -50px assuming 16px base */
+  }
+}

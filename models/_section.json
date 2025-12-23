@@ -50,7 +50,13 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "header",
+        "mainBanner",
+        "whySavlon",
+        "productCarousel",
+        "youtubeSlider",
+        "footer"
       ]
     }
   ]

@@ -1,0 +1,141 @@
+.main-banner-container {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.main-banner-header-banner {
+  background-color: #d16d23;
+  background-image: url("/images/files/header-banner_new.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center 64px;
+  background-attachment: fixed;
+  overflow: hidden;
+  height: 38vw;
+}
+.main-banner-header-banner .main-banner-m-header-banner {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-header-banner {
+    background-attachment: scroll;
+    background-position: -145px 0;
+    background-size: 120% auto;
+    background-image: none !important;
+    background-color: #000000;
+    height: auto !important;
+  }
+  .main-banner-header-banner .main-banner-m-header-banner {
+    display: block;
+  }
+}
+.main-banner-header-content {
+  width: 32vw;
+  display: inline-block;
+  margin: 8.5vw 15vw 2vw;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-header-content {
+    width: 100%;
+    margin: 4% auto;
+  }
+}
+.main-banner-banner-logo {
+  margin: 0vw 0 1vw;
+  width: 18vw;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-banner-logo {
+    width: 62vw;
+    padding: 15px 0;
+  }
+}
+.main-banner-title {
+  color: #ff9416;
+  text-transform: inherit;
+  font-family: "DINPro-Bold";
+  font-style: inherit;
+  font-size: 32px; /* Equivalent to 32px assuming 16px base */
+  text-align: center;
+  font-weight: 700;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-title {
+    font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  }
+}
+.main-banner-home-banner .main-banner-bx-wrapper {
+  max-width: 100%;
+}
+.main-banner-home-banner .main-banner-bx-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 210.219px;
+}
+.main-banner-home-banner .main-banner-bxslider-2 {
+  width: 415%;
+  position: relative;
+  transition-timing-function: ease-out;
+  transition-duration: 0s;
+  transform: translate3d(-565.266px, 0px, 0px);
+}
+.main-banner-home-banner .main-banner-bx-clone,
+.main-banner-home-banner .main-banner-slide-item {
+  float: left;
+  list-style: none;
+  position: relative;
+  width: 565.266px;
+}
+.main-banner-video {
+  position: relative;
+  background: #000;
+  width: 21vw;
+  margin: 1.5vw auto 0;
+  box-shadow: rgba(215, 78, 8, 0.3) 0px 0px 30px;
+  cursor: pointer;
+}
+.main-banner-video img {
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-video {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+.main-banner-banner-copy {
+  display: block;
+  width: 565.266px;
+  height: 48px;
+  text-align: center;
+}
+.main-banner-copy-text {
+  text-transform: capitalize;
+  font-family: "DINPro-Bold";
+  font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+}
+@media only screen and (max-width: 768px) {
+  .main-banner-copy-text {
+    font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  }
+}
+@media only screen and (max-width: 640px) {
+  .main-banner-copy-text {
+    font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+    line-height: 1.125rem; /* Equivalent to 18px assuming 16px base */
+    margin: 9px auto;
+  }
+}
+.main-banner-hashtag {
+  text-transform: capitalize;
+  display: inline-block;
+}
