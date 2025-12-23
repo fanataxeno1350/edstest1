@@ -38,14 +38,14 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Header Banner Image",
-          "name": "headerBannerImage",
+          "label": "Header Image",
+          "name": "headerImage",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Logo Image",
-          "name": "logoImage",
+          "label": "Banner Logo",
+          "name": "logo",
           "valueType": "string"
         },
         {

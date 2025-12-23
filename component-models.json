@@ -260,14 +260,14 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Header Image",
-        "name": "headerImage",
+        "label": "Header Banner Image",
+        "name": "headerBannerImage",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Banner Logo",
-        "name": "logo",
+        "label": "Logo Image",
+        "name": "logoImage",
         "valueType": "string"
       },
       {
