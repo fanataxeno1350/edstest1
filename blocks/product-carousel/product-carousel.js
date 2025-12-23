@@ -35,11 +35,8 @@ export default function decorate(block) {
 
     const figure = document.createElement('figure');
     if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        figure.append(createOptimizedPicture(img.src, img.alt));
-        moveInstrumentation(img, figure.querySelector('picture'));
-      }
+      figure.append(createOptimizedPicture(imageField.src, imageField.alt));
+      moveInstrumentation(imageField, figure.querySelector('picture'));
     }
     li.append(figure);
 

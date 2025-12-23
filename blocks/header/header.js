@@ -20,7 +20,7 @@ export default function decorate(block) {
     moveInstrumentation(logoLink, logoWrapper);
   }
 
-  const logoImage = block.querySelector('[data-aue-prop="logo"] img');
+  const logoImage = block.querySelector('[data-aue-prop="logo"]');
   if (logoImage) {
     const optimizedPicture = createOptimizedPicture(logoImage.src, logoImage.alt || 'Home', false, [{
       width: '100px'

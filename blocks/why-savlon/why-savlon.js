@@ -9,12 +9,9 @@ export default function decorate(block) {
   figure.className = 'why-savlon-figure';
   const imageWrapper = block.querySelector('[data-aue-prop="image"]');
   if (imageWrapper) {
-    const img = imageWrapper.querySelector('img');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt);
-      figure.append(picture);
-      moveInstrumentation(imageWrapper, picture);
-    }
+    const picture = createOptimizedPicture(imageWrapper.src, imageWrapper.alt);
+    figure.append(picture);
+    moveInstrumentation(imageWrapper, picture);
   }
 
   const section = document.createElement('section');
