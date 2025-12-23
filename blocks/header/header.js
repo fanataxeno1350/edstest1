@@ -2,128 +2,133 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const headerMainHeader = document.createElement('header');
-  headerMainHeader.classList.add('header-main-header', 'header-seconds', 'sticky-head');
+  const headerElement = document.createElement('header');
+  headerElement.className = 'header-seconds header-sticky-head';
 
-  const headerMainHeaderContainer = document.createElement('div');
-  headerMainHeaderContainer.classList.add('header-main-header-container');
+  const headContainer = document.createElement('div');
+  headContainer.className = 'header-head-container';
 
-  const logoWrapper = document.createElement('a');
-  logoWrapper.id = 'header-logo';
-  logoWrapper.classList.add('header-logo');
+  const logoLinkWrapper = document.createElement('a');
+  logoLinkWrapper.className = 'header-logo';
+  logoLinkWrapper.title = 'Home';
+  logoLinkWrapper.rel = 'home';
 
   const logoLink = block.querySelector('[data-aue-prop="logoLink"]');
   if (logoLink) {
-    logoWrapper.href = logoLink.href;
-    logoWrapper.title = 'Home'; // Default title
-    logoWrapper.rel = 'home';
-    moveInstrumentation(logoLink, logoWrapper);
+    logoLinkWrapper.href = logoLink.textContent.trim();
+    moveInstrumentation(logoLink, logoLinkWrapper);
   }
 
   const logoImage = block.querySelector('[data-aue-prop="logo"]');
   if (logoImage) {
-    const optimizedPicture = createOptimizedPicture(logoImage.src, logoImage.alt || 'Home', false, [{
-      width: '100px'
-    }]);
-    const img = optimizedPicture.querySelector('img');
-    img.classList.add('header-logo-image');
-    logoWrapper.append(optimizedPicture);
-    moveInstrumentation(logoImage, optimizedPicture);
+    const img = logoImage.querySelector('img');
+    if (img) {
+      const optimizedPicture = createOptimizedPicture(img.src, img.alt);
+      const logoImg = optimizedPicture.querySelector('img');
+      if (logoImg) {
+        logoImg.className = 'header-logo-img';
+        logoImg.alt = img.alt || 'Home';
+      }
+      logoLinkWrapper.append(optimizedPicture);
+      moveInstrumentation(logoImage, logoLinkWrapper);
+    } else {
+      // Fallback if img tag is not directly inside data-aue-prop="logo"
+      const fallbackImg = logoImage.querySelector('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"]');
+      if (fallbackImg) {
+        const optimizedPicture = createOptimizedPicture(fallbackImg.href, 'Home');
+        const logoImg = optimizedPicture.querySelector('img');
+        if (logoImg) {
+          logoImg.className = 'header-logo-img';
+          logoImg.alt = 'Home';
+        }
+        logoLinkWrapper.append(optimizedPicture);
+        moveInstrumentation(fallbackImg, logoLinkWrapper);
+      }
+    }
   }
+
+  headContainer.append(logoLinkWrapper);
 
   const nav = document.createElement('nav');
   nav.id = 'header-cssmenu';
 
-  const headMobile = document.createElement('div');
-  headMobile.id = 'header-head-mobile';
-  nav.append(headMobile);
+  const mobileDiv = document.createElement('div');
+  mobileDiv.id = 'header-head-mobile';
+  nav.append(mobileDiv);
 
-  const button = document.createElement('div');
-  button.classList.add('header-button');
-  nav.append(button);
+  const buttonDiv = document.createElement('div');
+  buttonDiv.className = 'header-button';
+  nav.append(buttonDiv);
 
   const ul = document.createElement('ul');
-  ul.classList.add('header-pull-rights');
+  ul.className = 'header-pull-rights';
 
   const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
-  navItems.forEach((navItem) => {
+  navItems.forEach((navItemNode) => {
     const li = document.createElement('li');
-    const label = navItem.querySelector('[data-aue-prop="label"]');
-    const link = navItem.querySelector('[data-aue-prop="link"]');
 
-    if (label && link) {
-      const a = document.createElement('a');
-      a.href = link.href;
-      a.textContent = label.textContent;
-      a.title = label.textContent;
-      li.append(a);
-      moveInstrumentation(label, a);
-      moveInstrumentation(link, a);
-    } else if (label) {
-      const a = document.createElement('a');
-      a.textContent = label.textContent;
-      a.title = label.textContent;
-      a.href = '#'; // Fallback for missing link
-      li.append(a);
-      moveInstrumentation(label, a);
-    } else if (link) {
-      const a = document.createElement('a');
-      a.href = link.href;
-      a.textContent = link.href;
-      a.title = link.href;
-      li.append(a);
-      moveInstrumentation(link, a);
+    const navLink = navItemNode.querySelector('[data-aue-prop="link"]');
+    const navLabel = navItemNode.querySelector('[data-aue-prop="label"]');
+
+    const a = document.createElement('a');
+    if (navLink) {
+      a.href = navLink.textContent.trim();
+      moveInstrumentation(navLink, a);
+    } else {
+      a.href = '#'; // Default if no link is provided
     }
+    if (navLabel) {
+      a.textContent = navLabel.textContent.trim();
+      a.title = navLabel.textContent.trim();
+      moveInstrumentation(navLabel, a);
+    } else if (navLink) {
+      a.textContent = navLink.textContent.trim(); // Fallback to link text if no explicit label
+      a.title = navLink.textContent.trim();
+    }
+    li.append(a);
 
-    const subNavItems = navItem.querySelectorAll('[data-aue-model="subNavItem"]');
+    const subNavItems = navItemNode.querySelectorAll('[data-aue-model="subNavItem"]');
     if (subNavItems.length > 0) {
       li.classList.add('header-has-sub');
       const span = document.createElement('span');
-      span.classList.add('header-submenu-button');
+      span.className = 'header-submenu-button';
       li.prepend(span);
 
       const subUl = document.createElement('ul');
-      subNavItems.forEach((subNavItem) => {
+      subNavItems.forEach((subNavItemNode) => {
         const subLi = document.createElement('li');
-        const subLabel = subNavItem.querySelector('[data-aue-prop="label"]');
-        const subLink = subNavItem.querySelector('[data-aue-prop="link"]');
+        const subNavLink = subNavItemNode.querySelector('[data-aue-prop="link"]');
+        const subNavLabel = subNavItemNode.querySelector('[data-aue-prop="label"]');
 
-        if (subLabel && subLink) {
-          const subA = document.createElement('a');
-          subA.href = subLink.href;
-          subA.textContent = subLabel.textContent;
-          subLi.append(subA);
-          moveInstrumentation(subLabel, subA);
-          moveInstrumentation(subLink, subA);
-        } else if (subLabel) {
-          const subA = document.createElement('a');
-          subA.textContent = subLabel.textContent;
+        const subA = document.createElement('a');
+        if (subNavLink) {
+          subA.href = subNavLink.textContent.trim();
+          moveInstrumentation(subNavLink, subA);
+        } else {
           subA.href = '#';
-          subLi.append(subA);
-          moveInstrumentation(subLabel, subA);
-        } else if (subLink) {
-          const subA = document.createElement('a');
-          subA.href = subLink.href;
-          subA.textContent = subLink.href;
-          subLi.append(subA);
-          moveInstrumentation(subLink, subA);
         }
+        if (subNavLabel) {
+          subA.textContent = subNavLabel.textContent.trim();
+          moveInstrumentation(subNavLabel, subA);
+        } else if (subNavLink) {
+          subA.textContent = subNavLink.textContent.trim();
+        }
+        subLi.append(subA);
+        moveInstrumentation(subNavItemNode, subLi);
         subUl.append(subLi);
-        moveInstrumentation(subNavItem, subLi);
       });
       li.append(subUl);
     }
+    moveInstrumentation(navItemNode, li);
     ul.append(li);
-    moveInstrumentation(navItem, li);
   });
 
   nav.append(ul);
-
-  headerMainHeaderContainer.append(logoWrapper, nav);
-  headerMainHeader.append(headerMainHeaderContainer);
+  headContainer.append(nav);
+  headerElement.append(headContainer);
 
   block.textContent = '';
-  block.append(headerMainHeader);
+  block.append(headerElement);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

@@ -1,0 +1,168 @@
+.liquidblock-container {
+  max-width: 71.875rem; /* Equivalent to 1150px assuming 16px base */
+  width: 100%;
+  margin: 1.25rem auto; /* Equivalent to 20px assuming 16px base */
+  background-color: #fff;
+  padding: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  overflow: hidden;
+  position: relative;
+}
+.liquidblock-orange {
+  font-family: "DINPro-Regular";
+  color: #2d2b74;
+  font-size: 2.625rem; /* Equivalent to 42px assuming 16px base */
+  letter-spacing: 0.1875rem; /* Equivalent to 3px assuming 16px base */
+  text-transform: uppercase;
+  position: relative;
+  padding: 1.5625rem 0.625rem 0.9375rem; /* Equivalent to 25px 10px 15px assuming 16px base */
+  text-align: center;
+  display: block;
+  margin: 0 0 0.3125rem; /* Equivalent to 5px assuming 16px base */
+}
+.liquidblock-orange::after {
+  background: url("../images/files/orange-border.jpg") no-repeat 0 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  height: 0.1875rem; /* Equivalent to 3px assuming 16px base */
+  content: "";
+  margin-left: -1.5625rem; /* Equivalent to -25px assuming 16px base */
+}
+.liquidblock-container figure {
+  width: 50%;
+  float: left;
+  text-align: center !important;
+  margin: 0;
+  padding: 1.25rem 1.25rem 0.625rem; /* Equivalent to 20px 20px 10px assuming 16px base */
+}
+.liquidblock-image {
+  max-width: 100%;
+  width: auto !important;
+  margin: 0 auto;
+  padding: 2.5rem; /* Equivalent to 40px assuming 16px base */
+}
+.liquidblock-details {
+  float: right;
+  padding: 4%;
+  text-align: left;
+  width: 50%;
+}
+.liquidblock-details h3 {
+  color: #f36a1c;
+  font-family: "DINPro-Bold";
+  font-size: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  line-height: 2rem; /* Equivalent to 32px assuming 16px base */
+  margin: 0 0 1.25rem; /* Equivalent to 20px assuming 16px base */
+  text-transform: uppercase;
+  padding: 0;
+  text-align: left;
+}
+.liquidblock-details p {
+  font-family: "DINPro-Regular";
+  color: #555;
+  font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  text-align: left;
+  margin-bottom: 0.9375rem; /* Equivalent to 15px assuming 16px base */
+}
+.liquidblock-list-wrapper {
+  width: 100%;
+  margin: 1.25rem 0;
+  padding: 0;
+}
+.liquidblock-list-item {
+  background: url("../images/files/p-icon.png") no-repeat 0 0.1875rem; /* Equivalent to 3px assuming 16px base */
+  list-style-position: outside;
+  margin: 0.5rem 0;
+  padding: 0 0 0.3125rem 1.875rem; /* Equivalent to 5px 30px assuming 16px base */
+  background-size: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  color: #555;
+}
+.liquidblock-available-block {
+  display: block;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+.liquidblock-available-title {
+  font-family: "DINPro-Bold";
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  color: #f36a1c;
+  margin: 1.5625rem 0 0;
+}
+.liquidblock-item-list ul {
+  width: 100%;
+  margin: 1.25rem 0;
+  padding: 0;
+}
+.liquidblock-available-item {
+  background: #2d2b74;
+  width: 5rem; /* Equivalent to 80px assuming 16px base */
+  height: 5rem; /* Equivalent to 80px assuming 16px base */
+  border-radius: 50%;
+  float: left;
+  padding: 1.875rem 0; /* Equivalent to 30px assuming 16px base */
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.0625rem 0.3125rem 1.25rem; /* Equivalent to 1px 5px 20px assuming 16px base */
+  font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+}
+.liquidblock-disclaimer {
+  position: absolute;
+  left: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  bottom: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  width: 100%;
+  text-align: center;
+}
+.liquidblock-disclaimer-list {
+  text-align: center;
+}
+.liquidblock-disclaimer-item {
+  font-family: "DINPro-Regular";
+  display: block;
+  width: 100%;
+  font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  line-height: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  color: #333;
+  text-align: center !important;
+  padding: 0 0.3125rem; /* Equivalent to 5px assuming 16px base */
+  list-style: none;
+}
+.liquidblock-disclaimer-item--first {
+  list-style: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .liquidblock-container {
+    background: #fff;
+  }
+  .liquidblock-orange {
+    font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    margin: 0 0 0.75rem; /* Equivalent to 12px assuming 16px base */
+    padding: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  }
+  .liquidblock-container figure {
+    width: 100%;
+  }
+  .liquidblock-image {
+    width: 50%;
+  }
+  .liquidblock-details {
+    width: 100%;
+  }
+  .liquidblock-available-item {
+    font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+    height: 4.375rem; /* Equivalent to 70px assuming 16px base */
+    width: 4.375rem; /* Equivalent to 70px assuming 16px base */
+    padding: 1.6875rem 0; /* Equivalent to 27px assuming 16px base */
+  }
+  .liquidblock-disclaimer {
+    position: relative;
+    margin: 0.3125rem 0;
+    float: left;
+  }
+}

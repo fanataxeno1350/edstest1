@@ -142,6 +142,122 @@
     ]
   },
   {
+    "id": "antisepticLiquid",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "multiselect",
+        "label": "Features",
+        "name": "features",
+        "valueType": "array"
+      },
+      {
+        "component": "multiselect",
+        "label": "Available In",
+        "name": "availableIn",
+        "valueType": "array"
+      },
+      {
+        "component": "multiselect",
+        "label": "Disclaimers",
+        "name": "disclaimers",
+        "valueType": "array"
+      }
+    ]
+  },
+  {
+    "id": "aslBlock",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Main Image",
+        "name": "mainImage",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Main Image Alt",
+        "name": "mainImageAlt",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "itemResourceType": "aslBlockListItem",
+        "label": "Features",
+        "name": "features"
+      },
+      {
+        "component": "richtext",
+        "label": "Disclaimer",
+        "name": "disclaimer",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "aslBlockListItem",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Feature Image",
+        "name": "featureImage",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Feature Image Alt",
+        "name": "featureImageAlt",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Feature Text",
+        "name": "featureText",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "breadcrumb",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "footer",
     "fields": [
       {
@@ -152,40 +268,38 @@
       },
       {
         "component": "aem-content",
-        "label": "Logo Link",
-        "name": "logoLink",
+        "label": "ITC Link",
+        "name": "itcLink",
         "valueType": "string"
       },
       {
-        "component": "container",
-        "items": {
-          "type": "footerLink"
-        },
-        "label": "Footer Links",
-        "name": "links",
-        "valueType": "array"
+        "component": "aem-content",
+        "label": "Talk to Us Link",
+        "name": "talkToUsLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Terms Of Use Link",
+        "name": "termsOfUseLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Privacy Policy Link",
+        "name": "privacyPolicyLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Sitemap Link",
+        "name": "sitemapLink",
+        "valueType": "string"
       },
       {
         "component": "richtext",
         "label": "Copyright",
         "name": "copyright",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "footerLink",
-    "fields": [
-      {
-        "component": "aem-content",
-        "label": "Link",
-        "name": "link",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Text",
-        "name": "text",
         "valueType": "string"
       }
     ]
@@ -209,7 +323,6 @@
         "component": "container",
         "itemType": "navItem",
         "label": "Navigation Items",
-        "maxItems": 10,
         "name": "navItems"
       }
     ]
@@ -218,22 +331,21 @@
     "id": "navItem",
     "fields": [
       {
-        "component": "text",
-        "label": "Label",
-        "name": "label",
-        "valueType": "string"
-      },
-      {
         "component": "aem-content",
         "label": "Link",
         "name": "link",
         "valueType": "string"
       },
       {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
         "component": "container",
         "itemType": "subNavItem",
         "label": "Sub Navigation Items",
-        "maxItems": 10,
         "name": "subNavItems"
       }
     ]
@@ -242,15 +354,15 @@
     "id": "subNavItem",
     "fields": [
       {
-        "component": "text",
-        "label": "Label",
-        "name": "label",
-        "valueType": "string"
-      },
-      {
         "component": "aem-content",
         "label": "Link",
         "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
         "valueType": "string"
       }
     ]
@@ -259,38 +371,9 @@
     "id": "mainBanner",
     "fields": [
       {
-        "component": "reference",
-        "label": "Header Banner Image",
-        "name": "headerBannerImage",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "Banner Logo",
-        "name": "bannerLogo",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Title",
-        "name": "title",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "mainBannerSlide",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Slide Image",
-        "name": "slideImage",
-        "valueType": "string"
-      },
-      {
         "component": "richtext",
-        "label": "Slide Text",
-        "name": "slideText",
+        "label": "Disclaimer",
+        "name": "disclaimer",
         "valueType": "string"
       }
     ]

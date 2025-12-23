@@ -52,11 +52,14 @@
         "columns",
         "fragment",
         "header",
+        "breadcrumb",
         "mainBanner",
+        "aslBlock",
+        "antisepticLiquid",
+        "footer",
         "whySavlon",
         "productCarousel",
-        "youtubeSlider",
-        "footer"
+        "youtubeSlider"
       ]
     }
   ]

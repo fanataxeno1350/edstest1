@@ -2,86 +2,88 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  const footerContainerWrapper = document.createElement('footer');
+  footerContainerWrapper.classList.add('footer-container-wrapper');
+
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('footer-container');
 
   const footerItc = document.createElement('section');
   footerItc.classList.add('footer-itc');
 
-  const logoLinkWrapper = block.querySelector('[data-aue-prop="logoLink"]');
-  const logoWrapper = block.querySelector('[data-aue-prop="logo"]');
+  const logoLink = block.querySelector('[data-aue-prop="itcLink"]');
+  if (logoLink) {
+    const logoAnchor = document.createElement('a');
+    logoAnchor.href = logoLink.href;
 
-  let logoAnchor;
-  if (logoLinkWrapper && logoLinkWrapper.querySelector('a')) {
-    logoAnchor = logoLinkWrapper.querySelector('a');
-  } else if (logoWrapper && logoWrapper.querySelector('a')) {
-    logoAnchor = logoWrapper.querySelector('a');
-  }
-
-  if (logoAnchor) {
-    const img = logoWrapper ? logoWrapper.querySelector('img') : null;
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt || '');
-      logoAnchor.textContent = '';
-      logoAnchor.append(picture);
-      footerItc.append(logoAnchor);
-      moveInstrumentation(logoWrapper, picture);
-      moveInstrumentation(logoLinkWrapper, logoAnchor);
-    } else {
-      footerItc.append(logoAnchor);
-      moveInstrumentation(logoLinkWrapper, logoAnchor);
-    }
-  }
-
-  const footerLinksSection = document.createElement('section');
-  footerLinksSection.classList.add('footer-links');
-
-  const linksContainer = block.querySelector('[data-aue-prop="links"]');
-  if (linksContainer) {
-    const footerLinks = linksContainer.querySelectorAll('[data-aue-model="footerLink"]');
-    footerLinks.forEach((linkNode) => {
-      const linkWrapper = linkNode.querySelector('[data-aue-prop="link"]');
-      const textWrapper = linkNode.querySelector('[data-aue-prop="text"]');
-      let anchor;
-      if (linkWrapper && linkWrapper.querySelector('a')) {
-        anchor = linkWrapper.querySelector('a');
-      } else if (textWrapper && textWrapper.textContent.trim()) {
-        anchor = document.createElement('a');
-        anchor.href = '#'; // Fallback if no actual link is present
-        anchor.textContent = textWrapper.textContent.trim();
+    const logoImg = block.querySelector('[data-aue-prop="logo"]');
+    if (logoImg) {
+      const img = logoImg.querySelector('img');
+      if (img) {
+        logoAnchor.append(createOptimizedPicture(img.src, img.alt || ''));
+        moveInstrumentation(img, logoAnchor.querySelector('picture'));
       }
-
-      if (anchor) {
-        // Ensure the text content of the anchor comes from the 'text' field if available
-        if (textWrapper && textWrapper.textContent.trim()) {
-          anchor.textContent = textWrapper.textContent.trim();
-        }
-        footerLinksSection.append(anchor);
-        moveInstrumentation(linkNode, anchor);
-        if (linkWrapper) moveInstrumentation(linkWrapper, anchor);
-        if (textWrapper) moveInstrumentation(textWrapper, anchor);
-      }
-    });
-  }
-
-  const copyrightWrapper = block.querySelector('[data-aue-prop="copyright"]');
-  if (copyrightWrapper) {
-    const copyrightP = copyrightWrapper.querySelector('p');
-    if (copyrightP) {
-      footerLinksSection.append(copyrightP);
-      moveInstrumentation(copyrightWrapper, copyrightP);
     }
+    footerItc.append(logoAnchor);
+    moveInstrumentation(logoLink, logoAnchor);
   }
 
-  if (footerItc.children.length > 0) {
-    footerContainer.append(footerItc);
+  const footerLinks = document.createElement('section');
+  footerLinks.classList.add('footer-links');
+
+  const talkToUsLink = block.querySelector('[data-aue-prop="talkToUsLink"]');
+  if (talkToUsLink) {
+    const talkToUsAnchor = document.createElement('a');
+    talkToUsAnchor.href = talkToUsLink.href;
+    talkToUsAnchor.textContent = talkToUsLink.textContent;
+    footerLinks.append(talkToUsAnchor);
+    moveInstrumentation(talkToUsLink, talkToUsAnchor);
   }
-  if (footerLinksSection.children.length > 0) {
-    footerContainer.append(footerLinksSection);
+
+  const termsOfUseLink = block.querySelector('[data-aue-prop="termsOfUseLink"]');
+  if (termsOfUseLink) {
+    const termsOfUseAnchor = document.createElement('a');
+    termsOfUseAnchor.href = termsOfUseLink.href;
+    termsOfUseAnchor.textContent = termsOfUseLink.textContent;
+    footerLinks.append(termsOfUseAnchor);
+    moveInstrumentation(termsOfUseLink, termsOfUseAnchor);
   }
+
+  const privacyPolicyLink = block.querySelector('[data-aue-prop="privacyPolicyLink"]');
+  if (privacyPolicyLink) {
+    const privacyPolicyAnchor = document.createElement('a');
+    privacyPolicyAnchor.href = privacyPolicyLink.href;
+    privacyPolicyAnchor.textContent = privacyPolicyLink.textContent;
+    if (privacyPolicyLink.target) {
+      privacyPolicyAnchor.target = privacyPolicyLink.target;
+    }
+    footerLinks.append(privacyPolicyAnchor);
+    moveInstrumentation(privacyPolicyLink, privacyPolicyAnchor);
+  }
+
+  const sitemapLink = block.querySelector('[data-aue-prop="sitemapLink"]');
+  if (sitemapLink) {
+    const sitemapAnchor = document.createElement('a');
+    sitemapAnchor.href = sitemapLink.href;
+    sitemapAnchor.textContent = sitemapLink.textContent;
+    footerLinks.append(sitemapAnchor);
+    moveInstrumentation(sitemapLink, sitemapAnchor);
+  }
+
+  const copyright = block.querySelector('[data-aue-prop="copyright"]');
+  if (copyright) {
+    const copyrightP = document.createElement('p');
+    copyrightP.classList.add('footer-copyright');
+    copyrightP.innerHTML = copyright.innerHTML;
+    footerLinks.append(copyrightP);
+    moveInstrumentation(copyright, copyrightP);
+  }
+
+  footerContainer.append(footerItc, footerLinks);
+  footerContainerWrapper.append(footerContainer);
 
   block.textContent = '';
-  block.append(footerContainer);
-  block.className = 'footer-main block';
+  block.append(footerContainerWrapper);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

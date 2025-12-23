@@ -15,21 +15,6 @@
           }
         }
       }
-    },
-    {
-      "title": "Footer Link",
-      "id": "footerLink",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "model": "footerLink",
-              "name": "Footer Link"
-            }
-          }
-        }
-      }
     }
   ],
   "models": [
@@ -44,40 +29,38 @@
         },
         {
           "component": "aem-content",
-          "label": "Logo Link",
-          "name": "logoLink",
+          "label": "ITC Link",
+          "name": "itcLink",
           "valueType": "string"
         },
         {
-          "component": "container",
-          "items": {
-            "type": "footerLink"
-          },
-          "label": "Footer Links",
-          "name": "links",
-          "valueType": "array"
+          "component": "aem-content",
+          "label": "Talk to Us Link",
+          "name": "talkToUsLink",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Terms Of Use Link",
+          "name": "termsOfUseLink",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Privacy Policy Link",
+          "name": "privacyPolicyLink",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Sitemap Link",
+          "name": "sitemapLink",
+          "valueType": "string"
         },
         {
           "component": "richtext",
           "label": "Copyright",
           "name": "copyright",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "footerLink",
-      "fields": [
-        {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Text",
-          "name": "text",
           "valueType": "string"
         }
       ]
@@ -87,7 +70,7 @@
     {
       "id": "footer",
       "components": [
-        "footerLink"
+        "footer"
       ]
     }
   ]

@@ -17,17 +17,38 @@
       "columns",
       "fragment",
       "header",
+      "breadcrumb",
       "mainBanner",
+      "aslBlock",
+      "antisepticLiquid",
+      "footer",
       "whySavlon",
       "productCarousel",
-      "youtubeSlider",
-      "footer"
+      "youtubeSlider"
+    ]
+  },
+  {
+    "id": "antisepticLiquid",
+    "components": [
+      "antisepticLiquid"
+    ]
+  },
+  {
+    "id": "aslBlock",
+    "components": [
+      "aslBlockListItem"
+    ]
+  },
+  {
+    "id": "breadcrumb",
+    "components": [
+      "breadcrumb"
     ]
   },
   {
     "id": "footer",
     "components": [
-      "footerLink"
+      "footer"
     ]
   },
   {
@@ -43,10 +64,7 @@
     ]
   },
   {
-    "id": "mainBanner",
-    "components": [
-      "mainBannerSlide"
-    ]
+    "id": "mainBanner"
   },
   {
     "id": "productCarousel",
