@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Main-Banner-Slide",
-      "id": "mainBannerSlide",
+      "title": "Slider-Item",
+      "id": "sliderItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "mainBannerSlide",
-              "name": "Main-Banner-Slide"
+              "model": "sliderItem",
+              "name": "Slider-Item"
             }
           }
         }
@@ -33,6 +33,23 @@
     }
   ],
   "models": [
+    {
+      "id": "sliderItem",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Image",
+          "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Text",
+          "name": "text",
+          "valueType": "string"
+        }
+      ]
+    },
     {
       "id": "mainBanner",
       "fields": [
@@ -44,31 +61,14 @@
         },
         {
           "component": "reference",
-          "label": "Logo Image",
-          "name": "logoImage",
+          "label": "Banner Logo",
+          "name": "logo",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Title",
+          "label": "Banner Title",
           "name": "title",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "mainBannerSlide",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "Slide Image",
-          "name": "slideImage",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Slide Text",
-          "name": "slideText",
           "valueType": "string"
         }
       ]
@@ -78,7 +78,7 @@
     {
       "id": "mainBanner",
       "components": [
-        "mainBannerSlide"
+        "sliderItem"
       ]
     }
   ]

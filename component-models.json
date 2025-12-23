@@ -368,23 +368,6 @@
     ]
   },
   {
-    "id": "sliderItem",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Image",
-        "name": "image",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Text",
-        "name": "text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "mainBanner",
     "fields": [
       {
@@ -395,14 +378,31 @@
       },
       {
         "component": "reference",
-        "label": "Banner Logo",
-        "name": "logo",
+        "label": "Logo Image",
+        "name": "logoImage",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Banner Title",
+        "label": "Title",
         "name": "title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "mainBannerSlide",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Slide Image",
+        "name": "slideImage",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Slide Text",
+        "name": "slideText",
         "valueType": "string"
       }
     ]

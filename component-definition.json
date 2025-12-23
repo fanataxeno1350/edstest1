@@ -224,15 +224,15 @@
           }
         },
         {
-          "title": "Slider-Item",
-          "id": "sliderItem",
+          "title": "Main-Banner-Slide",
+          "id": "mainBannerSlide",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "sliderItem",
-                  "name": "Slider-Item"
+                  "model": "mainBannerSlide",
+                  "name": "Main-Banner-Slide"
                 }
               }
             }
