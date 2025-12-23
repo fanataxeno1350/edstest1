@@ -3,117 +3,118 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const mainBannerContainer = document.createElement('div');
-  mainBannerContainer.className = 'main-banner-container';
+  mainBannerContainer.classList.add('main-banner-container');
 
   const mainBannerHeaderBanner = document.createElement('div');
-  mainBannerHeaderBanner.className = 'main-banner-header-banner';
-  mainBannerContainer.append(mainBannerHeaderBanner);
+  mainBannerHeaderBanner.classList.add('main-banner-header-banner');
 
-  const headerImage = block.querySelector('[data-aue-prop="headerImage"]');
-  if (headerImage) {
-    const picture = createOptimizedPicture(headerImage.src, headerImage.alt);
-    picture.querySelector('img').className = 'main-banner-m-header-banner';
-    mainBannerHeaderBanner.append(picture);
-    moveInstrumentation(headerImage, picture);
+  const headerBannerImage = block.querySelector('[data-aue-prop="headerBannerImage"]');
+  if (headerBannerImage) {
+    const img = headerBannerImage.querySelector('img');
+    if (img) {
+      const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+      picture.querySelector('img').classList.add('main-banner-m-header-banner');
+      mainBannerHeaderBanner.append(picture);
+      moveInstrumentation(headerBannerImage, picture);
+    }
   }
 
   const mainBannerHeaderContent = document.createElement('div');
-  mainBannerHeaderContent.className = 'main-banner-header-content';
-  mainBannerHeaderBanner.append(mainBannerHeaderContent);
+  mainBannerHeaderContent.classList.add('main-banner-header-content');
 
-  const logo = block.querySelector('[data-aue-prop="logo"]');
-  if (logo) {
-    const picture = createOptimizedPicture(logo.src, logo.alt);
-    picture.querySelector('img').className = 'main-banner-banner-logo';
-    mainBannerHeaderContent.append(picture);
-    moveInstrumentation(logo, picture);
+  const bannerLogo = block.querySelector('[data-aue-prop="bannerLogo"]');
+  if (bannerLogo) {
+    const img = bannerLogo.querySelector('img');
+    if (img) {
+      const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '100' }]);
+      picture.querySelector('img').classList.add('main-banner-banner-logo');
+      mainBannerHeaderContent.append(picture);
+      moveInstrumentation(bannerLogo, picture);
+    }
   }
 
   const title = block.querySelector('[data-aue-prop="title"]');
   if (title) {
     const h2 = document.createElement('h2');
-    h2.className = 'main-banner-title';
+    h2.classList.add('main-banner-title');
     h2.textContent = title.textContent;
     mainBannerHeaderContent.append(h2);
     moveInstrumentation(title, h2);
   }
 
   const mainBannerHomeBanner = document.createElement('div');
-  mainBannerHomeBanner.className = 'main-banner-home-banner';
-  mainBannerHeaderContent.append(mainBannerHomeBanner);
+  mainBannerHomeBanner.classList.add('main-banner-home-banner');
 
-  const bxWrapper = document.createElement('div');
-  bxWrapper.className = 'main-banner-bx-wrapper';
-  bxWrapper.style.maxWidth = '100%';
-  mainBannerHomeBanner.append(bxWrapper);
+  const mainBannerBxWrapper = document.createElement('div');
+  mainBannerBxWrapper.classList.add('main-banner-bx-wrapper');
+  mainBannerBxWrapper.style.maxWidth = '100%';
 
-  const bxViewport = document.createElement('div');
-  bxViewport.className = 'main-banner-bx-viewport';
-  bxViewport.style.width = '100%';
-  bxViewport.style.overflow = 'hidden';
-  bxViewport.style.position = 'relative';
-  bxViewport.style.height = '210.219px'; // Hardcoded from sample, consider dynamic if needed
-  bxWrapper.append(bxViewport);
+  const mainBannerBxViewport = document.createElement('div');
+  mainBannerBxViewport.classList.add('main-banner-bx-viewport');
+  Object.assign(mainBannerBxViewport.style, {
+    width: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+    height: '210.219px',
+  });
 
-  const bxslider = document.createElement('ul');
-  bxslider.className = 'main-banner-bxslider-2';
-  bxslider.style.width = '415%'; // Hardcoded from sample, consider dynamic if needed
-  bxslider.style.position = 'relative';
-  bxslider.style.transitionTimingFunction = 'ease-out';
-  bxslider.style.transitionDuration = '0s';
-  bxslider.style.transform = 'translate3d(-565.266px, 0px, 0px)'; // Hardcoded from sample, consider dynamic if needed
-  bxViewport.append(bxslider);
+  const mainBannerBxslider = document.createElement('ul');
+  mainBannerBxslider.classList.add('main-banner-bxslider-2');
+  Object.assign(mainBannerBxslider.style, {
+    width: '415%',
+    position: 'relative',
+    transitionTimingFunction: 'ease-out',
+    transitionDuration: '0s',
+    transform: 'translate3d(-565.266px, 0px, 0px)',
+  });
 
-  const slides = block.querySelectorAll('[data-aue-model="bannerSlide"]');
+  const slides = block.querySelectorAll('[data-aue-model="mainBannerSlide"]');
   slides.forEach((slide) => {
     const li = document.createElement('li');
-    li.className = 'main-banner-slide-item';
+    li.classList.add('main-banner-slide-item');
 
-    const image = slide.querySelector('[data-aue-prop="image"]');
-    const text = slide.querySelector('[data-aue-prop="text"]');
+    const slideImage = slide.querySelector('[data-aue-prop="slideImage"]');
+    const slideText = slide.querySelector('[data-aue-prop="slideText"]');
 
-    if (image) {
-      const videoDiv = document.createElement('div');
-      videoDiv.className = 'main-banner-video';
-      const picture = createOptimizedPicture(image.src, image.alt);
-      videoDiv.append(picture);
-      li.append(videoDiv);
-      moveInstrumentation(image, picture);
-    } else if (text) {
-      const bannerCopyDiv = document.createElement('div');
-      bannerCopyDiv.className = 'main-banner-banner-copy';
+    if (slideImage) {
+      const mainBannerVideo = document.createElement('div');
+      mainBannerVideo.classList.add('main-banner-video');
+      const img = slideImage.querySelector('img');
+      if (img) {
+        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+        mainBannerVideo.append(picture);
+        li.append(mainBannerVideo);
+        moveInstrumentation(slideImage, mainBannerVideo);
+      }
+    } else if (slideText) {
+      const mainBannerBannerCopy = document.createElement('div');
+      mainBannerBannerCopy.classList.add('main-banner-banner-copy');
+
       const h5 = document.createElement('h5');
-      h5.className = 'main-banner-copy-text';
-
-      // Reconstruct text with span for hashtag if present
-      const textContent = text.innerHTML;
-      const hashtagRegex = /#(\w+)/g;
-      const parts = textContent.split(hashtagRegex);
-      parts.forEach((part, index) => {
-        if (index % 2 !== 0) { // It's a hashtag group
-          const span = document.createElement('span');
-          span.className = 'main-banner-hashtag';
-          span.textContent = `#${part}`;
-          h5.append(span);
-        } else if (part) {
-          h5.append(document.createTextNode(part));
-        }
-      });
-
-      bannerCopyDiv.append(h5);
-      li.append(bannerCopyDiv);
-      moveInstrumentation(text, h5);
+      h5.classList.add('main-banner-copy-text');
+      h5.innerHTML = slideText.innerHTML;
+      mainBannerBannerCopy.append(h5);
+      li.append(mainBannerBannerCopy);
+      moveInstrumentation(slideText, mainBannerBannerCopy);
     }
-    bxslider.append(li);
+    mainBannerBxslider.append(li);
     moveInstrumentation(slide, li);
   });
 
-  const bxControls = document.createElement('div');
-  bxControls.className = 'main-banner-bx-controls';
-  bxWrapper.append(bxControls);
+  mainBannerBxViewport.append(mainBannerBxslider);
+  mainBannerBxWrapper.append(mainBannerBxViewport);
+
+  const mainBannerBxControls = document.createElement('div');
+  mainBannerBxControls.classList.add('main-banner-bx-controls');
+  mainBannerBxWrapper.append(mainBannerBxControls);
+
+  mainBannerHomeBanner.append(mainBannerBxWrapper);
+  mainBannerHeaderContent.append(mainBannerHomeBanner);
+  mainBannerHeaderBanner.append(mainBannerHeaderContent);
+  mainBannerContainer.append(mainBannerHeaderBanner);
 
   block.textContent = '';
   block.append(mainBannerContainer);
-  block.className = `${block.dataset.blockName} block`;
+  block.className = `main-banner block`;
   block.dataset.blockStatus = 'loaded';
 }
