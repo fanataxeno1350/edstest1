@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Banner-Slide",
-      "id": "bannerSlide",
+      "title": "Main-Banner-Slide",
+      "id": "mainBannerSlide",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "bannerSlide",
-              "name": "Banner-Slide"
+              "model": "mainBannerSlide",
+              "name": "Main-Banner-Slide"
             }
           }
         }
@@ -34,47 +34,42 @@
   ],
   "models": [
     {
-      "id": "bannerSlide",
+      "id": "mainBanner",
       "fields": [
         {
           "component": "reference",
-          "label": "Image",
-          "name": "image",
+          "label": "Header Banner Image",
+          "name": "headerBannerImage",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Text",
-          "name": "text",
+          "component": "reference",
+          "label": "Logo Image",
+          "name": "logoImage",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Title",
+          "name": "title",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "mainBanner",
+      "id": "mainBannerSlide",
       "fields": [
         {
           "component": "reference",
-          "label": "Header Image",
-          "name": "headerImage",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Logo",
-          "name": "logo",
+          "label": "Slide Image",
+          "name": "slideImage",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Title",
-          "name": "title",
+          "label": "Slide Text",
+          "name": "slideText",
           "valueType": "string"
-        },
-        {
-          "component": "bannerSlide",
-          "label": "Slides",
-          "name": "slides"
         }
       ]
     }
@@ -83,7 +78,7 @@
     {
       "id": "mainBanner",
       "components": [
-        "bannerSlide"
+        "mainBannerSlide"
       ]
     }
   ]
