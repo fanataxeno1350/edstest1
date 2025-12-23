@@ -13,10 +13,7 @@ export default function decorate(block) {
     const img = headerImageElement.querySelector('img');
     if (img) {
       const picture = createOptimizedPicture(img.src, img.alt);
-      const imgElement = picture.querySelector('img');
-      if (imgElement) {
-        imgElement.className = 'main-banner-m-header-banner';
-      }
+      picture.className = 'main-banner-m-header-banner';
       mainBannerHeaderBanner.append(picture);
       moveInstrumentation(headerImageElement, picture);
     }
@@ -25,17 +22,14 @@ export default function decorate(block) {
   const mainBannerHeaderContent = document.createElement('div');
   mainBannerHeaderContent.className = 'main-banner-header-content';
 
-  const logoImageElement = block.querySelector('[data-aue-prop="logoImage"]');
-  if (logoImageElement) {
-    const img = logoImageElement.querySelector('img');
+  const logoElement = block.querySelector('[data-aue-prop="logo"]');
+  if (logoElement) {
+    const img = logoElement.querySelector('img');
     if (img) {
       const picture = createOptimizedPicture(img.src, img.alt);
-      const imgElement = picture.querySelector('img');
-      if (imgElement) {
-        imgElement.className = 'main-banner-banner-logo';
-      }
+      picture.className = 'main-banner-banner-logo';
       mainBannerHeaderContent.append(picture);
-      moveInstrumentation(logoImageElement, picture);
+      moveInstrumentation(logoElement, picture);
     }
   }
 
@@ -51,120 +45,72 @@ export default function decorate(block) {
   const mainBannerHomeBanner = document.createElement('div');
   mainBannerHomeBanner.className = 'main-banner-home-banner';
 
-  const mainBannerBxWrapper = document.createElement('div');
-  mainBannerBxWrapper.className = 'main-banner-bx-wrapper';
-  mainBannerBxWrapper.style.maxWidth = '100%';
+  const bxWrapper = document.createElement('div');
+  bxWrapper.className = 'main-banner-bx-wrapper';
+  bxWrapper.style.maxWidth = '100%';
 
-  const mainBannerBxViewport = document.createElement('div');
-  mainBannerBxViewport.className = 'main-banner-bx-viewport';
-  mainBannerBxViewport.style.width = '100%';
-  mainBannerBxViewport.style.overflow = 'hidden';
-  mainBannerBxViewport.style.position = 'relative';
-  mainBannerBxViewport.style.height = '210.219px'; // This height is hardcoded from the example, might need dynamic calculation if it varies
+  const bxViewport = document.createElement('div');
+  bxViewport.className = 'main-banner-bx-viewport';
+  Object.assign(bxViewport.style, {
+    width: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+    height: '210.219px', // This height is hardcoded from the example, consider dynamic if needed
+  });
 
-  const mainBannerBxSlider = document.createElement('ul');
-  mainBannerBxSlider.className = 'main-banner-bxslider-2';
-  mainBannerBxSlider.style.width = '415%'; // Hardcoded from example
-  mainBannerBxSlider.style.position = 'relative';
-  mainBannerBxSlider.style.transitionTimingFunction = 'ease-out';
-  mainBannerBxSlider.style.transitionDuration = '0s';
-  mainBannerBxSlider.style.transform = 'translate3d(-565.266px, 0px, 0px)'; // Hardcoded from example
+  const bxSlider = document.createElement('ul');
+  bxSlider.className = 'main-banner-bxslider-2';
+  Object.assign(bxSlider.style, {
+    width: '415%', // This width is hardcoded from the example, consider dynamic if needed
+    position: 'relative',
+    transitionTimingFunction: 'ease-out',
+    transitionDuration: '0s',
+    transform: 'translate3d(-565.266px, 0px, 0px)', // This transform is hardcoded from the example, consider dynamic if needed
+  });
 
-  const slideItems = block.querySelectorAll('[data-aue-model="bannerSlide"]');
-  slideItems.forEach((slideNode) => {
+  const sliderItems = block.querySelectorAll('[data-aue-model="sliderItem"]');
+  sliderItems.forEach((itemNode) => {
     const li = document.createElement('li');
     li.className = 'main-banner-slide-item';
 
-    const slideImageElement = slideNode.querySelector('[data-aue-prop="slideImage"]');
-    const slideTextElement = slideNode.querySelector('[data-aue-prop="slideText"]');
+    const imageElement = itemNode.querySelector('[data-aue-prop="image"]');
+    const textElement = itemNode.querySelector('[data-aue-prop="text"]');
 
-    if (slideImageElement) {
-      const mainBannerVideo = document.createElement('div');
-      mainBannerVideo.className = 'main-banner-video';
-      const img = slideImageElement.querySelector('img');
+    if (imageElement) {
+      const videoDiv = document.createElement('div');
+      videoDiv.className = 'main-banner-video';
+      const img = imageElement.querySelector('img');
       if (img) {
         const picture = createOptimizedPicture(img.src, img.alt);
-        mainBannerVideo.append(picture);
-        moveInstrumentation(slideImageElement, picture);
+        videoDiv.append(picture);
+        moveInstrumentation(imageElement, picture);
       }
-      li.append(mainBannerVideo);
-    } else if (slideTextElement) {
-      const mainBannerBannerCopy = document.createElement('div');
-      mainBannerBannerCopy.className = 'main-banner-banner-copy';
+      li.append(videoDiv);
+    } else if (textElement) {
+      const bannerCopyDiv = document.createElement('div');
+      bannerCopyDiv.className = 'main-banner-banner-copy';
       const h5 = document.createElement('h5');
       h5.className = 'main-banner-copy-text';
-      h5.innerHTML = slideTextElement.innerHTML; // Use innerHTML to preserve span/hashtag
-      mainBannerBannerCopy.append(h5);
-      li.append(mainBannerBannerCopy);
-      moveInstrumentation(slideTextElement, h5);
+      // Move child nodes of textElement to h5, preserving spans
+      while (textElement.firstChild) {
+        h5.append(textElement.firstChild);
+      }
+      bannerCopyDiv.append(h5);
+      li.append(bannerCopyDiv);
+      moveInstrumentation(textElement, h5);
     }
-    mainBannerBxSlider.append(li);
-    moveInstrumentation(slideNode, li);
+    bxSlider.append(li);
+    moveInstrumentation(itemNode, li);
   });
 
-  // Add bx-clone elements (assuming they mirror the first/last items for infinite loop)
-  if (slideItems.length > 0) {
-    const firstSlide = slideItems[0];
-    const lastSlide = slideItems[slideItems.length - 1];
+  bxViewport.append(bxSlider);
+  bxWrapper.append(bxViewport);
 
-    const firstCloneLi = document.createElement('li');
-    firstCloneLi.className = 'main-banner-bx-clone';
-    const firstSlideImageElement = firstSlide.querySelector('[data-aue-prop="slideImage"]');
-    const firstSlideTextElement = firstSlide.querySelector('[data-aue-prop="slideText"]');
+  const bxControls = document.createElement('div');
+  bxControls.className = 'main-banner-bx-controls';
+  bxWrapper.append(bxControls);
 
-    if (firstSlideImageElement) {
-      const mainBannerVideo = document.createElement('div');
-      mainBannerVideo.className = 'main-banner-video';
-      const img = firstSlideImageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt);
-        mainBannerVideo.append(picture);
-      }
-      firstCloneLi.append(mainBannerVideo);
-    } else if (firstSlideTextElement) {
-      const mainBannerBannerCopy = document.createElement('div');
-      mainBannerBannerCopy.className = 'main-banner-banner-copy';
-      const h5 = document.createElement('h5');
-      h5.className = 'main-banner-copy-text';
-      h5.innerHTML = firstSlideTextElement.innerHTML;
-      mainBannerBannerCopy.append(h5);
-      firstCloneLi.append(mainBannerBannerCopy);
-    }
-    mainBannerBxSlider.prepend(firstCloneLi);
-
-    const lastCloneLi = document.createElement('li');
-    lastCloneLi.className = 'main-banner-bx-clone';
-    const lastSlideImageElement = lastSlide.querySelector('[data-aue-prop="slideImage"]');
-    const lastSlideTextElement = lastSlide.querySelector('[data-aue-prop="slideText"]');
-
-    if (lastSlideImageElement) {
-      const mainBannerVideo = document.createElement('div');
-      mainBannerVideo.className = 'main-banner-video';
-      const img = lastSlideImageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt);
-        mainBannerVideo.append(picture);
-      }
-      lastCloneLi.append(mainBannerVideo);
-    } else if (lastSlideTextElement) {
-      const mainBannerBannerCopy = document.createElement('div');
-      mainBannerBannerCopy.className = 'main-banner-banner-copy';
-      const h5 = document.createElement('h5');
-      h5.className = 'main-banner-copy-text';
-      h5.innerHTML = lastSlideTextElement.innerHTML;
-      mainBannerBannerCopy.append(h5);
-      lastCloneLi.append(mainBannerBannerCopy);
-    }
-    mainBannerBxSlider.append(lastCloneLi);
-  }
-
-  mainBannerBxViewport.append(mainBannerBxSlider);
-
-  const mainBannerBxControls = document.createElement('div');
-  mainBannerBxControls.className = 'main-banner-bx-controls';
-
-  mainBannerBxWrapper.append(mainBannerBxViewport, mainBannerBxControls);
-  mainBannerHomeBanner.append(mainBannerBxWrapper);
+  mainBannerHomeBanner.append(bxWrapper);
   mainBannerHeaderContent.append(mainBannerHomeBanner);
   mainBannerHeaderBanner.append(mainBannerHeaderContent);
   mainBannerContainer.append(mainBannerHeaderBanner);
