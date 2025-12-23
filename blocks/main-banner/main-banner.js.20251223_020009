@@ -10,14 +10,11 @@ export default function decorate(block) {
 
   const headerImageElement = block.querySelector('[data-aue-prop="headerImage"]');
   if (headerImageElement) {
-    const img = headerImageElement.querySelector('img');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]);
-      const newImg = picture.querySelector('img');
-      newImg.className = 'main-banner-m-header-banner';
-      mainBannerHeaderBanner.append(picture);
-      moveInstrumentation(headerImageElement, picture);
-    }
+    const picture = createOptimizedPicture(headerImageElement.src, headerImageElement.alt);
+    const imgElement = picture.querySelector('img');
+    imgElement.className = 'main-banner-m-header-banner';
+    mainBannerHeaderBanner.append(picture);
+    moveInstrumentation(headerImageElement, picture);
   }
 
   const mainBannerHeaderContent = document.createElement('div');
@@ -25,23 +22,20 @@ export default function decorate(block) {
 
   const logoImageElement = block.querySelector('[data-aue-prop="logoImage"]');
   if (logoImageElement) {
-    const img = logoImageElement.querySelector('img');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '100' }]);
-      const newImg = picture.querySelector('img');
-      newImg.className = 'main-banner-banner-logo';
-      mainBannerHeaderContent.append(picture);
-      moveInstrumentation(logoImageElement, picture);
-    }
+    const picture = createOptimizedPicture(logoImageElement.src, logoImageElement.alt);
+    const imgElement = picture.querySelector('img');
+    imgElement.className = 'main-banner-banner-logo';
+    mainBannerHeaderContent.append(picture);
+    moveInstrumentation(logoImageElement, picture);
   }
 
   const titleElement = block.querySelector('[data-aue-prop="title"]');
   if (titleElement) {
-    const h2 = document.createElement('h2');
-    h2.className = 'main-banner-title';
-    h2.textContent = titleElement.textContent;
-    mainBannerHeaderContent.append(h2);
-    moveInstrumentation(titleElement, h2);
+    const titleH2 = document.createElement('h2');
+    titleH2.className = 'main-banner-title';
+    titleH2.textContent = titleElement.textContent;
+    mainBannerHeaderContent.append(titleH2);
+    moveInstrumentation(titleElement, titleH2);
   }
 
   const mainBannerHomeBanner = document.createElement('div');
@@ -56,15 +50,13 @@ export default function decorate(block) {
   mainBannerBxViewport.style.width = '100%';
   mainBannerBxViewport.style.overflow = 'hidden';
   mainBannerBxViewport.style.position = 'relative';
-  mainBannerBxViewport.style.height = '210.219px'; // Hardcoded from example, may need dynamic calculation
 
-  const mainBannerBxslider = document.createElement('ul');
-  mainBannerBxslider.className = 'main-banner-bxslider-2';
-  mainBannerBxslider.style.width = '415%'; // Hardcoded from example, may need dynamic calculation
-  mainBannerBxslider.style.position = 'relative';
-  mainBannerBxslider.style.transitionTimingFunction = 'ease-out';
-  mainBannerBxslider.style.transitionDuration = '0s';
-  mainBannerBxslider.style.transform = 'translate3d(-565.266px, 0px, 0px)'; // Hardcoded from example, may need dynamic calculation
+  const mainBannerBxslider2 = document.createElement('ul');
+  mainBannerBxslider2.className = 'main-banner-bxslider-2';
+  mainBannerBxslider2.style.width = '415%';
+  mainBannerBxslider2.style.position = 'relative';
+  mainBannerBxslider2.style.transitionTimingFunction = 'ease-out';
+  mainBannerBxslider2.style.transitionDuration = '0s';
 
   const slideItems = block.querySelectorAll('[data-aue-model="mainBannerSlide"]');
   slideItems.forEach((slideNode) => {
@@ -73,53 +65,33 @@ export default function decorate(block) {
 
     const slideImageElement = slideNode.querySelector('[data-aue-prop="slideImage"]');
     const slideTextElement = slideNode.querySelector('[data-aue-prop="slideText"]');
-
+    
     if (slideImageElement) {
       const mainBannerVideo = document.createElement('div');
       mainBannerVideo.className = 'main-banner-video';
-      const img = slideImageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]);
-        mainBannerVideo.append(picture);
-        moveInstrumentation(slideImageElement, picture);
-      }
+      mainBannerVideo.append(createOptimizedPicture(slideImageElement.src, slideImageElement.alt));
       li.append(mainBannerVideo);
+      moveInstrumentation(slideImageElement, mainBannerVideo);
     } else if (slideTextElement) {
       const mainBannerBannerCopy = document.createElement('div');
       mainBannerBannerCopy.className = 'main-banner-banner-copy';
       const h5 = document.createElement('h5');
       h5.className = 'main-banner-copy-text';
-
-      // Extract and reconstruct the content including the span for hashtag
-      const p = slideTextElement.querySelector('p');
-      if (p) {
-        const span = p.querySelector('span');
-        if (span) {
-          const textBefore = p.firstChild.textContent;
-          const hashtagSpan = document.createElement('span');
-          hashtagSpan.className = 'main-banner-hashtag';
-          hashtagSpan.textContent = span.textContent;
-          h5.textContent = textBefore;
-          h5.append(hashtagSpan);
-        } else {
-          h5.textContent = p.textContent;
-        }
-        moveInstrumentation(slideTextElement, h5);
-      }
+      h5.innerHTML = slideTextElement.innerHTML;
       mainBannerBannerCopy.append(h5);
       li.append(mainBannerBannerCopy);
+      moveInstrumentation(slideTextElement, mainBannerBannerCopy);
     }
-    mainBannerBxslider.append(li);
+    mainBannerBxslider2.append(li);
     moveInstrumentation(slideNode, li);
   });
 
-  mainBannerBxViewport.append(mainBannerBxslider);
-  mainBannerBxWrapper.append(mainBannerBxViewport);
+  mainBannerBxViewport.append(mainBannerBxslider2);
 
   const mainBannerBxControls = document.createElement('div');
   mainBannerBxControls.className = 'main-banner-bx-controls';
-  mainBannerBxWrapper.append(mainBannerBxControls);
 
+  mainBannerBxWrapper.append(mainBannerBxViewport, mainBannerBxControls);
   mainBannerHomeBanner.append(mainBannerBxWrapper);
   mainBannerHeaderContent.append(mainBannerHomeBanner);
   mainBannerHeaderBanner.append(mainBannerHeaderContent);
