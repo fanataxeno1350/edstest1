@@ -371,9 +371,38 @@
     "id": "mainBanner",
     "fields": [
       {
+        "component": "reference",
+        "label": "Header Image",
+        "name": "headerImage",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "logoImage",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "bannerSlide",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Slide Image",
+        "name": "slideImage",
+        "valueType": "string"
+      },
+      {
         "component": "richtext",
-        "label": "Disclaimer",
-        "name": "disclaimer",
+        "label": "Slide Text",
+        "name": "slideText",
         "valueType": "string"
       }
     ]
