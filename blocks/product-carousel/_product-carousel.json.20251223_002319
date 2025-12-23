@@ -57,7 +57,7 @@
         {
           "component": "aem-content",
           "label": "Read More Link",
-          "name": "readMore",
+          "name": "readMoreLink",
           "valueType": "string"
         },
         {
