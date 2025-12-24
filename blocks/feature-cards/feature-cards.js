@@ -39,7 +39,7 @@ export default function decorate(block) {
 
       const imageWrapper = document.createElement('div');
       imageWrapper.className = 'featurecards-card-image w-100 pb-4';
-      const imgElement = cardItem.querySelector('[data-aue-prop="image"] img');
+      const imgElement = cardItem.querySelector('[data-aue-prop="image"]');
       if (imgElement) {
         imageWrapper.append(createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '750' }]));
         moveInstrumentation(imgElement, imageWrapper.querySelector('picture'));
@@ -104,7 +104,7 @@ export default function decorate(block) {
 
       const bolteSitareImageDiv = document.createElement('div');
       bolteSitareImageDiv.className = 'featurecards-bolte-sitare-card-image';
-      const imgElement = cardItem.querySelector('[data-aue-prop="image"] img');
+      const imgElement = cardItem.querySelector('[data-aue-prop="image"]');
       if (imgElement) {
         const img = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '750' }]);
         img.querySelector('img').className = 'h-100 w-100 featurecards-card-img';

@@ -93,16 +93,13 @@ export default function decorate(block) {
       sectionWrapper.append(videoWrapper);
       moveInstrumentation(videoElement, videoWrapper);
     } else if (imageElement) {
-      const img = imageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '2000' }]);
-        picture.querySelector('img').className = 'carousel-w-100 carousel-h-100 carousel-object-fit-cover carousel-banner-media carousel-banner-image';
-        picture.querySelector('img').setAttribute('loading', 'eager');
-        picture.querySelector('img').setAttribute('fetchpriority', 'high');
-        picture.querySelector('img').setAttribute('decoding', 'async');
-        sectionWrapper.append(picture);
-        moveInstrumentation(imageElement, picture);
-      }
+      const picture = createOptimizedPicture(imageElement.src, imageElement.alt, false, [{ width: '2000' }]);
+      picture.querySelector('img').className = 'carousel-w-100 carousel-h-100 carousel-object-fit-cover carousel-banner-media carousel-banner-image';
+      picture.querySelector('img').setAttribute('loading', 'eager');
+      picture.querySelector('img').setAttribute('fetchpriority', 'high');
+      picture.querySelector('img').setAttribute('decoding', 'async');
+      sectionWrapper.append(picture);
+      moveInstrumentation(imageElement, picture);
     }
 
     const ctaBannerWrapper = document.createElement('div');

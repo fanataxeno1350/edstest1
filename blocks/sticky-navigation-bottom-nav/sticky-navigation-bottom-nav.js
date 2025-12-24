@@ -38,12 +38,11 @@ export default function decorate(block) {
     }
 
     const iconField = itemNode.querySelector('[data-aue-prop="icon"]');
-    const img = iconField ? iconField.querySelector('img') : null;
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '40' }]);
+    if (iconField) {
+      const picture = createOptimizedPicture(iconField.src, iconField.alt, false, [{ width: '40' }]);
       picture.classList.add('sticky-navigation-bottom-nav__icon');
       a.append(picture);
-      moveInstrumentation(img, picture);
+      moveInstrumentation(iconField, picture);
     }
 
     const labelField = itemNode.querySelector('[data-aue-prop="label"]');

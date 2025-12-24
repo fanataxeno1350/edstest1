@@ -77,13 +77,10 @@ export default function decorate(block) {
     imageWrapper.classList.add('latestblogs-listing--cardImageWrapper');
     const imageElement = cardNode.querySelector('[data-aue-prop="image"]');
     if (imageElement) {
-      const img = imageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]);
-        picture.querySelector('img').classList.add('latestblogs-listing--cardImage', 'w-100', 'h-100');
-        imageWrapper.append(picture);
-        moveInstrumentation(imageElement, picture);
-      }
+      const picture = createOptimizedPicture(imageElement.src, imageElement.alt || '', false, [{ width: '750' }]);
+      picture.querySelector('img').classList.add('latestblogs-listing--cardImage', 'w-100', 'h-100');
+      imageWrapper.append(picture);
+      moveInstrumentation(imageElement, picture);
     }
     cardsDiv.append(imageWrapper);
 

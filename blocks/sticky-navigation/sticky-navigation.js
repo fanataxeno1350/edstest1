@@ -52,13 +52,10 @@ export default function decorate(block) {
     }
 
     if (iconElement) {
-      const img = iconElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '40' }]);
-        const imgInPicture = picture.querySelector('img');
-        imgInPicture.className = 'sticky-navigation-sticky-bottom-nav__icon';
-        a.append(picture);
-      }
+      const picture = createOptimizedPicture(iconElement.src, iconElement.alt, false, [{ width: '40' }]);
+      const imgInPicture = picture.querySelector('img');
+      imgInPicture.className = 'sticky-navigation-sticky-bottom-nav__icon';
+      a.append(picture);
       moveInstrumentation(iconElement, a);
     }
 
