@@ -23,7 +23,6 @@
       "footerBrand",
       "stickyNavigationBottomNav",
       "featureCards",
-      "spaceadderContainer",
       "stickyNavigation"
     ]
   },
@@ -65,9 +64,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceadderContainer"
   },
   {
     "id": "stickyNavigationBottomNav",
