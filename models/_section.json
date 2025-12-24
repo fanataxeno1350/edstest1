@@ -56,7 +56,10 @@
         "featurecards",
         "latestBlogs",
         "footerBrand",
-        "stickyNavigationBottomNav"
+        "stickyNavigationBottomNav",
+        "featureCards",
+        "spaceadderContainer",
+        "stickyNavigation"
       ]
     }
   ]

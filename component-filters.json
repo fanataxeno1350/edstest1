@@ -15,28 +15,70 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "carousel",
+      "featurecards",
+      "latestBlogs",
+      "footerBrand",
+      "stickyNavigationBottomNav",
+      "featureCards",
+      "spaceadderContainer",
+      "stickyNavigation"
     ]
   },
   {
-    "id": "cards",
+    "id": "carousel",
     "components": [
-      "card"
+      "carouselSlide"
     ]
   },
   {
-    "id": "columns",
+    "id": "featureCards",
     "components": [
-      "column"
+      "featureCard"
     ]
   },
   {
-    "id": "column",
+    "id": "featurecards",
     "components": [
-      "text",
-      "image",
-      "button",
-      "title"
+      "featurecard"
+    ]
+  },
+  {
+    "id": "footerBrand",
+    "components": [
+      "footerLink",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "menuItem",
+      "footerNavItem",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "latestBlogs",
+    "components": [
+      "blogCard"
+    ]
+  },
+  {
+    "id": "spaceadderContainer"
+  },
+  {
+    "id": "stickyNavigationBottomNav",
+    "components": [
+      "navigationItem"
+    ]
+  },
+  {
+    "id": "stickyNavigation",
+    "components": [
+      "navItem"
     ]
   }
 ]

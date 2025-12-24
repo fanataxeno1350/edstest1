@@ -34,45 +34,16 @@
   ],
   "models": [
     {
-      "id": "blogCard",
+      "id": "latestBlogs",
       "fields": [
         {
-          "component": "reference",
-          "label": "Image",
-          "name": "image",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Date",
-          "name": "date",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
+          "component": "richtext",
           "label": "Title",
           "name": "title",
           "valueType": "string"
         },
         {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "latestBlogs",
-      "fields": [
-        {
-          "component": "text",
-          "label": "Heading",
-          "name": "heading",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
+          "component": "richtext",
           "label": "Description",
           "name": "description",
           "valueType": "string"
@@ -82,17 +53,34 @@
           "label": "CTA Link",
           "name": "ctaLink",
           "valueType": "string"
-        },
+        }
+      ]
+    },
+    {
+      "id": "blogCard",
+      "fields": [
         {
-          "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
+          "component": "aem-content",
+          "label": "Blog Link",
+          "name": "link",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "CTA Icon",
-          "name": "ctaIcon",
+          "label": "Blog Image",
+          "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Date",
+          "name": "date",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Blog Title",
+          "name": "blogTitle",
           "valueType": "string"
         }
       ]
