@@ -4,11 +4,12 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: transparent;
 }
-.mainbanner-main-banner.mainbanner-listing-bn {
-  background-image: url("/content/dam/aemigrate/uploaded-folder/image/screenshot-with-icon-21.jpg");
+.mainbanner-listing-bn {
+  background-image: url("../images/files/screenshot-with-icon-2.jpg");
   background-repeat: no-repeat;
-  background-position: center 4rem; /* Equivalent to 64px assuming 16px base */
+  background-position: center 64px; /* Equivalent to 64px assuming 16px base */
   background-size: 100%;
   overflow: hidden;
   float: left;
@@ -17,30 +18,112 @@
   background-attachment: fixed;
 }
 .mainbanner-container-in {
+  max-width: 1321px;
   width: 100%;
-  max-width: 81.25rem; /* Equivalent to 1300px assuming 16px base */
   margin: 0 auto;
   position: relative;
+}
+.mainbanner-mobile-image {
+  height: 227px; /* Explicit height based on media query override */
+}
+.mainbanner-main-banner h1 {
+  font-family: 'DINPro-Black';
+  color: #ffffff;
+  font-size: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  line-height: 2.9375rem; /* Equivalent to 47px assuming 16px base */
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  text-shadow: 2px 2px 2px #ff551c;
+  float: left;
+  width: 50%;
+  padding: 7% 1% 4% 5%;
+}
+.mainbanner-mobile-sub-image {
+  float: right;
+  width: 50%;
+  margin: 0;
+  padding: 30px 0 0 0 !important; /* Equivalent to 30px assuming 16px base */
+  text-align: center;
+}
+.mainbanner-mobile-sub-image img {
+  width: auto;
+  height: 252px; /* Explicit height from inline style */
 }
 .mainbanner-disclaimer-bn {
   position: absolute;
   left: 0;
-  bottom: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  bottom: 10px; /* Equivalent to 10px assuming 16px base */
   font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
-  color: #fff;
+  color: #ffffff;
   width: 100%;
   text-align: center;
+  display: block;
 }
-@media only screen and (max-width: 640px) {
-  .mainbanner-disclaimer-bn {
-    position: relative;
-    left: 1.75rem; /* Equivalent to 28px assuming 16px base */
-    top: 0.875rem; /* Equivalent to 14px assuming 16px base */
-    font-size: 0.4375rem; /* Equivalent to 7px assuming 16px base */
+.mainbanner-sanitizer-disc {
+  bottom: 0px;
+}
+@media only screen and (max-width: 1024px) {
+  .mainbanner-listing-bn {
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center 0;
+    height: auto;
+  }
+  .mainbanner-main-banner h1 {
+    width: 100%;
+    padding: 4vw 2vw 8vw;
+    text-align: left;
+  }
+  .mainbanner-mobile-sub-image {
+    width: 100%;
+    padding: 3vw 0 4vw !important;
+  }
+  .mainbanner-mobile-sub-image img {
+    width: 25%;
   }
 }
-@media only screen and (min-width: 800px) and (max-width: 1024px) {
-  .mainbanner-container-in {
-    padding: 2%;
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .mainbanner-mobile-image {
+    height: 227px !important;
+  }
+  .mainbanner-disclaimer-bn {
+    margin: 0.5rem !important; /* Equivalent to 8px assuming 16px base */
+    margin-top: 0 !important;
+  }
+  .mainbanner-main-banner h1 {
+    font-size: 1.75rem; /* Equivalent to 28px assuming 16px base */
+    line-height: 2.1875rem; /* Equivalent to 35px assuming 16px base */
+    padding: 5%;
+  }
+  .mainbanner-mobile-sub-image {
+    padding: 0 !important;
+  }
+  .mainbanner-mobile-sub-image img {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 510px) {
+  .mainbanner-mobile-sub-image img {
+    height: 100px !important;
+    float: right;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .mainbanner-mobile-sub-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+    margin: 0 !important;
+  }
+  .mainbanner-mobile-sub-image img {
+    height: 100px !important;
+    float: right;
+  }
+}
+@media only screen and (width: 768px) {
+  .mainbanner-mobile-sub-image img {
+    height: 190px !important;
   }
 }

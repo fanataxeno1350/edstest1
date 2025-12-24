@@ -2,59 +2,54 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const headerElement = document.createElement('header');
-  headerElement.className = 'header-seconds header-sticky-head';
+  const header = document.createElement('header');
+  header.className = 'header-headerseconds header-sticky-head';
 
   const headContainer = document.createElement('div');
   headContainer.className = 'header-head-container';
 
   const logoLinkWrapper = document.createElement('a');
   logoLinkWrapper.className = 'header-logo';
-  logoLinkWrapper.title = 'Home';
-  logoLinkWrapper.rel = 'home';
 
+  const logo = block.querySelector('[data-aue-prop="logo"]');
   const logoLink = block.querySelector('[data-aue-prop="logoLink"]');
-  if (logoLink) {
-    logoLinkWrapper.href = logoLink.textContent.trim();
-    moveInstrumentation(logoLink, logoLinkWrapper);
+
+  if (logo) {
+    const img = logo.querySelector('img');
+    if (img) {
+      const optimizedPicture = createOptimizedPicture(img.src, img.alt, false, [{ width: '150' }]);
+      const logoImg = optimizedPicture.querySelector('img');
+      logoImg.className = 'header-logo-img';
+      logoLinkWrapper.append(logoImg);
+      moveInstrumentation(logo, logoLinkWrapper);
+    }
   }
 
-  const logoImage = block.querySelector('[data-aue-prop="logo"]');
-  if (logoImage) {
-    const img = logoImage.querySelector('img');
-    if (img) {
-      const optimizedPicture = createOptimizedPicture(img.src, img.alt);
-      const logoImg = optimizedPicture.querySelector('img');
-      if (logoImg) {
-        logoImg.className = 'header-logo-img';
-        logoImg.alt = img.alt || 'Home';
-      }
-      logoLinkWrapper.append(optimizedPicture);
-      moveInstrumentation(logoImage, logoLinkWrapper);
-    } else {
-      // Fallback if img tag is not directly inside data-aue-prop="logo"
-      const fallbackImg = logoImage.querySelector('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"]');
-      if (fallbackImg) {
-        const optimizedPicture = createOptimizedPicture(fallbackImg.href, 'Home');
-        const logoImg = optimizedPicture.querySelector('img');
-        if (logoImg) {
-          logoImg.className = 'header-logo-img';
-          logoImg.alt = 'Home';
-        }
-        logoLinkWrapper.append(optimizedPicture);
-        moveInstrumentation(fallbackImg, logoLinkWrapper);
-      }
+  if (logoLink) {
+    const linkElement = logoLink.querySelector('a');
+    if (linkElement) {
+      logoLinkWrapper.href = linkElement.href;
+      logoLinkWrapper.title = linkElement.title || '';
+      logoLinkWrapper.rel = linkElement.rel || '';
+      moveInstrumentation(logoLink, logoLinkWrapper);
     }
+  } else if (logoLinkWrapper.querySelector('img')) {
+    // Fallback if logoLink is missing but logo exists
+    logoLinkWrapper.href = '/';
+    logoLinkWrapper.title = 'Home';
+    logoLinkWrapper.rel = 'home';
   }
 
   headContainer.append(logoLinkWrapper);
 
   const nav = document.createElement('nav');
   nav.id = 'header-cssmenu';
+  nav.className = 'header-cssmenu';
 
-  const mobileDiv = document.createElement('div');
-  mobileDiv.id = 'header-head-mobile';
-  nav.append(mobileDiv);
+  const mobileHead = document.createElement('div');
+  mobileHead.id = 'header-head-mobile';
+  mobileHead.className = 'header-head-mobile';
+  nav.append(mobileHead);
 
   const buttonDiv = document.createElement('div');
   buttonDiv.className = 'header-button';
@@ -63,72 +58,91 @@ export default function decorate(block) {
   const ul = document.createElement('ul');
   ul.className = 'header-pull-rights';
 
-  const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
-  navItems.forEach((navItemNode) => {
+  const menuItems = block.querySelectorAll('[data-aue-model="headerMenuItem"]');
+  menuItems.forEach((menuItemNode) => {
     const li = document.createElement('li');
+    li.className = 'header-list-item';
 
-    const navLink = navItemNode.querySelector('[data-aue-prop="link"]');
-    const navLabel = navItemNode.querySelector('[data-aue-prop="label"]');
+    const link = menuItemNode.querySelector('[data-aue-prop="link"]');
+    const label = menuItemNode.querySelector('[data-aue-prop="label"]');
+    const subMenu = menuItemNode.querySelector('[data-aue-prop="subMenu"]');
 
-    const a = document.createElement('a');
-    if (navLink) {
-      a.href = navLink.textContent.trim();
-      moveInstrumentation(navLink, a);
-    } else {
-      a.href = '#'; // Default if no link is provided
+    const anchor = document.createElement('a');
+    anchor.className = 'header-link';
+
+    if (link) {
+      const linkElement = link.querySelector('a');
+      if (linkElement) {
+        anchor.href = linkElement.href;
+        anchor.title = linkElement.title || '';
+        moveInstrumentation(link, anchor);
+      }
     }
-    if (navLabel) {
-      a.textContent = navLabel.textContent.trim();
-      a.title = navLabel.textContent.trim();
-      moveInstrumentation(navLabel, a);
-    } else if (navLink) {
-      a.textContent = navLink.textContent.trim(); // Fallback to link text if no explicit label
-      a.title = navLink.textContent.trim();
-    }
-    li.append(a);
 
-    const subNavItems = navItemNode.querySelectorAll('[data-aue-model="subNavItem"]');
-    if (subNavItems.length > 0) {
-      li.classList.add('header-has-sub');
-      const span = document.createElement('span');
-      span.className = 'header-submenu-button';
-      li.prepend(span);
+    if (label) {
+      anchor.textContent = label.textContent;
+      moveInstrumentation(label, anchor);
+    } else if (anchor.href) {
+      // Fallback for label if missing
+      const url = new URL(anchor.href);
+      anchor.textContent = url.pathname.split('/').pop().replace(/-/g, ' ') || 'Link';
+    }
+
+    if (subMenu) {
+      li.classList.replace('header-list-item', 'header-has-sub');
+      const submenuButton = document.createElement('span');
+      submenuButton.className = 'header-submenu-button';
+      li.append(submenuButton);
 
       const subUl = document.createElement('ul');
-      subNavItems.forEach((subNavItemNode) => {
-        const subLi = document.createElement('li');
-        const subNavLink = subNavItemNode.querySelector('[data-aue-prop="link"]');
-        const subNavLabel = subNavItemNode.querySelector('[data-aue-prop="label"]');
+      subUl.className = 'header-submenu';
 
-        const subA = document.createElement('a');
-        if (subNavLink) {
-          subA.href = subNavLink.textContent.trim();
-          moveInstrumentation(subNavLink, subA);
-        } else {
-          subA.href = '#';
+      const subMenuItems = subMenu.querySelectorAll('[data-aue-model="headerSubMenuItem"]');
+      subMenuItems.forEach((subMenuItemNode) => {
+        const subLi = document.createElement('li');
+        subLi.className = 'header-submenu-item';
+
+        const subLink = subMenuItemNode.querySelector('[data-aue-prop="link"]');
+        const subLabel = subMenuItemNode.querySelector('[data-aue-prop="label"]');
+
+        const subAnchor = document.createElement('a');
+        subAnchor.className = 'header-submenu-link';
+
+        if (subLink) {
+          const subLinkElement = subLink.querySelector('a');
+          if (subLinkElement) {
+            subAnchor.href = subLinkElement.href;
+            moveInstrumentation(subLink, subAnchor);
+          }
         }
-        if (subNavLabel) {
-          subA.textContent = subNavLabel.textContent.trim();
-          moveInstrumentation(subNavLabel, subA);
-        } else if (subNavLink) {
-          subA.textContent = subNavLink.textContent.trim();
+
+        if (subLabel) {
+          subAnchor.textContent = subLabel.textContent;
+          moveInstrumentation(subLabel, subAnchor);
+        } else if (subAnchor.href) {
+          const url = new URL(subAnchor.href);
+          subAnchor.textContent = url.pathname.split('/').pop().replace(/-/g, ' ') || 'Sub-link';
         }
-        subLi.append(subA);
-        moveInstrumentation(subNavItemNode, subLi);
+
+        subLi.append(subAnchor);
         subUl.append(subLi);
+        moveInstrumentation(subMenuItemNode, subLi);
       });
-      li.append(subUl);
+      li.append(anchor, subUl);
+      moveInstrumentation(subMenu, subUl);
+    } else {
+      li.append(anchor);
     }
-    moveInstrumentation(navItemNode, li);
     ul.append(li);
+    moveInstrumentation(menuItemNode, li);
   });
 
   nav.append(ul);
   headContainer.append(nav);
-  headerElement.append(headContainer);
+  header.append(headContainer);
 
   block.textContent = '';
-  block.append(headerElement);
+  block.append(header);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

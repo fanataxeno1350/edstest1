@@ -1,46 +1,47 @@
-.header-seconds {
+.header-headerseconds {
   width: 100%;
   padding: 0 2%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999999;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 3px #ababab;
 }
-.header-seconds.header-sticky-head {
+.header-headerseconds.header-sticky-head {
   position: fixed;
   right: 0;
   left: 0;
-  top: 0;
+  top: 0px;
   z-index: 1030;
 }
 .header-head-container {
-  max-width: 87.5rem; /* Equivalent to 1400px assuming 16px base */
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  height: 4.375rem; /* Equivalent to 70px assuming 16px base */
 }
 .header-logo {
-  margin: 0.5rem 0 0; /* Equivalent to 8px 0 0 assuming 16px base */
-  width: 18%;
-  float: left;
   position: relative;
   z-index: 9;
-  padding-top: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  padding-top: 10px;
+  margin: 8px 0px 0;
+  width: 18%;
+  float: left;
 }
 .header-logo-img {
   width: 70%;
-  margin-top: 0;
+  margin-top: 0px;
   max-width: 100%;
   vertical-align: top;
 }
-
-#header-cssmenu,
-#header-cssmenu ul,
-#header-cssmenu ul li,
-#header-cssmenu ul li a,
-#header-cssmenu #header-head-mobile {
+.header-cssmenu {
+  font-family: 'DINPro-Regular';
+  background: #fff;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+.header-cssmenu ul {
   border: 0;
   list-style: none;
   line-height: 1;
@@ -48,8 +49,8 @@
   position: relative;
   box-sizing: border-box;
 }
-#header-cssmenu:after,
-#header-cssmenu > ul:after {
+.header-cssmenu:after,
+.header-cssmenu > ul:after {
   content: ".";
   display: block;
   clear: both;
@@ -57,241 +58,168 @@
   line-height: 0;
   height: 0;
 }
-#header-cssmenu #header-head-mobile {
+.header-head-mobile {
   display: none;
 }
-#header-cssmenu {
-  font-family: 'DINPro-Regular';
-  background: #ffffff;
+.header-pull-rights {
+  float: right;
 }
-#header-cssmenu > ul > li {
+.header-list-item {
   float: left;
-  margin-right: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+  margin-right: 1px;
 }
-#header-cssmenu ul li a {
-  font-weight: 600;
-  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
-  text-transform: uppercase;
-  font-size: 0.9375rem; /* Equivalent to 15px assuming 16px base */
-}
-#header-cssmenu > ul > li > a {
-  letter-spacing: 0.0625rem; /* Equivalent to 1px assuming 16px base */
-  text-decoration: none;
+.header-link {
   font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  letter-spacing: 1px;
+  text-decoration: none;
   color: #474747;
   display: block;
-  padding: 1.25rem 1.25rem; /* Equivalent to 20px 20px assuming 16px base */
-  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
-  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
-}
-#header-cssmenu > ul > li:hover > a,
-#header-cssmenu ul li.active a {
-  color: #ffffff;
-}
-#header-cssmenu > ul > li > a {
+  padding: 20px 20px;
   position: relative;
 }
-#header-cssmenu > ul > li > a:hover::after {
-  background: url(../images/files/active-arow.png) no-repeat 0 0 !important;
+.header-list-item:hover .header-link,
+.header-list-item.active .header-link {
+  color: #fff;
+}
+.header-link:hover::after {
+  background: url("../images/files/active-arow.png") no-repeat 0 0 !important;
   position: absolute !important;
-  bottom: -1.125rem; /* Equivalent to -18px assuming 16px base */
+  bottom: -18px !important;
   left: 50% !important;
-  margin-left: -0.625rem; /* Equivalent to -10px assuming 16px base */
+  margin-left: -10px !important;
   content: "" !important;
-  height: 1.25rem; /* Equivalent to 20px assuming 16px base */
-  width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  height: 20px !important;
+  width: 20px !important;
   z-index: 99999 !important;
 }
-#header-cssmenu > ul > li:hover,
-#header-cssmenu ul li.active:hover,
-#header-cssmenu ul li.active,
-#header-cssmenu ul li.header-has-sub.active:hover {
+.header-list-item:hover,
+.header-list-item.active:hover,
+.header-list-item.active,
+.header-has-sub.active:hover {
   background: #e41e2d !important;
   transition: background 0.3s ease;
 }
-#header-cssmenu > ul > li.header-has-sub > a {
-  padding-right: 1.875rem; /* Equivalent to 30px assuming 16px base */
+.header-has-sub .header-link {
+  padding-right: 30px;
 }
-#header-cssmenu > ul > li.header-has-sub > a:before {
-  position: absolute;
-  top: 1.1875rem; /* Equivalent to 19px assuming 16px base */
-  right: 0.875rem; /* Equivalent to 14px assuming 16px base */
-  display: block;
-  width: 0.125rem; /* Equivalent to 2px assuming 16px base */
-  height: 0.5rem; /* Equivalent to 8px assuming 16px base */
-  background: #ddd;
-  content: "";
-  transition: all 0.25s ease;
-  opacity: 0;
-}
-#header-cssmenu > ul > li.header-has-sub:hover > a:before {
-  top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
-  height: 0;
-  opacity: 0;
-}
-#header-cssmenu ul ul {
+.header-submenu {
   position: absolute;
   left: -9999px;
-}
-#header-cssmenu ul ul li {
-  height: 0;
-  transition: all 0.25s ease;
+  height: 262px;
+  overflow-y: scroll;
   background: #333;
-}
-#header-cssmenu ul ul li:hover {
-  background: #e41e2d !important;
-}
-#header-cssmenu li:hover > ul {
-  left: auto;
-}
-#header-cssmenu li.header-has-sub > ul {
-  max-height: 19.1875rem; /* Equivalent to 307px assuming 16px base */
+  max-height: 307px;
   overflow: auto;
 }
-#header-cssmenu li:hover > ul > li {
+.header-list-item:hover > .header-submenu {
+  left: auto;
+}
+.header-list-item:hover > .header-submenu > .header-submenu-item {
   height: auto;
 }
-#header-cssmenu ul ul ul {
-  margin-left: 100%;
-  top: 0;
+.header-submenu-item {
+  height: 0;
+  background: #333;
+  transition: all 0.25s ease;
 }
-#header-cssmenu ul ul li a {
-  border-bottom: 0.0625rem solid rgba(150, 150, 150, 0.15); /* Equivalent to 1px assuming 16px base */
-  padding: 0.9375rem 1.25rem; /* Equivalent to 15px 20px assuming 16px base */
-  width: 13.75rem; /* Equivalent to 220px assuming 16px base */
+.header-submenu-item:hover {
+  background: #e41e2d !important;
+}
+.header-submenu-item .header-submenu-link {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+  padding: 15px 20px;
+  width: 220px;
   text-decoration: none;
-  letter-spacing: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+  letter-spacing: 1px;
   font-weight: 700;
-  color: #ffffff;
-  display: block;
-  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  color: #fff;
+  line-height: 30px;
   font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
   height: auto;
 }
-#header-cssmenu ul ul li:last-child > a,
-#header-cssmenu ul ul li.last-item > a {
+.header-submenu-item:last-child > .header-submenu-link,
+.header-submenu-item.last-item > .header-submenu-link {
   border-bottom: 0;
 }
-#header-cssmenu ul ul li:hover > a,
-#header-cssmenu ul ul li a:hover {
-  color: #ffffff;
-}
-#header-cssmenu ul ul li.header-has-sub > a:after {
-  position: absolute;
-  top: 1rem; /* Equivalent to 16px assuming 16px base */
-  right: 0.6875rem; /* Equivalent to 11px assuming 16px base */
-  width: 0.5rem; /* Equivalent to 8px assuming 16px base */
-  height: 0.125rem; /* Equivalent to 2px assuming 16px base */
-  display: block;
-  background: #ddd;
-  content: "";
-  opacity: 0;
-}
-#header-cssmenu ul ul li.header-has-sub > a:before {
-  position: absolute;
-  top: 0.8125rem; /* Equivalent to 13px assuming 16px base */
-  right: 0.875rem; /* Equivalent to 14px assuming 16px base */
-  display: block;
-  width: 0.125rem; /* Equivalent to 2px assuming 16px base */
-  height: 0.5rem; /* Equivalent to 8px assuming 16px base */
-  background: #ddd;
-  content: "";
-  transition: all 0.25s ease;
-  opacity: 0;
-}
-#header-cssmenu ul ul > li.header-has-sub:hover > a:before {
-  top: 1.0625rem; /* Equivalent to 17px assuming 16px base */
-  height: 0;
-  opacity: 0;
-}
-#header-cssmenu ul ul li.header-has-sub:hover,
-#header-cssmenu ul li.header-has-sub ul li.header-has-sub ul li:hover {
-  background: #363636;
-}
-#header-cssmenu ul ul ul li.active a {
-  border-left: 0.0625rem solid #333; /* Equivalent to 1px assuming 16px base */
-}
-#header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
-#header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
-  border-top: 0.0625rem solid #333; /* Equivalent to 1px assuming 16px base */
+.header-submenu-item:hover > .header-submenu-link,
+.header-submenu-item .header-submenu-link:hover {
+  color: #fff;
 }
 
-@media screen and (max-width: 62.5rem) { /* Equivalent to 1000px assuming 16px base */
-  #header-cssmenu {
+@media screen and (max-width: 1000px) {
+  .header-cssmenu {
     width: 100%;
   }
-  #header-cssmenu ul {
+  .header-cssmenu ul {
     width: 100%;
     display: none;
   }
-  #header-cssmenu ul li {
+  .header-cssmenu ul .header-list-item {
     width: 100%;
-    border-top: 0.0625rem solid #ccc; /* Equivalent to 1px assuming 16px base */
+    border-top: 1px solid #ccc;
   }
-  #header-cssmenu ul li:hover {
+  .header-cssmenu ul .header-list-item:hover {
     background: #363636;
   }
-  #header-cssmenu ul ul li,
-  #header-cssmenu li:hover > ul > li {
+  .header-cssmenu ul .header-submenu-item,
+  .header-cssmenu .header-list-item:hover > ul > .header-submenu-item {
     height: auto;
   }
-  #header-cssmenu ul li a,
-  #header-cssmenu ul ul li a {
+  .header-cssmenu ul .header-list-item .header-link,
+  .header-cssmenu ul .header-submenu-item .header-submenu-link {
     width: 100%;
     border-bottom: 0;
     font-family: 'DINPro-Regular' !important;
   }
-  #header-cssmenu > ul > li {
+  .header-cssmenu > ul > .header-list-item {
     float: none;
   }
-  #header-cssmenu ul ul li a {
-    padding-left: 1.5625rem; /* Equivalent to 25px assuming 16px base */
-    font-family: 'DINPro-Regular' !important;
+  .header-cssmenu ul .header-submenu-item .header-submenu-link {
+    padding-left: 25px;
   }
-  #header-cssmenu ul ul li {
+  .header-cssmenu ul .header-submenu-item {
     background: #333 !important;
   }
-  #header-cssmenu ul ul li:hover {
+  .header-cssmenu ul .header-submenu-item:hover {
     background: #363636 !important;
   }
-  #header-cssmenu ul ul ul li a {
-    font-family: 'DINPro-Regular' !important;
-    padding-left: 2.1875rem; /* Equivalent to 35px assuming 16px base */
-  }
-  #header-cssmenu ul ul li a {
+  .header-cssmenu ul .header-submenu-item .header-submenu-link {
     color: #ddd;
     background: none;
   }
-  #header-cssmenu ul ul li:hover > a,
-  #header-cssmenu ul ul li.active > a {
-    color: #ffffff;
+  .header-cssmenu ul .header-submenu-item:hover > .header-submenu-link,
+  .header-cssmenu ul .header-submenu-item.active > .header-submenu-link {
+    color: #fff;
   }
-  #header-cssmenu ul ul,
-  #header-cssmenu ul ul ul {
+  .header-cssmenu ul .header-submenu,
+  .header-cssmenu ul .header-submenu .header-submenu {
     position: relative;
     left: 0;
     width: 100%;
     margin: 0;
     text-align: left;
-    max-height: 17.8125rem; /* Equivalent to 285px assuming 16px base */
+    max-height: 285px;
     overflow: scroll;
   }
-  #header-cssmenu > ul > li.header-has-sub > a:after,
-  #header-cssmenu > ul > li.header-has-sub > a:before,
-  #header-cssmenu ul ul > li.header-has-sub > a:after,
-  #header-cssmenu ul ul > li.header-has-sub > a:before {
+  .header-cssmenu > ul > .header-has-sub > .header-link:after,
+  .header-cssmenu > ul > .header-has-sub > .header-link:before,
+  .header-cssmenu ul .header-submenu > .header-has-sub > .header-submenu-link:after,
+  .header-cssmenu ul .header-submenu > .header-has-sub > .header-submenu-link:before {
     display: none;
   }
-  #header-cssmenu #header-head-mobile {
+  .header-head-mobile {
     display: block;
-    padding: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    padding: 23px;
     color: #ddd;
     font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
     font-weight: 700;
   }
   .header-button {
-    width: 3.4375rem; /* Equivalent to 55px assuming 16px base */
-    height: 2.875rem; /* Equivalent to 46px assuming 16px base */
+    width: 55px;
+    height: 46px;
     position: absolute;
     right: 0;
     top: 0;
@@ -300,113 +228,111 @@
   }
   .header-button:after {
     position: absolute;
-    top: 1.375rem; /* Equivalent to 22px assuming 16px base */
-    right: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    top: 22px;
+    right: 20px;
     display: block;
-    height: 0.25rem; /* Equivalent to 4px assuming 16px base */
-    width: 1.25rem; /* Equivalent to 20px assuming 16px base */
-    border-top: 0.125rem solid #999; /* Equivalent to 2px assuming 16px base */
-    border-bottom: 0.125rem solid #999; /* Equivalent to 2px assuming 16px base */
+    height: 4px;
+    width: 20px;
+    border-top: 2px solid #999;
+    border-bottom: 2px solid #999;
     content: "";
   }
   .header-button:before {
     transition: all 0.3s ease;
     position: absolute;
-    top: 1rem; /* Equivalent to 16px assuming 16px base */
-    right: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    top: 16px;
+    right: 20px;
     display: block;
-    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
-    width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    height: 2px;
+    width: 20px;
     background: #999;
     content: "";
   }
   .header-button.menu-opened:after {
     transition: all 0.3s ease;
-    top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    top: 23px;
     border: 0;
-    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
-    width: 1.1875rem; /* Equivalent to 19px assuming 16px base */
+    height: 2px;
+    width: 19px;
     background: #999;
     transform: rotate(45deg);
   }
   .header-button.menu-opened:before {
-    top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    top: 23px;
     background: #999;
-    width: 1.1875rem; /* Equivalent to 19px assuming 16px base */
+    width: 19px;
     transform: rotate(-45deg);
   }
-  #header-cssmenu .header-submenu-button {
+  .header-cssmenu .header-submenu-button {
     position: absolute;
     z-index: 99;
     right: 0;
     top: 0;
     display: block;
-    border-left: 0.0625rem solid #ccc; /* Equivalent to 1px assuming 16px base */
-    height: 4.375rem; /* Equivalent to 70px assuming 16px base */
-    line-height: 4.375rem; /* Equivalent to 70px assuming 16px base */
-    width: 2.875rem; /* Equivalent to 46px assuming 16px base */
+    border-left: 1px solid #ccc;
+    height: 70px;
+    line-height: 70px;
+    width: 46px;
     cursor: pointer;
     font-family: 'DINPro-Regular' !important;
   }
-  #header-cssmenu .header-submenu-button.submenu-opened {
+  .header-cssmenu .header-submenu-button.submenu-opened {
     background: #262626;
   }
-  #header-cssmenu ul ul .header-submenu-button {
-    height: 2.125rem; /* Equivalent to 34px assuming 16px base */
-    width: 2.125rem; /* Equivalent to 34px assuming 16px base */
-    font-family: 'DINPro-Regular' !important;
+  .header-cssmenu ul ul .header-submenu-button {
+    height: 34px;
+    width: 34px;
   }
-  #header-cssmenu .header-submenu-button:after {
+  .header-cssmenu .header-submenu-button:after {
     position: absolute;
-    top: 2.1875rem; /* Equivalent to 35px assuming 16px base */
-    right: 1rem; /* Equivalent to 16px assuming 16px base */
-    width: 0.875rem; /* Equivalent to 14px assuming 16px base */
-    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+    top: 35px;
+    right: 16px;
+    width: 14px;
+    height: 2px;
     display: block;
     background: #999;
     content: "";
   }
-  #header-cssmenu ul ul .header-submenu-button:after {
-    top: 0.9375rem; /* Equivalent to 15px assuming 16px base */
-    right: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  .header-cssmenu ul ul .header-submenu-button:after {
+    top: 15px;
+    right: 13px;
   }
-  #header-cssmenu .header-submenu-button.submenu-opened:after {
-    background: #ffffff;
+  .header-cssmenu .header-submenu-button.submenu-opened:after {
+    background: #fff;
   }
-  #header-cssmenu .header-submenu-button:before {
+  .header-cssmenu .header-submenu-button:before {
     position: absolute;
-    top: 1.8125rem; /* Equivalent to 29px assuming 16px base */
-    right: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    top: 29px;
+    right: 22px;
     display: block;
-    width: 0.125rem; /* Equivalent to 2px assuming 16px base */
-    height: 0.875rem; /* Equivalent to 14px assuming 16px base */
+    width: 2px;
+    height: 14px;
     background: #999;
     content: "";
   }
-  #header-cssmenu ul ul .header-submenu-button:before {
-    top: 0.75rem; /* Equivalent to 12px assuming 16px base */
-    right: 1rem; /* Equivalent to 16px assuming 16px base */
+  .header-cssmenu ul ul .header-submenu-button:before {
+    top: 12px;
+    right: 16px;
   }
-  #header-cssmenu .header-submenu-button.submenu-opened:before {
+  .header-cssmenu .header-submenu-button.submenu-opened:before {
     display: none;
   }
-  #header-cssmenu ul ul ul li.active a {
+  .header-cssmenu ul ul ul .header-list-item.active .header-link {
     border-left: none;
   }
-  #header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
-  #header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+  .header-cssmenu > ul > .header-has-sub > ul > .header-list-item.active > .header-link,
+  .header-cssmenu > ul .header-submenu > .header-has-sub > ul > .header-list-item.active > .header-link {
     border-top: none;
     font-family: 'DINPro-Regular' !important;
   }
 }
-
-@media (max-width: 47.9375rem) { /* Equivalent to 767px assuming 16px base */
-  .header-seconds .header-logo {
-    margin: 0;
+@media (max-width: 767px) {
+  .header-headerseconds .header-logo {
+    margin: 0 0;
     width: 55%;
   }
-  header.header-seconds {
-    padding-top: 0.3125rem; /* Equivalent to 5px assuming 16px base */
-    padding-bottom: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+  .header-headerseconds {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }

@@ -2,131 +2,45 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const mainBannerContainer = document.createElement('div');
-  mainBannerContainer.className = 'main-banner-container';
+  const mainBannerMainBanner = document.createElement('div');
+  mainBannerMainBanner.className = 'mainbanner-main-banner mainbanner-listing-bn';
 
-  const mainBannerHeaderBanner = document.createElement('div');
-  mainBannerHeaderBanner.className = 'main-banner-header-banner';
+  const mainBannerContainerIn = document.createElement('div');
+  mainBannerContainerIn.className = 'mainbanner-container-in mainbanner-mobile-image';
 
-  const headerImageElement = block.querySelector('[data-aue-prop="headerImage"]');
-  if (headerImageElement) {
-    const img = headerImageElement.querySelector('img');
+  const headingElement = block.querySelector('[data-aue-prop="heading"]');
+  if (headingElement) {
+    const h1 = document.createElement('h1');
+    h1.append(...headingElement.childNodes);
+    mainBannerContainerIn.append(h1);
+    moveInstrumentation(headingElement, h1);
+  }
+
+  const imageElement = block.querySelector('[data-aue-prop="image"]');
+  if (imageElement) {
+    const figure = document.createElement('figure');
+    figure.className = 'mainbanner-mobile-sub-image';
+    const img = imageElement.querySelector('img');
     if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]);
-      const newImg = picture.querySelector('img');
-      newImg.className = 'main-banner-m-header-banner';
-      mainBannerHeaderBanner.append(picture);
-      moveInstrumentation(headerImageElement, picture);
+      figure.append(createOptimizedPicture(img.src, img.alt));
+      mainBannerContainerIn.append(figure);
+      moveInstrumentation(imageElement, figure);
     }
   }
 
-  const mainBannerHeaderContent = document.createElement('div');
-  mainBannerHeaderContent.className = 'main-banner-header-content';
-
-  const logoImageElement = block.querySelector('[data-aue-prop="logoImage"]');
-  if (logoImageElement) {
-    const img = logoImageElement.querySelector('img');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '100' }]);
-      const newImg = picture.querySelector('img');
-      newImg.className = 'main-banner-banner-logo';
-      mainBannerHeaderContent.append(picture);
-      moveInstrumentation(logoImageElement, picture);
-    }
+  const disclaimerElement = block.querySelector('[data-aue-prop="disclaimer"]');
+  if (disclaimerElement) {
+    const p = document.createElement('p');
+    p.className = 'mainbanner-disclaimer-bn mainbanner-sanitizer-disc';
+    p.append(...disclaimerElement.childNodes);
+    mainBannerContainerIn.append(p);
+    moveInstrumentation(disclaimerElement, p);
   }
 
-  const titleElement = block.querySelector('[data-aue-prop="title"]');
-  if (titleElement) {
-    const h2 = document.createElement('h2');
-    h2.className = 'main-banner-title';
-    h2.textContent = titleElement.textContent;
-    mainBannerHeaderContent.append(h2);
-    moveInstrumentation(titleElement, h2);
-  }
-
-  const mainBannerHomeBanner = document.createElement('div');
-  mainBannerHomeBanner.className = 'main-banner-home-banner';
-
-  const mainBannerBxWrapper = document.createElement('div');
-  mainBannerBxWrapper.className = 'main-banner-bx-wrapper';
-  mainBannerBxWrapper.style.maxWidth = '100%';
-
-  const mainBannerBxViewport = document.createElement('div');
-  mainBannerBxViewport.className = 'main-banner-bx-viewport';
-  mainBannerBxViewport.style.width = '100%';
-  mainBannerBxViewport.style.overflow = 'hidden';
-  mainBannerBxViewport.style.position = 'relative';
-  mainBannerBxViewport.style.height = '210.219px'; // Hardcoded from example, may need dynamic calculation
-
-  const mainBannerBxslider = document.createElement('ul');
-  mainBannerBxslider.className = 'main-banner-bxslider-2';
-  mainBannerBxslider.style.width = '415%'; // Hardcoded from example, may need dynamic calculation
-  mainBannerBxslider.style.position = 'relative';
-  mainBannerBxslider.style.transitionTimingFunction = 'ease-out';
-  mainBannerBxslider.style.transitionDuration = '0s';
-  mainBannerBxslider.style.transform = 'translate3d(-565.266px, 0px, 0px)'; // Hardcoded from example, may need dynamic calculation
-
-  const slideItems = block.querySelectorAll('[data-aue-model="mainBannerSlide"]');
-  slideItems.forEach((slideNode) => {
-    const li = document.createElement('li');
-    li.className = 'main-banner-slide-item';
-
-    const slideImageElement = slideNode.querySelector('[data-aue-prop="slideImage"]');
-    const slideTextElement = slideNode.querySelector('[data-aue-prop="slideText"]');
-
-    if (slideImageElement) {
-      const mainBannerVideo = document.createElement('div');
-      mainBannerVideo.className = 'main-banner-video';
-      const img = slideImageElement.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]);
-        mainBannerVideo.append(picture);
-        moveInstrumentation(slideImageElement, picture);
-      }
-      li.append(mainBannerVideo);
-    } else if (slideTextElement) {
-      const mainBannerBannerCopy = document.createElement('div');
-      mainBannerBannerCopy.className = 'main-banner-banner-copy';
-      const h5 = document.createElement('h5');
-      h5.className = 'main-banner-copy-text';
-
-      // Extract and reconstruct the content including the span for hashtag
-      const p = slideTextElement.querySelector('p');
-      if (p) {
-        const span = p.querySelector('span');
-        if (span) {
-          const textBefore = p.firstChild.textContent;
-          const hashtagSpan = document.createElement('span');
-          hashtagSpan.className = 'main-banner-hashtag';
-          hashtagSpan.textContent = span.textContent;
-          h5.textContent = textBefore;
-          h5.append(hashtagSpan);
-        } else {
-          h5.textContent = p.textContent;
-        }
-        moveInstrumentation(slideTextElement, h5);
-      }
-      mainBannerBannerCopy.append(h5);
-      li.append(mainBannerBannerCopy);
-    }
-    mainBannerBxslider.append(li);
-    moveInstrumentation(slideNode, li);
-  });
-
-  mainBannerBxViewport.append(mainBannerBxslider);
-  mainBannerBxWrapper.append(mainBannerBxViewport);
-
-  const mainBannerBxControls = document.createElement('div');
-  mainBannerBxControls.className = 'main-banner-bx-controls';
-  mainBannerBxWrapper.append(mainBannerBxControls);
-
-  mainBannerHomeBanner.append(mainBannerBxWrapper);
-  mainBannerHeaderContent.append(mainBannerHomeBanner);
-  mainBannerHeaderBanner.append(mainBannerHeaderContent);
-  mainBannerContainer.append(mainBannerHeaderBanner);
+  mainBannerMainBanner.append(mainBannerContainerIn);
 
   block.textContent = '';
-  block.append(mainBannerContainer);
+  block.append(mainBannerMainBanner);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

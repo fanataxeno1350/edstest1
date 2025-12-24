@@ -1,0 +1,44 @@
+{
+  "definitions": [
+    {
+      "title": "Breadcrumb-Block",
+      "id": "breadcrumbBlock",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "breadcrumbBlock",
+              "model": "breadcrumbBlock",
+              "name": "Breadcrumb-Block"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "breadcrumbBlock",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Breadcrumb Title",
+          "name": "breadcrumbTitle",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Breadcrumb Link",
+          "name": "breadcrumbLink",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "breadcrumbBlock"
+    }
+  ]
+}

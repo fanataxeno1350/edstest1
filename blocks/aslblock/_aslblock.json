@@ -15,21 +15,6 @@
           }
         }
       }
-    },
-    {
-      "title": "ASLBlockListItem",
-      "id": "aslBlockListItem",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "model": "aslBlockListItem",
-              "name": "ASLBlockListItem"
-            }
-          }
-        }
-      }
     }
   ],
   "models": [
@@ -38,61 +23,26 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Main Image",
-          "name": "mainImage",
+          "label": "Image",
+          "name": "image",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Main Image Alt",
-          "name": "mainImageAlt",
+          "label": "Heading",
+          "name": "heading",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
+          "component": "richtext",
           "label": "Description",
           "name": "description",
           "valueType": "string"
         },
         {
-          "component": "container",
-          "itemResourceType": "aslBlockListItem",
-          "label": "Features",
-          "name": "features"
-        },
-        {
           "component": "richtext",
           "label": "Disclaimer",
           "name": "disclaimer",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "aslBlockListItem",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "Feature Image",
-          "name": "featureImage",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Feature Image Alt",
-          "name": "featureImageAlt",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Feature Text",
-          "name": "featureText",
           "valueType": "string"
         }
       ]
@@ -102,7 +52,7 @@
     {
       "id": "aslBlock",
       "components": [
-        "aslBlockListItem"
+        "aslBlock"
       ]
     }
   ]

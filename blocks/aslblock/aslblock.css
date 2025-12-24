@@ -4,7 +4,7 @@
   position: relative;
   border-bottom: 0.0625rem solid #2d2b74; /* Equivalent to 1px assuming 16px base */
 }
-.aslblock-figure {
+.aslblock-container figure {
   width: 50%;
   overflow: hidden;
   vertical-align: top;
@@ -12,10 +12,11 @@
   margin: 0;
   float: left;
 }
-.aslblock-figure img {
+.aslblock-container figure img {
   width: 100%;
+  object-fit: cover;
 }
-.aslblock-text-box {
+.aslblock-container .aslblock-text-box {
   width: 50%;
   overflow: hidden;
   position: relative;
@@ -23,8 +24,7 @@
   float: left;
   text-align: center;
 }
-.aslblock-title {
-  font-family: 'DINPro-Regular';
+.aslblock-container .aslblock-text-box h2 {
   color: #f36a1c;
   display: block;
   font-size: 2.1875rem; /* Equivalent to 35px assuming 16px base */
@@ -34,10 +34,11 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  font-family: 'DINPro-Regular';
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
 }
-.aslblock-description {
+.aslblock-container .aslblock-text-box p {
   font-family: 'DINPro-Regular';
   font-size: 1.75rem; /* Equivalent to 28px assuming 16px base */
   color: #555;
@@ -45,77 +46,28 @@
   margin: 0 auto 0.9375rem auto; /* Equivalent to 15px assuming 16px base */
   width: 100%;
 }
-.aslblock-list {
-  width: 100%;
-  float: left;
-  text-align: center;
-  margin: 1.25rem 0 6vw; /* Equivalent to 20px assuming 16px base */
-}
-.aslblock-list-item {
-  text-align: center;
-  display: inline-block;
-  margin: 0.3125rem; /* Equivalent to 5px assuming 16px base */
-  width: 9.5625rem; /* Equivalent to 153px assuming 16px base */
-  vertical-align: top;
-}
-.aslblock-list-item img {
-  width: 60%;
-}
-.aslblock-list-text {
-  font-family: 'DINPro-Medium';
-  display: block;
-  padding: 0.3125rem 0; /* Equivalent to 5px assuming 16px base */
-  text-align: center;
-  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
-  color: #2d2b74;
-  font-weight: 500;
-  line-height: normal;
-}
-.aslblock-disclaimer {
+.aslblock-container .aslblock-disclaimer {
   font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
   line-height: 0.8125rem; /* Equivalent to 13px assuming 16px base */
   color: #333;
   position: absolute;
   left: 0;
   bottom: 0.3125rem; /* Equivalent to 5px assuming 16px base */
-  text-align: center;
+  text-align: center !important;
   width: 100%;
   padding: 0 0.3125rem; /* Equivalent to 5px assuming 16px base */
 }
-@media (max-width: 1024px) {
-  .aslblock-text-box {
-    padding: 2% 3% 0;
-  }
-  .aslblock-title {
-    font-size: 1.5625rem; /* Equivalent to 25px assuming 16px base */
-    margin: 0 0 0.75rem 0; /* Equivalent to 12px assuming 16px base */
-    line-height: 1.6875rem; /* Equivalent to 27px assuming 16px base */
-  }
-  .aslblock-description {
-    font-size: 1.25rem; /* Equivalent to 20px assuming 16px base */
-    line-height: 1.5rem; /* Equivalent to 24px assuming 16px base */
-  }
-  .aslblock-list {
-    margin: 0.25rem 0 0.9375rem; /* Equivalent to 4px 0 15px assuming 16px base */
-  }
-  .aslblock-list-item {
-    width: 8.5rem; /* Equivalent to 136px assuming 16px base */
-  }
-  .aslblock-list-text {
-    font-size: 0.8125rem; /* Equivalent to 13px assuming 16px base */
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 768px) {
-  .aslblock-figure {
+@media only screen and (max-width: 767px) {
+  .aslblock-container figure {
     width: 100%;
   }
-  .aslblock-text-box {
+  .aslblock-container .aslblock-text-box {
     width: 100%;
   }
-  .aslblock-title {
+  .aslblock-container .aslblock-text-box h2 {
     font-size: 1.3125rem; /* Equivalent to 21px assuming 16px base */
   }
-  .aslblock-description {
+  .aslblock-container .aslblock-text-box p {
     width: 100%;
     font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
     line-height: 1.6875rem; /* Equivalent to 27px assuming 16px base */

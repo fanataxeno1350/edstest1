@@ -1,0 +1,412 @@
+.header-seconds {
+  width: 100%;
+  padding: 0 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  background-color: #ffffff;
+  box-shadow: 0 2px 3px #ababab;
+}
+.header-seconds.header-sticky-head {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1030;
+}
+.header-head-container {
+  max-width: 87.5rem; /* Equivalent to 1400px assuming 16px base */
+  width: 100%;
+  margin: 0 auto;
+  height: 4.375rem; /* Equivalent to 70px assuming 16px base */
+}
+.header-logo {
+  margin: 0.5rem 0 0; /* Equivalent to 8px 0 0 assuming 16px base */
+  width: 18%;
+  float: left;
+  position: relative;
+  z-index: 9;
+  padding-top: 0.625rem; /* Equivalent to 10px assuming 16px base */
+}
+.header-logo-img {
+  width: 70%;
+  margin-top: 0;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+#header-cssmenu,
+#header-cssmenu ul,
+#header-cssmenu ul li,
+#header-cssmenu ul li a,
+#header-cssmenu #header-head-mobile {
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+#header-cssmenu:after,
+#header-cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#header-cssmenu #header-head-mobile {
+  display: none;
+}
+#header-cssmenu {
+  font-family: 'DINPro-Regular';
+  background: #ffffff;
+}
+#header-cssmenu > ul > li {
+  float: left;
+  margin-right: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+}
+#header-cssmenu ul li a {
+  font-weight: 600;
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  text-transform: uppercase;
+  font-size: 0.9375rem; /* Equivalent to 15px assuming 16px base */
+}
+#header-cssmenu > ul > li > a {
+  letter-spacing: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+  text-decoration: none;
+  font-weight: 700;
+  color: #474747;
+  display: block;
+  padding: 1.25rem 1.25rem; /* Equivalent to 20px 20px assuming 16px base */
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+}
+#header-cssmenu > ul > li:hover > a,
+#header-cssmenu ul li.active a {
+  color: #ffffff;
+}
+#header-cssmenu > ul > li > a {
+  position: relative;
+}
+#header-cssmenu > ul > li > a:hover::after {
+  background: url(../images/files/active-arow.png) no-repeat 0 0 !important;
+  position: absolute !important;
+  bottom: -1.125rem; /* Equivalent to -18px assuming 16px base */
+  left: 50% !important;
+  margin-left: -0.625rem; /* Equivalent to -10px assuming 16px base */
+  content: "" !important;
+  height: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  z-index: 99999 !important;
+}
+#header-cssmenu > ul > li:hover,
+#header-cssmenu ul li.active:hover,
+#header-cssmenu ul li.active,
+#header-cssmenu ul li.header-has-sub.active:hover {
+  background: #e41e2d !important;
+  transition: background 0.3s ease;
+}
+#header-cssmenu > ul > li.header-has-sub > a {
+  padding-right: 1.875rem; /* Equivalent to 30px assuming 16px base */
+}
+#header-cssmenu > ul > li.header-has-sub > a:before {
+  position: absolute;
+  top: 1.1875rem; /* Equivalent to 19px assuming 16px base */
+  right: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  display: block;
+  width: 0.125rem; /* Equivalent to 2px assuming 16px base */
+  height: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  background: #ddd;
+  content: "";
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+#header-cssmenu > ul > li.header-has-sub:hover > a:before {
+  top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+  height: 0;
+  opacity: 0;
+}
+#header-cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+}
+#header-cssmenu ul ul li {
+  height: 0;
+  transition: all 0.25s ease;
+  background: #333;
+}
+#header-cssmenu ul ul li:hover {
+  background: #e41e2d !important;
+}
+#header-cssmenu li:hover > ul {
+  left: auto;
+}
+#header-cssmenu li.header-has-sub > ul {
+  max-height: 19.1875rem; /* Equivalent to 307px assuming 16px base */
+  overflow: auto;
+}
+#header-cssmenu li:hover > ul > li {
+  height: auto;
+}
+#header-cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 0;
+}
+#header-cssmenu ul ul li a {
+  border-bottom: 0.0625rem solid rgba(150, 150, 150, 0.15); /* Equivalent to 1px assuming 16px base */
+  padding: 0.9375rem 1.25rem; /* Equivalent to 15px 20px assuming 16px base */
+  width: 13.75rem; /* Equivalent to 220px assuming 16px base */
+  text-decoration: none;
+  letter-spacing: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+  line-height: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  height: auto;
+}
+#header-cssmenu ul ul li:last-child > a,
+#header-cssmenu ul ul li.last-item > a {
+  border-bottom: 0;
+}
+#header-cssmenu ul ul li:hover > a,
+#header-cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#header-cssmenu ul ul li.header-has-sub > a:after {
+  position: absolute;
+  top: 1rem; /* Equivalent to 16px assuming 16px base */
+  right: 0.6875rem; /* Equivalent to 11px assuming 16px base */
+  width: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+  display: block;
+  background: #ddd;
+  content: "";
+  opacity: 0;
+}
+#header-cssmenu ul ul li.header-has-sub > a:before {
+  position: absolute;
+  top: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  right: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  display: block;
+  width: 0.125rem; /* Equivalent to 2px assuming 16px base */
+  height: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  background: #ddd;
+  content: "";
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+#header-cssmenu ul ul > li.header-has-sub:hover > a:before {
+  top: 1.0625rem; /* Equivalent to 17px assuming 16px base */
+  height: 0;
+  opacity: 0;
+}
+#header-cssmenu ul ul li.header-has-sub:hover,
+#header-cssmenu ul li.header-has-sub ul li.header-has-sub ul li:hover {
+  background: #363636;
+}
+#header-cssmenu ul ul ul li.active a {
+  border-left: 0.0625rem solid #333; /* Equivalent to 1px assuming 16px base */
+}
+#header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
+#header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+  border-top: 0.0625rem solid #333; /* Equivalent to 1px assuming 16px base */
+}
+
+@media screen and (max-width: 62.5rem) { /* Equivalent to 1000px assuming 16px base */
+  #header-cssmenu {
+    width: 100%;
+  }
+  #header-cssmenu ul {
+    width: 100%;
+    display: none;
+  }
+  #header-cssmenu ul li {
+    width: 100%;
+    border-top: 0.0625rem solid #ccc; /* Equivalent to 1px assuming 16px base */
+  }
+  #header-cssmenu ul li:hover {
+    background: #363636;
+  }
+  #header-cssmenu ul ul li,
+  #header-cssmenu li:hover > ul > li {
+    height: auto;
+  }
+  #header-cssmenu ul li a,
+  #header-cssmenu ul ul li a {
+    width: 100%;
+    border-bottom: 0;
+    font-family: 'DINPro-Regular' !important;
+  }
+  #header-cssmenu > ul > li {
+    float: none;
+  }
+  #header-cssmenu ul ul li a {
+    padding-left: 1.5625rem; /* Equivalent to 25px assuming 16px base */
+    font-family: 'DINPro-Regular' !important;
+  }
+  #header-cssmenu ul ul li {
+    background: #333 !important;
+  }
+  #header-cssmenu ul ul li:hover {
+    background: #363636 !important;
+  }
+  #header-cssmenu ul ul ul li a {
+    font-family: 'DINPro-Regular' !important;
+    padding-left: 2.1875rem; /* Equivalent to 35px assuming 16px base */
+  }
+  #header-cssmenu ul ul li a {
+    color: #ddd;
+    background: none;
+  }
+  #header-cssmenu ul ul li:hover > a,
+  #header-cssmenu ul ul li.active > a {
+    color: #ffffff;
+  }
+  #header-cssmenu ul ul,
+  #header-cssmenu ul ul ul {
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    max-height: 17.8125rem; /* Equivalent to 285px assuming 16px base */
+    overflow: scroll;
+  }
+  #header-cssmenu > ul > li.header-has-sub > a:after,
+  #header-cssmenu > ul > li.header-has-sub > a:before,
+  #header-cssmenu ul ul > li.header-has-sub > a:after,
+  #header-cssmenu ul ul > li.header-has-sub > a:before {
+    display: none;
+  }
+  #header-cssmenu #header-head-mobile {
+    display: block;
+    padding: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    color: #ddd;
+    font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+    font-weight: 700;
+  }
+  .header-button {
+    width: 3.4375rem; /* Equivalent to 55px assuming 16px base */
+    height: 2.875rem; /* Equivalent to 46px assuming 16px base */
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 12399994;
+  }
+  .header-button:after {
+    position: absolute;
+    top: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    right: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    display: block;
+    height: 0.25rem; /* Equivalent to 4px assuming 16px base */
+    width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    border-top: 0.125rem solid #999; /* Equivalent to 2px assuming 16px base */
+    border-bottom: 0.125rem solid #999; /* Equivalent to 2px assuming 16px base */
+    content: "";
+  }
+  .header-button:before {
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 1rem; /* Equivalent to 16px assuming 16px base */
+    right: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    display: block;
+    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+    width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+    background: #999;
+    content: "";
+  }
+  .header-button.menu-opened:after {
+    transition: all 0.3s ease;
+    top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    border: 0;
+    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+    width: 1.1875rem; /* Equivalent to 19px assuming 16px base */
+    background: #999;
+    transform: rotate(45deg);
+  }
+  .header-button.menu-opened:before {
+    top: 1.4375rem; /* Equivalent to 23px assuming 16px base */
+    background: #999;
+    width: 1.1875rem; /* Equivalent to 19px assuming 16px base */
+    transform: rotate(-45deg);
+  }
+  #header-cssmenu .header-submenu-button {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    top: 0;
+    display: block;
+    border-left: 0.0625rem solid #ccc; /* Equivalent to 1px assuming 16px base */
+    height: 4.375rem; /* Equivalent to 70px assuming 16px base */
+    line-height: 4.375rem; /* Equivalent to 70px assuming 16px base */
+    width: 2.875rem; /* Equivalent to 46px assuming 16px base */
+    cursor: pointer;
+    font-family: 'DINPro-Regular' !important;
+  }
+  #header-cssmenu .header-submenu-button.submenu-opened {
+    background: #262626;
+  }
+  #header-cssmenu ul ul .header-submenu-button {
+    height: 2.125rem; /* Equivalent to 34px assuming 16px base */
+    width: 2.125rem; /* Equivalent to 34px assuming 16px base */
+    font-family: 'DINPro-Regular' !important;
+  }
+  #header-cssmenu .header-submenu-button:after {
+    position: absolute;
+    top: 2.1875rem; /* Equivalent to 35px assuming 16px base */
+    right: 1rem; /* Equivalent to 16px assuming 16px base */
+    width: 0.875rem; /* Equivalent to 14px assuming 16px base */
+    height: 0.125rem; /* Equivalent to 2px assuming 16px base */
+    display: block;
+    background: #999;
+    content: "";
+  }
+  #header-cssmenu ul ul .header-submenu-button:after {
+    top: 0.9375rem; /* Equivalent to 15px assuming 16px base */
+    right: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  }
+  #header-cssmenu .header-submenu-button.submenu-opened:after {
+    background: #ffffff;
+  }
+  #header-cssmenu .header-submenu-button:before {
+    position: absolute;
+    top: 1.8125rem; /* Equivalent to 29px assuming 16px base */
+    right: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    display: block;
+    width: 0.125rem; /* Equivalent to 2px assuming 16px base */
+    height: 0.875rem; /* Equivalent to 14px assuming 16px base */
+    background: #999;
+    content: "";
+  }
+  #header-cssmenu ul ul .header-submenu-button:before {
+    top: 0.75rem; /* Equivalent to 12px assuming 16px base */
+    right: 1rem; /* Equivalent to 16px assuming 16px base */
+  }
+  #header-cssmenu .header-submenu-button.submenu-opened:before {
+    display: none;
+  }
+  #header-cssmenu ul ul ul li.active a {
+    border-left: none;
+  }
+  #header-cssmenu > ul > li.header-has-sub > ul > li.active > a,
+  #header-cssmenu > ul ul > li.header-has-sub > ul > li.active > a {
+    border-top: none;
+    font-family: 'DINPro-Regular' !important;
+  }
+}
+
+@media (max-width: 47.9375rem) { /* Equivalent to 767px assuming 16px base */
+  .header-seconds .header-logo {
+    margin: 0;
+    width: 55%;
+  }
+  header.header-seconds {
+    padding-top: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+    padding-bottom: 0.3125rem; /* Equivalent to 5px assuming 16px base */
+  }
+}

@@ -115,15 +115,16 @@
           }
         },
         {
-          "title": "ASLBlockListItem",
-          "id": "aslBlockListItem",
+          "title": "Breadcrumb-Block",
+          "id": "breadcrumbBlock",
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
+                "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "model": "aslBlockListItem",
-                  "name": "ASLBlockListItem"
+                  "filter": "breadcrumbBlock",
+                  "model": "breadcrumbBlock",
+                  "name": "Breadcrumb-Block"
                 }
               }
             }
@@ -140,6 +141,22 @@
                   "filter": "breadcrumb",
                   "model": "breadcrumb",
                   "name": "Breadcrumb"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer-Main",
+          "id": "footerMain",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "footerMain",
+                  "model": "footerMain",
+                  "name": "Footer-Main"
                 }
               }
             }
@@ -178,30 +195,30 @@
           }
         },
         {
-          "title": "Nav-Item",
-          "id": "navItem",
+          "title": "HeaderMenuItem",
+          "id": "headerMenuItem",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "navItem",
-                  "name": "Nav-Item"
+                  "model": "headerMenuItem",
+                  "name": "HeaderMenuItem"
                 }
               }
             }
           }
         },
         {
-          "title": "Sub-Nav-Item",
-          "id": "subNavItem",
+          "title": "HeaderSubMenuItem",
+          "id": "headerSubMenuItem",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "subNavItem",
-                  "name": "Sub-Nav-Item"
+                  "model": "headerSubMenuItem",
+                  "name": "HeaderSubMenuItem"
                 }
               }
             }
@@ -218,21 +235,6 @@
                   "filter": "mainBanner",
                   "model": "mainBanner",
                   "name": "Main-Banner"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Main-Banner-Slide",
-          "id": "mainBannerSlide",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "model": "mainBannerSlide",
-                  "name": "Main-Banner-Slide"
                 }
               }
             }
@@ -264,6 +266,68 @@
                 "template": {
                   "model": "product",
                   "name": "Product"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product-Listing",
+          "id": "productListing",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "productListing",
+                  "model": "productListing",
+                  "name": "Product-Listing"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product",
+          "id": "product",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "product",
+                  "name": "Product"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Sanitizer-Listing",
+          "id": "sanitizerListing",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "sanitizerListing",
+                  "model": "sanitizerListing",
+                  "name": "Sanitizer-Listing"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Sanitizer",
+          "id": "sanitizer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "sanitizer",
+                  "name": "Sanitizer"
                 }
               }
             }

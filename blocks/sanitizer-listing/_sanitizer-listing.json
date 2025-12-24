@@ -1,0 +1,56 @@
+{
+  "definitions": [
+    {
+      "title": "Sanitizer-Listing",
+      "id": "sanitizerListing",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "sanitizerListing",
+              "model": "sanitizerListing",
+              "name": "Sanitizer-Listing"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Sanitizer",
+      "id": "sanitizer",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "sanitizer",
+              "name": "Sanitizer"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "sanitizer",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Text",
+          "name": "text",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "sanitizer-Listing",
+      "components": [
+        "sanitizer"
+      ]
+    }
+  ]
+}

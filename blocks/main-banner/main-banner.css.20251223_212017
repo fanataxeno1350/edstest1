@@ -1,0 +1,46 @@
+.mainbanner-main-banner {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mainbanner-main-banner.mainbanner-listing-bn {
+  background-image: url("/content/dam/aemigrate/uploaded-folder/image/screenshot-with-icon-21.jpg");
+  background-repeat: no-repeat;
+  background-position: center 4rem; /* Equivalent to 64px assuming 16px base */
+  background-size: 100%;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  height: 19.6vw;
+  background-attachment: fixed;
+}
+.mainbanner-container-in {
+  width: 100%;
+  max-width: 81.25rem; /* Equivalent to 1300px assuming 16px base */
+  margin: 0 auto;
+  position: relative;
+}
+.mainbanner-disclaimer-bn {
+  position: absolute;
+  left: 0;
+  bottom: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  font-size: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+@media only screen and (max-width: 640px) {
+  .mainbanner-disclaimer-bn {
+    position: relative;
+    left: 1.75rem; /* Equivalent to 28px assuming 16px base */
+    top: 0.875rem; /* Equivalent to 14px assuming 16px base */
+    font-size: 0.4375rem; /* Equivalent to 7px assuming 16px base */
+  }
+}
+@media only screen and (min-width: 800px) and (max-width: 1024px) {
+  .mainbanner-container-in {
+    padding: 2%;
+  }
+}

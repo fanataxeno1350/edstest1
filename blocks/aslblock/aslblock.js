@@ -3,88 +3,58 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const aslBlockContainer = document.createElement('div');
-  aslBlockContainer.className = 'aslblock-container';
+  aslBlockContainer.classList.add('aslblock-container');
 
-  const figure = document.createElement('figure');
-  figure.className = 'aslblock-figure';
-
-  const mainImageWrapper = block.querySelector('[data-aue-prop="mainImage"]');
-  if (mainImageWrapper) {
-    const mainImg = mainImageWrapper.querySelector('img');
-    if (mainImg) {
-      const h1 = document.createElement('h1');
-      h1.append(createOptimizedPicture(mainImg.src, mainImg.alt));
-      figure.append(h1);
-      moveInstrumentation(mainImageWrapper, h1);
+  const imageElement = block.querySelector('[data-aue-prop="image"]');
+  if (imageElement) {
+    const figure = document.createElement('figure');
+    const h1 = document.createElement('h1');
+    const img = imageElement.querySelector('img');
+    if (img) {
+      h1.append(createOptimizedPicture(img.src, img.alt));
+    } else {
+      // Fallback for image if not directly img tag under data-aue-prop
+      const imgLink = imageElement.querySelector('a[href$=".jpeg"], a[href$=".png"], a[href$=".jpg"], a[href$=".webp"]');
+      if (imgLink) {
+        h1.append(createOptimizedPicture(imgLink.href, ''));
+      }
     }
+    figure.append(h1);
+    aslBlockContainer.append(figure);
+    moveInstrumentation(imageElement, figure);
   }
 
-  const section = document.createElement('section');
-  section.className = 'aslblock-text-box';
+  const sectionTextBox = document.createElement('section');
+  sectionTextBox.classList.add('aslblock-text-box');
 
-  const titleElement = block.querySelector('[data-aue-prop="title"]');
-  if (titleElement) {
+  const headingElement = block.querySelector('[data-aue-prop="heading"]');
+  if (headingElement) {
     const h2 = document.createElement('h2');
-    h2.className = 'aslblock-title';
-    h2.textContent = titleElement.textContent;
-    section.append(h2);
-    moveInstrumentation(titleElement, h2);
+    h2.textContent = headingElement.textContent.trim();
+    sectionTextBox.append(h2);
+    moveInstrumentation(headingElement, h2);
   }
 
   const descriptionElement = block.querySelector('[data-aue-prop="description"]');
   if (descriptionElement) {
     const p = document.createElement('p');
-    p.className = 'aslblock-description';
-    p.textContent = descriptionElement.textContent;
-    section.append(p);
+    p.innerHTML = descriptionElement.innerHTML.trim(); // Use innerHTML for rich text
+    sectionTextBox.append(p);
     moveInstrumentation(descriptionElement, p);
-  }
-
-  const featuresContainer = block.querySelector('[data-aue-prop="features"]');
-  if (featuresContainer) {
-    const ul = document.createElement('ul');
-    ul.className = 'aslblock-list';
-
-    const featureItems = featuresContainer.querySelectorAll('[data-aue-model="aslBlockListItem"]');
-    featureItems.forEach((itemNode) => {
-      const li = document.createElement('li');
-      li.className = 'aslblock-list-item';
-
-      const featureImageWrapper = itemNode.querySelector('[data-aue-prop="featureImage"]');
-      if (featureImageWrapper) {
-        const featureImg = featureImageWrapper.querySelector('img');
-        if (featureImg) {
-          li.append(createOptimizedPicture(featureImg.src, featureImg.alt));
-          moveInstrumentation(featureImageWrapper, li.querySelector('picture'));
-        }
-      }
-
-      const featureTextElement = itemNode.querySelector('[data-aue-prop="featureText"]');
-      if (featureTextElement) {
-        const span = document.createElement('span');
-        span.className = 'aslblock-list-text';
-        span.textContent = featureTextElement.textContent;
-        li.append(span);
-        moveInstrumentation(featureTextElement, span);
-      }
-
-      ul.append(li);
-      moveInstrumentation(itemNode, li);
-    });
-    section.append(ul);
-    moveInstrumentation(featuresContainer, ul);
   }
 
   const disclaimerElement = block.querySelector('[data-aue-prop="disclaimer"]');
   if (disclaimerElement) {
-    const div = document.createElement('div');
-    div.className = 'aslblock-disclaimer';
-    div.innerHTML = disclaimerElement.innerHTML;
-    section.append(div);
-    moveInstrumentation(disclaimerElement, div);
+    const disclaimerDiv = document.createElement('div');
+    disclaimerDiv.classList.add('aslblock-disclaimer');
+    disclaimerDiv.innerHTML = disclaimerElement.innerHTML.trim(); // Use innerHTML for rich text
+    sectionTextBox.append(disclaimerDiv);
+    moveInstrumentation(disclaimerElement, disclaimerDiv);
   }
 
-  aslBlockContainer.append(figure, section);
+  if (sectionTextBox.children.length > 0) {
+    aslBlockContainer.append(sectionTextBox);
+  }
 
   block.textContent = '';
   block.append(aslBlockContainer);

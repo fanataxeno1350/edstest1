@@ -181,33 +181,21 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Main Image",
-        "name": "mainImage",
+        "label": "Image",
+        "name": "image",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Main Image Alt",
-        "name": "mainImageAlt",
+        "label": "Heading",
+        "name": "heading",
         "valueType": "string"
       },
       {
-        "component": "text",
-        "label": "Title",
-        "name": "title",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
+        "component": "richtext",
         "label": "Description",
         "name": "description",
         "valueType": "string"
-      },
-      {
-        "component": "container",
-        "itemResourceType": "aslBlockListItem",
-        "label": "Features",
-        "name": "features"
       },
       {
         "component": "richtext",
@@ -218,24 +206,18 @@
     ]
   },
   {
-    "id": "aslBlockListItem",
+    "id": "breadcrumbBlock",
     "fields": [
       {
-        "component": "reference",
-        "label": "Feature Image",
-        "name": "featureImage",
+        "component": "richtext",
+        "label": "Breadcrumb Title",
+        "name": "breadcrumbTitle",
         "valueType": "string"
       },
       {
-        "component": "text",
-        "label": "Feature Image Alt",
-        "name": "featureImageAlt",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Feature Text",
-        "name": "featureText",
+        "component": "aem-content",
+        "label": "Breadcrumb Link",
+        "name": "breadcrumbLink",
         "valueType": "string"
       }
     ]
@@ -253,6 +235,53 @@
         "component": "aem-content",
         "label": "Link",
         "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerMain",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "logoImage",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Logo Link",
+        "name": "logoLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Contact Link",
+        "name": "contactLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Terms Of Use Link",
+        "name": "termsOfUseLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Privacy Policy Link",
+        "name": "privacyPolicyLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Sitemap Link",
+        "name": "sitemapLink",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Copyright Text",
+        "name": "copyrightText",
         "valueType": "string"
       }
     ]
@@ -321,14 +350,14 @@
       },
       {
         "component": "container",
-        "itemType": "navItem",
-        "label": "Navigation Items",
-        "name": "navItems"
+        "itemType": "headerMenuItem",
+        "label": "Menu Items",
+        "name": "menuItems"
       }
     ]
   },
   {
-    "id": "navItem",
+    "id": "headerMenuItem",
     "fields": [
       {
         "component": "aem-content",
@@ -344,14 +373,14 @@
       },
       {
         "component": "container",
-        "itemType": "subNavItem",
-        "label": "Sub Navigation Items",
-        "name": "subNavItems"
+        "itemType": "headerSubMenuItem",
+        "label": "Sub Menu",
+        "name": "subMenu"
       }
     ]
   },
   {
-    "id": "subNavItem",
+    "id": "headerSubMenuItem",
     "fields": [
       {
         "component": "aem-content",
@@ -371,38 +400,21 @@
     "id": "mainBanner",
     "fields": [
       {
-        "component": "reference",
-        "label": "Header Image",
-        "name": "headerImage",
+        "component": "richtext",
+        "label": "Heading",
+        "name": "heading",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Logo Image",
-        "name": "logoImage",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Title",
-        "name": "title",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "mainBannerSlide",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Slide Image",
-        "name": "slideImage",
+        "label": "Image",
+        "name": "image",
         "valueType": "string"
       },
       {
         "component": "richtext",
-        "label": "Slide Text",
-        "name": "slideText",
+        "label": "Disclaimer",
+        "name": "disclaimer",
         "valueType": "string"
       }
     ]
@@ -438,6 +450,40 @@
         "component": "richtext",
         "label": "Disclaimer",
         "name": "disclaimer",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "product",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "sanitizer",
+    "fields": [
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "text",
         "valueType": "string"
       }
     ]

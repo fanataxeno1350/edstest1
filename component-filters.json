@@ -24,7 +24,11 @@
       "footer",
       "whySavlon",
       "productCarousel",
-      "youtubeSlider"
+      "youtubeSlider",
+      "breadcrumbBlock",
+      "productListing",
+      "sanitizerListing",
+      "footerMain"
     ]
   },
   {
@@ -36,13 +40,22 @@
   {
     "id": "aslBlock",
     "components": [
-      "aslBlockListItem"
+      "aslBlock"
     ]
+  },
+  {
+    "id": "breadcrumbBlock"
   },
   {
     "id": "breadcrumb",
     "components": [
       "breadcrumb"
+    ]
+  },
+  {
+    "id": "footerMain",
+    "components": [
+      "footerMain"
     ]
   },
   {
@@ -54,25 +67,37 @@
   {
     "id": "header",
     "components": [
-      "navItem"
+      "headerMenuItem"
     ]
   },
   {
-    "id": "navItem",
+    "id": "headerMenuItem",
     "components": [
-      "subNavItem"
+      "headerSubMenuItem"
     ]
   },
   {
     "id": "mainBanner",
     "components": [
-      "mainBannerSlide"
+      "mainBanner"
     ]
   },
   {
     "id": "productCarousel",
     "components": [
       "product"
+    ]
+  },
+  {
+    "id": "productListing",
+    "components": [
+      "product"
+    ]
+  },
+  {
+    "id": "sanitizer-Listing",
+    "components": [
+      "sanitizer"
     ]
   },
   {

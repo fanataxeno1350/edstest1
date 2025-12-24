@@ -1,0 +1,42 @@
+.antisept-sanitizer-listing-bn {
+  background-image: url("../images/screenshot-with-icon-21.jpg");
+  background-repeat: no-repeat;
+  background-position: center 64px; /* Equivalent to 4rem assuming 16px base */
+  background-size: 100%;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  height: 19.6vw;
+  background-attachment: fixed;
+}
+.antisept-sanitizer-anti-sept.antisept-sanitizer-anti-sanitizer {
+  background-position: center center;
+}
+.antisept-sanitizer-container-in {
+  max-width: 82.563rem; /* Equivalent to 1321px assuming 16px base */
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.antisept-sanitizer-container.antisept-sanitizer-asl-sanitizer {
+  padding: 2vw 4vw 0vw; /* Converted from original vw values */
+}
+.antisept-sanitizer-col-sm-4.antisept-sanitizer-EqualWidth {
+  width: 33.33%;
+  float: left;
+}
+.antisept-sanitizer-sanitizer-text {
+  margin: 1vw auto;
+  text-align: left;
+}
+@media only screen and (min-width: 48rem) { /* Equivalent to 768px assuming 16px base */
+  .antisept-sanitizer-sanitizer-text {
+    margin: 1vw auto;
+  }
+}
+@media only screen and (max-width: 30rem) { /* Equivalent to 480px assuming 16px base */
+  .antisept-sanitizer-asl-sanitizer .antisept-sanitizer-EqualWidth {
+    width: 100%;
+    float: left;
+  }
+}

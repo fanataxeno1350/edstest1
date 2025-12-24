@@ -59,7 +59,11 @@
         "footer",
         "whySavlon",
         "productCarousel",
-        "youtubeSlider"
+        "youtubeSlider",
+        "breadcrumbBlock",
+        "productListing",
+        "sanitizerListing",
+        "footerMain"
       ]
     }
   ]
