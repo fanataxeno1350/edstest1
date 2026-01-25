@@ -1,0 +1,186 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default async function decorate(block) {
+  const carouselSection = document.createElement('section');
+  carouselSection.classList.add('carousel-section');
+
+  const carouselBanner = document.createElement('div');
+  carouselBanner.id = 'carouselExampleSlidesOnly';
+  carouselBanner.classList.add('carousel-banner', 'carousel', 'slide');
+  carouselBanner.setAttribute('data-ride', 'carousel');
+
+  const carouselIndicators = document.createElement('ol');
+  carouselIndicators.classList.add('carousel-indicators');
+
+  const carouselInner = document.createElement('div');
+  carouselInner.classList.add('carousel-inner');
+
+  const slides = [...block.children];
+
+  slides.forEach((slide, index) => {
+    const indicator = document.createElement('li');
+    indicator.setAttribute('data-target', '#carouselExampleSlidesOnly');
+    indicator.setAttribute('data-slide-to', index.toString());
+    if (index === 0) {
+      indicator.classList.add('active');
+    }
+    carouselIndicators.append(indicator);
+
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (index === 0) {
+      carouselItem.classList.add('active');
+    }
+
+    const desktopImageWrapper = slide.querySelector('[data-aue-prop="desktopImage"]');
+    if (desktopImageWrapper) {
+      const img = desktopImageWrapper.querySelector('img');
+      if (img) {
+        const desktopPicture = createOptimizedPicture(img.src, img.alt);
+        desktopPicture.classList.add('d-none', 'd-sm-block', 'w-100', 'carousel-desktop-image');
+        carouselItem.append(desktopPicture);
+        moveInstrumentation(desktopImageWrapper, desktopPicture);
+      }
+    }
+
+    const mobileImageWrapper = slide.querySelector('[data-aue-prop="mobileImage"]');
+    if (mobileImageWrapper) {
+      const img = mobileImageWrapper.querySelector('img');
+      if (img) {
+        const mobilePicture = createOptimizedPicture(img.src, img.alt);
+        mobilePicture.classList.add('d-block', 'd-sm-none', 'w-100', 'carousel-mobile-image');
+        carouselItem.append(mobilePicture);
+        moveInstrumentation(mobileImageWrapper, mobilePicture);
+      }
+    }
+
+    const carouselContentWrapper = document.createElement('div');
+    carouselContentWrapper.classList.add('carousel-content-wrapper', 'position-absolute');
+
+    const headingElement = slide.querySelector('[data-aue-prop="heading"]');
+    if (headingElement) {
+      const h1 = document.createElement('h1');
+      h1.classList.add('carousel-heading', 'text-sm-left');
+      h1.textContent = headingElement.textContent;
+      const color = headingElement.getAttribute('data-color');
+      if (color) {
+        h1.style.color = color;
+      }
+      carouselContentWrapper.append(h1);
+      moveInstrumentation(headingElement, h1);
+    }
+
+    const descriptionElement = slide.querySelector('[data-aue-prop="description"]');
+    if (descriptionElement) {
+      const descriptionDiv = document.createElement('div');
+      descriptionDiv.classList.add('carousel-description');
+      const descColor = descriptionElement.getAttribute('data-desc-color');
+      if (descColor) {
+        descriptionDiv.style.color = descColor;
+      }
+      // Move all children of the description element
+      while (descriptionElement.firstChild) {
+        descriptionDiv.append(descriptionElement.firstChild);
+      }
+      carouselContentWrapper.append(descriptionDiv);
+      moveInstrumentation(descriptionElement, descriptionDiv);
+    }
+
+    const ctaLinkElement = slide.querySelector('[data-aue-prop="ctaLink"]');
+    const ctaLabelElement = slide.querySelector('[data-aue-prop="ctaLabel"]');
+
+    if (ctaLinkElement && ctaLabelElement) {
+      const ctaLink = document.createElement('a');
+      ctaLink.classList.add('carousel-cta', 'btn', 'btn-primary', 'btn-start-now');
+      ctaLink.href = ctaLinkElement.textContent.trim();
+      ctaLink.alt = ctaLabelElement.textContent.trim();
+      ctaLink.target = '_blank';
+      ctaLink.textContent = ctaLabelElement.textContent.trim();
+
+      const bgColor = ctaLinkElement.getAttribute('data-bg-color');
+      if (bgColor) {
+        ctaLink.style.backgroundColor = bgColor;
+      }
+
+      const screenReaderOnly = document.createElement('span');
+      screenReaderOnly.classList.add('cmp-link__screen-reader-only');
+      screenReaderOnly.textContent = 'opens in a new tab';
+      ctaLink.append(screenReaderOnly);
+
+      carouselContentWrapper.append(ctaLink);
+      moveInstrumentation(ctaLinkElement, ctaLink);
+      moveInstrumentation(ctaLabelElement, ctaLink);
+    } else if (ctaLinkElement) {
+      // Fallback for a link without a separate label field
+      const ctaLink = document.createElement('a');
+      ctaLink.classList.add('carousel-cta', 'btn', 'btn-primary', 'btn-start-now');
+      ctaLink.href = ctaLinkElement.textContent.trim();
+      ctaLink.alt = ctaLinkElement.textContent.trim(); // Use link text as alt if no separate label
+      ctaLink.target = '_blank';
+      ctaLink.textContent = ctaLinkElement.textContent.trim();
+
+      const bgColor = ctaLinkElement.getAttribute('data-bg-color');
+      if (bgColor) {
+        ctaLink.style.backgroundColor = bgColor;
+      }
+
+      const screenReaderOnly = document.createElement('span');
+      screenReaderOnly.classList.add('cmp-link__screen-reader-only');
+      screenReaderOnly.textContent = 'opens in a new tab';
+      ctaLink.append(screenReaderOnly);
+
+      carouselContentWrapper.append(ctaLink);
+      moveInstrumentation(ctaLinkElement, ctaLink);
+    }
+
+    carouselItem.append(carouselContentWrapper);
+    carouselInner.append(carouselItem);
+    moveInstrumentation(slide, carouselItem);
+  });
+
+  const carouselNextBtn = document.createElement('div');
+  carouselNextBtn.classList.add('carousel-next-btn');
+
+  const prevButton = document.createElement('a');
+  prevButton.classList.add('carousel-control-prev');
+  prevButton.href = '#carouselExampleSlidesOnly';
+  prevButton.setAttribute('role', 'button');
+  prevButton.setAttribute('data-slide', 'prev');
+
+  const prevIcon = document.createElement('span');
+  prevIcon.classList.add('carousel-control-prev-icon');
+  prevIcon.setAttribute('aria-hidden', 'true');
+  prevButton.append(prevIcon);
+
+  const prevSrOnly = document.createElement('span');
+  prevSrOnly.classList.add('sr-only');
+  prevSrOnly.textContent = 'Previous';
+  prevButton.append(prevSrOnly);
+
+  const nextButton = document.createElement('a');
+  nextButton.classList.add('carousel-control-next');
+  nextButton.href = '#carouselExampleSlidesOnly';
+  nextButton.setAttribute('role', 'button');
+  nextButton.setAttribute('data-slide', 'next');
+
+  const nextIcon = document.createElement('span');
+  nextIcon.classList.add('carousel-control-next-icon');
+  nextIcon.setAttribute('aria-hidden', 'true');
+  nextButton.append(nextIcon);
+
+  const nextSrOnly = document.createElement('span');
+  nextSrOnly.classList.add('sr-only');
+  nextSrOnly.textContent = 'Next';
+  nextButton.append(nextSrOnly);
+
+  carouselNextBtn.append(prevButton, nextButton);
+
+  carouselBanner.append(carouselIndicators, carouselInner, carouselNextBtn);
+  carouselSection.append(carouselBanner);
+
+  block.textContent = '';
+  block.append(carouselSection);
+  block.className = `${block.dataset.blockName} block`;
+  block.dataset.blockStatus = 'loaded';
+}

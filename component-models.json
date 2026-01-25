@@ -233,8 +233,8 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Banner Image",
-        "name": "bannerImage",
+        "label": "Left Image",
+        "name": "leftImage",
         "valueType": "string"
       },
       {
@@ -257,9 +257,7 @@
       },
       {
         "component": "container",
-        "item": {
-          "type": "delicacyCategory"
-        },
+        "itemResourceType": "delicacyCategory",
         "label": "Categories",
         "name": "categories",
         "valueType": "array"
@@ -274,73 +272,6 @@
         "component": "text",
         "label": "Button Label",
         "name": "buttonLabel",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "delicacyItem",
-    "description": "",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Image",
-        "name": "image",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "label": "Link",
-        "name": "link",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Label",
-        "name": "label",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "delightfulDelicacies",
-    "description": "",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Main Image",
-        "name": "mainImage",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Heading",
-        "name": "heading",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Subheading",
-        "name": "subheading",
-        "valueType": "string"
-      },
-      {
-        "component": "block",
-        "itemResourceType": "delicacyItem",
-        "label": "Delicacy Items",
-        "name": "delicacyItems",
-        "valueType": "array"
-      },
-      {
-        "component": "aem-content",
-        "label": "CTA Link",
-        "name": "ctaLink",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "CTA Label",
-        "name": "ctaLabel",
         "valueType": "string"
       }
     ]
@@ -368,23 +299,25 @@
       },
       {
         "component": "container",
-        "items": {
+        "item": {
           "type": "footerLink"
         },
         "label": "Footer Links",
-        "name": "footerLinks"
+        "name": "footerLinks",
+        "valueType": "array"
       },
       {
         "component": "container",
-        "items": {
+        "item": {
           "type": "footerLink"
         },
         "label": "Footer List Links",
-        "name": "footerListLinks"
+        "name": "footerListLinks",
+        "valueType": "array"
       },
       {
         "component": "richtext",
-        "label": "Grievance Officer Title",
+        "label": "Grievance Title",
         "name": "grievanceTitle",
         "valueType": "string"
       },
@@ -396,23 +329,24 @@
       },
       {
         "component": "richtext",
-        "label": "Grievance Contact Info",
+        "label": "Grievance Officer Contact",
         "name": "grievanceContact",
         "valueType": "string"
       },
       {
         "component": "richtext",
-        "label": "Grievance Officer Time",
+        "label": "Grievance Officer Timing",
         "name": "grievanceTime",
         "valueType": "string"
       },
       {
         "component": "container",
-        "items": {
-          "type": "footerSocialIcon"
+        "item": {
+          "type": "socialIcon"
         },
-        "label": "Footer Social Icons",
-        "name": "footerSocialIcons"
+        "label": "Social Icons",
+        "name": "socialIcons",
+        "valueType": "array"
       },
       {
         "component": "richtext",
@@ -422,11 +356,12 @@
       },
       {
         "component": "container",
-        "items": {
+        "item": {
           "type": "footerLink"
         },
         "label": "Footer Secondary Links",
-        "name": "footerSecondaryLinks"
+        "name": "footerSecondaryLinks",
+        "valueType": "array"
       }
     ]
   },
@@ -440,7 +375,7 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "label": "Text",
         "name": "text",
         "valueType": "string"
@@ -448,17 +383,17 @@
     ]
   },
   {
-    "id": "footerSocialIcon",
+    "id": "socialIcon",
     "fields": [
       {
         "component": "aem-content",
-        "label": "URL",
+        "label": "Social URL",
         "name": "url",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Icon Image",
+        "label": "Icon Asset",
         "name": "icon",
         "valueType": "string"
       }
@@ -480,87 +415,77 @@
         "valueType": "string"
       },
       {
-        "component": "aem-content",
-        "label": "Alternate Logo Link",
-        "name": "altLogoLink",
-        "valueType": "string"
+        "component": "container",
+        "items": {
+          "component": "navigationLink"
+        },
+        "label": "Navigation Links",
+        "name": "navigation"
       },
       {
         "component": "reference",
-        "label": "Alternate Logo Image",
-        "name": "altLogoImage",
+        "label": "Country Flag Icon",
+        "name": "countryFlagIcon",
         "valueType": "string"
       },
       {
-        "component": "aem-content",
-        "label": "Shop Link",
-        "name": "navShopLink",
+        "component": "text",
+        "label": "Country Code",
+        "name": "countryCode",
         "valueType": "string"
       },
       {
-        "component": "aem-content",
-        "label": "Our Heritage Link",
-        "name": "navOurHeritageLink",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "India Flag Image",
-        "name": "countryFlagIndia",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "USA Flag Image",
-        "name": "countryFlagUSA",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "Dropdown Icon",
-        "name": "dropdownIcon",
-        "valueType": "string"
+        "component": "container",
+        "items": {
+          "component": "countryOption"
+        },
+        "label": "Country Options",
+        "name": "countryOptions"
       },
       {
         "component": "reference",
         "label": "Search Icon",
         "name": "searchIcon",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "navigationLink",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Navigation Link",
+        "name": "link",
+        "valueType": "string"
       },
+      {
+        "component": "text",
+        "label": "Link Label",
+        "name": "label",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "countryOption",
+    "fields": [
       {
         "component": "reference",
-        "label": "Close Icon",
-        "name": "closeIcon",
+        "label": "Country Flag Image",
+        "name": "flagImage",
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "label": "Search Block Icon",
-        "name": "searchBlockIcon",
+        "component": "text",
+        "label": "Country Name",
+        "name": "countryName",
         "valueType": "string"
       },
       {
-        "component": "richtext",
-        "label": "Modal Title",
-        "name": "modalTitle",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Modal Experience Text",
-        "name": "modalExperienceText",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Country India Label",
-        "name": "countryIndiaLabel",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Country USA Label",
-        "name": "countryUSALabel",
+        "component": "text",
+        "label": "Country URL",
+        "name": "countryUrl",
         "valueType": "string"
       }
     ]
@@ -572,6 +497,29 @@
         "component": "richtext",
         "label": "Content",
         "name": "content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "whyUsCard",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
         "valueType": "string"
       }
     ]

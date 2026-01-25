@@ -1,383 +1,304 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-export default function decorate(block) {
+export default async function decorate(block) {
   const header = document.createElement('header');
-  header.classList.add('header-itc-header-section');
+  header.className = 'header-itc-header-section';
 
   const headerContainer = document.createElement('div');
-  headerContainer.classList.add('header-container');
+  headerContainer.className = 'header-container';
 
-  const navbar = document.createElement('nav');
-  navbar.classList.add('header-navbar', 'header-navbar-expand-xl', 'header-navbar-light', 'header-bg-light', 'header-px-xl-5', 'header-d-flex', 'header-justify-content-between', 'header-align-items-center');
+  const nav = document.createElement('nav');
+  nav.className = 'header-navbar header-navbar-expand-xl header-navbar-light header-bg-light header-px-xl-5 header-d-flex header-justify-content-between header-align-items-center';
 
-  const navbarToggler = document.createElement('button');
-  navbarToggler.classList.add('header-navbar-toggler', 'header-collapsed');
-  navbarToggler.type = 'button';
-  navbarToggler.setAttribute('data-toggle', 'collapse');
-  navbarToggler.setAttribute('data-target', '#navbarSupportedContent');
-  navbarToggler.setAttribute('aria-controls', 'navbarSupportedContent');
-  navbarToggler.setAttribute('aria-expanded', 'false');
-  navbarToggler.setAttribute('aria-label', 'Toggle navigation');
+  const navToggler = document.createElement('button');
+  navToggler.className = 'header-navbar-toggler header-collapsed';
+  navToggler.type = 'button';
+  navToggler.setAttribute('data-toggle', 'collapse');
+  navToggler.setAttribute('data-target', '#navbarSupportedContent');
+  navToggler.setAttribute('aria-controls', 'navbarSupportedContent');
+  navToggler.setAttribute('aria-expanded', 'false');
+  navToggler.setAttribute('aria-label', 'Toggle navigation');
   const togglerIcon = document.createElement('span');
-  togglerIcon.classList.add('header-navbar-toggler-icon');
-  navbarToggler.append(togglerIcon);
-  moveInstrumentation(block.querySelector('button.header-navbar-toggler'), navbarToggler);
+  togglerIcon.className = 'header-navbar-toggler-icon';
+  navToggler.append(togglerIcon);
+  nav.append(navToggler);
 
   const dXlNone = document.createElement('div');
-  dXlNone.classList.add('header-d-xl-none');
+  dXlNone.className = 'header-d-xl-none';
   dXlNone.innerHTML = '&nbsp;';
+  nav.append(dXlNone);
 
   const logoDiv = document.createElement('div');
-  logoDiv.classList.add('header-logo', 'header-image');
+  logoDiv.className = 'header-logo header-image';
+  const logoImageField = block.querySelector('[data-aue-prop="logoImage"]');
+  const logoLinkField = block.querySelector('[data-aue-prop="logoLink"]');
 
-  const logoImageContainer = block.querySelector('[data-aue-prop="logoImage"]');
-  const logoLink = block.querySelector('[data-aue-prop="logoLink"]');
-  const altLogoImageContainer = block.querySelector('[data-aue-prop="altLogoImage"]');
-  const altLogoLink = block.querySelector('[data-aue-prop="altLogoLink"]');
-
-  if (logoImageContainer && logoLink) {
-    const logoAnchor = document.createElement('a');
-    logoAnchor.target = '_blank';
-    logoAnchor.href = logoLink.textContent.trim();
-    logoAnchor.classList.add('header-checkLogoLink');
-    const logoImg = logoImageContainer.querySelector('img');
-    if (logoImg) {
-      logoAnchor.append(createOptimizedPicture(logoImg.src, logoImg.alt));
+  if (logoImageField) {
+    const logoLink = document.createElement('a');
+    logoLink.className = 'header-cmp-image__link';
+    logoLink.target = '_blank';
+    if (logoLinkField) {
+      const link = logoLinkField.querySelector('a');
+      if (link) { 
+        logoLink.href = link.href;
+        moveInstrumentation(link, logoLink);
+      } else {
+        logoLink.href = logoLinkField.textContent.trim();
+      }
+      moveInstrumentation(logoLinkField, logoLink);
     }
-    const srOnly = document.createElement('span');
-    srOnly.classList.add('header-cmp-link__screen-reader-only');
-    srOnly.textContent = 'opens in a new tab';
-    logoAnchor.append(srOnly);
-    logoDiv.append(logoAnchor);
-    moveInstrumentation(logoImageContainer, logoDiv);
-    moveInstrumentation(logoLink, logoAnchor);
-  }
-
-  if (altLogoImageContainer && altLogoLink) {
-    const altLogoAnchor = document.createElement('a');
-    altLogoAnchor.classList.add('header-cmp-image__link');
-    altLogoAnchor.href = altLogoLink.textContent.trim();
-    altLogoAnchor.target = '_blank';
-    const altLogoImg = altLogoImageContainer.querySelector('img');
-    if (altLogoImg) {
-      altLogoAnchor.append(createOptimizedPicture(altLogoImg.src, altLogoImg.alt, false, [{ width: '131' }]));
+    
+    const imgElement = logoImageField.querySelector('img');
+    if (imgElement) {
+      const picture = createOptimizedPicture(imgElement.src, imgElement.alt);
+      logoLink.append(picture);
+      moveInstrumentation(imgElement, picture);
     }
-    const srOnlyAlt = document.createElement('span');
-    srOnlyAlt.classList.add('header-cmp-link__screen-reader-only');
-    srOnlyAlt.textContent = 'opens in a new tab';
-    altLogoAnchor.append(srOnlyAlt);
-    logoDiv.append(altLogoAnchor);
-    moveInstrumentation(altLogoImageContainer, logoDiv);
-    moveInstrumentation(altLogoLink, altLogoAnchor);
+    logoDiv.append(logoLink);
+    moveInstrumentation(logoImageField, logoDiv);
   }
+  nav.append(logoDiv);
 
   const navbarCollapse = document.createElement('div');
-  navbarCollapse.classList.add('header-collapse', 'header-navbar-collapse', 'header-justify-content-center');
+  navbarCollapse.className = 'header-collapse header-navbar-collapse header-justify-content-center';
   navbarCollapse.id = 'navbarSupportedContent';
 
   const navItemNavigation = document.createElement('div');
-  navItemNavigation.classList.add('header-nav-item', 'header-navigation');
-
+  navItemNavigation.className = 'header-nav-item header-navigation';
   const navigationNav = document.createElement('nav');
   navigationNav.id = 'navigation-6d5dcb0126';
-  navigationNav.classList.add('header-cmp-navigation');
+  navigationNav.className = 'header-cmp-navigation';
   navigationNav.setAttribute('itemscope', '');
   navigationNav.setAttribute('itemtype', 'http://schema.org/SiteNavigationElement');
   navigationNav.setAttribute('role', 'navigation');
+  const navigationUl = document.createElement('ul');
+  navigationUl.className = 'header-cmp-navigation__group';
 
-  const navGroup = document.createElement('ul');
-  navGroup.classList.add('header-cmp-navigation__group');
-
-  const navShopLink = block.querySelector('[data-aue-prop="navShopLink"]');
-  if (navShopLink) {
-    const shopLi = document.createElement('li');
-    shopLi.classList.add('header-cmp-navigation__item', 'header-cmp-navigation__item--level-0');
-    const shopAnchor = document.createElement('a');
-    shopAnchor.classList.add('header-cmp-navigation__item-link');
-    shopAnchor.href = navShopLink.textContent.trim();
-    shopAnchor.textContent = 'Shop';
-    shopLi.append(shopAnchor);
-    navGroup.append(shopLi);
-    moveInstrumentation(navShopLink, shopAnchor);
-  }
-
-  const navOurHeritageLink = block.querySelector('[data-aue-prop="navOurHeritageLink"]');
-  if (navOurHeritageLink) {
-    const heritageLi = document.createElement('li');
-    heritageLi.classList.add('header-cmp-navigation__item', 'header-cmp-navigation__item--level-0');
-    const heritageAnchor = document.createElement('a');
-    heritageAnchor.classList.add('header-cmp-navigation__item-link');
-    heritageAnchor.href = navOurHeritageLink.textContent.trim();
-    heritageAnchor.textContent = 'Our Heritage';
-    heritageLi.append(heritageAnchor);
-    navGroup.append(heritageLi);
-    moveInstrumentation(navOurHeritageLink, heritageAnchor);
-  }
-
-  navigationNav.append(navGroup);
+  const navigationLinks = block.querySelectorAll('[data-aue-model="navigationLink"]');
+  navigationLinks.forEach((linkNode) => {
+    const li = document.createElement('li');
+    li.className = 'header-cmp-navigation__item header-cmp-navigation__item--level-0';
+    const linkField = linkNode.querySelector('[data-aue-prop="link"]');
+    const labelField = linkNode.querySelector('[data-aue-prop="label"]');
+    if (linkField) {
+      const a = document.createElement('a');
+      a.className = 'header-cmp-navigation__item-link';
+      const link = linkField.querySelector('a');
+      if (link) {
+        a.href = link.href;
+        a.textContent = labelField ? labelField.textContent.trim() : link.textContent.trim();
+        moveInstrumentation(link, a);
+      } else {
+        a.href = linkField.textContent.trim();
+        a.textContent = labelField ? labelField.textContent.trim() : linkField.textContent.trim();
+      }
+      li.append(a);
+      moveInstrumentation(linkField, li);
+      if (labelField) moveInstrumentation(labelField, li);
+    }
+    navigationUl.append(li);
+    moveInstrumentation(linkNode, li);
+  });
+  navigationNav.append(navigationUl);
   navItemNavigation.append(navigationNav);
+  navbarCollapse.append(navItemNavigation);
 
   const headerSection = document.createElement('div');
-  headerSection.classList.add('header-header-section', 'header-d-flex', 'header-align-items-center', 'header-justify-content-end');
+  headerSection.className = 'header-header-section header-d-flex header-align-items-center header-justify-content-end';
 
-  const searchIconCountrySelector = document.createElement('div');
-  searchIconCountrySelector.classList.add('header-search-icon', 'header-country-selector-trigger', 'header-d-flex', 'header-align-items-center');
-  searchIconCountrySelector.setAttribute('data-toggle', 'modal');
-  searchIconCountrySelector.setAttribute('data-target', '#countryModal');
-  searchIconCountrySelector.setAttribute('data-flag-in', '/content/dam/aemigrate/uploaded-folder/image/india-1-fmt-webp-alpha.webp');
-  searchIconCountrySelector.setAttribute('data-flag-usa', '/content/dam/aemigrate/uploaded-folder/image/usa-fmt-webp-alpha.webp');
+  const searchIconDiv = document.createElement('div');
+  searchIconDiv.className = 'header-search-icon header-country-selector-trigger header-d-flex header-align-items-center';
+  searchIconDiv.setAttribute('data-toggle', 'modal');
+  searchIconDiv.setAttribute('data-target', '#countryModal');
 
-  const countryCode = document.createElement('span');
-  countryCode.classList.add('header-country-code');
-  countryCode.textContent = 'IN';
-  searchIconCountrySelector.append(countryCode);
-
-  const countryFlagIndia = block.querySelector('[data-aue-prop="countryFlagIndia"]');
-  if (countryFlagIndia) {
-    const flagImg = countryFlagIndia.querySelector('img');
-    if (flagImg) {
-      const flagPicture = createOptimizedPicture(flagImg.src, flagImg.alt);
-      flagPicture.classList.add('header-header-country-flag');
-      searchIconCountrySelector.append(flagPicture);
-      moveInstrumentation(countryFlagIndia, flagPicture);
-    }
+  const countryCodeSpan = document.createElement('span');
+  countryCodeSpan.className = 'header-country-code';
+  const countryCodeField = block.querySelector('[data-aue-prop="countryCode"]');
+  if (countryCodeField) {
+    countryCodeSpan.textContent = countryCodeField.textContent.trim();
+    moveInstrumentation(countryCodeField, countryCodeSpan);
   }
+  searchIconDiv.append(countryCodeSpan);
 
-  const dropdownIcon = block.querySelector('[data-aue-prop="dropdownIcon"]');
-  if (dropdownIcon) {
-    const dropImg = dropdownIcon.querySelector('img');
-    if (dropImg) {
-      const dropPicture = createOptimizedPicture(dropImg.src, dropImg.alt);
-      dropPicture.classList.add('header-dropdown-icon');
-      searchIconCountrySelector.append(dropPicture);
-      moveInstrumentation(dropdownIcon, dropPicture);
+  const countryFlagImg = document.createElement('img');
+  countryFlagImg.className = 'header-header-country-flag';
+  countryFlagImg.alt = 'flag';
+  const countryFlagIconField = block.querySelector('[data-aue-prop="countryFlagIcon"]');
+  if (countryFlagIconField) {
+    const img = countryFlagIconField.querySelector('img');
+    if (img) {
+      countryFlagImg.src = img.src;
+      searchIconDiv.setAttribute('data-flag-in', img.src);
+      moveInstrumentation(img, countryFlagImg);
+    } else {
+      countryFlagImg.src = countryFlagIconField.textContent.trim();
+      searchIconDiv.setAttribute('data-flag-in', countryFlagIconField.textContent.trim());
     }
+    moveInstrumentation(countryFlagIconField, searchIconDiv);
   }
+  searchIconDiv.append(countryFlagImg);
 
-  headerSection.append(searchIconCountrySelector);
-  navbarCollapse.append(navItemNavigation, headerSection);
+  const dropdownIcon = document.createElement('img');
+  dropdownIcon.src = '/content/dam/aemigrate/uploaded-folder/image/dropdown-icon.png';
+  dropdownIcon.alt = 'dropdown-icon';
+  dropdownIcon.className = 'header-dropdown-icon';
+  searchIconDiv.append(dropdownIcon);
+
+  headerSection.append(searchIconDiv);
+  navbarCollapse.append(headerSection);
+  nav.append(navbarCollapse);
 
   const itcHeaderIconList = document.createElement('div');
-  itcHeaderIconList.classList.add('header-itc-header-icon-list');
+  itcHeaderIconList.className = 'header-itc-header-icon-list';
 
+  // Search block (static part)
   const searchBlock = document.createElement('div');
   searchBlock.id = 'searchBlock';
-  searchBlock.classList.add('header-search-block', 'header-hidden');
-
-  const searchBox = document.createElement('div');
-  searchBox.id = 'searchBox';
-  searchBox.classList.add('header-search-box');
-
-  const searchContainer = document.createElement('div');
-  searchContainer.id = 'searchContainer';
-  searchContainer.classList.add('header-search-container', 'header-hidden');
-
-  const searchInput = document.createElement('input');
-  searchInput.type = 'text';
-  searchInput.id = 'searchInput';
-  searchInput.placeholder = 'Search';
-  searchContainer.append(searchInput);
-
-  const searchButton = document.createElement('button');
-  searchButton.id = 'searchButton';
-  const searchBlockIcon = block.querySelector('[data-aue-prop="searchBlockIcon"]');
-  if (searchBlockIcon) {
-    const searchBlockImg = searchBlockIcon.querySelector('img');
-    if (searchBlockImg) {
-      searchButton.append(createOptimizedPicture(searchBlockImg.src, searchBlockImg.alt));
-      moveInstrumentation(searchBlockIcon, searchButton);
-    }
-  }
-  searchContainer.append(searchButton);
-  searchBox.append(searchContainer);
-
-  const closeButton = document.createElement('img');
-  closeButton.id = 'closeButton';
-  closeButton.loading = 'lazy';
-  const closeIcon = block.querySelector('[data-aue-prop="closeIcon"]');
-  if (closeIcon) {
-    const closeImg = closeIcon.querySelector('img');
-    if (closeImg) {
-      closeButton.src = closeImg.src;
-      closeButton.alt = closeImg.alt;
-      moveInstrumentation(closeIcon, closeButton);
-    }
-  }
-  searchBox.append(closeButton);
-  searchBlock.append(searchBox);
-
-  const searchResults = document.createElement('div');
-  searchResults.id = 'searchResults';
-  searchResults.classList.add('header-search-results', 'header-hidden');
-
-  const popularSuggestions = document.createElement('h4');
-  popularSuggestions.classList.add('header-resultList');
-  popularSuggestions.textContent = 'Popular Suggestions';
-  searchResults.append(popularSuggestions);
-
-  const suggestionsList = document.createElement('ul');
-  suggestionsList.id = 'suggestionsList';
-  searchResults.append(suggestionsList);
-
-  const pages = document.createElement('h4');
-  pages.classList.add('header-resultList');
-  pages.textContent = 'Pages';
-  searchResults.append(pages);
-
-  const productsList = document.createElement('ul');
-  productsList.id = 'productsList';
-  productsList.classList.add('header-products');
-  searchResults.append(productsList);
-
-  const viewAllButton = document.createElement('button');
-  viewAllButton.id = 'viewAllButton';
-  viewAllButton.textContent = 'VIEW ALL ITEMS';
-  searchResults.append(viewAllButton);
-
-  searchBlock.append(searchResults);
+  searchBlock.className = 'header-search-block header-hidden';
+  searchBlock.innerHTML = `
+    <div id="searchBox" class="header-search-box">    
+        <div id="searchContainer" class="header-search-container header-hidden">
+            <input type="text" id="searchInput" placeholder="Search">
+            <button id="searchButton">
+                <img loading="lazy" src="/content/dam/aemigrate/uploaded-folder/image/search-icon.png" alt="Search icon">
+            </button>
+        </div>
+        <img id="closeButton" loading="lazy" src="/content/dam/aemigrate/uploaded-folder/image/1766399720915.svg+xml" alt="Close icon">
+    </div>
+    <div id="searchResults" class="header-search-results header-hidden">
+        <h4 class="header-resultList">Popular Suggestions</h4>
+        <ul id="suggestionsList"></ul>
+        <h4 class="header-resultList">Pages</h4>
+        <ul id="productsList" class="header-products"></ul>
+        <button id="viewAllButton">VIEW ALL ITEMS</button>
+    </div>
+  `;
   itcHeaderIconList.append(searchBlock);
 
   const searchNavLink = document.createElement('a');
-  searchNavLink.classList.add('header-nav-link');
-  const searchIcon = block.querySelector('[data-aue-prop="searchIcon"]');
-  if (searchIcon) {
-    const searchImg = searchIcon.querySelector('img');
-    if (searchImg) {
-      const searchPicture = createOptimizedPicture(searchImg.src, searchImg.alt);
-      searchPicture.id = 'searchIcon';
-      searchPicture.loading = 'lazy';
-      searchNavLink.append(searchPicture);
-      moveInstrumentation(searchIcon, searchPicture);
+  searchNavLink.className = 'header-nav-link';
+  const searchIconImg = document.createElement('img');
+  searchIconImg.id = 'searchIcon';
+  searchIconImg.loading = 'lazy';
+  searchIconImg.alt = 'Search icon';
+  const searchIconField = block.querySelector('[data-aue-prop="searchIcon"]');
+  if (searchIconField) {
+    const img = searchIconField.querySelector('img');
+    if (img) {
+      searchIconImg.src = img.src;
+      moveInstrumentation(img, searchIconImg);
+    } else {
+      searchIconImg.src = searchIconField.textContent.trim();
     }
+    moveInstrumentation(searchIconField, searchNavLink);
   }
+  searchNavLink.append(searchIconImg);
   const searchSpan = document.createElement('span');
-  searchSpan.classList.add('header-d-block');
+  searchSpan.className = 'header-d-block';
   searchSpan.textContent = 'Search';
   searchNavLink.append(searchSpan);
   itcHeaderIconList.append(searchNavLink);
 
-  const navItemLi = document.createElement('li');
-  navItemLi.classList.add('header-nav-item');
-  const emptyNavLink = document.createElement('a');
-  emptyNavLink.classList.add('header-nav-link');
-  navItemLi.append(emptyNavLink);
-  itcHeaderIconList.append(navItemLi);
+  const navItem = document.createElement('li');
+  navItem.className = 'header-nav-item';
+  const navLink = document.createElement('a');
+  navLink.className = 'header-nav-link';
+  navItem.append(navLink);
+  itcHeaderIconList.append(navItem);
 
-  navbar.append(navbarToggler, dXlNone, logoDiv, navbarCollapse, itcHeaderIconList);
-  headerContainer.append(navbar);
+  nav.append(itcHeaderIconList);
+  headerContainer.append(nav);
+  header.append(headerContainer);
 
+  // Country Modal
   const countryModal = document.createElement('div');
-  countryModal.classList.add('header-modal', 'header-fade', 'header-itc-country-selector', 'header-show');
+  countryModal.className = 'header-modal header-fade header-itc-country-selector header-show';
   countryModal.id = 'countryModal';
-  countryModal.tabIndex = -1;
+  countryModal.tabIndex = '-1';
   countryModal.setAttribute('role', 'dialog');
   countryModal.setAttribute('aria-labelledby', 'countryModalLabel');
   countryModal.setAttribute('aria-modal', 'true');
   countryModal.style.display = 'block';
 
   const modalDialog = document.createElement('div');
-  modalDialog.classList.add('header-modal-dialog', 'header-modal-dialog-centered');
+  modalDialog.className = 'header-modal-dialog header-modal-dialog-centered';
   modalDialog.setAttribute('role', 'document');
-
   const modalContent = document.createElement('div');
-  modalContent.classList.add('header-modal-content');
-
+  modalContent.className = 'header-modal-content';
   const modalHeader = document.createElement('div');
-  modalHeader.classList.add('header-modal-header', 'header-border-0', 'header-text-center');
-
-  const modalHeaderW100 = document.createElement('div');
-  modalHeaderW100.classList.add('header-w-100');
-
-  const modalTitle = block.querySelector('[data-aue-prop="modalTitle"]');
-  if (modalTitle) {
-    const h2Title = document.createElement('h2');
-    h2Title.classList.add('header-modal-title');
-    h2Title.innerHTML = modalTitle.innerHTML;
-    modalHeaderW100.append(h2Title);
-    moveInstrumentation(modalTitle, h2Title);
-  }
-
-  const modalExperienceText = block.querySelector('[data-aue-prop="modalExperienceText"]');
-  if (modalExperienceText) {
-    const pExperience = document.createElement('p');
-    pExperience.classList.add('header-experience-text');
-    pExperience.innerHTML = modalExperienceText.innerHTML;
-    modalHeaderW100.append(pExperience);
-    moveInstrumentation(modalExperienceText, pExperience);
-  }
-
-  modalHeader.append(modalHeaderW100);
+  modalHeader.className = 'header-modal-header header-border-0 header-text-center';
+  const headerW100 = document.createElement('div');
+  headerW100.className = 'header-w-100';
+  const modalTitle = document.createElement('h2');
+  modalTitle.className = 'header-modal-title';
+  modalTitle.innerHTML = 'SELECT YOUR <br>KITCHENS OF INDIA';
+  const experienceText = document.createElement('p');
+  experienceText.className = 'header-experience-text';
+  experienceText.textContent = 'Experience';
+  headerW100.append(modalTitle, experienceText);
+  modalHeader.append(headerW100);
   modalContent.append(modalHeader);
 
   const modalBody = document.createElement('div');
-  modalBody.classList.add('header-modal-body');
+  modalBody.className = 'header-modal-body';
+  const countryOptionsDiv = document.createElement('div');
+  countryOptionsDiv.className = 'header-country-options header-d-flex header-justify-content-center header-align-items-center';
 
-  const countryOptions = document.createElement('div');
-  countryOptions.classList.add('header-country-options', 'header-d-flex', 'header-justify-content-center', 'header-align-items-center');
+  const countryOptions = block.querySelectorAll('[data-aue-model="countryOption"]');
+  countryOptions.forEach((optionNode) => {
+    const countryOptionDiv = document.createElement('div');
+    countryOptionDiv.className = 'header-country-option header-mx-3 header-d-flex header-flex-column header-align-items-center';
 
-  const countryOptionIndia = document.createElement('div');
-  countryOptionIndia.classList.add('header-country-option', 'header-selected', 'header-mx-3', 'header-d-flex', 'header-flex-column', 'header-align-items-center');
-  countryOptionIndia.setAttribute('data-country', 'india');
-  countryOptionIndia.setAttribute('data-url', '/india');
+    const countryNameField = optionNode.querySelector('[data-aue-prop="countryName"]');
+    const countryUrlField = optionNode.querySelector('[data-aue-prop="countryUrl"]');
+    const flagImageField = optionNode.querySelector('[data-aue-prop="flagImage"]');
 
-  const countryFlagIndiaModal = block.querySelector('[data-aue-prop="countryFlagIndia"]');
-  if (countryFlagIndiaModal) {
-    const flagImg = countryFlagIndiaModal.querySelector('img');
-    if (flagImg) {
-      const flagPicture = createOptimizedPicture(flagImg.src, flagImg.alt);
-      flagPicture.classList.add('header-country-flag', 'header-india-flag');
-      countryOptionIndia.append(flagPicture);
-      moveInstrumentation(countryFlagIndiaModal, flagPicture);
+    if (countryNameField) {
+      const countryName = countryNameField.textContent.trim().toLowerCase();
+      countryOptionDiv.setAttribute('data-country', countryName);
+      if (countryUrlField) {
+        countryOptionDiv.setAttribute('data-url', countryUrlField.textContent.trim());
+        moveInstrumentation(countryUrlField, countryOptionDiv);
+      }
+      if (countryName === 'india') {
+        countryOptionDiv.classList.add('header-selected');
+      }
+
+      const flagImg = document.createElement('img');
+      flagImg.className = `header-country-flag header-${countryName}-flag`;
+      flagImg.alt = `${countryName.charAt(0).toUpperCase() + countryName.slice(1)} Flag`;
+
+      if (flagImageField) {
+        const img = flagImageField.querySelector('img');
+        if (img) {
+          flagImg.src = img.src;
+          moveInstrumentation(img, flagImg);
+        } else {
+          flagImg.src = flagImageField.textContent.trim();
+        }
+        moveInstrumentation(flagImageField, countryOptionDiv);
+      }
+      countryOptionDiv.append(flagImg);
+
+      const countryNameP = document.createElement('p');
+      countryNameP.className = 'header-country-name';
+      countryNameP.textContent = countryNameField.textContent.trim();
+      countryOptionDiv.append(countryNameP);
+      moveInstrumentation(countryNameField, countryOptionDiv);
     }
-  }
+    countryOptionsDiv.append(countryOptionDiv);
+    moveInstrumentation(optionNode, countryOptionDiv);
+  });
 
-  const countryIndiaLabel = block.querySelector('[data-aue-prop="countryIndiaLabel"]');
-  if (countryIndiaLabel) {
-    const pIndia = document.createElement('p');
-    pIndia.classList.add('header-country-name');
-    pIndia.innerHTML = countryIndiaLabel.innerHTML;
-    countryOptionIndia.append(pIndia);
-    moveInstrumentation(countryIndiaLabel, pIndia);
-  }
-
-  countryOptions.append(countryOptionIndia);
-
-  const countryOptionUSA = document.createElement('div');
-  countryOptionUSA.classList.add('header-country-option', 'header-mx-3', 'header-d-flex', 'header-flex-column', 'header-align-items-center');
-  countryOptionUSA.setAttribute('data-country', 'usa');
-  countryOptionUSA.setAttribute('data-url', '/usa');
-
-  const countryFlagUSAModal = block.querySelector('[data-aue-prop="countryFlagUSA"]');
-  if (countryFlagUSAModal) {
-    const flagImg = countryFlagUSAModal.querySelector('img');
-    if (flagImg) {
-      const flagPicture = createOptimizedPicture(flagImg.src, flagImg.alt);
-      flagPicture.classList.add('header-country-flag', 'header-usa-flag');
-      countryOptionUSA.append(flagPicture);
-      moveInstrumentation(countryFlagUSAModal, flagPicture);
-    }
-  }
-
-  const countryUSALabel = block.querySelector('[data-aue-prop="countryUSALabel"]');
-  if (countryUSALabel) {
-    const pUSA = document.createElement('p');
-    pUSA.classList.add('header-country-name');
-    pUSA.innerHTML = countryUSALabel.innerHTML;
-    countryOptionUSA.append(pUSA);
-    moveInstrumentation(countryUSALabel, pUSA);
-  }
-
-  countryOptions.append(countryOptionUSA);
-  modalBody.append(countryOptions);
+  modalBody.append(countryOptionsDiv);
   modalContent.append(modalBody);
   modalDialog.append(modalContent);
   countryModal.append(modalDialog);
-
-  header.append(headerContainer, countryModal);
+  header.append(countryModal);
 
   block.textContent = '';
   block.append(header);
-  block.className = `header block`;
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

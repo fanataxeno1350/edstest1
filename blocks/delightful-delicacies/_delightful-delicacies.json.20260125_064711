@@ -61,8 +61,8 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Left Image",
-          "name": "leftImage",
+          "label": "Banner Image",
+          "name": "bannerImage",
           "valueType": "string"
         },
         {
@@ -85,7 +85,9 @@
         },
         {
           "component": "container",
-          "itemResourceType": "delicacyCategory",
+          "item": {
+            "type": "delicacyCategory"
+          },
           "label": "Categories",
           "name": "categories",
           "valueType": "array"

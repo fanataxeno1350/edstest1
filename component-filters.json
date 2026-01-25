@@ -45,28 +45,29 @@
     ]
   },
   {
-    "id": "delightfulDelicacies",
-    "components": [
-      "delicacyItem"
-    ]
-  },
-  {
     "id": "footer",
     "components": [
       "footerLink",
-      "footerSocialIcon"
+      "socialIcon"
     ]
   },
   {
     "id": "header",
     "components": [
-      "header"
+      "navigationLink",
+      "countryOption"
     ]
   },
   {
     "id": "text",
     "components": [
       "text"
+    ]
+  },
+  {
+    "id": "whyUsCards",
+    "components": [
+      "whyUsCard"
     ]
   },
   {
