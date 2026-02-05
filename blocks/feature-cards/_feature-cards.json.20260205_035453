@@ -34,6 +34,17 @@
   ],
   "models": [
     {
+      "id": "featureCards",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Main Title",
+          "name": "mainTitle",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
       "id": "featureCard",
       "fields": [
         {

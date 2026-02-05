@@ -1,31 +1,31 @@
 {
   "definitions": [
     {
-      "title": "Feature-Cards",
-      "id": "featureCards",
+      "title": "Sticky-Navigation",
+      "id": "stickyNavigation",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "featureCards",
-              "model": "featureCards",
-              "name": "Feature-Cards"
+              "filter": "stickyNavigation",
+              "model": "stickyNavigation",
+              "name": "Sticky-Navigation"
             }
           }
         }
       }
     },
     {
-      "title": "Feature-Card",
-      "id": "featureCard",
+      "title": "Nav-Item",
+      "id": "navItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "featureCard",
-              "name": "Feature-Card"
+              "model": "navItem",
+              "name": "Nav-Item"
             }
           }
         }
@@ -34,24 +34,18 @@
   ],
   "models": [
     {
-      "id": "featureCard",
+      "id": "navItem",
       "fields": [
         {
           "component": "reference",
-          "label": "Image",
-          "name": "image",
+          "label": "Icon",
+          "name": "icon",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
+          "component": "text",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         },
         {
@@ -59,15 +53,21 @@
           "label": "Link",
           "name": "link",
           "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "label": "Consent",
+          "name": "consent",
+          "valueType": "boolean"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "featureCards",
+      "id": "stickyNavigation",
       "components": [
-        "featureCard"
+        "navItem"
       ]
     }
   ]

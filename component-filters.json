@@ -23,7 +23,8 @@
       "footerBrand",
       "stickyNavigationBottomNav",
       "featureCards",
-      "stickyNavigation"
+      "stickyNavigation",
+      "spaceadderContainer"
     ]
   },
   {
@@ -48,15 +49,15 @@
     "id": "footerBrand",
     "components": [
       "footerLink",
-      "footerSocialLink"
+      "footerSocial"
     ]
   },
   {
     "id": "header",
     "components": [
-      "menuItem",
-      "footerNavItem",
-      "socialLink"
+      "headerMenuItem",
+      "footerLink",
+      "footerSocialLink"
     ]
   },
   {
@@ -64,6 +65,9 @@
     "components": [
       "blogCard"
     ]
+  },
+  {
+    "id": "spaceadder-Container"
   },
   {
     "id": "stickyNavigationBottomNav",
@@ -74,7 +78,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "navItem"
+      "stickyNavigationItem"
     ]
   }
 ]
