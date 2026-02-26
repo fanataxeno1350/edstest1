@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Carousel Slide",
-      "id": "carouselSlide",
+      "title": "Carousel Item",
+      "id": "carouselItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "carouselSlide",
-              "name": "Carousel Slide"
+              "model": "carouselItem",
+              "name": "Carousel Item"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "carouselSlide",
+      "id": "carouselItem",
       "fields": [
         {
           "component": "reference",
@@ -49,9 +49,21 @@
           "valueType": "string"
         },
         {
-          "component": "aem-content",
+          "component": "text",
+          "label": "Alt Text",
+          "name": "alt",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
           "label": "CTA Link",
           "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]
@@ -61,7 +73,7 @@
     {
       "id": "carousel",
       "components": [
-        "carouselSlide"
+        "carouselItem"
       ]
     }
   ]

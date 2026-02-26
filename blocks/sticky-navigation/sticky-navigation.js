@@ -2,59 +2,85 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const stickyNavigationSection = document.createElement('div');
-  stickyNavigationSection.id = 'sticky-navigation';
-  stickyNavigationSection.className = 'sticky-navigation-section sticky-navigation-position-fixed sticky-navigation-bottom-0 sticky-navigation-p-3 sticky-navigation-d-flex sticky-navigation-align-items-center sticky-navigation-container sticky-navigation-bg-boing-primary';
+  const popUpDiv = document.createElement('div');
+  popUpDiv.id = 'sticky-navigation-pop-up';
+  block.append(popUpDiv);
 
-  const stickyNavigationList = document.createElement('ul');
-  stickyNavigationList.className = 'sticky-navigation-list sticky-navigation-d-flex sticky-navigation-justify-content-around sticky-navigation-align-items-center sticky-navigation-flex-grow-1';
+  const transPopUpDiv = document.createElement('div');
+  transPopUpDiv.classList.add('stickynavigation-sticky-navigation-trans-pop-up');
+  block.append(transPopUpDiv);
 
-  const items = block.querySelectorAll('[data-aue-model="stickyNavigationItem"]');
-  items.forEach((itemNode) => {
-    const stickyNavigationItem = document.createElement('li');
-    stickyNavigationItem.className = 'sticky-navigation-item sticky-navigation-position-relative';
+  const section = document.createElement('section');
+  section.classList.add(
+    'stickynavigation-sticky-navigation-bottom-nav',
+    'stickynavigation-sticky-navigation-position-fixed',
+    'stickynavigation-sticky-navigation-bottom-0',
+    'stickynavigation-sticky-navigation-p-3',
+    'stickynavigation-sticky-navigation-d-flex',
+    'stickynavigation-sticky-navigation-align-items-center',
+    'stickynavigation-sticky-navigation-boing-container',
+    'stickynavigation-sticky-navigation-bg-boing-primary'
+  );
 
-    const linkElement = document.createElement('a');
-    linkElement.className = 'sticky-navigation-link sticky-navigation-d-flex sticky-navigation-flex-column sticky-navigation-align-items-center sticky-navigation-gap-1 analytics_cta_click';
+  const ul = document.createElement('ul');
+  ul.classList.add(
+    'stickynavigation-sticky-navigation-bottom-nav__list',
+    'stickynavigation-sticky-navigation-d-flex',
+    'stickynavigation-sticky-navigation-justify-content-around',
+    'stickynavigation-sticky-navigation-align-items-center',
+    'stickynavigation-sticky-navigation-flex-grow-1'
+  );
 
-    const link = itemNode.querySelector('[data-aue-prop="link"]');
+  [...block.children].forEach((row) => {
+    if (row.children.length === 0) return;
+
+    const li = document.createElement('li');
+    moveInstrumentation(row, li);
+    li.classList.add(
+      'stickynavigation-sticky-navigation-bottom-nav__item',
+      'stickynavigation-sticky-navigation-position-relative'
+    );
+
+    const linkCell = row.children[0]; // Assuming the first cell contains the link and its content
+    const link = linkCell.querySelector('a');
+
     if (link) {
-      const linkHref = link.querySelector('a') ? link.querySelector('a').href : link.textContent.trim();
-      linkElement.href = linkHref;
-      linkElement.dataset.link = link.querySelector('a') ? link.querySelector('a').dataset.link : linkHref;
-      moveInstrumentation(link, linkElement);
-    }
+      const newLink = document.createElement('a');
+      newLink.href = link.href;
+      newLink.classList.add(
+        'stickynavigation-sticky-navigation-bottom-nav__link',
+        'stickynavigation-sticky-navigation-d-flex',
+        'stickynavigation-sticky-navigation-flex-column',
+        'stickynavigation-sticky-navigation-align-items-center',
+        'stickynavigation-sticky-navigation-gap-1',
+        'stickynavigation-analytics_cta_click'
+      );
+      newLink.setAttribute('data-consent', link.getAttribute('data-consent'));
+      newLink.setAttribute('data-link', link.getAttribute('data-link'));
 
-    const icon = itemNode.querySelector('[data-aue-prop="icon"]');
-    if (icon) {
-      const img = icon.querySelector('img');
+      const img = link.querySelector('img');
       if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '40' }]);
-        const iconImg = picture.querySelector('img');
-        iconImg.className = 'sticky-navigation-icon';
-        linkElement.append(picture);
-        moveInstrumentation(icon, picture);
+        const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [
+          { width: '750' },
+        ]);
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        optimizedPic.querySelector('img').classList.add('stickynavigation-sticky-navigation-bottom-nav__icon');
+        newLink.append(optimizedPic);
       }
-    }
 
-    const label = itemNode.querySelector('[data-aue-prop="label"]');
-    if (label) {
-      const span = document.createElement('span');
-      span.className = 'sticky-navigation-label';
-      span.textContent = label.textContent.trim();
-      linkElement.append(span);
-      moveInstrumentation(label, span);
+      const span = link.querySelector('span');
+      if (span) {
+        const newSpan = document.createElement('span');
+        newSpan.classList.add('stickynavigation-sticky-navigation-bottom-nav__label');
+        newSpan.textContent = span.textContent;
+        newLink.append(newSpan);
+      }
+      li.append(newLink);
     }
-
-    stickyNavigationItem.append(linkElement);
-    stickyNavigationList.append(stickyNavigationItem);
-    moveInstrumentation(itemNode, stickyNavigationItem);
+    ul.append(li);
   });
 
-  stickyNavigationSection.append(stickyNavigationList);
-
+  section.append(ul);
   block.textContent = '';
-  block.append(stickyNavigationSection);
-  block.className = `${block.dataset.blockName} block`;
-  block.dataset.blockStatus = 'loaded';
+  block.append(popUpDiv, transPopUpDiv, section);
 }

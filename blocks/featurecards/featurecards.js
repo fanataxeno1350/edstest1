@@ -2,163 +2,171 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const featurecardsContainer = document.createElement('div');
-  featurecardsContainer.className = 'featurecards-container';
+  const featureCardsWrapper = document.createElement('div');
+  featureCardsWrapper.classList.add('featurecards-wrapper');
+  moveInstrumentation(block, featureCardsWrapper);
 
-  const titleWrapper = document.createElement('div');
-  titleWrapper.id = 'text-68763da680';
-  titleWrapper.className = 'featurecards-text-wrapper';
-
-  const mainTitle = document.createElement('h1');
-  mainTitle.className = 'featurecards-title-main';
-  const mainTitleText = block.querySelector('h1.featurecards-title-main');
-  if (mainTitleText) {
-    mainTitle.innerHTML = mainTitleText.innerHTML;
-    moveInstrumentation(mainTitleText, mainTitle);
-  } else {
-    mainTitle.textContent = 'Welcome to ';
-    const highlightSpan = document.createElement('span');
-    highlightSpan.className = 'featurecards-title-highlight';
-    highlightSpan.textContent = 'LetsBoing!';
-    mainTitle.append(highlightSpan);
+  // Handle the title section first
+  const titleRow = block.children[0];
+  if (titleRow && titleRow.children.length > 0) {
+    const titleCell = titleRow.children[0];
+    const h1 = titleCell.querySelector('h1');
+    if (h1) {
+      const textDiv = document.createElement('div');
+      textDiv.id = 'text-68763da680'; // Static ID from HTML
+      textDiv.classList.add('featurecards-text');
+      const newH1 = document.createElement('h1');
+      newH1.classList.add('featurecards-title');
+      newH1.innerHTML = h1.innerHTML;
+      textDiv.append(newH1);
+      featureCardsWrapper.append(textDiv);
+      moveInstrumentation(titleRow, textDiv);
+    }
   }
-  titleWrapper.append(mainTitle);
-  featurecardsContainer.append(titleWrapper);
 
-  const featureCardItems = block.querySelectorAll('[data-aue-model="featurecard"]');
-  featureCardItems.forEach((itemNode) => {
+  // Process feature cards
+  const cardSections = [...block.children].slice(1); // Skip the title row
+  cardSections.forEach((row) => {
     const section = document.createElement('section');
-    section.className = 'featurecards-section';
+    section.classList.add('featurecards-section', 'featurecards-card-section', 'featurecards-mx-auto');
+    moveInstrumentation(row, section);
 
-    const linkElement = itemNode.querySelector('a[data-aue-prop="link"]');
-    const linkHref = linkElement ? linkElement.href : '#';
-    const linkTitle = linkElement ? linkElement.getAttribute('title') || 'Explore' : 'Explore';
-    const linkCtaLabel = linkElement ? linkElement.dataset.ctaLabel || 'Explore' : 'Explore';
+    const link = row.querySelector('a');
+    if (link) {
+      const newLink = document.createElement('a');
+      newLink.href = link.href;
+      newLink.classList.add('featurecards-link', 'featurecards-analytics_cta_click', 'featurecards-text-decoration-none');
+      if (link.title) {
+        newLink.title = link.title;
+      }
+      if (link.dataset.ctaLabel) {
+        newLink.dataset.ctaLabel = link.dataset.ctaLabel;
+      }
+      if (link.target) {
+        newLink.target = link.target;
+      }
 
-    const anchor = document.createElement('a');
-    anchor.className = 'featurecards-link analytics_cta_click';
-    anchor.href = linkHref;
-    anchor.title = linkTitle;
-    anchor.dataset.ctaLabel = linkCtaLabel;
-    if (linkElement) {
-      moveInstrumentation(linkElement, anchor);
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('featurecards-image-wrapper', 'featurecards-w-100', 'featurecards-pb-4');
+      const img = link.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        optimizedPic.querySelector('img').classList.add('featurecards-image', 'featurecards-w-100', 'featurecards-h-100');
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        imageWrapper.append(optimizedPic);
+      }
+      newLink.append(imageWrapper);
+
+      const contentCenter = document.createElement('div');
+      contentCenter.classList.add('featurecards-content-center');
+
+      const h2 = link.querySelector('h2');
+      if (h2) {
+        const newH2 = document.createElement('h2');
+        newH2.classList.add('featurecards-card-title', 'featurecards-boing--text__heading-1');
+        newH2.textContent = h2.textContent.trim();
+        contentCenter.append(newH2);
+      }
+
+      const p = link.querySelector('p');
+      if (p) {
+        const pb5 = document.createElement('div');
+        pb5.classList.add('featurecards-pb-5');
+        const newP = document.createElement('p');
+        newP.classList.add('featurecards-card-description', 'featurecards-boing--text__body-2', 'featurecards-text-boing-dark');
+        newP.textContent = p.textContent.trim();
+        pb5.append(newP);
+        contentCenter.append(pb5);
+      }
+
+      // Add the redirect button structure (even if d-none)
+      const redirectButtonDiv = document.createElement('div');
+      redirectButtonDiv.classList.add('featurecards-redirect-button', 'featurecards-d-none');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.role = 'button';
+      button.classList.add('featurecards-arrow-icon-button');
+      // The content of the button is the SVG path, which is static in the example HTML
+      // For now, we'll leave it empty as per the input block structure, or you might embed an SVG if available.
+      // If the button text/content is dynamic and comes from the block, you'd extract it.
+      // Based on the HTML, it's a path for an SVG, not text.
+      // For this example, we'll just replicate the button structure without the SVG content itself
+      // as it's not directly provided as a field in the blockJson for this button.
+      redirectButtonDiv.append(button);
+      contentCenter.append(redirectButtonDiv);
+
+      newLink.append(contentCenter);
+      section.append(newLink);
     }
-
-    const imageWrapper = document.createElement('div');
-    imageWrapper.className = 'featurecards-image-wrapper';
-    const imgElement = itemNode.querySelector('[data-aue-prop="image"]');
-    if (imgElement) {
-      const picture = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '750' }]);
-      picture.querySelector('img').className = 'featurecards-image';
-      imageWrapper.append(picture);
-      moveInstrumentation(imgElement, picture.querySelector('img'));
-    }
-    anchor.append(imageWrapper);
-
-    const contentTextCenter = document.createElement('div');
-    contentTextCenter.className = 'featurecards-content-text-center';
-
-    const titleElement = itemNode.querySelector('[data-aue-prop="title"]');
-    const h2Title = document.createElement('h2');
-    h2Title.className = 'featurecards-title boing--text__heading-1';
-    if (titleElement) {
-      h2Title.innerHTML = titleElement.innerHTML;
-      moveInstrumentation(titleElement, h2Title);
-    }
-    contentTextCenter.append(h2Title);
-
-    const descriptionWrapper = document.createElement('div');
-    descriptionWrapper.className = 'featurecards-description-wrapper';
-    const descriptionElement = itemNode.querySelector('[data-aue-prop="description"]');
-    const pDescription = document.createElement('p');
-    pDescription.className = 'featurecards-description boing--text__body-2 text-boing-dark';
-    if (descriptionElement) {
-      pDescription.innerHTML = descriptionElement.innerHTML;
-      moveInstrumentation(descriptionElement, pDescription);
-    }
-    descriptionWrapper.append(pDescription);
-    contentTextCenter.append(descriptionWrapper);
-
-    const redirectButtonWrapper = document.createElement('div');
-    redirectButtonWrapper.className = 'featurecards-redirect-button-wrapper d-none';
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.role = 'button';
-    button.className = 'featurecards-arrow-icon-btn';
-    redirectButtonWrapper.append(button);
-    contentTextCenter.append(redirectButtonWrapper);
-
-    anchor.append(contentTextCenter);
-    section.append(anchor);
-    featurecardsContainer.append(section);
-    moveInstrumentation(itemNode, section);
+    featureCardsWrapper.append(section);
   });
 
-  // Bolte Sitare Card Section (hidden by default)
-  featureCardItems.forEach((itemNode) => {
-    const linkElement = itemNode.querySelector('a[data-aue-prop="link"]');
-    const linkHref = linkElement ? linkElement.href : '#';
-    const linkTitle = linkElement ? linkElement.getAttribute('title') || 'Tedhe Medhe Samachar' : 'Tedhe Medhe Samachar';
-    const linkDataTitle = linkElement ? linkElement.dataset.title || 'Tedhe Medhe Samachar' : 'Tedhe Medhe Samachar';
-
-    const bolteSitareCardSection = document.createElement('a');
-    bolteSitareCardSection.className = 'featurecards-bolte-sitare-card-section analytics_cta_click text-decoration-none d-none';
-    bolteSitareCardSection.href = linkHref;
-    bolteSitareCardSection.title = linkTitle;
-    bolteSitareCardSection.dataset.title = linkDataTitle;
+  // Add the d-none bolte-sitare-card-sections and curve-container (static structure)
+  // These elements are present in the HTML but marked as 'd-none' and don't seem to map
+  // directly to the 'featureCard' model in the provided blockJson for dynamic content.
+  // They are treated as static structural elements to be replicated.
+  const hiddenCards = [...block.querySelectorAll('a.featurecards-d-none.featurecards-bolte-sitare-card-section')];
+  hiddenCards.forEach((hiddenCardLink) => {
+    const newHiddenCardLink = document.createElement('a');
+    newHiddenCardLink.className = hiddenCardLink.className;
+    newHiddenCardLink.href = hiddenCardLink.href;
+    if (hiddenCardLink.title) newHiddenCardLink.title = hiddenCardLink.title;
+    if (hiddenCardLink.dataset.title) newHiddenCardLink.dataset.title = hiddenCardLink.dataset.title;
+    if (hiddenCardLink.target) newHiddenCardLink.target = hiddenCardLink.target;
 
     const bolteSitareCardWrapper = document.createElement('div');
-    bolteSitareCardWrapper.className = 'featurecards-bolte-sitare-card-wrapper';
+    bolteSitareCardWrapper.className = 'featurecards-bolte-sitare-card-wrapper featurecards-d-flex';
 
-    const bolteSitareCardImgDiv = document.createElement('div');
-    bolteSitareCardImgDiv.className = 'featurecards-bolte-sitare-card-img';
-    const imgElement = itemNode.querySelector('[data-aue-prop="image"]');
-    if (imgElement) {
-      const picture = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '750' }]);
-      picture.querySelector('img').className = 'featurecards-card-img';
-      bolteSitareCardImgDiv.append(picture);
+    const bolteSitareCardImageDiv = document.createElement('div');
+    bolteSitareCardImageDiv.className = 'featurecards-bolte-sitare-card-image';
+    const hiddenImg = hiddenCardLink.querySelector('img');
+    if (hiddenImg) {
+      const optimizedHiddenPic = createOptimizedPicture(hiddenImg.src, hiddenImg.alt);
+      optimizedHiddenPic.querySelector('img').className = 'featurecards-card-image featurecards-h-100 featurecards-w-100';
+      moveInstrumentation(hiddenImg, optimizedHiddenPic.querySelector('img'));
+      bolteSitareCardImageDiv.append(optimizedHiddenPic);
     }
-    bolteSitareCardWrapper.append(bolteSitareCardImgDiv);
+    bolteSitareCardWrapper.append(bolteSitareCardImageDiv);
 
     const contentWrapper = document.createElement('div');
-    contentWrapper.className = 'featurecards-content-wrapper';
+    contentWrapper.className = 'featurecards-content-wrapper featurecards-d-flex featurecards-flex-column featurecards-justify-content-between';
 
-    const textDiv = document.createElement('div');
-    const titleElement = itemNode.querySelector('[data-aue-prop="title"]');
-    const h2Title = document.createElement('h2');
-    h2Title.className = 'featurecards-bolte-sitare-card-title boing--text__heading-3 text-boing-dark';
-    if (titleElement) {
-      h2Title.innerHTML = titleElement.innerHTML;
+    const contentDiv1 = document.createElement('div');
+    const hiddenH2 = hiddenCardLink.querySelector('h2');
+    if (hiddenH2) {
+      const newHiddenH2 = document.createElement('h2');
+      newHiddenH2.className = 'featurecards-bolte-sitare-card-title featurecards-boing--text__heading-3 featurecards-text-boing-dark';
+      newHiddenH2.textContent = hiddenH2.textContent.trim();
+      contentDiv1.append(newHiddenH2);
     }
-    textDiv.append(h2Title);
-
-    const descriptionElement = itemNode.querySelector('[data-aue-prop="description"]');
-    const pDescription = document.createElement('p');
-    pDescription.className = 'featurecards-bolte-sitare-card-text boing--text__body-3 text-boing-dark';
-    if (descriptionElement) {
-      pDescription.innerHTML = descriptionElement.innerHTML;
+    const hiddenP = hiddenCardLink.querySelector('p');
+    if (hiddenP) {
+      const newHiddenP = document.createElement('p');
+      newHiddenP.className = 'featurecards-bolte-sitare-card-text featurecards-boing--text__body-3 featurecards-text-boing-dark';
+      newHiddenP.textContent = hiddenP.textContent.trim();
+      contentDiv1.append(newHiddenP);
     }
-    textDiv.append(pDescription);
-    contentWrapper.append(textDiv);
+    contentWrapper.append(contentDiv1);
 
-    const buttonDiv = document.createElement('div');
-    const button = document.createElement('button');
-    button.className = 'featurecards-bolte-sitare-card-btn text-white boing--text__body-4';
-    button.textContent = 'Explore';
-    buttonDiv.append(button);
-    contentWrapper.append(buttonDiv);
+    const contentDiv2 = document.createElement('div');
+    const hiddenButton = hiddenCardLink.querySelector('button');
+    if (hiddenButton) {
+      const newHiddenButton = document.createElement('button');
+      newHiddenButton.className = 'featurecards-bolte-sitare-card-button featurecards-text-white featurecards-boing--text__body-4 featurecards-d-inline-block';
+      newHiddenButton.textContent = hiddenButton.textContent.trim();
+      contentDiv2.append(newHiddenButton);
+    }
+    contentWrapper.append(contentDiv2);
 
     bolteSitareCardWrapper.append(contentWrapper);
-    bolteSitareCardSection.append(bolteSitareCardWrapper);
-    featurecardsContainer.append(bolteSitareCardSection);
+    newHiddenCardLink.append(bolteSitareCardWrapper);
+    featureCardsWrapper.append(newHiddenCardLink);
   });
 
   const curveContainer = document.createElement('div');
-  curveContainer.className = 'featurecards-curve-container d-none';
-  featurecardsContainer.append(curveContainer);
+  curveContainer.classList.add('featurecards-curve-container', 'featurecards-d-none');
+  featureCardsWrapper.append(curveContainer);
 
   block.textContent = '';
-  block.append(featurecardsContainer);
-  block.className = `featurecards block`;
-  block.dataset.blockStatus = 'loaded';
+  block.append(featureCardsWrapper);
 }

@@ -58,7 +58,10 @@
         "footerBrand",
         "stickyNavigationBottomNav",
         "featureCards",
-        "stickyNavigation"
+        "stickyNavigation",
+        "headerFooter",
+        "bannerList",
+        "spaceadder-container"
       ]
     }
   ]
