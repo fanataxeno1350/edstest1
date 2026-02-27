@@ -35,6 +35,14 @@
   --swiper-theme-color:#007aff
 }
 
+.banner-section__wrapper {
+  padding-inline:.046875rem
+}
+
+.banner-section__wrapper .banner-boing__banner--cta {
+  bottom:1.875rem
+}
+
 button,
 html,
 input,
@@ -125,6 +133,14 @@ html {
 
 :root {
   --swiper-theme-color: #007aff;
+}
+
+.banner-section__wrapper {
+  padding-inline: 0.046875rem;
+}
+
+.banner-section__wrapper .banner-boing__banner--cta {
+  bottom: 1.875rem;
 }
 
 button,

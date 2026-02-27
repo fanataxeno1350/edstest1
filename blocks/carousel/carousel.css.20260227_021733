@@ -185,13 +185,6 @@
   margin:0 var(--swiper-pagination-bullet-horizontal-gap,4px)
 }
 
-.carousel-boing--text__title-3,
-.carousel-primary-btn,
-.carousel-secondary-btn,
-.carousel-tertiary-btn {
-  font-family:Barlow;font-size:1rem;font-weight:600;line-height:normal
-}
-
 button,
 html,
 input,
@@ -319,16 +312,6 @@ a:hover {
 
 body {
   font-family:Poppins,sans-serif
-}
-
-.carousel-primary-btn {
-  color:#fff;display:inline-block
-}
-
-.carousel-primary-btn,
-.carousel-primary-btn:active,
-.carousel-primary-btn:hover {
-  background-color:#aa1f30
 }
 
 * {
@@ -534,13 +517,6 @@ textarea {
   margin: 0 var(--swiper-pagination-bullet-horizontal-gap,4px);
 }
 
-.carousel-boing--text__title-3,
-.carousel-primary-btn,
-.carousel-secondary-btn,
-.carousel-tertiary-btn {
-  font-family: Barlow; font-size: 1rem; font-weight: 600; line-height: normal;
-}
-
 button,
 html,
 input,
@@ -672,16 +648,6 @@ a:hover {
 
 body {
   font-family: Poppins, sans-serif;
-}
-
-.carousel-primary-btn {
-  color: rgb(255, 255, 255); display: inline-block;
-}
-
-.carousel-primary-btn,
-.carousel-primary-btn:active,
-.carousel-primary-btn:hover {
-  background-color: rgb(170, 31, 48);
 }
 
 * {

@@ -2,212 +2,191 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const featureCardsWrapper = document.createElement('div');
-  featureCardsWrapper.className = 'featurecards-wrapper';
+  const featureCardsContainer = document.createElement('div');
+  featureCardsContainer.classList.add('feature-cards-container');
 
-  const titleContainer = block.querySelector('div[data-aue-prop="title"]');
-  if (titleContainer) {
-    const featurecardsText = document.createElement('div');
-    featurecardsText.className = 'featurecards-text';
-    featurecardsText.id = `text-${Math.random().toString(36).substring(2, 9)}`; // Generate a unique ID
-
-    const h1 = document.createElement('h1');
-    h1.className = 'featurecards-title';
-
-    const titleText = titleContainer.querySelector('h1, h2, h3, h4, h5, h6, p');
-    if (titleText) {
-      const textContent = titleText.textContent.trim();
-      const lastSpaceIndex = textContent.lastIndexOf(' ');
-
-      if (lastSpaceIndex !== -1) {
-        const firstPart = document.createTextNode(textContent.substring(0, lastSpaceIndex + 1));
-        const spanPart = document.createElement('span');
-        spanPart.className = 'featurecards-title-partial';
-        spanPart.textContent = textContent.substring(lastSpaceIndex + 1);
-        h1.append(firstPart, spanPart);
-      } else {
-        h1.textContent = textContent;
-      }
+  // Process the title div if it exists
+  const titleDiv = block.querySelector('.feature-cards-featureCards-text');
+  if (titleDiv) {
+    const newTitleDiv = document.createElement('div');
+    moveInstrumentation(titleDiv, newTitleDiv);
+    newTitleDiv.classList.add('feature-cards-featureCards-text');
+    const h1 = titleDiv.querySelector('h1');
+    if (h1) {
+      const newH1 = document.createElement('h1');
+      newH1.style.textAlign = h1.style.textAlign;
+      newH1.innerHTML = h1.innerHTML;
+      newTitleDiv.append(newH1);
     }
-    featurecardsText.append(h1);
-    moveInstrumentation(titleContainer, featurecardsText);
-    featureCardsWrapper.append(featurecardsText);
+    featureCardsContainer.append(newTitleDiv);
   }
 
-  const featureCardElements = block.querySelectorAll('div[data-aue-model="featureCard"]');
+  const featureCardsWrapper = document.createElement('div');
+  featureCardsWrapper.classList.add('feature-cards-wrapper');
 
-  featureCardElements.forEach((featureCardElement) => {
-    const linkElement = featureCardElement.querySelector('[data-aue-prop="link"]');
-    const imageElement = featureCardElement.querySelector('[data-aue-prop="image"]');
-    const titleElement = featureCardElement.querySelector('[data-aue-prop="title"]');
-    const descriptionElement = featureCardElement.querySelector('[data-aue-prop="description"]');
+  // Process the main feature cards (sections)
+  const sections = [...block.querySelectorAll('section.feature-cards-feature_card--Section')];
+  sections.forEach((section) => {
+    const newSection = document.createElement('section');
+    moveInstrumentation(section, newSection);
+    newSection.classList.add('feature-cards-d-block', 'feature-cards-feature_card--Section', 'feature-cards-feature_card', 'feature-cards-mx-auto');
 
-    const section = document.createElement('section');
-    section.className = 'featurecards-section featurecards-card featurecards-mx-auto';
+    const link = section.querySelector('a.feature-cards-analytics_cta_click');
+    if (link) {
+      const newLink = document.createElement('a');
+      moveInstrumentation(link, newLink);
+      newLink.classList.add('feature-cards-d-flex', 'feature-cards-flex-column', 'feature-cards-analytics_cta_click', 'feature-cards-text-decoration-none');
+      newLink.href = link.href;
+      if (link.title) newLink.title = link.title;
+      if (link.target) newLink.target = link.target;
+      if (link.dataset.ctaLabel) newLink.dataset.ctaLabel = link.dataset.ctaLabel;
 
-    const a = document.createElement('a');
-    a.className = 'featurecards-link featurecards-d-flex featurecards-flex-column featurecards-text-decoration-none';
-    a.setAttribute('title', 'Explore');
-    a.setAttribute('data-cta-label', 'Explore');
-
-    if (linkElement) {
-      const link = linkElement.querySelector('a');
-      if (link) {
-        a.href = link.href;
-        a.setAttribute('title', link.title || 'Explore');
-        a.setAttribute('data-cta-label', link.textContent.trim() || 'Explore');
-      } else {
-        // Fallback for missing <a> tag within data-aue-prop="link"
-        const linkText = linkElement.textContent.trim();
-        if (linkText.startsWith('/') || linkText.startsWith('http')) {
-          a.href = linkText;
+      const imageDiv = link.querySelector('.feature-cards-feature_card--image');
+      if (imageDiv) {
+        const newImageDiv = document.createElement('div');
+        newImageDiv.classList.add('feature-cards-feature_card--image', 'feature-cards-w-100', 'feature-cards-pb-4');
+        const img = imageDiv.querySelector('img');
+        if (img) {
+          const optimizedPic = createOptimizedPicture(img.src, img.alt);
+          moveInstrumentation(img, optimizedPic.querySelector('img'));
+          newImageDiv.append(optimizedPic);
         }
+        newLink.append(newImageDiv);
       }
-    }
 
-    const imageDiv = document.createElement('div');
-    imageDiv.className = 'featurecards-image featurecards-w-100 featurecards-pb-4';
+      const textCenterDiv = link.querySelector('.feature-cards-text-center');
+      if (textCenterDiv) {
+        const newTextCenterDiv = document.createElement('div');
+        newTextCenterDiv.classList.add('feature-cards-text-center');
 
-    if (imageElement) {
-      const img = imageElement.querySelector('img');
-      if (img) {
-        const optimizedPicture = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-        imageDiv.append(optimizedPicture);
-      } else {
-        // Fallback for missing <img> tag within data-aue-prop="image"
-        const fallbackImg = document.createElement('img');
-        fallbackImg.src = imageElement.textContent.trim();
-        fallbackImg.alt = ''; // Default alt text
-        fallbackImg.className = 'featurecards-w-100 featurecards-h-100';
-        imageDiv.append(fallbackImg);
+        const title = textCenterDiv.querySelector('.feature-cards-feature_card--title');
+        if (title) {
+          const newTitle = document.createElement('h2');
+          newTitle.classList.add('feature-cards-feature_card--title', 'feature-cards-boing--text__heading-1');
+          newTitle.textContent = title.textContent.trim();
+          newTextCenterDiv.append(newTitle);
+        }
+
+        const pb5Div = textCenterDiv.querySelector('.feature-cards-pb-5');
+        if (pb5Div) {
+          const newPb5Div = document.createElement('div');
+          newPb5Div.classList.add('feature-cards-pb-5');
+          const desc = pb5Div.querySelector('.feature-cards-feature_card--desc');
+          if (desc) {
+            const newDesc = document.createElement('p');
+            newDesc.classList.add('feature-cards-feature_card--desc', 'feature-cards-boing--text__body-2', 'feature-cards-text-boing-dark');
+            newDesc.textContent = desc.textContent.trim();
+            newPb5Div.append(newDesc);
+          }
+          newTextCenterDiv.append(newPb5Div);
+        }
+
+        const redirectedBtnDiv = textCenterDiv.querySelector('.feature-cards-redirected_btn');
+        if (redirectedBtnDiv) {
+          const newRedirectedBtnDiv = document.createElement('div');
+          newRedirectedBtnDiv.classList.add('feature-cards-redirected_btn', 'feature-cards-d-none');
+          const button = redirectedBtnDiv.querySelector('button');
+          if (button) {
+            const newButton = document.createElement('button');
+            newButton.type = 'button';
+            newButton.role = 'button';
+            newButton.classList.add('feature-cards-arrow-icon-btn');
+            newButton.textContent = button.textContent.trim();
+            newRedirectedBtnDiv.append(newButton);
+          }
+          newTextCenterDiv.append(newRedirectedBtnDiv);
+        }
+        newLink.append(newTextCenterDiv);
       }
-      moveInstrumentation(imageElement, imageDiv);
+      newSection.append(newLink);
     }
-    a.append(imageDiv);
-
-    const textCenterDiv = document.createElement('div');
-    textCenterDiv.className = 'featurecards-text-center';
-
-    const h2 = document.createElement('h2');
-    h2.className = 'featurecards-title-h2 featurecards-boing-text__heading-1';
-    if (titleElement) {
-      const titleText = titleElement.querySelector('h1, h2, h3, h4, h5, h6, p');
-      h2.textContent = titleText ? titleText.textContent.trim() : titleElement.textContent.trim();
-      moveInstrumentation(titleElement, h2);
-    }
-    textCenterDiv.append(h2);
-
-    const pb5Div = document.createElement('div');
-    pb5Div.className = 'featurecards-pb-5';
-    const pDesc = document.createElement('p');
-    pDesc.className = 'featurecards-desc featurecards-boing-text__body-2 featurecards-text-boing-dark';
-    if (descriptionElement) {
-      const descText = descriptionElement.querySelector('p');
-      pDesc.textContent = descText ? descText.textContent.trim() : descriptionElement.textContent.trim();
-      moveInstrumentation(descriptionElement, pDesc);
-    }
-    pb5Div.append(pDesc);
-    textCenterDiv.append(pb5Div);
-
-    const redirectedBtnDiv = document.createElement('div');
-    redirectedBtnDiv.className = 'featurecards-redirected-btn featurecards-d-none';
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.role = 'button';
-    button.className = 'featurecards-arrow-icon-btn';
-    // The button content is an SVG path, which is not directly from a field.
-    // We'll keep it as a placeholder or remove if not needed.
-    button.textContent = '/content/dam/aemigrate/uploaded-folder/image/1761293302381.svg+xml';
-    redirectedBtnDiv.append(button);
-    textCenterDiv.append(redirectedBtnDiv);
-
-    a.append(textCenterDiv);
-    section.append(a);
-    moveInstrumentation(featureCardElement, section);
-    featureCardsWrapper.append(section);
+    featureCardsWrapper.append(newSection);
   });
 
-  // Bolte Sitare Card Section (d-none in the provided HTML, but structured here for completeness)
-  featureCardElements.forEach((featureCardElement) => {
-    const linkElement = featureCardElement.querySelector('[data-aue-prop="link"]');
-    const imageElement = featureCardElement.querySelector('[data-aue-prop="image"]');
-    const titleElement = featureCardElement.querySelector('[data-aue-prop="title"]');
-    const descriptionElement = featureCardElement.querySelector('[data-aue-prop="description"]');
+  // Process the bolteSitare cards (d-none by default)
+  const bolteSitareLinks = [...block.querySelectorAll('a.feature-cards-bolteSitare_cardSection')];
+  bolteSitareLinks.forEach((link) => {
+    const newLink = document.createElement('a');
+    moveInstrumentation(link, newLink);
+    newLink.classList.add('feature-cards-d-none', 'feature-cards-bolteSitare_cardSection', 'feature-cards-analytics_cta_click', 'feature-cards-text-decoration-none');
+    newLink.href = link.href;
+    if (link.title) newLink.title = link.title;
+    if (link.target) newLink.target = link.target;
+    if (link.dataset.title) newLink.dataset.title = link.dataset.title;
 
-    const bolteSitareCardSection = document.createElement('a');
-    bolteSitareCardSection.className = 'featurecards-bolte-sitare-card-section featurecards-d-none featurecards-analytics_cta_click featurecards-text-decoration-none';
+    const wrapperDiv = link.querySelector('.feature-cards-bolteSitare_cardSection--wrapper');
+    if (wrapperDiv) {
+      const newWrapperDiv = document.createElement('div');
+      newWrapperDiv.classList.add('feature-cards-d-flex', 'feature-cards-bolteSitare_cardSection--wrapper');
 
-    if (linkElement) {
-      const link = linkElement.querySelector('a');
-      if (link) {
-        bolteSitareCardSection.href = link.href;
-        bolteSitareCardSection.title = link.title || '';
-        bolteSitareCardSection.setAttribute('data-title', link.title || '');
-      } else {
-        const linkText = linkElement.textContent.trim();
-        if (linkText.startsWith('/') || linkText.startsWith('http')) {
-          bolteSitareCardSection.href = linkText;
+      const imgDiv = wrapperDiv.querySelector('.feature-cards-bolteSitare_cardSection--img');
+      if (imgDiv) {
+        const newImgDiv = document.createElement('div');
+        newImgDiv.classList.add('feature-cards-bolteSitare_cardSection--img');
+        const img = imgDiv.querySelector('img');
+        if (img) {
+          const optimizedPic = createOptimizedPicture(img.src, img.alt);
+          moveInstrumentation(img, optimizedPic.querySelector('img'));
+          newImgDiv.append(optimizedPic);
         }
+        newWrapperDiv.append(newImgDiv);
       }
-    }
 
-    const wrapperDiv = document.createElement('div');
-    wrapperDiv.className = 'featurecards-bolte-sitare-card-section--wrapper featurecards-d-flex';
+      const contentWrapperDiv = wrapperDiv.querySelector('.feature-cards-content-wrapper');
+      if (contentWrapperDiv) {
+        const newContentWrapperDiv = document.createElement('div');
+        newContentWrapperDiv.classList.add('feature-cards-content-wrapper', 'feature-cards-d-flex', 'feature-cards-flex-column', 'feature-cards-justify-content-between');
 
-    const imgDiv = document.createElement('div');
-    imgDiv.className = 'featurecards-bolte-sitare-card-section--img';
-    if (imageElement) {
-      const img = imageElement.querySelector('img');
-      if (img) {
-        const fallbackImg = document.createElement('img');
-        fallbackImg.src = img.src;
-        fallbackImg.alt = img.alt;
-        fallbackImg.className = 'featurecards-h-100 featurecards-w-100 featurecards-card-img';
-        imgDiv.append(fallbackImg);
+        const textDiv = contentWrapperDiv.firstElementChild;
+        if (textDiv) {
+          const newTextDiv = document.createElement('div');
+          const title = textDiv.querySelector('.feature-cards-bolteSitare_cardSection--title');
+          if (title) {
+            const newTitle = document.createElement('h2');
+            newTitle.classList.add('feature-cards-bolteSitare_cardSection--title', 'feature-cards-boing--text__heading-3', 'feature-cards-text-boing-dark');
+            newTitle.textContent = title.textContent.trim();
+            newTextDiv.append(newTitle);
+          }
+          const desc = textDiv.querySelector('.feature-cards-bolteSitare_cardSection--text');
+          if (desc) {
+            const newDesc = document.createElement('p');
+            newDesc.classList.add('feature-cards-bolteSitare_cardSection--text', 'feature-cards-boing--text__body-3', 'feature-cards-text-boing-dark');
+            newDesc.textContent = desc.textContent.trim();
+            newTextDiv.append(newDesc);
+          }
+          newContentWrapperDiv.append(newTextDiv);
+        }
+
+        const buttonDiv = contentWrapperDiv.lastElementChild;
+        if (buttonDiv) {
+          const newButtonDiv = document.createElement('div');
+          const button = buttonDiv.querySelector('.feature-cards-bolteSitare_cardSection--btn');
+          if (button) {
+            const newButton = document.createElement('button');
+            newButton.classList.add('feature-cards-bolteSitare_cardSection--btn', 'feature-cards-text-white', 'feature-cards-boing--text__body-4', 'feature-cards-d-inline-block');
+            newButton.textContent = button.textContent.trim();
+            newButtonDiv.append(newButton);
+          }
+          newContentWrapperDiv.append(newButtonDiv);
+        }
+        newWrapperDiv.append(newContentWrapperDiv);
       }
-      // No moveInstrumentation here as this is a 'd-none' section and primary instrumentation is on the main card
+      newLink.append(newWrapperDiv);
     }
-    wrapperDiv.append(imgDiv);
-
-    const contentWrapper = document.createElement('div');
-    contentWrapper.className = 'featurecards-content-wrapper featurecards-d-flex featurecards-flex-column featurecards-justify-content-between';
-
-    const textDiv = document.createElement('div');
-    const h2Title = document.createElement('h2');
-    h2Title.className = 'featurecards-bolte-sitare-card-section--title featurecards-boing-text__heading-3 featurecards-text-boing-dark';
-    if (titleElement) {
-      const titleText = titleElement.querySelector('h1, h2, h3, h4, h5, h6, p');
-      h2Title.textContent = titleText ? titleText.textContent.trim() : titleElement.textContent.trim();
-    }
-    textDiv.append(h2Title);
-
-    const pText = document.createElement('p');
-    pText.className = 'featurecards-bolte-sitare-card-section--text featurecards-boing-text__body-3 featurecards-text-boing-dark';
-    if (descriptionElement) {
-      const descText = descriptionElement.querySelector('p');
-      pText.textContent = descText ? descText.textContent.trim() : descriptionElement.textContent.trim();
-    }
-    textDiv.append(pText);
-    contentWrapper.append(textDiv);
-
-    const btnDiv = document.createElement('div');
-    const exploreButton = document.createElement('button');
-    exploreButton.className = 'featurecards-bolte-sitare-card-section--btn featurecards-text-white featurecards-boing-text__body-4 featurecards-d-inline-block';
-    exploreButton.textContent = 'Explore';
-    btnDiv.append(exploreButton);
-    contentWrapper.append(btnDiv);
-
-    wrapperDiv.append(contentWrapper);
-    bolteSitareCardSection.append(wrapperDiv);
-    featureCardsWrapper.append(bolteSitareCardSection);
+    featureCardsWrapper.append(newLink);
   });
 
-  const curveContainer = document.createElement('div');
-  curveContainer.className = 'featurecards-curve-container featurecards-d-none';
-  featureCardsWrapper.append(curveContainer);
+  featureCardsContainer.append(featureCardsWrapper);
+
+  // Process the curve container
+  const curveContainer = block.querySelector('.feature-cards-curve-container');
+  if (curveContainer) {
+    const newCurveContainer = document.createElement('div');
+    moveInstrumentation(curveContainer, newCurveContainer);
+    newCurveContainer.classList.add('feature-cards-curve-container', 'feature-cards-d-none');
+    featureCardsContainer.append(newCurveContainer);
+  }
 
   block.textContent = '';
-  block.append(featureCardsWrapper);
-  block.className = `${block.dataset.blockName} block`;
-  block.dataset.blockStatus = 'loaded';
+  block.append(featureCardsContainer);
 }

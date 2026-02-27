@@ -1,0 +1,112 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const section = document.createElement('section');
+  section.classList.add('banner-section');
+
+  // Assuming the block has only one row for the banner content
+  const row = block.children[0];
+  if (!row) {
+    return; // No content found
+  }
+
+  const wrapperDiv = document.createElement('div');
+  wrapperDiv.classList.add('banner-position-relative', 'banner-boing', 'banner-section__wrapper');
+  moveInstrumentation(row, wrapperDiv);
+
+  // Extract image and CTA from the row's cells
+  const cells = [...row.children];
+
+  // Cell 1: Image
+  const imageCell = cells[0];
+  if (imageCell) {
+    const img = imageCell.querySelector('img');
+    if (img) {
+      const optimizedPic = createOptimizedPicture(img.src, img.alt, true, [{ width: '2000' }]);
+      moveInstrumentation(img, optimizedPic.querySelector('img'));
+      optimizedPic.querySelector('img').classList.add('banner-w-100', 'banner-h-100', 'banner-object-fit-cover', 'banner-media', 'banner-image');
+      optimizedPic.querySelector('img').setAttribute('loading', 'eager');
+      optimizedPic.querySelector('img').setAttribute('fetchpriority', 'high');
+      optimizedPic.querySelector('img').setAttribute('decoding', 'async');
+      wrapperDiv.append(optimizedPic);
+    }
+  }
+
+  // Cell 2: CTA
+  const ctaCell = cells[1];
+  if (ctaCell) {
+    const ctaWrapperDiv = document.createElement('div');
+    ctaWrapperDiv.classList.add('banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100', 'banner-boing__banner--cta');
+
+    const ctaDiv = document.createElement('div');
+    ctaDiv.classList.add('banner-cta');
+
+    const textCenterDiv = document.createElement('div');
+    textCenterDiv.classList.add('banner-text-center');
+
+    const link = ctaCell.querySelector('a');
+    if (link) {
+      const newLink = document.createElement('a');
+      newLink.id = link.id;
+      newLink.classList.add('banner-cmp-button', 'banner-analytics_cta_click', 'banner-text-center', 'banner-cta-layout');
+      newLink.setAttribute('data-link-region', 'CTA');
+      newLink.setAttribute('data-is-internal', 'true');
+      newLink.setAttribute('data-enable-gating', 'false');
+      newLink.href = link.href;
+      newLink.target = link.target;
+
+      const span = document.createElement('span');
+      span.classList.add('banner-cmp-button__text', 'banner-primary-btn', 'banner-w-75', 'banner-p-5', 'banner-rounded-pill', 'banner-d-inline-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-famlf-cta-btn');
+      span.textContent = link.textContent.trim();
+      newLink.append(span);
+      textCenterDiv.append(newLink);
+    }
+
+    // Add pop-up div structure if it exists in the original HTML
+    const popUpDiv = ctaCell.querySelector('.banner-pop-up');
+    if (popUpDiv) {
+      const newPopUpDiv = document.createElement('div');
+      newPopUpDiv.classList.add('banner-pop-up', 'banner-d-none');
+      // Transfer hidden inputs if they exist
+      const popupMessage = popUpDiv.querySelector('.banner-popup-message');
+      if (popupMessage) {
+        const newPopupMessage = document.createElement('input');
+        newPopupMessage.type = 'hidden';
+        newPopupMessage.classList.add('banner-popup-message');
+        newPopUpDiv.append(newPopupMessage);
+      }
+      const proceedButton = popUpDiv.querySelector('.banner-proceed-button-label');
+      if (proceedButton) {
+        const newProceedButton = document.createElement('input');
+        newProceedButton.type = 'hidden';
+        newProceedButton.classList.add('banner-proceed-button-label');
+        newPopUpDiv.append(newProceedButton);
+      }
+      const cancelButton = popUpDiv.querySelector('.banner-cancel-button-label');
+      if (cancelButton) {
+        const newCancelButton = document.createElement('input');
+        newCancelButton.type = 'hidden';
+        newCancelButton.classList.add('banner-cancel-button-label');
+        newPopUpDiv.append(newCancelButton);
+      }
+      const backgroundColor = popUpDiv.querySelector('.banner-background-color');
+      if (backgroundColor) {
+        const newBackgroundColor = document.createElement('input');
+        newBackgroundColor.type = 'hidden';
+        newBackgroundColor.classList.add('banner-background-color');
+        newPopUpDiv.append(newBackgroundColor);
+      }
+      textCenterDiv.append(newPopUpDiv);
+    }
+
+    ctaDiv.append(textCenterDiv);
+    ctaWrapperDiv.append(ctaDiv);
+    wrapperDiv.append(ctaWrapperDiv);
+  }
+
+  section.append(wrapperDiv);
+
+  block.textContent = '';
+  block.append(section);
+}

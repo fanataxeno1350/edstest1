@@ -1,0 +1,74 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const section = document.createElement('section');
+  section.classList.add('banner-banner-section');
+
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('banner-position-relative', 'banner-boing', 'banner-banner-section__wrapper');
+  section.append(wrapper);
+
+  const ctaWrapper = document.createElement('div');
+  ctaWrapper.classList.add('banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100', 'banner-boing__banner--cta');
+  wrapper.append(ctaWrapper);
+
+  const ctaDiv = document.createElement('div');
+  ctaDiv.classList.add('banner-cta');
+  ctaWrapper.append(ctaDiv);
+
+  const ctaTextCenter = document.createElement('div');
+  ctaTextCenter.classList.add('banner-text-center');
+  ctaDiv.append(ctaTextCenter);
+
+  [...block.children].forEach((row) => {
+    moveInstrumentation(row, section);
+    const cells = [...row.children];
+
+    // Cell 1: Image and Alt Text
+    const imageCell = cells[0];
+    const img = imageCell.querySelector('img');
+    if (img) {
+      const optimizedPic = createOptimizedPicture(img.src, img.alt, true, [{ width: '750' }]);
+      moveInstrumentation(img, optimizedPic.querySelector('img'));
+      optimizedPic.querySelector('img').classList.add('banner-w-100', 'banner-h-100', 'banner-object-fit-cover', 'banner-banner-media', 'banner-banner-image');
+      optimizedPic.querySelector('img').setAttribute('loading', 'eager');
+      optimizedPic.querySelector('img').setAttribute('fetchpriority', 'high');
+      optimizedPic.querySelector('img').setAttribute('decoding', 'async');
+      wrapper.prepend(optimizedPic);
+    }
+
+    // Cell 2: CTA Text and URL
+    const ctaCell = cells[1];
+    const link = ctaCell.querySelector('a');
+    if (link) {
+      const newLink = document.createElement('a');
+      newLink.id = link.id || '';
+      newLink.classList.add('banner-cmp-button', 'banner-analytics_cta_click', 'banner-text-center', 'banner-cta-layout');
+      newLink.setAttribute('data-link-region', link.getAttribute('data-link-region') || 'CTA');
+      newLink.setAttribute('data-is-internal', link.getAttribute('data-is-internal') || 'true');
+      newLink.setAttribute('data-enable-gating', link.getAttribute('data-enable-gating') || 'false');
+      newLink.href = link.href;
+      newLink.target = link.target || '_blank';
+
+      const span = document.createElement('span');
+      span.classList.add('banner-cmp-button__text', 'banner-primary-btn', 'banner-w-75', 'banner-p-5', 'banner-rounded-pill', 'banner-d-inline-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-famlf-cta-btn');
+      span.textContent = link.textContent.trim();
+      newLink.append(span);
+      ctaTextCenter.append(newLink);
+
+      const popUpDiv = document.createElement('div');
+      popUpDiv.classList.add('banner-pop-up', 'banner-d-none');
+      popUpDiv.innerHTML = `
+        <input type="hidden" class="banner-popup-message"/>
+        <input type="hidden" class="banner-proceed-button-label"/>
+        <input type="hidden" class="banner-cancel-button-label"/>
+        <input type="hidden" class="banner-background-color"/>
+      `;
+      ctaTextCenter.append(popUpDiv);
+    }
+  });
+
+  block.textContent = '';
+  block.append(section);
+}

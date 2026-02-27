@@ -1,16 +1,16 @@
 {
   "definitions": [
     {
-      "title": "Banner",
-      "id": "banner",
+      "title": "Banner-Banner",
+      "id": "bannerBanner",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "banner",
-              "model": "banner",
-              "name": "Banner"
+              "filter": "bannerBanner",
+              "model": "bannerBanner",
+              "name": "Banner-Banner"
             }
           }
         }
@@ -19,12 +19,12 @@
   ],
   "models": [
     {
-      "id": "banner"
+      "id": "bannerBanner"
     }
   ],
   "filters": [
     {
-      "id": "banner"
+      "id": "bannerBanner"
     }
   ]
 }

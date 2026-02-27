@@ -1,0 +1,130 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const section = document.createElement('section');
+  section.classList.add('banner-section');
+
+  const wrapperDiv = document.createElement('div');
+  wrapperDiv.classList.add('banner-position-relative', 'banner-boing', 'banner-section__wrapper');
+  moveInstrumentation(block.children[0], wrapperDiv);
+
+  const videoWrapper = document.createElement('div');
+  videoWrapper.classList.add('banner-video-wrapper');
+
+  const video = document.createElement('video');
+  video.classList.add('banner-w-100', 'banner-object-fit-cover', 'banner-media', 'banner-video');
+  video.setAttribute('title', 'Video');
+  video.setAttribute('aria-label', 'Video');
+  video.setAttribute('data-is-autoplay', 'true');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('preload', 'metadata');
+  video.setAttribute('fetchpriority', 'high');
+  video.setAttribute('loop', 'false');
+  video.setAttribute('muted', 'true');
+  video.setAttribute('autoplay', 'true');
+
+  const source = document.createElement('source');
+  // Assuming the video URL is in the first cell of the first row
+  const videoCell = block.children[0]?.children[0];
+  const videoLink = videoCell?.querySelector('a');
+  if (videoLink) {
+    source.setAttribute('src', videoLink.href);
+    source.setAttribute('type', 'video/mp4');
+    video.append(source);
+  } else {
+    // Fallback if no link, try to find a video element directly
+    const existingVideo = videoCell?.querySelector('video');
+    if (existingVideo) {
+      const existingSource = existingVideo.querySelector('source');
+      if (existingSource) {
+        source.setAttribute('src', existingSource.src);
+        source.setAttribute('type', existingSource.type);
+        video.append(source);
+      }
+    }
+  }
+  videoWrapper.append(video);
+
+  const playPauseOverlay = document.createElement('div');
+  playPauseOverlay.classList.add('banner-position-absolute', 'banner-w-100', 'banner-h-100', 'banner-start-0', 'banner-top-0', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer');
+
+  const playButton = document.createElement('button');
+  playButton.setAttribute('type', 'button');
+  playButton.classList.add('banner-d-none', 'banner-video-icon', 'banner-icon-play', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  // Assuming playIcon is in the second cell of the first row
+  const playIconCell = block.children[0]?.children[1];
+  const playIconLink = playIconCell?.querySelector('a');
+  if (playIconLink) {
+    playButton.innerHTML = playIconLink.innerHTML; // Assuming SVG is directly inside the link
+  }
+  playPauseOverlay.append(playButton);
+
+  const pauseButton = document.createElement('button');
+  pauseButton.setAttribute('type', 'button');
+  pauseButton.classList.add('banner-d-block', 'banner-video-icon', 'banner-icon-pause', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  // Assuming pauseIcon is in the third cell of the first row
+  const pauseIconCell = block.children[0]?.children[2];
+  const pauseIconLink = pauseIconCell?.querySelector('a');
+  if (pauseIconLink) {
+    pauseButton.innerHTML = pauseIconLink.innerHTML;
+  }
+  playPauseOverlay.append(pauseButton);
+  videoWrapper.append(playPauseOverlay);
+
+  const muteOverlay = document.createElement('div');
+  muteOverlay.classList.add('banner-position-absolute', 'banner-z-2', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer', 'banner-mute-icon');
+
+  const muteButton = document.createElement('button');
+  muteButton.setAttribute('type', 'button');
+  muteButton.classList.add('banner-video-icon-volume', 'banner-icon-mute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  // Assuming muteIcon is in the fourth cell of the first row
+  const muteIconCell = block.children[0]?.children[3];
+  const muteIconLink = muteIconCell?.querySelector('a');
+  if (muteIconLink) {
+    muteButton.innerHTML = muteIconLink.innerHTML;
+  }
+  muteOverlay.append(muteButton);
+
+  const unmuteButton = document.createElement('button');
+  unmuteButton.setAttribute('type', 'button');
+  unmuteButton.classList.add('banner-video-icon-volume', 'banner-icon-unmute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  // Assuming unmuteIcon is in the fifth cell of the first row
+  const unmuteIconCell = block.children[0]?.children[4];
+  const unmuteIconLink = unmuteIconCell?.querySelector('a');
+  if (unmuteIconLink) {
+    unmuteButton.innerHTML = unmuteIconLink.innerHTML;
+  }
+  muteOverlay.append(unmuteButton);
+
+  const noAudioButton = document.createElement('button');
+  noAudioButton.setAttribute('type', 'button');
+  noAudioButton.classList.add('banner-video-icon-volume', 'banner-no-audio-icon', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  // Assuming noAudioIcon is in the sixth cell of the first row
+  const noAudioIconCell = block.children[0]?.children[5];
+  const noAudioIconLink = noAudioIconCell?.querySelector('a');
+  if (noAudioIconLink) {
+    noAudioButton.innerHTML = noAudioIconLink.innerHTML;
+  }
+  muteOverlay.append(noAudioButton);
+  videoWrapper.append(muteOverlay);
+
+  wrapperDiv.append(videoWrapper);
+
+  const ctaWrapper = document.createElement('div');
+  ctaWrapper.classList.add('banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100', 'banner-boing__banner--cta');
+  const ctaDiv = document.createElement('div');
+  ctaDiv.classList.add('banner-cta');
+  // Assuming CTA content is in the second row, first cell
+  const ctaCell = block.children[1]?.children[0];
+  if (ctaCell) {
+    ctaDiv.innerHTML = ctaCell.innerHTML;
+  }
+  ctaWrapper.append(ctaDiv);
+  wrapperDiv.append(ctaWrapper);
+
+  section.append(wrapperDiv);
+
+  block.textContent = '';
+  block.append(section);
+}
