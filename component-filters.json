@@ -23,7 +23,10 @@
       "delightfulDelicacies",
       "whyuscards",
       "footer",
-      "whyUsCards"
+      "whyUsCards",
+      "countrySelectorModal",
+      "heroCarousel",
+      "whyUsText"
     ]
   },
   {
@@ -39,16 +42,29 @@
     ]
   },
   {
+    "id": "countrySelectorModal",
+    "components": [
+      "countryOption"
+    ]
+  },
+  {
     "id": "delightfulDelicacies",
     "components": [
       "delicacyCategory"
     ]
   },
   {
+    "id": "delightfulDelicacies",
+    "components": [
+      "delicacyCard"
+    ]
+  },
+  {
     "id": "footer",
     "components": [
       "footerLink",
-      "socialIcon"
+      "footerSocial",
+      "footerSecondaryLink"
     ]
   },
   {
@@ -57,6 +73,15 @@
       "navigationLink",
       "countryOption"
     ]
+  },
+  {
+    "id": "hero-carousel",
+    "components": [
+      "heroCarouselItem"
+    ]
+  },
+  {
+    "id": "spaceadder-vertical-padding-section"
   },
   {
     "id": "text",
@@ -71,9 +96,12 @@
     ]
   },
   {
-    "id": "whyUsCards",
+    "id": "whyUsText"
+  },
+  {
+    "id": "whyuscards",
     "components": [
-      "whyUsCard"
+      "whyuscard"
     ]
   }
 ]

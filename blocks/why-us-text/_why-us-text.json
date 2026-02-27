@@ -1,0 +1,50 @@
+{
+  "definitions": [
+    {
+      "title": "Why-Us-Text",
+      "id": "whyUsText",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "whyUsText",
+              "model": "whyUsText",
+              "name": "Why-Us-Text"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "whyUsText",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Heading",
+          "name": "heading",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Subheading",
+          "name": "subheading",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Spacer",
+          "name": "spacer",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "whyUsText"
+    }
+  ]
+}

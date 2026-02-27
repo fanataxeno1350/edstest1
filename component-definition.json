@@ -130,7 +130,7 @@
           }
         },
         {
-          "title": "Carousel-Item",
+          "title": "Carousel Item",
           "id": "carouselItem",
           "plugins": {
             "xwalk": {
@@ -138,7 +138,38 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "model": "carouselItem",
-                  "name": "Carousel-Item"
+                  "name": "Carousel Item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Country Selector Modal",
+          "id": "countrySelectorModal",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "countrySelectorModal",
+                  "model": "countrySelectorModal",
+                  "name": "Country Selector Modal"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Country Option",
+          "id": "countryOption",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "countryOption",
+                  "name": "Country Option"
                 }
               }
             }
@@ -176,6 +207,37 @@
           }
         },
         {
+          "title": "DelightfulDelicacies",
+          "id": "delightfulDelicacies",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "delightfulDelicacies",
+                  "model": "delightfulDelicacies",
+                  "name": "DelightfulDelicacies"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "DelicacyCard",
+          "id": "delicacyCard",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "delicacyCard",
+                  "name": "DelicacyCard"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Footer",
           "id": "footer",
           "plugins": {
@@ -207,15 +269,30 @@
           }
         },
         {
-          "title": "Social Icon",
-          "id": "socialIcon",
+          "title": "Footer Social",
+          "id": "footerSocial",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "socialIcon",
-                  "name": "Social Icon"
+                  "model": "footerSocial",
+                  "name": "Footer Social"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer Secondary Link",
+          "id": "footerSecondaryLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "footerSecondaryLink",
+                  "name": "Footer Secondary Link"
                 }
               }
             }
@@ -262,6 +339,53 @@
                 "template": {
                   "model": "countryOption",
                   "name": "Country Option"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "HeroCarousel",
+          "id": "heroCarousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "heroCarousel",
+                  "model": "heroCarousel",
+                  "name": "HeroCarousel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "HeroCarouselItem",
+          "id": "heroCarouselItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "heroCarouselItem",
+                  "name": "HeroCarouselItem"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Spaceadder-Vertical-Padding-Section",
+          "id": "spaceadderVerticalPaddingSection",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "spaceadderVerticalPaddingSection",
+                  "model": "spaceadderVerticalPaddingSection",
+                  "name": "Spaceadder-Vertical-Padding-Section"
                 }
               }
             }
@@ -315,15 +439,31 @@
           }
         },
         {
-          "title": "WhyUsCards",
-          "id": "whyUsCards",
+          "title": "Why-Us-Text",
+          "id": "whyUsText",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "filter": "whyUsCards",
-                  "model": "whyUsCards",
+                  "filter": "whyUsText",
+                  "model": "whyUsText",
+                  "name": "Why-Us-Text"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "WhyUsCards",
+          "id": "whyuscards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "whyuscards",
+                  "model": "whyuscards",
                   "name": "WhyUsCards"
                 }
               }
@@ -332,13 +472,13 @@
         },
         {
           "title": "WhyUsCard",
-          "id": "whyUsCard",
+          "id": "whyuscard",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "whyUsCard",
+                  "model": "whyuscard",
                   "name": "WhyUsCard"
                 }
               }

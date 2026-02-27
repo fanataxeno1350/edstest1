@@ -1,149 +1,236 @@
-.whyuscards-container {
-  .whyuscards-row {
-    margin-left: 0;
-    margin-right: 0;
-  }
+*,
+::after,
+::before {
+  box-sizing:border-box
+}
 
-  .whyuscards-col-xl-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
+html {
+  font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent
+}
 
-  .whyuscards-col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
+body {
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff
+}
 
-  .whyuscards-pb-md-0 {
-    padding-bottom: 0 !important;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top:0;margin-bottom:.5rem
+}
 
-  .whyuscards-pb-4 {
-    padding-bottom: 1.5rem !important; /* Equivalent to 24px assuming 16px base */
-  }
+p {
+  margin-top:0;margin-bottom:1rem
+}
 
-  .whyuscards-row-gap-4 {
-    margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
-  }
+img {
+  vertical-align:middle;border-style:none
+}
 
-  .whyuscards-koi-rscard-padding {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.whyuscards-h1,
+.whyuscards-h2,
+.whyuscards-h3,
+.whyuscards-h4,
+.whyuscards-h5,
+.whyuscards-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom:.5rem;font-weight:500;line-height:1.2
+}
 
-  .whyuscards-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    height: 100%;
-    border-radius: 40px;
-  }
+.whyuscards-h5,
+h5 {
+  font-size:1.25rem
+}
 
-  .whyuscards-rs-card {
-    min-height: 460px;
-  }
+*,
+::after,
+::before {
+  text-shadow:none !important;box-shadow:none !important
+}
 
-  .whyuscards-w-100 {
-    width: 100% !important;
-  }
+img,
+tr {
+  page-break-inside:avoid
+}
 
-  .whyuscards-kitchens-image {
-    object-fit: fill !important;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    min-height: 190px;
-    height: 100%;
-    border-radius: 40px 40px 0 0;
-    display: block;
-  }
+h2,
+h3,
+p {
+  orphans:3;widows:3
+}
 
-  .whyuscards-card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
-    position: absolute;
-    bottom: 0;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
-    color: var(--white);
-    padding: 24px 35px 25px !important;
-  }
+body {
+  min-width:992px !important
+}
 
-  .whyuscards-blog-card-title {
-    font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
-    margin-bottom: 0.5rem; /* Equivalent to 8px assuming 16px base */
-    font-weight: 500;
-    line-height: 1.2;
-    font-family: "Paytone One";
-    display: block;
-  }
+body {
+  padding-top:78px !important
+}
 
-  .whyuscards-card-title {
-    margin-bottom: 0.75rem; /* Equivalent to 12px assuming 16px base */
-    font-size: 1rem; /* Equivalent to 16px assuming 16px base */
-    font-weight: 500;
-    line-height: 1.2;
-    font-family: "Paytone One";
+:root {
+  --bg-dark:#2d2119;--primary:#098040;--color-light:#fcf1e4;--dark-green:#175c2f;--color-yellow:#f8d765;--urbanist-font:'Urbanist';--white:#fff;--koi-theme:#4f250a;--koi-theme-200:#6c3003
+}
 
-    p {
-      margin-top: 0;
-      margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
-      font-size: 1rem; /* Equivalent to 16px assuming 16px base */
-      font-weight: 400;
-      line-height: 1.5; /* Equivalent to 24px assuming 16px base */
-      color: #fff;
-    }
-  }
+body {
+  font-family:var(--urbanist-font);padding-top:92px
+}
 
-  @media (max-width: 768px) {
-    .whyuscards-col-xl-4 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:'Paytone One'
+}
 
-    .whyuscards-col-lg-6 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
+p {
+  font-weight:400
+}
 
-    .whyuscards-pb-md-0 {
-      padding-bottom: 1.5rem !important; /* Equivalent to 24px assuming 16px base */
-    }
+p {
+  font-size:.875rem
+}
 
-    .whyuscards-pb-4 {
-      padding-bottom: 1.5rem !important; /* Equivalent to 24px assuming 16px base */
-    }
+/* External stylesheet: https://kitchensofindia.whyuscards-com/etc.whyuscards-clientlibs/itc-rightshift/clientlibs/clientlib-products.whyuscards-lc-6e3814135b894e6214058c05a5a20f33-lc.whyuscards-min.whyuscards-css */
+body {
+  color:#2d2119
+}
 
-    .whyuscards-row-gap-4 {
-      margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
-    }
+:root {
+  --blue: #007bff; --indigo: #6610f2; --purple: #6f42c1; --pink: #e83e8c; --red: #dc3545; --orange: #fd7e14; --yellow: #ffc107; --green: #28a745; --teal: #20c997; --cyan: #17a2b8; --white: #fff; --gray: #6c757d; --gray-dark: #343a40; --primary: #007bff; --secondary: #6c757d; --success: #28a745; --info: #17a2b8; --warning: #ffc107; --danger: #dc3545; --light: #f8f9fa; --dark: #343a40; --breakpoint-xs: 0; --breakpoint-sm: 576px; --breakpoint-md: 768px; --breakpoint-lg: 992px; --breakpoint-xl: 1200px; --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
 
-    .whyuscards-card {
-      width: 80%;
-      justify-self: center;
-    }
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
 
-    .whyuscards-card-body {
-      .whyuscards-blog-card-title {
-        font-size: 26px;
-      }
+html {
+  font-family: sans-serif; line-height: 1.15; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;
+}
 
-      .whyuscards-card-title p {
-        font-size: 16px;
-      }
-    }
-  }
+body {
+  margin: 0px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 1rem; font-weight: 400; line-height: 1.5; color: rgb(33, 37, 41); text-align: left; background-color: rgb(255, 255, 255);
+}
 
-  @media (max-width: 767.98px) {
-    .whyuscards-blog-card-title {
-      font-size: 1.313rem; /* Equivalent to 21px assuming 16px base */
-    }
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px; margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0px; margin-bottom: 1rem;
+}
+
+img {
+  vertical-align: middle; border-style: none;
+}
+
+.whyuscards-h1,
+.whyuscards-h2,
+.whyuscards-h3,
+.whyuscards-h4,
+.whyuscards-h5,
+.whyuscards-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2;
+}
+
+.whyuscards-h5,
+h5 {
+  font-size: 1.25rem;
+}
+
+*,
+::after,
+::before {
+  text-shadow: none !important; box-shadow: none !important;
+}
+
+img,
+tr {
+  break-inside: avoid;
+}
+
+h2,
+h3,
+p {
+  orphans: 3; widows: 3;
+}
+
+body {
+  min-width: 992px !important;
+}
+
+body {
+  padding-top: 78px !important;
+}
+
+:root {
+  --bg-dark: #2d2119; --primary: #098040; --color-light: #fcf1e4; --dark-green: #175c2f; --color-yellow: #f8d765; --urbanist-font: 'Urbanist'; --white: #fff; --koi-theme: #4f250a; --koi-theme-200: #6c3003;
+}
+
+body {
+  font-family: var(--urbanist-font); padding-top: 92px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Paytone One";
+}
+
+p {
+  font-weight: 400;
+}
+
+/* Stylesheet rules: https://kitchensofindia.whyuscards-com/etc.whyuscards-clientlibs/itc-rightshift/clientlibs/clientlib-products.whyuscards-lc-6e3814135b894e6214058c05a5a20f33-lc.whyuscards-min.whyuscards-css */
+body {
+  color: rgb(45, 33, 25);
+}
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
+}
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
+}
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
+}
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
+}
+
+/* Inline style: p */
+p {
+  text-align: center;
 }

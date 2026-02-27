@@ -1,226 +1,433 @@
-.shiftclub-section {
-  background-color: var(--color-light);
-  padding-bottom: 50px; /* Equivalent to 50px assuming 16px base */
+*,
+::after,
+::before {
+  box-sizing:border-box
 }
-.shiftclub-section.shiftclub-mx-md-0 {
-  margin-left: 0;
-  margin-right: 0;
+
+html {
+  font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent
 }
-.shiftclub-section.shiftclub-mx-4 {
-  margin-left: 1.5rem; /* Equivalent to 24px assuming 16px base */
-  margin-right: 1.5rem; /* Equivalent to 24px assuming 16px base */
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display:block
 }
-.shiftclub-section .container {
-  max-width: 1470px; /* Equivalent to 1470px assuming 16px base */
-  width: 100%;
-  padding: 0;
-  margin: 0 auto;
+
+body {
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff
 }
-.shiftclub-carousel {
-  position: relative;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top:0;margin-bottom:.5rem
 }
-.shiftclub-carousel-shift {
-  max-width: 1069px; /* Equivalent to 1069px assuming 16px base */
-  margin: -40px auto 0; /* Equivalent to -40px assuming 16px base */
-  border-radius: 45px; /* Equivalent to 45px assuming 16px base */
-  position: relative;
+
+p {
+  margin-top:0;margin-bottom:1rem
 }
-.shiftclub-carousel .carousel-inner {
-  max-width: 1069px; /* Equivalent to 1069px assuming 16px base */
-  margin: -40px auto 0; /* Equivalent to -40px assuming 16px base */
-  border-radius: 45px; /* Equivalent to 45px assuming 16px base */
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+
+dl,
+ol,
+ul {
+  margin-top:0;margin-bottom:1rem
 }
-.shiftclub-carousel .carousel-indicators {
-  bottom: -50px; /* Equivalent to -50px assuming 16px base */
-  left: -50%;
-  position: absolute;
-  right: 0;
-  z-index: 15;
-  display: flex;
-  justify-content: center;
-  padding-left: 0;
-  margin-right: 15%;
-  margin-left: 15%;
-  list-style: none;
+
+img {
+  vertical-align:middle;border-style:none
 }
-.shiftclub-carousel .carousel-indicators li {
-  border: 1px solid rgb(45, 33, 25);
-  background-color: transparent;
-  border-radius: 50%;
-  width: 12px; /* Equivalent to 12px assuming 16px base */
-  height: 12px; /* Equivalent to 12px assuming 16px base */
-  margin-right: 5px; /* Equivalent to 5px assuming 16px base */
-  cursor: pointer;
+
+button {
+  border-radius:0
 }
-.shiftclub-carousel .carousel-indicators li.active {
-  background-color: rgb(45, 33, 25);
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin:0;font-family:inherit;font-size:inherit;line-height:inherit
 }
-.shiftclub-carousel .carousel-item {
-  display: none;
-  height: 100%;
-  max-height: 413px; /* Equivalent to 413px assuming 16px base */
-  object-fit: cover;
-  position: relative;
-  float: left;
-  width: 100%;
-  margin-right: -100%;
-  backface-visibility: hidden;
-  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+
+button,
+input {
+  overflow:visible
 }
-.shiftclub-carousel .carousel-item.active {
+
+button,
+select {
+  text-transform:none
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance:button
+}
+
+.shiftclubcarousel-h1,
+.shiftclubcarousel-h2,
+.shiftclubcarousel-h3,
+.shiftclubcarousel-h4,
+.shiftclubcarousel-h5,
+.shiftclubcarousel-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom:.5rem;font-weight:500;line-height:1.2
+}
+
+.shiftclubcarousel-h2,
+h2 {
+  font-size:2rem
+}
+
+.shiftclubcarousel-d-block {
+  display:block !important
+}
+
+.shiftclubcarousel-d-md-flex {
+  display:-ms-flexbox !important;display:flex !important
+}
+
+.shiftclubcarousel-sr-only {
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+.shiftclubcarousel-w-100 {
+  width:100% !important
+}
+
+.shiftclubcarousel-mr-4,
+.shiftclubcarousel-mx-4 {
+  margin-right:1.5rem !important
+}
+
+.shiftclubcarousel-ml-4,
+.shiftclubcarousel-mx-4 {
+  margin-left:1.5rem !important
+}
+
+.shiftclubcarousel-mr-md-0,
+.shiftclubcarousel-mx-md-0 {
+  margin-right:0 !important
+}
+
+.shiftclubcarousel-ml-md-0,
+.shiftclubcarousel-mx-md-0 {
+  margin-left:0 !important
+}
+
+*,
+::after,
+::before {
+  text-shadow:none !important;box-shadow:none !important
+}
+
+img,
+tr {
+  page-break-inside:avoid
+}
+
+h2,
+h3,
+p {
+  orphans:3;widows:3
+}
+
+h2,
+h3 {
+  page-break-after:avoid
+}
+
+body {
+  min-width:992px !important
+}
+
+body {
+  padding-top:78px !important
+}
+
+:root {
+  --bg-dark:#2d2119;--primary:#098040;--color-light:#fcf1e4;--dark-green:#175c2f;--color-yellow:#f8d765;--urbanist-font:'Urbanist';--white:#fff;--koi-theme:#4f250a;--koi-theme-200:#6c3003
+}
+
+body {
+  font-family:var(--urbanist-font);padding-top:92px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:'Paytone One'
+}
+
+p {
+  font-weight:400
+}
+
+h2 {
+  font-size:1.375rem
+}
+
+p {
+  font-size:.875rem
+}
+
+/* External stylesheet: https://kitchensofindia.shiftclubcarousel-com/etc.shiftclubcarousel-clientlibs/itc-rightshift/clientlibs/clientlib-products.shiftclubcarousel-lc-6e3814135b894e6214058c05a5a20f33-lc.shiftclubcarousel-min.shiftclubcarousel-css */
+body {
+  color:#2d2119
+}
+
+.shiftclubcarousel-active,
+.shiftclubcarousel-demo:hover {
+  opacity:1
+}
+
+:root {
+  --blue: #007bff; --indigo: #6610f2; --purple: #6f42c1; --pink: #e83e8c; --red: #dc3545; --orange: #fd7e14; --yellow: #ffc107; --green: #28a745; --teal: #20c997; --cyan: #17a2b8; --white: #fff; --gray: #6c757d; --gray-dark: #343a40; --primary: #007bff; --secondary: #6c757d; --success: #28a745; --info: #17a2b8; --warning: #ffc107; --danger: #dc3545; --light: #f8f9fa; --dark: #343a40; --breakpoint-xs: 0; --breakpoint-sm: 576px; --breakpoint-md: 768px; --breakpoint-lg: 992px; --breakpoint-xl: 1200px; --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif; line-height: 1.15; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
   display: block;
 }
-.shiftclub-carousel .d-md-flex {
-  display: flex;
+
+body {
+  margin: 0px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 1rem; font-weight: 400; line-height: 1.5; color: rgb(33, 37, 41); text-align: left; background-color: rgb(255, 255, 255);
 }
-.shiftclub-carousel .d-block {
-  display: block;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px; margin-bottom: 0.5rem;
 }
-.shiftclub-carousel .w-md-50 {
-  width: 50%;
+
+p {
+  margin-top: 0px; margin-bottom: 1rem;
 }
-.shiftclub-carousel .w-100 {
-  width: 100%;
+
+dl,
+ol,
+ul {
+  margin-top: 0px; margin-bottom: 1rem;
 }
-.shiftclub-carousel-inner__title {
-  font-size: 28px; /* Equivalent to 28px assuming 16px base */
+
+img {
+  vertical-align: middle; border-style: none;
+}
+
+button {
+  border-radius: 0px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0px; font-family: inherit; font-size: inherit; line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  appearance: button;
+}
+
+.shiftclubcarousel-h1,
+.shiftclubcarousel-h2,
+.shiftclubcarousel-h3,
+.shiftclubcarousel-h4,
+.shiftclubcarousel-h5,
+.shiftclubcarousel-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2;
+}
+
+.shiftclubcarousel-h2,
+h2 {
+  font-size: 2rem;
+}
+
+.shiftclubcarousel-d-block {
+  display: block !important;
+}
+
+.shiftclubcarousel-d-md-flex {
+  display: flex !important;
+}
+
+.shiftclubcarousel-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;
+}
+
+.shiftclubcarousel-w-100 {
+  width: 100% !important;
+}
+
+.shiftclubcarousel-mr-4,
+.shiftclubcarousel-mx-4 {
+  margin-right: 1.5rem !important;
+}
+
+.shiftclubcarousel-ml-4,
+.shiftclubcarousel-mx-4 {
+  margin-left: 1.5rem !important;
+}
+
+.shiftclubcarousel-mr-md-0,
+.shiftclubcarousel-mx-md-0 {
+  margin-right: 0px !important;
+}
+
+.shiftclubcarousel-ml-md-0,
+.shiftclubcarousel-mx-md-0 {
+  margin-left: 0px !important;
+}
+
+*,
+::after,
+::before {
+  text-shadow: none !important; box-shadow: none !important;
+}
+
+img,
+tr {
+  break-inside: avoid;
+}
+
+h2,
+h3,
+p {
+  orphans: 3; widows: 3;
+}
+
+h2,
+h3 {
+  break-after: avoid;
+}
+
+body {
+  min-width: 992px !important;
+}
+
+body {
+  padding-top: 78px !important;
+}
+
+:root {
+  --bg-dark: #2d2119; --primary: #098040; --color-light: #fcf1e4; --dark-green: #175c2f; --color-yellow: #f8d765; --urbanist-font: 'Urbanist'; --white: #fff; --koi-theme: #4f250a; --koi-theme-200: #6c3003;
+}
+
+body {
+  font-family: var(--urbanist-font); padding-top: 92px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Paytone One";
-  color: var(--bg-dark);
-  margin-bottom: 0.5rem; /* Equivalent to 8px assuming 16px base */
-  font-weight: 500;
-  line-height: 1.2;
 }
-.shiftclub-carousel-inner__description {
-  font-size: 16px; /* Equivalent to 16px assuming 16px base */
-  font-family: Urbanist;
+
+p {
   font-weight: 400;
-  line-height: 1.5;
-  color: var(--bg-dark);
-  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
 }
-.shiftclub-right-wrapper {
-  background: linear-gradient(0deg, rgb(248, 215, 101) 0%, rgb(248, 215, 101) 100%);
-  padding: 40px 45px 56px 46px; /* Equivalent to 40px 45px 56px 46px assuming 16px base */
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  overflow-y: visible;
-  height: 434px; /* Equivalent to 434px assuming 16px base */
-  justify-content: space-evenly;
+
+/* Stylesheet rules: https://kitchensofindia.shiftclubcarousel-com/etc.shiftclubcarousel-clientlibs/itc-rightshift/clientlibs/clientlib-products.shiftclubcarousel-lc-6e3814135b894e6214058c05a5a20f33-lc.shiftclubcarousel-min.shiftclubcarousel-css */
+body {
+  color: rgb(45, 33, 25);
 }
-.shiftclub-carousel__img {
-  height: 434px; /* Equivalent to 434px assuming 16px base */
-  object-fit: cover;
-}
-.shiftclub-section button.carousel-control-prev,
-.shiftclub-section button.carousel-control-next {
-  background: #fff;
-  height: 46px; /* Equivalent to 46px assuming 16px base */
-  width: 46px; /* Equivalent to 46px assuming 16px base */
-  top: 45%;
-  left: -17px; /* Equivalent to -17px assuming 16px base */
-  border-radius: 50px; /* Equivalent to 50px assuming 16px base */
-  z-index: 9;
+
+.shiftclubcarousel-active,
+.shiftclubcarousel-demo:hover {
   opacity: 1;
-  position: absolute;
-  cursor: pointer;
-  padding: 0;
-  border: 0;
 }
-.shiftclub-section button.carousel-control-next {
-  right: -17px; /* Equivalent to -17px assuming 16px base */
-  left: unset;
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
 }
-.shiftclub-section .carousel-control-prev-icon {
-  background-image: url("../../../content/dam/itc-rightshift/clientlibs/clientlib-rightshift/resources/icons/next-icon.svg");
-  transform: rotate(180deg);
-  display: inline-block;
-  width: 20px; /* Equivalent to 20px assuming 16px base */
-  height: 20px; /* Equivalent to 20px assuming 16px base */
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  position: relative;
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
 }
-.shiftclub-section .carousel-control-next-icon {
-  background-image: url("../../../content/dam/itc-rightshift/clientlibs/clientlib-rightshift/resources/icons/next-icon.svg");
-  display: inline-block;
-  width: 20px; /* Equivalent to 20px assuming 16px base */
-  height: 20px; /* Equivalent to 20px assuming 16px base */
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  position: relative;
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
 }
-.shiftclub-section .sr-only {
-  position: absolute;
-  width: 1px; /* Equivalent to 1px assuming 16px base */
-  height: 1px; /* Equivalent to 1px assuming 16px base */
-  padding: 0;
-  margin: -1px; /* Equivalent to -1px assuming 16px base */
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+
+/* Inline style: p */
+p {
+  color: rgb(60, 41, 4);
 }
-@media (max-width: 990px) {
-  .shiftclub-right-wrapper h2 {
-    font-size: 3.43vw !important;
-  }
-  .shiftclub-right-wrapper p {
-    font-size: 14px; /* Equivalent to 14px assuming 16px base */
-  }
+
+/* Inline style: h2 */
+h2 {
+  text-align: center;
 }
-@media (max-width: 767.98px) {
-  .shiftclub-section.shiftclub-mx-4 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .shiftclub-carousel .carousel-indicators {
-    bottom: 0px !important;
-    left: 0;
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: center;
-  }
-  .shiftclub-carousel .carousel-item {
-    max-height: unset;
-  }
-  .shiftclub-carousel .carousel-item > div {
-    flex-direction: column;
-  }
-  .shiftclub-right-wrapper {
-    padding: 10px 12px 22px 10px !important; /* Equivalent to 10px 12px 22px 10px assuming 16px base */
-    min-height: 350px; /* Equivalent to 350px assuming 16px base */
-    height: auto;
-  }
-  .shiftclub-carousel__img {
-    max-height: 281px !important; /* Equivalent to 281px assuming 16px base */
-    object-fit: cover;
-  }
-  .shiftclub-carousel-inner__title {
-    font-size: 22px !important; /* Equivalent to 22px assuming 16px base */
-  }
-  .shiftclub-carousel-inner__description {
-    font-size: 14px !important; /* Equivalent to 14px assuming 16px base */
-    line-height: 20px; /* Equivalent to 20px assuming 16px base */
-  }
-  .shiftclub-section {
-    padding-top: 25px; /* Equivalent to 25px assuming 16px base */
-    padding-bottom: 25px !important; /* Equivalent to 25px assuming 16px base */
-    margin-top: 0 !important;
-    text-align: center;
-  }
-  .shiftclub-section button.carousel-control-prev,
-  .shiftclub-section button.carousel-control-next {
-    display: none;
-  }
-}
-@media (max-width: 370px) {
-  .shiftclub-right-wrapper button {
-    margin-top: 2px; /* Equivalent to 2px assuming 16px base */
-  }
+
+/* Inline style: p */
+p {
+  text-align: center;
 }

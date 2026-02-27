@@ -2,14 +2,14 @@
   "definitions": [
     {
       "title": "WhyUsCards",
-      "id": "whyuscards",
+      "id": "whyUsCards",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "whyuscards",
-              "model": "whyuscards",
+              "filter": "whyUsCards",
+              "model": "whyUsCards",
               "name": "WhyUsCards"
             }
           }
@@ -18,13 +18,13 @@
     },
     {
       "title": "WhyUsCard",
-      "id": "whyuscard",
+      "id": "whyUsCard",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "whyuscard",
+              "model": "whyUsCard",
               "name": "WhyUsCard"
             }
           }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "whyuscard",
+      "id": "whyUsCard",
       "fields": [
         {
           "component": "reference",
@@ -59,9 +59,9 @@
   ],
   "filters": [
     {
-      "id": "whyuscards",
+      "id": "whyUsCards",
       "components": [
-        "whyuscard"
+        "whyUsCard"
       ]
     }
   ]

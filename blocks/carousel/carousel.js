@@ -2,131 +2,117 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  const section = document.createElement('section');
+  section.className = 'shiftclubcarousel-section shiftclubcarousel-mx-md-0 shiftclubcarousel-mx-4';
+
   const container = document.createElement('div');
-  container.classList.add('container');
+  container.className = 'shiftclubcarousel-container';
+  section.append(container);
 
-  const carouselDiv = document.createElement('div');
-  carouselDiv.id = 'carousel';
-  carouselDiv.classList.add('carousel', 'slide', 'shiftclub-carousel');
-  carouselDiv.setAttribute('data-ride', 'carousel');
+  const carousel = document.createElement('div');
+  carousel.id = 'carousel';
+  carousel.className = 'shiftclubcarousel-carousel shiftclubcarousel-slide shiftclubcarousel-itc-club-carousel';
+  carousel.setAttribute('data-ride', 'carousel');
+  container.append(carousel);
 
-  const shiftclubCarouselShift = document.createElement('div');
-  shiftclubCarouselShift.classList.add('shiftclub-carousel-shift');
+  const carouselShift = document.createElement('div');
+  carouselShift.className = 'shiftclubcarousel-itc-carousel-shift';
+  carousel.append(carouselShift);
 
   const carouselInner = document.createElement('div');
-  carouselInner.classList.add('carousel-inner');
+  carouselInner.className = 'shiftclubcarousel-carousel-inner';
+  carouselShift.append(carouselInner);
 
   const carouselIndicators = document.createElement('ol');
-  carouselIndicators.classList.add('carousel-indicators');
+  carouselIndicators.className = 'shiftclubcarousel-carousel-indicators';
+  carouselInner.append(carouselIndicators);
 
-  const carouselItems = Array.from(block.children);
+  const carouselItemsContainer = document.createElement('div');
+  carouselInner.append(carouselItemsContainer);
 
-  carouselItems.forEach((itemNode, index) => {
+  [...block.children].forEach((row, i) => {
+    moveInstrumentation(row, carouselItemsContainer);
+
+    const carouselItem = document.createElement('div');
+    carouselItem.className = `shiftclubcarousel-carousel-item${i === 0 ? ' shiftclubcarousel-active' : ''}`;
+    carouselItemsContainer.append(carouselItem);
+
+    const dFlexWrapper = document.createElement('div');
+    dFlexWrapper.className = 'shiftclubcarousel-d-md-flex shiftclubcarousel-d-block';
+    carouselItem.append(dFlexWrapper);
+
+    const cells = [...row.children];
+
+    // Image
+    const imageCell = cells[0];
+    const img = imageCell.querySelector('img');
+    if (img) {
+      const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+      moveInstrumentation(img, optimizedPic.querySelector('img'));
+      optimizedPic.querySelector('img').className = 'shiftclubcarousel-shiftclubcarousel__img shiftclubcarousel-d-block shiftclubcarousel-w-md-50 shiftclubcarousel-w-100';
+      dFlexWrapper.append(optimizedPic);
+    }
+
+    // Content (Title, Description)
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'shiftclubcarousel-w-md-50 shiftclubcarousel-w-100 shiftclubcarousel-itc-club-right-wrapper shiftclubcarousel-read-more';
+    dFlexWrapper.append(contentWrapper);
+
+    const titleCell = cells[1];
+    if (titleCell) {
+      const title = titleCell.querySelector('h1, h2, h3, h4, h5, h6');
+      if (title) {
+        const h2 = document.createElement('h2');
+        h2.className = 'shiftclubcarousel-carousel-inner__title';
+        h2.textContent = title.textContent;
+        contentWrapper.append(h2);
+      }
+    }
+
+    const descriptionCell = cells[2];
+    if (descriptionCell) {
+      const description = descriptionCell.querySelector('p');
+      if (description) {
+        const p = document.createElement('p');
+        p.className = 'shiftclubcarousel-carousel-inner__description';
+        p.textContent = description.textContent;
+        contentWrapper.append(p);
+      }
+    }
+
     const indicator = document.createElement('li');
     indicator.setAttribute('data-target', '#carousel');
-    indicator.setAttribute('data-slide-to', index);
-    if (index === 0) {
-      indicator.classList.add('active');
+    indicator.setAttribute('data-slide-to', i);
+    if (i === 0) {
+      indicator.classList.add('shiftclubcarousel-active');
     }
     carouselIndicators.append(indicator);
-    moveInstrumentation(itemNode, indicator);
   });
 
-  carouselItems.forEach((itemNode, index) => {
-    const carouselItemDiv = document.createElement('div');
-    carouselItemDiv.classList.add('carousel-item');
-    if (index === 0) {
-      carouselItemDiv.classList.add('active');
-    }
-
-    const dMdFlexDiv = document.createElement('div');
-    dMdFlexDiv.classList.add('d-md-flex', 'd-block');
-
-    const imageWrapper = itemNode.querySelector('[data-aue-prop="image"]');
-    let imgElement = imageWrapper ? imageWrapper.querySelector('img') : null;
-    if (!imgElement) {
-      const imgLink = itemNode.querySelector('a[href$=".webp"], a[href$=".jpeg"], a[href$=".png"], a[href$=".jpg"]');
-      if (imgLink) {
-        imgElement = document.createElement('img');
-        imgElement.src = imgLink.href;
-        imgElement.alt = imgLink.textContent || '';
-      }
-    }
-
-    if (imgElement) {
-      const picture = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '750' }]);
-      picture.classList.add('shiftclub-carousel__img', 'd-block', 'w-md-50', 'w-100');
-      dMdFlexDiv.append(picture);
-      if (imageWrapper) {
-        moveInstrumentation(imageWrapper, picture);
-      }
-    }
-
-    const rightWrapper = document.createElement('div');
-    rightWrapper.classList.add('w-md-50', 'w-100', 'shiftclub-right-wrapper', 'read-more');
-
-    const titleElement = itemNode.querySelector('[data-aue-prop="title"]');
-    if (titleElement) {
-      const h2 = document.createElement('h2');
-      h2.classList.add('shiftclub-carousel-inner__title');
-      h2.append(...titleElement.childNodes);
-      rightWrapper.append(h2);
-      moveInstrumentation(titleElement, h2);
-    }
-
-    const descriptionElement = itemNode.querySelector('[data-aue-prop="description"]');
-    if (descriptionElement) {
-      const p = document.createElement('p');
-      p.classList.add('shiftclub-carousel-inner__description');
-      p.append(...descriptionElement.childNodes);
-      rightWrapper.append(p);
-      moveInstrumentation(descriptionElement, p);
-    }
-
-    dMdFlexDiv.append(rightWrapper);
-    carouselItemDiv.append(dMdFlexDiv);
-    carouselInner.append(carouselItemDiv);
-    moveInstrumentation(itemNode, carouselItemDiv);
-  });
-
+  // Previous button
   const prevButton = document.createElement('button');
-  prevButton.classList.add('carousel-control-prev');
-  prevButton.setAttribute('type', 'button');
+  prevButton.className = 'shiftclubcarousel-carousel-control-prev';
+  prevButton.type = 'button';
   prevButton.setAttribute('data-target', '#carousel');
   prevButton.setAttribute('data-slide', 'prev');
+  prevButton.innerHTML = `
+    <span class="shiftclubcarousel-carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="shiftclubcarousel-sr-only">Previous</span>
+  `;
+  carouselShift.append(prevButton);
 
-  const prevIcon = document.createElement('span');
-  prevIcon.classList.add('carousel-control-prev-icon');
-  prevIcon.setAttribute('aria-hidden', 'true');
-  prevButton.append(prevIcon);
-
-  const prevSrOnly = document.createElement('span');
-  prevSrOnly.classList.add('sr-only');
-  prevSrOnly.textContent = 'Previous';
-  prevButton.append(prevSrOnly);
-
+  // Next button
   const nextButton = document.createElement('button');
-  nextButton.classList.add('carousel-control-next');
-  nextButton.setAttribute('type', 'button');
+  nextButton.className = 'shiftclubcarousel-carousel-control-next';
+  nextButton.type = 'button';
   nextButton.setAttribute('data-target', '#carousel');
   nextButton.setAttribute('data-slide', 'next');
-
-  const nextIcon = document.createElement('span');
-  nextIcon.classList.add('carousel-control-next-icon');
-  nextIcon.setAttribute('aria-hidden', 'true');
-  nextButton.append(nextIcon);
-
-  const nextSrOnly = document.createElement('span');
-  nextSrOnly.classList.add('sr-only');
-  nextSrOnly.textContent = 'Next';
-  nextButton.append(nextSrOnly);
-
-  shiftclubCarouselShift.append(carouselIndicators, carouselInner, prevButton, nextButton);
-  carouselDiv.append(shiftclubCarouselShift);
-  container.append(carouselDiv);
+  nextButton.innerHTML = `
+    <span class="shiftclubcarousel-carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="shiftclubcarousel-sr-only">Next</span>
+  `;
+  carouselShift.append(nextButton);
 
   block.textContent = '';
-  block.append(container);
-  block.className = `${block.dataset.blockName} block shiftclub-section shiftclub-mx-md-0 shiftclub-mx-4`;
-  block.dataset.blockStatus = 'loaded';
+  block.append(section);
 }
