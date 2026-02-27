@@ -26,9 +26,7 @@
       "stickyNavigation",
       "headerFooter",
       "bannerList",
-      "spaceadder-container",
-      "banner",
-      "spaceadder"
+      "banner"
     ]
   },
   {
@@ -95,12 +93,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceadder-container"
-  },
-  {
-    "id": "spaceadder"
   },
   {
     "id": "stickyNavigationBottomNav",
