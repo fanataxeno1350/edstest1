@@ -39,7 +39,7 @@
         {
           "component": "reference",
           "label": "Card Link",
-          "name": "cardLink",
+          "name": "url",
           "valueType": "string"
         },
         {
@@ -49,15 +49,44 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Date",
+          "component": "date-time",
+          "label": "Published Date",
           "name": "date",
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
           "label": "Title",
           "name": "title",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "latestBlogs",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Heading",
+          "name": "heading",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Description",
+          "name": "description",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA URL",
+          "name": "ctaUrl",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         }
       ]

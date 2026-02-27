@@ -38,32 +38,32 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Video Source",
-          "name": "video",
+          "label": "Video Src",
+          "name": "videoSrc",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Image Source",
-          "name": "image",
+          "label": "Image Src",
+          "name": "imageSrc",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Image Alt Text",
+          "label": "Image Alt",
           "name": "imageAlt",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "CTA Href",
+          "label": "CTA Link",
           "name": "ctaHref",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]

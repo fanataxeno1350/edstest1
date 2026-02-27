@@ -61,7 +61,9 @@
         "stickyNavigation",
         "headerFooter",
         "bannerList",
-        "spaceadder-container"
+        "spaceadder-container",
+        "banner",
+        "spaceadder"
       ]
     }
   ]

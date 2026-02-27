@@ -1,0 +1,169 @@
+{
+  "definitions": [
+    {
+      "title": "Header",
+      "id": "header",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "header",
+              "model": "header",
+              "name": "Header"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Header Sidebar Menu Item",
+      "id": "headerSidebarMenuItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "headerSidebarMenuItem",
+              "name": "Header Sidebar Menu Item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Header Footer List Item",
+      "id": "headerFooterListItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "headerFooterListItem",
+              "name": "Header Footer List Item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Header Social Media Link",
+      "id": "headerSocialMediaLink",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "headerSocialMediaLink",
+              "name": "Header Social Media Link"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "header",
+      "fields": [
+        {
+          "component": "text",
+          "label": "App Name",
+          "name": "appName",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Left Image",
+          "name": "leftImage",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Logo Image",
+          "name": "logoImage",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Logo Alt Text",
+          "name": "logoAlt",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Login Button Text",
+          "name": "loginButtonText",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerSidebarMenuItem",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerFooterListItem",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerSocialMediaLink",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "header",
+      "components": [
+        "headerSidebarMenuItem",
+        "headerFooterListItem",
+        "headerSocialMediaLink"
+      ]
+    }
+  ]
+}
