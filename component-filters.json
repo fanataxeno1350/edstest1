@@ -26,24 +26,16 @@
       "stickyNavigation",
       "headerFooter",
       "bannerList",
-      "banner",
-      "bannerBanner",
       "latestBlogsArticleListing",
       "footer",
       "stickyBottomNav"
     ]
   },
   {
-    "id": "bannerBanner"
-  },
-  {
     "id": "bannerList",
     "components": [
       "banner"
     ]
-  },
-  {
-    "id": "banner"
   },
   {
     "id": "carousel",

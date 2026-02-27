@@ -142,9 +142,6 @@
     ]
   },
   {
-    "id": "bannerBanner"
-  },
-  {
     "id": "banner",
     "fields": [
       {
@@ -178,9 +175,6 @@
         "valueType": "string"
       }
     ]
-  },
-  {
-    "id": "banner"
   },
   {
     "id": "carouselItem",
