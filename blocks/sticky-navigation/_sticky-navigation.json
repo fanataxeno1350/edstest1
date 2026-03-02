@@ -37,9 +37,21 @@
       "id": "navItem",
       "fields": [
         {
+          "component": "text",
+          "label": "Href",
+          "name": "href",
+          "valueType": "string"
+        },
+        {
           "component": "reference",
-          "label": "Icon",
-          "name": "icon",
+          "label": "Image",
+          "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Image Alt",
+          "name": "alt",
           "valueType": "string"
         },
         {
@@ -47,24 +59,13 @@
           "label": "Label",
           "name": "label",
           "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        },
-        {
-          "component": "boolean",
-          "label": "Consent",
-          "name": "consent"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "sticky-navigation",
+      "id": "stickyNavigation",
       "components": [
         "navItem"
       ]

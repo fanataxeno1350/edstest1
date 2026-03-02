@@ -28,13 +28,29 @@
       "bannerList",
       "latestBlogsArticleListing",
       "footer",
-      "stickyBottomNav"
+      "stickyBottomNav",
+      "bannerSection",
+      "footerList",
+      "bannerCta",
+      "spaceAdder"
+    ]
+  },
+  {
+    "id": "bannerCta",
+    "components": [
+      "bannerCta"
     ]
   },
   {
     "id": "bannerList",
     "components": [
       "banner"
+    ]
+  },
+  {
+    "id": "bannerSection",
+    "components": [
+      "bannerSection"
     ]
   },
   {
@@ -58,12 +74,18 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLinkColumn",
-      "footerSocialLink"
+      "footerLinkGroup",
+      "socialLink"
     ]
   },
   {
-    "id": "footerLinkColumn",
+    "id": "footerLinkGroup",
+    "components": [
+      "footerLink"
+    ]
+  },
+  {
+    "id": "footerList",
     "components": [
       "footerLink"
     ]
@@ -85,7 +107,7 @@
   {
     "id": "headerFooter",
     "components": [
-      "sidebarItem",
+      "menuItem",
       "footerLink",
       "socialLink"
     ]
@@ -93,8 +115,8 @@
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
-      "footerLink",
+      "sidebarMenuItem",
+      "footerListItem",
       "socialLink"
     ]
   },
@@ -111,6 +133,9 @@
     ]
   },
   {
+    "id": "spaceAdder"
+  },
+  {
     "id": "stickyBottomNav",
     "components": [
       "navItem"
@@ -123,9 +148,15 @@
     ]
   },
   {
-    "id": "sticky-navigation",
+    "id": "stickyNavigation",
     "components": [
       "navItem"
+    ]
+  },
+  {
+    "id": "text",
+    "components": [
+      "text"
     ]
   }
 ]

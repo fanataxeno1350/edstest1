@@ -44,14 +44,8 @@
         },
         {
           "component": "text",
-          "label": "Image Alt Text",
-          "name": "altText",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
+          "label": "Heading",
+          "name": "heading",
           "valueType": "string"
         },
         {
@@ -62,14 +56,8 @@
         },
         {
           "component": "text",
-          "label": "CTA Link",
-          "name": "ctaHref",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "CTA Label",
-          "name": "ctaLabel",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]

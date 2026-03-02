@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Sidebar Item",
-      "id": "sidebarItem",
+      "title": "Menu Item",
+      "id": "menuItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "sidebarItem",
-              "name": "Sidebar Item"
+              "model": "menuItem",
+              "name": "Menu Item"
             }
           }
         }
@@ -75,78 +75,48 @@
         {
           "component": "reference",
           "label": "Logo Image",
-          "name": "logo",
+          "name": "logoImage",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Login Button Text",
-          "name": "loginButtonText",
-          "valueType": "string"
-        },
-        {
-          "component": "container",
-          "components": [
-            "sidebarItem"
-          ],
-          "label": "Sidebar Items",
-          "name": "sidebarItems"
-        },
-        {
-          "component": "container",
-          "components": [
-            "footerLink"
-          ],
-          "label": "Footer Links",
-          "name": "footerLinks"
-        },
-        {
-          "component": "container",
-          "components": [
-            "socialLink"
-          ],
-          "label": "Social Links",
-          "name": "socialLinks"
-        },
-        {
-          "component": "reference",
-          "label": "Footer Logo 1",
-          "name": "footerLogo1",
+          "label": "ITC Logo",
+          "name": "itcLogo",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Footer Logo 2",
-          "name": "footerLogo2",
+          "label": "FSSI Logo",
+          "name": "fssiLogo",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Copyright Text",
-          "name": "copyright",
+          "name": "copyrightText",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "sidebarItem",
+      "id": "menuItem",
       "fields": [
         {
           "component": "reference",
-          "label": "Icon Image",
+          "label": "Icon",
           "name": "icon",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link Text",
+          "label": "Menu Text",
           "name": "text",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link URL",
-          "name": "href",
+          "label": "Menu Link",
+          "name": "link",
           "valueType": "string"
         }
       ]
@@ -156,14 +126,14 @@
       "fields": [
         {
           "component": "text",
-          "label": "Link Text",
+          "label": "Footer Link Text",
           "name": "text",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link URL",
-          "name": "href",
+          "label": "Footer Link URL",
+          "name": "link",
           "valueType": "string"
         }
       ]
@@ -172,15 +142,21 @@
       "id": "socialLink",
       "fields": [
         {
+          "component": "text",
+          "label": "Platform",
+          "name": "platform",
+          "valueType": "string"
+        },
+        {
           "component": "reference",
-          "label": "Social Icon",
+          "label": "Icon",
           "name": "icon",
           "valueType": "string"
         },
         {
           "component": "text",
           "label": "Social Link URL",
-          "name": "href",
+          "name": "link",
           "valueType": "string"
         }
       ]
@@ -190,7 +166,7 @@
     {
       "id": "headerFooter",
       "components": [
-        "sidebarItem",
+        "menuItem",
         "footerLink",
         "socialLink"
       ]

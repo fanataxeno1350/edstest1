@@ -63,7 +63,11 @@
         "bannerList",
         "latestBlogsArticleListing",
         "footer",
-        "stickyBottomNav"
+        "stickyBottomNav",
+        "bannerSection",
+        "footerList",
+        "bannerCta",
+        "spaceAdder"
       ]
     }
   ]
