@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Feature Card",
+      "title": "Feature-Card",
       "id": "featureCard",
       "plugins": {
         "xwalk": {
@@ -25,7 +25,7 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "featureCard",
-              "name": "Feature Card"
+              "name": "Feature-Card"
             }
           }
         }
@@ -33,6 +33,17 @@
     }
   ],
   "models": [
+    {
+      "id": "featureCards",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Intro Text",
+          "name": "introText",
+          "valueType": "string"
+        }
+      ]
+    },
     {
       "id": "featureCard",
       "fields": [
@@ -44,7 +55,7 @@
         },
         {
           "component": "text",
-          "label": "Alt Text",
+          "label": "Image Alt Text",
           "name": "altText",
           "valueType": "string"
         },
@@ -62,14 +73,14 @@
         },
         {
           "component": "text",
-          "label": "CTA Label",
-          "name": "ctaLabel",
+          "label": "Button Label",
+          "name": "buttonLabel",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA URL",
-          "name": "ctaUrl",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]

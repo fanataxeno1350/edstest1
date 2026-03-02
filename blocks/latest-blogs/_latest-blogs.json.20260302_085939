@@ -34,6 +34,41 @@
   ],
   "models": [
     {
+      "id": "latestBlogs",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Title",
+          "name": "title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Description",
+          "name": "description",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "CTA Label",
+          "name": "ctaLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Icon",
+          "name": "ctaIcon",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
       "id": "blogCard",
       "fields": [
         {
@@ -50,14 +85,14 @@
         },
         {
           "component": "date-time",
-          "label": "Date",
-          "name": "date",
+          "label": "Published Date",
+          "name": "publishedDate",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
+          "component": "richtext",
+          "label": "Headline",
+          "name": "headline",
           "valueType": "string"
         }
       ]
