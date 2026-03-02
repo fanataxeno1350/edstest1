@@ -31,8 +31,7 @@
       "stickyBottomNav",
       "bannerSection",
       "footerList",
-      "bannerCta",
-      "spaceAdder"
+      "bannerCta"
     ]
   },
   {
@@ -131,9 +130,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNav",
