@@ -50,23 +50,7 @@
         "hero",
         "cards",
         "columns",
-        "fragment",
-        "header",
-        "carousel",
-        "featurecards",
-        "latestBlogs",
-        "footerBrand",
-        "stickyNavigationBottomNav",
-        "featureCards",
-        "stickyNavigation",
-        "headerFooter",
-        "bannerList",
-        "latestBlogsArticleListing",
-        "footer",
-        "stickyBottomNav",
-        "bannerSection",
-        "footerList",
-        "bannerCta"
+        "fragment"
       ]
     }
   ]
