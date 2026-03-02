@@ -15,7 +15,60 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "carousel",
+      "bannerVideo",
+      "featureCards",
+      "latestBlogs",
+      "spaceAdder",
+      "footer",
+      "stickyBottomNavigation"
+    ]
+  },
+  {
+    "id": "bannerVideo"
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "featureCards",
+    "components": [
+      "featureCard"
+    ]
+  },
+  {
+    "id": "footer",
+    "components": [
+      "footerNavList",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "headerMenuItem",
+      "footerLink",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "latestBlogs",
+    "components": [
+      "blogCard"
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
+    "id": "stickyBottomNavigation",
+    "components": [
+      "navigationItem"
     ]
   }
 ]

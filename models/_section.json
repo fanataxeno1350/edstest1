@@ -50,7 +50,15 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "header",
+        "carousel",
+        "bannerVideo",
+        "featureCards",
+        "latestBlogs",
+        "spaceAdder",
+        "footer",
+        "stickyBottomNavigation"
       ]
     }
   ]
