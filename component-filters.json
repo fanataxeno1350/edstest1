@@ -21,7 +21,6 @@
       "bannerVideo",
       "featureCards",
       "latestBlogs",
-      "spaceAdder",
       "footer",
       "stickyBottomNavigation"
     ]
@@ -61,9 +60,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
