@@ -63,7 +63,10 @@
         "footerList",
         "bannerCta",
         "bolteSitareCardSection",
-        "featureCard"
+        "featureCard",
+        "bannerBanner",
+        "latestBlogsArticleListing",
+        "spaceAdder"
       ]
     }
   ]

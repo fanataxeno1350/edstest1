@@ -44,32 +44,26 @@
         },
         {
           "component": "text",
-          "label": "Alt Text",
-          "name": "altText",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
           "label": "Title",
           "name": "title",
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
           "label": "Description",
           "name": "description",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA Label",
-          "name": "ctaLabel",
+          "label": "Button Text",
+          "name": "buttonText",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA URL",
-          "name": "ctaUrl",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]

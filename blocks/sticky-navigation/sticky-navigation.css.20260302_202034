@@ -364,26 +364,6 @@ to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
   border-bottom:.5rem
 }
 
-.stickynavigation-sticky-bottom-nav__list {
-  list-style:none
-}
-
-.stickynavigation-sticky-bottom-nav__item {
-  -webkit-box-flex:1;-ms-flex:1;flex:1;text-align:center
-}
-
-.stickynavigation-sticky-bottom-nav__link {
-  color:#fff;display:block;text-decoration:none;-webkit-transition:color .3s ease;transition:color .3s ease
-}
-
-.stickynavigation-sticky-bottom-nav__icon {
-  display:block;height:1.125rem;-webkit-transition:-webkit-filter .3s ease;transition:-webkit-filter .3s ease;transition:filter .3s ease;transition:filter .3s ease,-webkit-filter .3s ease;width:1.125rem
-}
-
-.stickynavigation-sticky-bottom-nav__label {
-  color:#fff;display:block;font-size:.75rem;font-weight:400;line-height:.9rem
-}
-
 .stickynavigation-lets-doodle .stickynavigation-submissionResponse .stickynavigation-doodle-card__image--wrapper img {
   border-radius:inherit;height:100%;-o-object-fit:cover;object-fit:cover;width:100%
 }
@@ -984,26 +964,6 @@ body:has(.stickynavigation-backButton__navigation) .stickynavigation-root.sticky
 
 .stickynavigation-tedhe-medhe-highlights__card--asset-item img {
   border-bottom: 0.5rem;
-}
-
-.stickynavigation-sticky-bottom-nav__list {
-  list-style: none;
-}
-
-.stickynavigation-sticky-bottom-nav__item {
-  -webkit-box-flex: 1; flex: 1 1 0%; text-align: center;
-}
-
-.stickynavigation-sticky-bottom-nav__link {
-  color: rgb(255, 255, 255); display: block; text-decoration: none; transition: color 0.3s;
-}
-
-.stickynavigation-sticky-bottom-nav__icon {
-  display: block; height: 1.125rem; transition: filter 0.3s, -webkit-filter 0.3s; width: 1.125rem;
-}
-
-.stickynavigation-sticky-bottom-nav__label {
-  color: rgb(255, 255, 255); display: block; font-size: 0.75rem; font-weight: 400; line-height: 0.9rem;
 }
 
 .stickynavigation-lets-doodle .stickynavigation-submissionResponse .stickynavigation-doodle-card__image--wrapper img {

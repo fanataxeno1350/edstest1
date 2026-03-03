@@ -32,30 +32,30 @@
       }
     },
     {
-      "title": "Footer Nav Item",
-      "id": "footerNavItem",
+      "title": "Footer List Item",
+      "id": "footerListItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerNavItem",
-              "name": "Footer Nav Item"
+              "model": "footerListItem",
+              "name": "Footer List Item"
             }
           }
         }
       }
     },
     {
-      "title": "Footer Social Link",
-      "id": "footerSocialLink",
+      "title": "Footer Social Item",
+      "id": "footerSocialItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerSocialLink",
-              "name": "Footer Social Link"
+              "model": "footerSocialItem",
+              "name": "Footer Social Item"
             }
           }
         }
@@ -79,31 +79,52 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Logo Alt Text",
-          "name": "logoAlt",
+          "component": "reference",
+          "label": "Login URL",
+          "name": "loginUrl",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Login Button Label",
-          "name": "loginButtonLabel",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Login Button URL",
-          "name": "loginButtonUrl",
+          "label": "Login Button Text",
+          "name": "loginButtonText",
           "valueType": "string"
         },
         {
           "component": "container",
-          "items": {
-            "type": "sidebarMenuItem"
-          },
+          "itemType": "sidebarMenuItem",
           "label": "Sidebar Menu",
-          "name": "sidebarMenu",
-          "valueType": "array"
+          "name": "sidebarMenu"
+        },
+        {
+          "component": "container",
+          "itemType": "footerListItem",
+          "label": "Footer List 1",
+          "name": "footerList1"
+        },
+        {
+          "component": "container",
+          "itemType": "footerListItem",
+          "label": "Footer List 2",
+          "name": "footerList2"
+        },
+        {
+          "component": "container",
+          "itemType": "footerListItem",
+          "label": "Footer List 3",
+          "name": "footerList3"
+        },
+        {
+          "component": "container",
+          "itemType": "footerListItem",
+          "label": "Footer List 4",
+          "name": "footerList4"
+        },
+        {
+          "component": "container",
+          "itemType": "footerSocialItem",
+          "label": "Footer Social",
+          "name": "footerSocial"
         },
         {
           "component": "reference",
@@ -118,27 +139,15 @@
           "valueType": "string"
         },
         {
-          "component": "container",
-          "items": {
-            "type": "footerNavItem"
-          },
-          "label": "Footer Navigation",
-          "name": "footerNav",
-          "valueType": "array"
-        },
-        {
-          "component": "container",
-          "items": {
-            "type": "footerSocialLink"
-          },
-          "label": "Footer Social Links",
-          "name": "footerSocialLinks",
-          "valueType": "array"
+          "component": "richtext",
+          "label": "Copyright Text",
+          "name": "copyrightText",
+          "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Footer Copyright",
-          "name": "footerCopyright",
+          "label": "Footer Left Link",
+          "name": "footerLink",
           "valueType": "string"
         }
       ]
@@ -148,54 +157,54 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Icon",
-          "name": "icon",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
+          "label": "Menu Link",
+          "name": "menuLink",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "URL",
-          "name": "url",
+          "label": "Menu Icon",
+          "name": "menuIcon",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Menu Text",
+          "name": "menuText",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerNavItem",
+      "id": "footerListItem",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
+          "component": "reference",
+          "label": "Footer List Link",
+          "name": "footerListLink",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "URL",
-          "name": "url",
+          "component": "text",
+          "label": "Footer List Text",
+          "name": "footerListText",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerSocialLink",
+      "id": "footerSocialItem",
       "fields": [
         {
           "component": "reference",
-          "label": "Icon",
-          "name": "icon",
+          "label": "Social Link",
+          "name": "socialLink",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "URL",
-          "name": "url",
+          "label": "Social Icon",
+          "name": "socialIcon",
           "valueType": "string"
         }
       ]
@@ -206,8 +215,8 @@
       "id": "header",
       "components": [
         "sidebarMenuItem",
-        "footerNavItem",
-        "footerSocialLink"
+        "footerListItem",
+        "footerSocialItem"
       ]
     }
   ]

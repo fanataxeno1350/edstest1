@@ -28,8 +28,14 @@
       "footerList",
       "bannerCta",
       "bolteSitareCardSection",
-      "featureCard"
+      "featureCard",
+      "bannerBanner",
+      "latestBlogsArticleListing",
+      "spaceAdder"
     ]
+  },
+  {
+    "id": "bannerBanner"
   },
   {
     "id": "bannerCta",
@@ -49,7 +55,7 @@
   {
     "id": "carousel",
     "components": [
-      "carouselItem"
+      "carouselSlide"
     ]
   },
   {
@@ -87,16 +93,28 @@
   {
     "id": "footer",
     "components": [
-      "footerNavList",
-      "socialLink"
+      "footerLinkList",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "footerLinkList",
+    "components": [
+      "footerLink"
     ]
   },
   {
     "id": "header",
     "components": [
       "sidebarMenuItem",
-      "footerListItem",
-      "footerSocialItem"
+      "footerNavItem",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "latestBlogsArticleListing",
+    "components": [
+      "blogCard"
     ]
   },
   {
@@ -104,6 +122,9 @@
     "components": [
       "blogCard"
     ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
@@ -114,7 +135,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "navItem"
+      "navigationItem"
     ]
   },
   {
