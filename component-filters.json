@@ -28,8 +28,7 @@
       "footerList",
       "bannerCta",
       "bolteSitareCardSection",
-      "featureCard",
-      "spaceAdder"
+      "featureCard"
     ]
   },
   {
@@ -105,9 +104,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
