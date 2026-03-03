@@ -30,8 +30,7 @@
       "bolteSitareCardSection",
       "featureCard",
       "bannerBanner",
-      "latestBlogsArticleListing",
-      "spaceAdder"
+      "latestBlogsArticleListing"
     ]
   },
   {
@@ -122,9 +121,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
