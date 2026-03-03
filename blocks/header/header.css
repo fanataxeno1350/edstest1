@@ -230,6 +230,10 @@ body:has(.header-backButton__navigation) .header-root.header-famlf-container {
   border-radius:inherit;-o-object-fit:cover;object-fit:cover
 }
 
+.header-boing-container {
+  --bs-gutter-x:0;--bs-gutter-y:0;margin-left:auto;margin-right:auto;max-width:33.75rem;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100%
+}
+
 .header-boing-input__text input :-webkit-autofill:active,
 .header-boing-input__text input :-webkit-autofill:focus,
 .header-boing-input__text input :-webkit-autofill:hover,
@@ -926,6 +930,10 @@ body:has(.header-backButton__navigation) .header-root.header-famlf-container {
 
 .header-recipeListing__card .header-card-img img {
   border-radius: inherit; object-fit: cover;
+}
+
+.header-boing-container {
+  --bs-gutter-x: 0; --bs-gutter-y: 0; margin-left: auto; margin-right: auto; max-width: 33.75rem; padding-left: calc(var(--bs-gutter-x)*.5); padding-right: calc(var(--bs-gutter-x)*.5); width: 100%;
 }
 
 .header-boing-input__text input :-webkit-autofill:active,

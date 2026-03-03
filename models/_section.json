@@ -59,7 +59,12 @@
         "footer",
         "stickyBottomNavigation",
         "footerBrand",
-        "stickyNavigation"
+        "stickyNavigation",
+        "footerList",
+        "bannerCta",
+        "bolteSitareCardSection",
+        "featureCard",
+        "spaceAdder"
       ]
     }
   ]

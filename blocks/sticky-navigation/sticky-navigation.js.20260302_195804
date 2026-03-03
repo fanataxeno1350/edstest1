@@ -21,20 +21,27 @@ export default function decorate(block) {
       const newLink = document.createElement('a');
       newLink.href = link.href;
       newLink.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
-      newLink.setAttribute('data-consent', link.getAttribute('data-consent'));
-      newLink.setAttribute('data-link', link.getAttribute('data-link'));
-      moveInstrumentation(link, newLink);
+      
+      const dataConsent = link.getAttribute('data-consent');
+      if (dataConsent) {
+        newLink.setAttribute('data-consent', dataConsent);
+      }
+      const dataLink = link.getAttribute('data-link');
+      if (dataLink) {
+        newLink.setAttribute('data-link', dataLink);
+      }
 
       const optimizedPic = createOptimizedPicture(img.src, img.alt);
       const newImg = optimizedPic.querySelector('img');
-      newImg.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
-      moveInstrumentation(img, newImg);
-      newLink.append(optimizedPic);
+      if (newImg) {
+        moveInstrumentation(img, newImg);
+        newImg.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
+        newLink.append(optimizedPic);
+      }
 
       const newLabelSpan = document.createElement('span');
       newLabelSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
       newLabelSpan.textContent = labelSpan.textContent;
-      moveInstrumentation(labelSpan, newLabelSpan);
       newLink.append(newLabelSpan);
 
       li.append(newLink);

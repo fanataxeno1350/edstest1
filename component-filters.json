@@ -24,16 +24,39 @@
       "footer",
       "stickyBottomNavigation",
       "footerBrand",
-      "stickyNavigation"
+      "stickyNavigation",
+      "footerList",
+      "bannerCta",
+      "bolteSitareCardSection",
+      "featureCard",
+      "spaceAdder"
+    ]
+  },
+  {
+    "id": "bannerCta",
+    "components": [
+      "bannerCta"
     ]
   },
   {
     "id": "bannerVideo"
   },
   {
+    "id": "bolteSitareCardSection",
+    "components": [
+      "bolteSitareCardSection"
+    ]
+  },
+  {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "featureCard",
+    "components": [
+      "featureCard"
     ]
   },
   {
@@ -43,11 +66,23 @@
     ]
   },
   {
-    "id": "footer-brand",
+    "id": "footerBrand",
     "components": [
       "footerLinkGroup",
-      "footerLink",
-      "footerSocialLink"
+      "socialLink",
+      "footerLink"
+    ]
+  },
+  {
+    "id": "footerLinkGroup",
+    "components": [
+      "footerLink"
+    ]
+  },
+  {
+    "id": "footerList",
+    "components": [
+      "footerLink"
     ]
   },
   {
@@ -62,7 +97,7 @@
     "components": [
       "sidebarMenuItem",
       "footerListItem",
-      "footerSocialLink"
+      "footerSocialItem"
     ]
   },
   {
@@ -70,6 +105,9 @@
     "components": [
       "blogCard"
     ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
@@ -80,7 +118,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "stickyNavItem"
+      "navItem"
     ]
   },
   {

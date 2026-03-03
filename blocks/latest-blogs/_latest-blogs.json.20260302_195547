@@ -50,7 +50,7 @@
         },
         {
           "component": "date-time",
-          "label": "Published Date",
+          "label": "Date",
           "name": "date",
           "valueType": "string"
         },
@@ -58,35 +58,6 @@
           "component": "text",
           "label": "Title",
           "name": "title",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "latestBlogs",
-      "fields": [
-        {
-          "component": "richtext",
-          "label": "Heading",
-          "name": "heading",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "CTA Link",
-          "name": "ctaLink",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
           "valueType": "string"
         }
       ]
