@@ -17,30 +17,30 @@
       }
     },
     {
-      "title": "NavigationItem",
-      "id": "navigationItem",
+      "title": "HeaderMenuItem",
+      "id": "headerMenuItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "navigationItem",
-              "name": "NavigationItem"
+              "model": "headerMenuItem",
+              "name": "HeaderMenuItem"
             }
           }
         }
       }
     },
     {
-      "title": "Language",
-      "id": "language",
+      "title": "HeaderLanguage",
+      "id": "headerLanguage",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "language",
-              "name": "Language"
+              "model": "headerLanguage",
+              "name": "HeaderLanguage"
             }
           }
         }
@@ -59,84 +59,60 @@
         },
         {
           "component": "richtext",
-          "label": "Contact Us Label",
-          "name": "contactUsLabel",
+          "label": "Logo Aria Label",
+          "name": "logoAriaLabel",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Contact Us Link",
-          "name": "contactUsLink",
+          "label": "CTA Link",
+          "name": "ctaLink",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Contact Us Aria Label",
-          "name": "contactUsAriaLabel",
-          "valueType": "string"
-        },
-        {
-          "component": "container",
-          "item": {
-            "component": "reference",
-            "label": "Navigation Item",
-            "name": "navigationItem",
-            "valueType": "string"
-          },
-          "label": "Navigation",
-          "name": "navigation",
-          "valueType": "array"
-        },
-        {
-          "component": "container",
-          "item": {
-            "component": "reference",
-            "label": "Language",
-            "name": "language",
-            "valueType": "string"
-          },
-          "label": "Languages",
-          "name": "languages",
-          "valueType": "array"
-        }
-      ]
-    },
-    {
-      "id": "navigationItem",
-      "fields": [
-        {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Link",
-          "name": "link",
+          "component": "richtext",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "language",
+      "id": "headerMenuItem",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
+          "component": "richtext",
+          "label": "Menu Title",
+          "name": "title",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Link",
+          "label": "Menu Link",
           "name": "link",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Lang Code",
-          "name": "langCode",
+          "component": "richtext",
+          "label": "Submenu Items",
+          "name": "submenu",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerLanguage",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Language Label",
+          "name": "languageLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Language Link",
+          "name": "languageLink",
           "valueType": "string"
         }
       ]
@@ -146,8 +122,8 @@
     {
       "id": "header",
       "components": [
-        "navigationItem",
-        "language"
+        "headerMenuItem",
+        "headerLanguage"
       ]
     }
   ]

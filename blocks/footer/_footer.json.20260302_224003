@@ -17,6 +17,21 @@
       }
     },
     {
+      "title": "Footer Navigation Link",
+      "id": "footerNavLink",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "footerNavLink",
+              "name": "Footer Navigation Link"
+            }
+          }
+        }
+      }
+    },
+    {
       "title": "Footer Social Link",
       "id": "footerSocialLink",
       "plugins": {
@@ -32,30 +47,15 @@
       }
     },
     {
-      "title": "Footer Navigation Link",
-      "id": "footerNavigationLink",
+      "title": "Footer Language Link",
+      "id": "footerLanguageLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerNavigationLink",
-              "name": "Footer Navigation Link"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "Footer Language",
-      "id": "footerLanguage",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "model": "footerLanguage",
-              "name": "Footer Language"
+              "model": "footerLanguageLink",
+              "name": "Footer Language Link"
             }
           }
         }
@@ -82,34 +82,58 @@
       "id": "footer",
       "fields": [
         {
-          "component": "reference",
+          "component": "aem-tag",
           "label": "Logo Link",
-          "name": "logo",
+          "name": "logoLink",
           "valueType": "string"
         },
         {
           "component": "container",
-          "items": "footerSocialLink",
-          "label": "Social Links",
-          "name": "socialLinks"
+          "items": [
+            {
+              "component": "reference",
+              "name": "footerNavLink",
+              "valueType": "string"
+            }
+          ],
+          "label": "Footer Navigation Links",
+          "name": "footerNavLinks"
         },
         {
           "component": "container",
-          "items": "footerNavigationLink",
-          "label": "Navigation Links",
-          "name": "navigationLinks"
+          "items": [
+            {
+              "component": "reference",
+              "name": "footerSocialLink",
+              "valueType": "string"
+            }
+          ],
+          "label": "Footer Social Links",
+          "name": "footerSocialLinks"
         },
         {
           "component": "container",
-          "items": "footerLanguage",
-          "label": "Languages",
-          "name": "languages"
+          "items": [
+            {
+              "component": "reference",
+              "name": "footerLanguageLink",
+              "valueType": "string"
+            }
+          ],
+          "label": "Footer Language Links",
+          "name": "footerLanguageLinks"
         },
         {
           "component": "container",
-          "items": "footerPolicyLink",
-          "label": "Policy Links",
-          "name": "policyLinks"
+          "items": [
+            {
+              "component": "reference",
+              "name": "footerPolicyLink",
+              "valueType": "string"
+            }
+          ],
+          "label": "Footer Policy Links",
+          "name": "footerPolicyLinks"
         },
         {
           "component": "text",
@@ -120,54 +144,42 @@
       ]
     },
     {
+      "id": "footerNavLink",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-tag",
+          "label": "Href",
+          "name": "href",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
       "id": "footerSocialLink",
       "fields": [
         {
-          "component": "reference",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Icon Class",
-          "name": "icon",
-          "valueType": "string"
-        },
-        {
           "component": "text",
           "label": "Label",
           "name": "label",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-tag",
+          "label": "Href",
+          "name": "href",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerNavigationLink",
+      "id": "footerLanguageLink",
       "fields": [
-        {
-          "component": "reference",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "footerLanguage",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
-        },
         {
           "component": "text",
           "label": "Label",
@@ -175,9 +187,9 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Language Code",
-          "name": "lang",
+          "component": "aem-tag",
+          "label": "Href",
+          "name": "href",
           "valueType": "string"
         }
       ]
@@ -186,15 +198,15 @@
       "id": "footerPolicyLink",
       "fields": [
         {
-          "component": "reference",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
-        },
-        {
           "component": "text",
           "label": "Label",
           "name": "label",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-tag",
+          "label": "Href",
+          "name": "href",
           "valueType": "string"
         }
       ]
@@ -204,9 +216,9 @@
     {
       "id": "footer",
       "components": [
+        "footerNavLink",
         "footerSocialLink",
-        "footerNavigationLink",
-        "footerLanguage",
+        "footerLanguageLink",
         "footerPolicyLink"
       ]
     }

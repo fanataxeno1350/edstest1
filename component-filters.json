@@ -23,7 +23,8 @@
       "mediaVideo",
       "scarpComponent",
       "statsByTheNumbers",
-      "footer"
+      "footer",
+      "statsByTheNumber"
     ]
   },
   {
@@ -35,17 +36,17 @@
   {
     "id": "footer",
     "components": [
-      "footerNavLink",
       "footerSocialLink",
-      "footerLanguageLink",
+      "footerNavigationLink",
+      "footerLanguage",
       "footerPolicyLink"
     ]
   },
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
-      "headerLanguage"
+      "navigationItem",
+      "language"
     ]
   },
   {
@@ -55,10 +56,28 @@
     ]
   },
   {
-    "id": "mediaVideo"
+    "id": "mediaVideo",
+    "components": [
+      "mediaVideo"
+    ]
   },
   {
-    "id": "scarpComponent"
+    "id": "scarpComponent",
+    "components": [
+      "scarpComponent"
+    ]
+  },
+  {
+    "id": "stats-by-the-number",
+    "components": [
+      "tab"
+    ]
+  },
+  {
+    "id": "tab",
+    "components": [
+      "statsCard"
+    ]
   },
   {
     "id": "statsByTheNumbers",
@@ -73,7 +92,7 @@
     ]
   },
   {
-    "id": "textAndMedia",
+    "id": "text-and-media",
     "components": [
       "textAndMedia"
     ]

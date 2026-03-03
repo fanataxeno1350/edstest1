@@ -5211,6 +5211,10 @@ html[dir=rtl] .footer-cmp-language-selector {
   flex-direction: row-reverse;
 }
 
+.footer-cmp-policy-links {
+  width: 100%;
+}
+
 .footer-cmp-policy-links__wrapper {
   width: 100%;
   display: flex;
@@ -8151,6 +8155,10 @@ html[dir="rtl"] .footer-cmp-stats-by-the-number__container__title b {
 
 html[dir="rtl"] .footer-cmp-language-selector {
   flex-direction: row-reverse;
+}
+
+.footer-cmp-policy-links {
+  width: 100%;
 }
 
 .footer-cmp-policy-links__wrapper {
