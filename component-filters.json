@@ -15,7 +15,67 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "heroFullWidth",
+      "textAndMedia",
+      "cardList",
+      "mediaVideo",
+      "scarpComponent",
+      "statsByTheNumbers",
+      "footer"
+    ]
+  },
+  {
+    "id": "cardList",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "footer",
+    "components": [
+      "footerNavLink",
+      "footerSocialLink",
+      "footerLanguageLink",
+      "footerPolicyLink"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "headerMenuItem",
+      "headerLanguage"
+    ]
+  },
+  {
+    "id": "heroFullWidth",
+    "components": [
+      "heroFullWidth"
+    ]
+  },
+  {
+    "id": "mediaVideo"
+  },
+  {
+    "id": "scarpComponent"
+  },
+  {
+    "id": "statsByTheNumbers",
+    "components": [
+      "tab"
+    ]
+  },
+  {
+    "id": "tab",
+    "components": [
+      "statCard"
+    ]
+  },
+  {
+    "id": "textAndMedia",
+    "components": [
+      "textAndMedia"
     ]
   }
 ]

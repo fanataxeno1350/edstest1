@@ -50,7 +50,15 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "header",
+        "heroFullWidth",
+        "textAndMedia",
+        "cardList",
+        "mediaVideo",
+        "scarpComponent",
+        "statsByTheNumbers",
+        "footer"
       ]
     }
   ]

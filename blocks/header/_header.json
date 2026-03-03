@@ -1,0 +1,130 @@
+{
+  "definitions": [
+    {
+      "title": "Header",
+      "id": "header",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "header",
+              "model": "header",
+              "name": "Header"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "HeaderMenuItem",
+      "id": "headerMenuItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "headerMenuItem",
+              "name": "HeaderMenuItem"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "HeaderLanguage",
+      "id": "headerLanguage",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "headerLanguage",
+              "name": "HeaderLanguage"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "header",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Logo Link",
+          "name": "logoLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Logo Aria Label",
+          "name": "logoAriaLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "CTA Label",
+          "name": "ctaLabel",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerMenuItem",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Menu Title",
+          "name": "title",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Menu Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Submenu Items",
+          "name": "submenu",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerLanguage",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Language Label",
+          "name": "languageLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Language Link",
+          "name": "languageLink",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "header",
+      "components": [
+        "headerMenuItem",
+        "headerLanguage"
+      ]
+    }
+  ]
+}
