@@ -23,14 +23,8 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Background Video",
-          "name": "backgroundVideo",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Background Poster",
-          "name": "backgroundPoster",
+          "label": "Background Video Source",
+          "name": "backgroundVideoSrc",
           "valueType": "string"
         },
         {
@@ -49,25 +43,25 @@
           "component": "container",
           "fields": [
             {
-              "component": "aem-tag",
+              "component": "text",
               "label": "CTA 1 Label",
               "name": "cta1Label",
               "valueType": "string"
             },
             {
-              "component": "aem-tag",
+              "component": "text",
               "label": "CTA 1 URL",
               "name": "cta1Url",
               "valueType": "string"
             },
             {
-              "component": "aem-tag",
+              "component": "text",
               "label": "CTA 2 Label",
               "name": "cta2Label",
               "valueType": "string"
             },
             {
-              "component": "aem-tag",
+              "component": "text",
               "label": "CTA 2 URL",
               "name": "cta2Url",
               "valueType": "string"

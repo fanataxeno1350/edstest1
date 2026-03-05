@@ -2,115 +2,123 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  // Create the main wrapper div
-  const wrapperDiv = document.createElement('div');
-  wrapperDiv.classList.add('text-and-media-cmp-text-and-media-wrapper');
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('text-and-media-cmp-text-and-media-wrapper');
 
-  // Assuming the block has only one row for all content based on the JSON structure
-  const row = block.children[0];
-  if (!row) return; // Exit if no row is found
+  const mediaCmp = document.createElement('div');
+  mediaCmp.classList.add('text-and-media-cmp-text-and-media');
+  mediaCmp.setAttribute('data-cmp-is', 'text-and-media');
+  mediaCmp.setAttribute('aria-labelledby', 'text-and-media-title');
+  mediaCmp.style.overflow = 'hidden';
+  mediaCmp.setAttribute('is-animated', 'true');
+  mediaCmp.setAttribute('data-is-reverse', 'true');
 
-  // Extract content from cells based on the JSON fields order
-  const cells = [...row.children];
+  const imageContainer = document.createElement('div');
+  imageContainer.classList.add('text-and-media-cmp-text-and-media--image-container', 'text-and-media-animate-image-container-up-fade', 'text-and-media-in-viewport', 'text-and-media-slide-up');
+  imageContainer.setAttribute('data-slide-type', 'slide-up');
+  imageContainer.setAttribute('data-slide-no-wrap', '');
 
-  const imageCell = cells[0];
-  const titleCell = cells[1];
-  const descriptionCell = cells[2];
-  const ctaLabelCell = cells[3];
-  const ctaUrlCell = cells[4];
-
-  // Create the image element
-  if (imageCell) {
-    const img = imageCell.querySelector('img');
-    if (img) {
-      const optimizedPic = createOptimizedPicture(img.src, img.alt);
-      moveInstrumentation(img, optimizedPic.querySelector('img'));
-
-      const pictureContainer = document.createElement('div');
-      pictureContainer.classList.add('text-and-media-cmp-text-and-media--image-container');
-      pictureContainer.setAttribute('data-slide-type', 'slide-up');
-      pictureContainer.setAttribute('data-slide-no-wrap', '');
-
-      const pictureElement = optimizedPic.querySelector('picture');
-      if (pictureElement) {
-        pictureElement.classList.add('text-and-media-cmp-text-and-media--image-container__picture');
-        const imgInPicture = pictureElement.querySelector('img');
-        if (imgInPicture) {
-          imgInPicture.classList.add('text-and-media-cmp-text-and-media--image-container__image');
-          imgInPicture.setAttribute('role', 'img');
-        }
-      }
-      pictureContainer.append(optimizedPic);
-      wrapperDiv.append(pictureContainer);
-    }
-  }
-
-  // Create the content container
   const contentDiv = document.createElement('div');
-  contentDiv.classList.add('text-and-media-cmp-text-and-media--content');
+  contentDiv.classList.add('text-and-media-cmp-text-and-media--content', 'text-and-media-in-viewport');
 
   const slideWrap = document.createElement('div');
   slideWrap.classList.add('text-and-media-slide-wrap');
-  const slideUpDiv = document.createElement('div');
-  slideUpDiv.setAttribute('data-slide-type', 'slide-up');
-  slideUpDiv.classList.add('text-and-media-slide-up');
+  const slideUp = document.createElement('div');
+  slideUp.setAttribute('data-slide-type', 'slide-up');
+  slideUp.classList.add('text-and-media-slide-up');
 
-  // Create title
-  if (titleCell) {
-    const titleElement = document.createElement('div');
-    titleElement.id = 'text-and-media-title';
-    titleElement.classList.add('text-and-media-cmp-text-and-media--content__title');
-    titleElement.setAttribute('tabindex', '0');
-    titleElement.innerHTML = titleCell.innerHTML;
-    moveInstrumentation(titleCell, titleElement);
-    slideUpDiv.append(titleElement);
-  }
+  const overflowFix = document.createElement('div');
+  overflowFix.classList.add('text-and-media-cmp-text-and-media-overflow-fix');
 
-  // Create description
-  if (descriptionCell) {
-    const descriptionElement = document.createElement('div');
-    descriptionElement.classList.add('text-and-media-cmp-text-and-media--content__description');
-    descriptionElement.setAttribute('tabindex', '0');
-    descriptionElement.innerHTML = descriptionCell.innerHTML;
-    moveInstrumentation(descriptionCell, descriptionElement);
-    slideUpDiv.append(descriptionElement);
-  }
+  // Assuming the block has only one row for all content
+  const row = block.children[0];
+  if (row) {
+    moveInstrumentation(row, wrapper);
+    const cells = [...row.children];
 
-  // Create CTA
-  if (ctaLabelCell && ctaUrlCell) {
-    const ctaLink = ctaUrlCell.querySelector('a');
-    if (ctaLink) {
-      const newCta = document.createElement('a');
-      newCta.href = ctaLink.href;
-      newCta.classList.add('text-and-media-cta', 'text-and-media-cta__primary', 'text-and-media-cmp-text-and-media--content__cta');
-      newCta.setAttribute('target', '_self');
-      newCta.setAttribute('aria-label', ctaLabelCell.textContent.trim());
+    // Cell 1: Image
+    const imageCell = cells[0];
+    if (imageCell) {
+      const img = imageCell.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        optimizedPic.querySelector('img').classList.add('text-and-media-cmp-text-and-media--image-container__image', 'text-and-media-layout-portrait', 'text-and-media-animate-image-zoom-out', 'text-and-media-in-viewport');
+        optimizedPic.querySelector('img').setAttribute('role', 'img');
+        optimizedPic.classList.add('text-and-media-cmp-text-and-media--image-container__picture');
+        imageContainer.append(optimizedPic);
+      }
+    }
 
-      const iconSpan = document.createElement('span');
-      iconSpan.classList.add('text-and-media-cta__icon', 'text-and-media-qd-icon', 'text-and-media-qd-icon--cheveron-right');
-      iconSpan.setAttribute('aria-hidden', 'true');
+    // Cell 2: Title
+    const titleCell = cells[1];
+    if (titleCell) {
+      const titleDiv = document.createElement('div');
+      titleDiv.id = 'text-and-media-title';
+      titleDiv.classList.add('text-and-media-cmp-text-and-media--content__title');
+      titleDiv.setAttribute('tabindex', '0');
+      titleDiv.innerHTML = titleCell.innerHTML;
+      slideUp.append(titleDiv);
+    }
 
-      const labelSpan = document.createElement('span');
-      labelSpan.classList.add('text-and-media-cta__label');
-      labelSpan.textContent = ctaLabelCell.textContent.trim();
-      moveInstrumentation(ctaLabelCell, labelSpan);
+    // Cell 3: Description
+    const descriptionCell = cells[2];
+    if (descriptionCell) {
+      const descriptionDiv = document.createElement('div');
+      descriptionDiv.classList.add('text-and-media-cmp-text-and-media--content__description');
+      descriptionDiv.setAttribute('tabindex', '0');
+      descriptionDiv.innerHTML = descriptionCell.innerHTML;
+      slideUp.append(descriptionDiv);
+    }
 
-      newCta.append(iconSpan, labelSpan);
-      slideUpDiv.append(newCta);
+    // Cell 4: CTA (Label and URL)
+    const ctaLabelCell = cells[3];
+    const ctaUrlCell = cells[4];
+    if (ctaLabelCell && ctaUrlCell) {
+      const ctaLink = document.createElement('a');
+      ctaLink.href = ctaUrlCell.textContent.trim();
+      ctaLink.classList.add('text-and-media-cta', 'text-and-media-cta__primary', 'text-and-media-cmp-text-and-media--content__cta');
+      ctaLink.setAttribute('target', '_self');
+      ctaLink.setAttribute('aria-label', ctaLabelCell.textContent.trim());
+
+      const ctaIcon = document.createElement('span');
+      ctaIcon.classList.add('text-and-media-cta__icon', 'text-and-media-qd-icon', 'text-and-media-qd-icon--cheveron-right');
+      ctaIcon.setAttribute('aria-hidden', 'true');
+
+      const ctaLabel = document.createElement('span');
+      ctaLabel.classList.add('text-and-media-cta__label');
+      ctaLabel.textContent = ctaLabelCell.textContent.trim();
+
+      ctaLink.append(ctaIcon, ctaLabel);
+      slideUp.append(ctaLink);
     }
   }
 
-  slideWrap.append(slideUpDiv);
+  slideWrap.append(slideUp);
   contentDiv.append(slideWrap);
-  wrapperDiv.append(contentDiv);
+  mediaCmp.append(imageContainer, contentDiv, overflowFix);
+  wrapper.append(mediaCmp);
 
-  // Clear the block and append the new structure
   block.textContent = '';
-  block.append(wrapperDiv);
+  block.append(wrapper);
+  block.classList.add('text-and-media-true');
 
-  // Transfer instrumentation for the main block element
-  // The original block element itself doesn't have direct content from the JSON to transfer,
-  // but if there were attributes on the block's row, they would be moved here.
-  // For this specific block, the main wrapper is built from scratch, so direct row instrumentation
-  // is applied to the individual elements created.
+  // Add the initial scarp image from the first cell's img alt/aria-label if present
+  const firstRow = block.children[0];
+  if (firstRow) {
+    const firstCell = firstRow.children[0];
+    const img = firstCell.querySelector('img');
+    if (img) {
+      const scarpImg = document.createElement('img');
+      scarpImg.classList.add('text-and-media-cmp-text-and-media__scarp', 'text-and-media-fade-in');
+      scarpImg.setAttribute('data-fade-in', '');
+      scarpImg.src = img.src;
+      scarpImg.alt = img.alt;
+      scarpImg.setAttribute('loading', 'lazy');
+      scarpImg.setAttribute('aria-label', img.alt);
+      scarpImg.setAttribute('is-animated', 'true');
+      scarpImg.setAttribute('data-is-reverse', 'true');
+      wrapper.prepend(scarpImg);
+    }
+  }
 }

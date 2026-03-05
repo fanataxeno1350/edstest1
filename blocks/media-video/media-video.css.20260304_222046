@@ -2051,6 +2051,12 @@ html[dir=rtl] .media-cmp-hero-full-width__content.media-reduced-motion * {
   border-radius: 50%;
 }
 
+.media-video-container__controls__timer__progress-area__progress-pending {
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.302);
+  flex: 1;
+}
+
 .media-video-container__controls__timer__current-time {
   left: 0;
 }
@@ -6352,6 +6358,10 @@ html[dir="rtl"] .media-cmp-hero-full-width__content.media-reduced-motion * {
 
 .media-video-container__controls__timer__progress-area__pointer {
   background: transparent; border: 2px solid var(--white); width: 16px; height: 16px; display: block; border-radius: 50%;
+}
+
+.media-video-container__controls__timer__progress-area__progress-pending {
+  height: 3px; background-color: rgba(255, 255, 255, 0.3); flex: 1 1 0%;
 }
 
 .media-video-container__controls__timer__current-time {

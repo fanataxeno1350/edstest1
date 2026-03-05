@@ -56,7 +56,7 @@
   ],
   "filters": [
     {
-      "id": "textAndMedia",
+      "id": "text-and-media",
       "components": [
         "textAndMedia"
       ]

@@ -23,14 +23,14 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Background Video",
-          "name": "backgroundVideo",
+          "label": "Background Video (mpegURL)",
+          "name": "backgroundVideoMpegUrl",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Background Poster",
-          "name": "backgroundPoster",
+          "label": "Background Video (mp4)",
+          "name": "backgroundVideoMp4",
           "valueType": "string"
         },
         {
@@ -46,35 +46,28 @@
           "valueType": "string"
         },
         {
-          "component": "container",
-          "fields": [
-            {
-              "component": "aem-tag",
-              "label": "CTA 1 Label",
-              "name": "cta1Label",
-              "valueType": "string"
-            },
-            {
-              "component": "aem-tag",
-              "label": "CTA 1 URL",
-              "name": "cta1Url",
-              "valueType": "string"
-            },
-            {
-              "component": "aem-tag",
-              "label": "CTA 2 Label",
-              "name": "cta2Label",
-              "valueType": "string"
-            },
-            {
-              "component": "aem-tag",
-              "label": "CTA 2 URL",
-              "name": "cta2Url",
-              "valueType": "string"
-            }
-          ],
-          "label": "CTAs",
-          "name": "ctas"
+          "component": "text",
+          "label": "Primary CTA Label",
+          "name": "primaryCtaLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Primary CTA URL",
+          "name": "primaryCtaUrl",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Secondary CTA Label",
+          "name": "secondaryCtaLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Secondary CTA URL",
+          "name": "secondaryCtaUrl",
+          "valueType": "string"
         }
       ]
     }

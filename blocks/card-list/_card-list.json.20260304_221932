@@ -46,7 +46,7 @@
           "component": "aem-tag",
           "label": "CTA",
           "name": "cta",
-          "valueType": "object"
+          "valueType": "string"
         }
       ]
     },

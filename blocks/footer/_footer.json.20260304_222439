@@ -33,13 +33,13 @@
     },
     {
       "title": "Footer Navigation Link",
-      "id": "footerNavLink",
+      "id": "footerNavigationLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerNavLink",
+              "model": "footerNavigationLink",
               "name": "Footer Navigation Link"
             }
           }
@@ -47,15 +47,15 @@
       }
     },
     {
-      "title": "Footer Language Link",
-      "id": "footerLanguageLink",
+      "title": "Footer Language",
+      "id": "footerLanguage",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerLanguageLink",
-              "name": "Footer Language Link"
+              "model": "footerLanguage",
+              "name": "Footer Language"
             }
           }
         }
@@ -84,50 +84,32 @@
         {
           "component": "reference",
           "label": "Logo Link",
-          "name": "logoLink",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Logo Aria Label",
-          "name": "logoAriaLabel",
+          "name": "logo",
           "valueType": "string"
         },
         {
           "component": "container",
-          "items": {
-            "component": "footerSocialLink"
-          },
+          "items": "footerSocialLink",
           "label": "Social Links",
-          "name": "socialLinks",
-          "valueType": "array"
+          "name": "socialLinks"
         },
         {
           "component": "container",
-          "items": {
-            "component": "footerNavLink"
-          },
+          "items": "footerNavigationLink",
           "label": "Navigation Links",
-          "name": "navigationLinks",
-          "valueType": "array"
+          "name": "navigationLinks"
         },
         {
           "component": "container",
-          "items": {
-            "component": "footerLanguageLink"
-          },
-          "label": "Language Links",
-          "name": "languageLinks",
-          "valueType": "array"
+          "items": "footerLanguage",
+          "label": "Languages",
+          "name": "languages"
         },
         {
           "component": "container",
-          "items": {
-            "component": "footerPolicyLink"
-          },
+          "items": "footerPolicyLink",
           "label": "Policy Links",
-          "name": "policyLinks",
-          "valueType": "array"
+          "name": "policyLinks"
         },
         {
           "component": "text",
@@ -148,14 +130,20 @@
         },
         {
           "component": "text",
-          "label": "Aria Label",
-          "name": "ariaLabel",
+          "label": "Icon Class",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerNavLink",
+      "id": "footerNavigationLink",
       "fields": [
         {
           "component": "reference",
@@ -165,14 +153,14 @@
         },
         {
           "component": "text",
-          "label": "Title",
-          "name": "title",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerLanguageLink",
+      "id": "footerLanguage",
       "fields": [
         {
           "component": "reference",
@@ -182,14 +170,14 @@
         },
         {
           "component": "text",
-          "label": "Aria Label",
-          "name": "ariaLabel",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         },
         {
           "component": "text",
           "label": "Language Code",
-          "name": "langCode",
+          "name": "lang",
           "valueType": "string"
         }
       ]
@@ -205,8 +193,8 @@
         },
         {
           "component": "text",
-          "label": "Title",
-          "name": "title",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
@@ -217,8 +205,8 @@
       "id": "footer",
       "components": [
         "footerSocialLink",
-        "footerNavLink",
-        "footerLanguageLink",
+        "footerNavigationLink",
+        "footerLanguage",
         "footerPolicyLink"
       ]
     }

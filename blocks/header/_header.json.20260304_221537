@@ -17,30 +17,30 @@
       }
     },
     {
-      "title": "Menu Item",
-      "id": "menuItem",
+      "title": "Navigation Menu",
+      "id": "navigationMenu",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "menuItem",
-              "name": "Menu Item"
+              "model": "navigationMenu",
+              "name": "Navigation Menu"
             }
           }
         }
       }
     },
     {
-      "title": "Submenu Item",
-      "id": "submenuItem",
+      "title": "Navigation Submenu",
+      "id": "navigationSubmenu",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "submenuItem",
-              "name": "Submenu Item"
+              "model": "navigationSubmenu",
+              "name": "Navigation Submenu"
             }
           }
         }
@@ -73,60 +73,54 @@
           "valueType": "string"
         },
         {
-          "component": "container",
-          "itemType": "menuItem",
-          "label": "Menu Items",
-          "name": "menuItems"
+          "component": "richtext",
+          "label": "Logo Aria Label",
+          "name": "logoAriaLabel",
+          "valueType": "string"
         },
         {
-          "component": "container",
-          "itemType": "aem-tag",
-          "label": "Contact Links",
-          "name": "contactLinks"
+          "component": "reference",
+          "label": "Contact Us Link",
+          "name": "contactUsLink",
+          "valueType": "string"
         },
         {
-          "component": "container",
-          "itemType": "languageOption",
-          "label": "Language Options",
-          "name": "languageOptions"
+          "component": "richtext",
+          "label": "Contact Us Label",
+          "name": "contactUsLabel",
+          "valueType": "string"
         }
       ]
     },
     {
-      "id": "menuItem",
+      "id": "navigationMenu",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
+          "component": "richtext",
+          "label": "Menu Label",
           "name": "label",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Link",
+          "label": "Menu Link",
           "name": "link",
           "valueType": "string"
-        },
-        {
-          "component": "container",
-          "itemType": "submenuItem",
-          "label": "Submenu Items",
-          "name": "submenuItems"
         }
       ]
     },
     {
-      "id": "submenuItem",
+      "id": "navigationSubmenu",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
+          "component": "richtext",
+          "label": "Submenu Label",
           "name": "label",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Link",
+          "label": "Submenu Link",
           "name": "link",
           "valueType": "string"
         }
@@ -136,14 +130,14 @@
       "id": "languageOption",
       "fields": [
         {
-          "component": "text",
-          "label": "Language",
-          "name": "language",
+          "component": "richtext",
+          "label": "Language Label",
+          "name": "label",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Link",
+          "label": "Language Link",
           "name": "link",
           "valueType": "string"
         }
@@ -154,14 +148,9 @@
     {
       "id": "header",
       "components": [
-        "menuItem",
+        "navigationMenu",
+        "navigationSubmenu",
         "languageOption"
-      ]
-    },
-    {
-      "id": "menuItem",
-      "components": [
-        "submenuItem"
       ]
     }
   ]
