@@ -1,0 +1,36 @@
+.whyustext-cmp-text {
+  margin-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  /* Fallback color if --koi-theme is not defined */
+  color: #4f250a;
+}
+.whyustext-cmp-text h1 {
+  font-family: "Paytone One";
+  font-size: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  font-weight: 500;
+  line-height: 3rem; /* Equivalent to 48px assuming 16px base */
+  margin-bottom: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  color: #4f250a; /* Explicitly set color */
+  text-align: center;
+}
+
+@media (max-width: 48rem) { /* Equivalent to 768px */
+  .whyustext-cmp-text {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .whyustext-cmp-text h1 {
+    font-size: 1.675rem; /* Equivalent to 26.8px assuming 16px base */
+  }
+  .whyustext-cmp-text h2 {
+    font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  }
+  .whyustext-cmp-text h3 {
+    font-size: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  }
+  .whyustext-cmp-text h4 {
+    font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  }
+  .whyustext-cmp-text p {
+    font-size: 0.875rem; /* Equivalent to 14px assuming 16px base */
+  }
+}

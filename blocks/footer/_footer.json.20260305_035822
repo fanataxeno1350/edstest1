@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "FooterLink",
+      "title": "Footer Link",
       "id": "footerLink",
       "plugins": {
         "xwalk": {
@@ -25,29 +25,14 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "footerLink",
-              "name": "FooterLink"
+              "name": "Footer Link"
             }
           }
         }
       }
     },
     {
-      "title": "FooterNav",
-      "id": "footerNav",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "model": "footerNav",
-              "name": "FooterNav"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "FooterSocial",
+      "title": "Footer Social",
       "id": "footerSocial",
       "plugins": {
         "xwalk": {
@@ -55,7 +40,22 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "footerSocial",
-              "name": "FooterSocial"
+              "name": "Footer Social"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Footer Secondary Link",
+      "id": "footerSecondaryLink",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "footerSecondaryLink",
+              "name": "Footer Secondary Link"
             }
           }
         }
@@ -68,68 +68,62 @@
       "fields": [
         {
           "component": "reference",
-          "label": "ITC Logo",
-          "name": "itcLogo",
+          "label": "Logo 1",
+          "name": "logo1",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "FSSAI Logo",
-          "name": "fssaiLogo",
+          "label": "Logo 2",
+          "name": "logo2",
           "valueType": "string"
         },
         {
-          "allowedComponents": [
-            "footerLink"
-          ],
           "component": "container",
+          "itemComponent": "footerLink",
           "label": "Footer Links",
           "name": "footerLinks"
         },
         {
-          "allowedComponents": [
-            "footerNav"
-          ],
           "component": "container",
-          "label": "Footer Nav",
-          "name": "footerNavs"
-        },
-        {
-          "allowedComponents": [
-            "footerSocial"
-          ],
-          "component": "container",
+          "itemComponent": "footerSocial",
           "label": "Footer Social Links",
           "name": "footerSocials"
         },
         {
-          "component": "text",
+          "component": "richtext",
+          "label": "Copyright",
+          "name": "copyright",
+          "valueType": "string"
+        },
+        {
+          "component": "container",
+          "itemComponent": "footerSecondaryLink",
+          "label": "Footer Secondary Links",
+          "name": "footerSecondaryLinks"
+        },
+        {
+          "component": "richtext",
           "label": "Grievance Officer Title",
           "name": "grievanceOfficerTitle",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Grievance Officer Name",
           "name": "grievanceOfficerName",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Grievance Officer Contact",
           "name": "grievanceOfficerContact",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Grievance Officer Time",
-          "name": "grievanceOfficerTime",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Copyright Notice",
-          "name": "copyright",
+          "component": "richtext",
+          "label": "Grievance Officer Timing",
+          "name": "grievanceOfficerTiming",
           "valueType": "string"
         }
       ]
@@ -152,23 +146,6 @@
       ]
     },
     {
-      "id": "footerNav",
-      "fields": [
-        {
-          "component": "text",
-          "label": "Nav Item Label",
-          "name": "label",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Nav Item URL",
-          "name": "url",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
       "id": "footerSocial",
       "fields": [
         {
@@ -184,6 +161,17 @@
           "valueType": "string"
         }
       ]
+    },
+    {
+      "id": "footerSecondaryLink",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Secondary Link URL",
+          "name": "url",
+          "valueType": "string"
+        }
+      ]
     }
   ],
   "filters": [
@@ -191,8 +179,8 @@
       "id": "footer",
       "components": [
         "footerLink",
-        "footerNav",
-        "footerSocial"
+        "footerSocial",
+        "footerSecondaryLink"
       ]
     }
   ]

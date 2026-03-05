@@ -61,7 +61,12 @@
         "whyUsCards",
         "countrySelectorModal",
         "heroCarousel",
-        "whyUsText"
+        "whyUsText",
+        "bannerCarousel",
+        "spaceAdder",
+        "itcClubCarousel",
+        "delightfulDelicaciesBanner",
+        "container"
       ]
     }
   ]

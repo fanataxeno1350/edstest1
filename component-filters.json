@@ -26,7 +26,18 @@
       "whyUsCards",
       "countrySelectorModal",
       "heroCarousel",
-      "whyUsText"
+      "whyUsText",
+      "bannerCarousel",
+      "spaceAdder",
+      "itcClubCarousel",
+      "delightfulDelicaciesBanner",
+      "container"
+    ]
+  },
+  {
+    "id": "bannerCarousel",
+    "components": [
+      "bannerSlide"
     ]
   },
   {
@@ -42,9 +53,18 @@
     ]
   },
   {
+    "id": "container"
+  },
+  {
     "id": "countrySelectorModal",
     "components": [
       "countryOption"
+    ]
+  },
+  {
+    "id": "delightfulDelicaciesBanner",
+    "components": [
+      "delicacyCard"
     ]
   },
   {
@@ -63,15 +83,14 @@
     "id": "footer",
     "components": [
       "footerLink",
-      "footerSocial",
-      "footerSecondaryLink"
+      "footerNav",
+      "footerSocial"
     ]
   },
   {
     "id": "header",
     "components": [
-      "navigationLink",
-      "countryOption"
+      "header"
     ]
   },
   {
@@ -79,6 +98,15 @@
     "components": [
       "heroCarouselItem"
     ]
+  },
+  {
+    "id": "itcClubCarousel",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "spaceadder-vertical-padding-section"
