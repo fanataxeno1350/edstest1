@@ -253,9 +253,6 @@
     ]
   },
   {
-    "id": "container"
-  },
-  {
     "id": "countryOption",
     "fields": [
       {
@@ -786,20 +783,6 @@
         "valueType": "string"
       }
     ]
-  },
-  {
-    "id": "spaceAdder",
-    "fields": [
-      {
-        "component": "number",
-        "label": "Vertical Padding",
-        "name": "verticalPadding",
-        "valueType": "number"
-      }
-    ]
-  },
-  {
-    "id": "spaceadderVerticalPaddingSection"
   },
   {
     "id": "text",
