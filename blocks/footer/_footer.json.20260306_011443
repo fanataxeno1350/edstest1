@@ -1,0 +1,226 @@
+{
+  "definitions": [
+    {
+      "title": "Footer",
+      "id": "footer",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "footer",
+              "model": "footer",
+              "name": "Footer"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Logo",
+      "id": "logo",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "logo",
+              "name": "Logo"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Footer Link",
+      "id": "footerLink",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "footerLink",
+              "name": "Footer Link"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Footer List Link",
+      "id": "footerListLink",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "footerListLink",
+              "name": "Footer List Link"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Social Icon",
+      "id": "socialIcon",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "socialIcon",
+              "name": "Social Icon"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "footer",
+      "fields": [
+        {
+          "component": "container",
+          "items": "logo",
+          "label": "Logos",
+          "name": "logos"
+        },
+        {
+          "component": "container",
+          "items": "footerLink",
+          "label": "Footer Links",
+          "name": "footerLinks"
+        },
+        {
+          "component": "container",
+          "items": "footerListLink",
+          "label": "Footer List Links",
+          "name": "footerListLinks"
+        },
+        {
+          "component": "container",
+          "items": "socialIcon",
+          "label": "Social Icons",
+          "name": "socialIcons"
+        },
+        {
+          "component": "text",
+          "label": "Grievance Officer Title",
+          "name": "grievanceOfficerTitle",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Grievance Officer Name",
+          "name": "grievanceOfficerName",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Grievance Officer Contact",
+          "name": "grievanceOfficerContact",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Grievance Officer Timing",
+          "name": "grievanceOfficerTiming",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Copyright Text",
+          "name": "copyrightText",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "logo",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Logo Image",
+          "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Logo Link",
+          "name": "link",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "footerLink",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Link Text",
+          "name": "text",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "URL",
+          "name": "url",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "footerListLink",
+      "fields": [
+        {
+          "component": "text",
+          "label": "List Link Text",
+          "name": "text",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "List Link URL",
+          "name": "url",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "socialIcon",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Social Link URL",
+          "name": "url",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Icon Image",
+          "name": "icon",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "footer",
+      "components": [
+        "logo",
+        "footerLink",
+        "footerListLink",
+        "socialIcon"
+      ]
+    }
+  ]
+}

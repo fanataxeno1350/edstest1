@@ -1,0 +1,154 @@
+.how-shift-section {
+  background: #FFEDD6;
+  display: flex;
+  flex-direction: row;
+  font-family: "Urbanist";
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  line-height: 1.5rem; /* Equivalent to 24px assuming 16px base */
+}
+.how-shift-section .how-shift-left-image-div {
+  width: 100%;
+}
+.how-shift-section .how-shift-left-image-div img {
+  width: 100%;
+  height: 100%;
+}
+.how-shift-section .how-shift-container.how-shift-read-more {
+  padding: 1.375rem 1.875rem; /* Equivalent to 22px 30px assuming 16px base */
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-read-more-text {
+  text-align: center;
+  max-width: 28.125rem; /* Equivalent to 450px assuming 16px base */
+  margin: 0 auto;
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-read-more-text h2 {
+  text-align: center;
+  color: #212529;
+  font-family: "Paytone One";
+  font-size: 2rem; /* Equivalent to 32px assuming 16px base */
+  font-weight: 500;
+  line-height: 2.4rem; /* Equivalent to 38.4px assuming 16px base */
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-read-more-text p {
+  text-align: center;
+  color: #212529;
+  font-family: "Urbanist";
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 400;
+  line-height: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-button.how-shift-how-shift-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem; /* Equivalent to 40px assuming 16px base */
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-button.how-shift-how-shift-button a {
+  background-color: #2d2119 !important;
+  padding: 0.9375rem 4.125rem; /* Equivalent to 15px 66px assuming 16px base */
+  color: #fcf1e4;
+  border: transparent;
+  font-weight: 700;
+  border-radius: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  font-family: "Urbanist";
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  line-height: 1.5; /* Equivalent to 24px assuming 16px base */
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.how-shift-section .how-shift-container.how-shift-read-more .how-shift-button.how-shift-how-shift-button a:hover {
+  opacity: 0.6;
+  border-color: unset !important;
+  box-shadow: none !important;
+}
+@media (max-width: 767.98px) {
+  .how-shift-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.how-shift-section .how-shift-health-goal-wrapper {
+  background-color: #2d2119;
+}
+.how-shift-section .how-shift-heading {
+  padding-bottom: 0.5rem !important;
+  color: #4f250a;
+  font-family: "Paytone One";
+  font-size: 2.8125rem; /* Equivalent to 45px assuming 16px base */
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  text-align: center;
+}
+.how-shift-section .how-shift-read-more p {
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .how-shift-section .how-shift-health-goal-wrapper img {
+    width: 5.1875rem; /* Equivalent to 83px assuming 16px base */
+  }
+  .how-shift-section .how-shift-heading, .how-shift-section .how-shift-read-more-text h2 {
+    font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  }
+}
+@media (max-width: 390px) {
+  .how-shift-section .how-shift-heading {
+    padding: 0 12vw !important;
+  }
+}
+.how-shift-section {
+  margin: 1rem 3rem; /* Equivalent to 16px 48px assuming 16px base */
+}
+@media (max-width: 768px) {
+  .how-shift-section {
+    margin: 0.5rem 1.5rem; /* Equivalent to 8px 24px assuming 16px base */
+  }
+}
+.how-shift-section .how-shift-read-more .how-shift-button {
+  justify-content: flex-start;
+  margin-left: 2.5rem; /* Equivalent to 40px assuming 16px base */
+}
+@media (max-width: 767.98px) {
+  .how-shift-section .how-shift-read-more .how-shift-button {
+    justify-content: center;
+    margin: 0;
+  }
+}
+.how-shift-section .how-shift-why-shift-wrapper {
+  max-width: 43.75rem; /* Equivalent to 700px assuming 16px base */
+  margin: 0 auto;
+}
+.how-shift-section .how-shift-why-shift-wrapper .how-shift-image-desc {
+  max-width: 12.5rem; /* Equivalent to 200px assuming 16px base */
+}
+@media (max-width: 767px) {
+  .how-shift-section .how-shift-why-shift-wrapper .how-shift-image-desc {
+    max-width: 13.125rem; /* Equivalent to 210px assuming 16px base */
+  }
+}
+.how-shift-section .how-shift-why-shift-wrapper .how-shift-health-goal-wrapper {
+  margin: 0 auto;
+}
+.how-shift-section .how-shift-why-shift-wrapper .how-shift-image-label {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+@media (max-width: 767.98px) {
+  .how-shift-section .how-shift-heading {
+    line-height: normal;
+  }
+  .how-shift-section .how-shift-readMore {
+    font-size: 4.66vw !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .how-shift-section .how-shift-button a {
+    padding: 1.0625rem 2.25rem !important; /* Equivalent to 17px 36px assuming 16px base */
+    font-size: 0.875rem !important; /* Equivalent to 14px assuming 16px base */
+  }
+}
+.how-shift-section .how-shift-cmp-button__text {
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+}

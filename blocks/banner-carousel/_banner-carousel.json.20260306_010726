@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Banner",
-      "id": "banner",
+      "title": "Banner-Slide",
+      "id": "bannerSlide",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "banner",
-              "name": "Banner"
+              "model": "bannerSlide",
+              "name": "Banner-Slide"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "banner",
+      "id": "bannerSlide",
       "fields": [
         {
           "component": "reference",
@@ -61,15 +61,15 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "CTA Link",
-          "name": "ctaLink",
+          "component": "text",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
+          "label": "CTA URL",
+          "name": "ctaUrl",
           "valueType": "string"
         }
       ]
@@ -79,7 +79,7 @@
     {
       "id": "bannerCarousel",
       "components": [
-        "banner"
+        "bannerSlide"
       ]
     }
   ]

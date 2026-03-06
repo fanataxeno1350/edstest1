@@ -29,18 +29,27 @@
       "bannerCarousel",
       "itcClubCarousel",
       "delightfulDelicaciesBanner",
-      "spaceAdder",
-      "cardList"
+      "cardList",
+      "clubCarousel",
+      "howShiftSection",
+      "textContent",
+      "cardsSection"
     ]
   },
   {
     "id": "bannerCarousel",
     "components": [
-      "bannerSlide"
+      "banner"
     ]
   },
   {
     "id": "cardList",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cardsSection",
     "components": [
       "card"
     ]
@@ -53,6 +62,12 @@
   },
   {
     "id": "carousel",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "club-carousel",
     "components": [
       "carouselItem"
     ]
@@ -84,16 +99,15 @@
   {
     "id": "footer",
     "components": [
-      "logo",
       "footerLink",
-      "footerListLink",
-      "socialIcon"
+      "socialIcon",
+      "footerSecondaryLink"
     ]
   },
   {
     "id": "header",
     "components": [
-      "navigationItem",
+      "navigationLink",
       "countryOption"
     ]
   },
@@ -104,6 +118,12 @@
     ]
   },
   {
+    "id": "howShiftSection",
+    "components": [
+      "howShiftItem"
+    ]
+  },
+  {
     "id": "itcClubCarousel",
     "components": [
       "carouselItem"
@@ -111,6 +131,12 @@
   },
   {
     "id": "spaceAdder"
+  },
+  {
+    "id": "text-content",
+    "components": [
+      "textContent"
+    ]
   },
   {
     "id": "text",

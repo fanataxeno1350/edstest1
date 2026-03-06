@@ -64,8 +64,11 @@
         "bannerCarousel",
         "itcClubCarousel",
         "delightfulDelicaciesBanner",
-        "spaceAdder",
-        "cardList"
+        "cardList",
+        "clubCarousel",
+        "howShiftSection",
+        "textContent",
+        "cardsSection"
       ]
     }
   ]

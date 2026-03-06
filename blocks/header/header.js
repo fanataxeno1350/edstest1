@@ -3,132 +3,100 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const headerSection = document.createElement('header');
-  headerSection.className = 'header-itc-header-section';
   moveInstrumentation(block, headerSection);
+  headerSection.className = 'header-itc-header-section';
 
   const headerContainer = document.createElement('div');
   headerContainer.className = 'header-container';
   headerSection.append(headerContainer);
 
-  const navbar = document.createElement('nav');
-  navbar.className = 'header-navbar header-navbar-expand-xl header-navbar-light header-bg-light header-px-xl-5 header-d-flex header-justify-content-between header-align-items-center';
-  headerContainer.append(navbar);
+  const navBar = document.createElement('nav');
+  navBar.className = 'header-navbar header-navbar-expand-xl header-navbar-light header-bg-light header-px-xl-5 header-d-flex header-justify-content-between header-align-items-center';
+  headerContainer.append(navBar);
 
-  const toggleButton = document.createElement('button');
-  toggleButton.className = 'header-navbar-toggler header-collapsed';
-  toggleButton.type = 'button';
-  toggleButton.setAttribute('data-toggle', 'collapse');
-  toggleButton.setAttribute('data-target', '#navbarSupportedContent');
-  toggleButton.setAttribute('aria-controls', 'navbarSupportedContent');
-  toggleButton.setAttribute('aria-expanded', 'false');
-  toggleButton.setAttribute('aria-label', 'Toggle navigation');
-  toggleButton.innerHTML = '<span class="header-navbar-toggler-icon"></span>';
-  navbar.append(toggleButton);
+  const togglerButton = document.createElement('button');
+  togglerButton.className = 'header-navbar-toggler header-collapsed';
+  togglerButton.type = 'button';
+  togglerButton.setAttribute('data-toggle', 'collapse');
+  togglerButton.setAttribute('data-target', '#navbarSupportedContent');
+  togglerButton.setAttribute('aria-controls', 'navbarSupportedContent');
+  togglerButton.setAttribute('aria-expanded', 'false');
+  togglerButton.setAttribute('aria-label', 'Toggle navigation');
+  togglerButton.innerHTML = '<span class="header-navbar-toggler-icon"></span>';
+  navBar.append(togglerButton);
 
-  const spacerDiv = document.createElement('div');
-  spacerDiv.className = 'header-d-xl-none';
-  spacerDiv.innerHTML = '&nbsp;';
-  navbar.append(spacerDiv);
+  const dXlNoneDiv = document.createElement('div');
+  dXlNoneDiv.className = 'header-d-xl-none';
+  dXlNoneDiv.innerHTML = '&nbsp;';
+  navBar.append(dXlNoneDiv);
+
+  const headerLogoDiv = document.createElement('div');
+  headerLogoDiv.className = 'header-logo header-image';
+  navBar.append(headerLogoDiv);
 
   const logoDiv = document.createElement('div');
-  logoDiv.className = 'header-logo header-image';
-  navbar.append(logoDiv);
+  logoDiv.setAttribute('data-cmp-is', 'image');
+  logoDiv.setAttribute('data-cmp-hook-image', 'imageV3');
+  logoDiv.id = 'logo-5a4887d867';
+  logoDiv.className = 'header-cmp-image header-header-logo-div';
+  logoDiv.setAttribute('itemscope', '');
+  logoDiv.setAttribute('itemtype', 'http://schema.org/ImageObject');
+  headerLogoDiv.append(logoDiv);
 
-  const logoImageDiv = document.createElement('div');
-  logoImageDiv.setAttribute('data-cmp-is', 'image');
-  logoImageDiv.id = 'logo-5a4887d867';
-  logoImageDiv.className = 'header-cmp-image header-logo-div';
-  logoImageDiv.setAttribute('itemscope', '');
-  logoImageDiv.setAttribute('itemtype', 'http://schema.org/ImageObject');
-  logoDiv.append(logoImageDiv);
+  const logoLinkIdInput = document.createElement('input');
+  logoLinkIdInput.type = 'hidden';
+  logoLinkIdInput.id = 'logoLinkId';
+  logoDiv.append(logoLinkIdInput);
 
-  const logoLinkInput = document.createElement('input');
-  logoLinkInput.type = 'hidden';
-  logoLinkInput.id = 'logoLinkId';
-  logoImageDiv.append(logoLinkInput);
+  const headerCheckLogoLink = document.createElement('a');
+  headerCheckLogoLink.className = 'header-checkLogoLink';
+  headerCheckLogoLink.target = '_blank';
+  logoDiv.append(headerCheckLogoLink);
 
-  const checkLogoLink = document.createElement('a');
-  checkLogoLink.target = '_blank';
-  checkLogoLink.className = 'header-checkLogoLink';
-  logoImageDiv.append(checkLogoLink);
+  const headerCmpImageLink = document.createElement('a');
+  headerCmpImageLink.className = 'header-cmp-image__link';
+  headerCmpImageLink.target = '_blank';
+  logoDiv.append(headerCmpImageLink);
 
-  const itcLogoImg = document.createElement('img');
-  itcLogoImg.loading = 'lazy';
-  itcLogoImg.className = 'header-cmp-image__image header-itc-logo-image';
-  itcLogoImg.setAttribute('itemprop', 'contentUrl');
-  checkLogoLink.append(itcLogoImg);
-  checkLogoLink.append(document.createElement('span')).className = 'header-cmp-link__screen-reader-only';
-  checkLogoLink.lastChild.textContent = 'opens in a new tab';
+  const navContentDiv = document.createElement('div');
+  navContentDiv.className = 'header-collapse header-navbar-collapse header-justify-content-center';
+  navContentDiv.id = 'navbarSupportedContent';
+  navBar.append(navContentDiv);
 
-  const kitchensOfIndiaLogoLink = document.createElement('a');
-  kitchensOfIndiaLogoLink.className = 'header-cmp-image__link';
-  kitchensOfIndiaLogoLink.href = '/';
-  kitchensOfIndiaLogoLink.target = '_blank';
-  logoImageDiv.append(kitchensOfIndiaLogoLink);
+  const navItemNavigationDiv = document.createElement('div');
+  navItemNavigationDiv.className = 'header-nav-item header-navigation';
+  navContentDiv.append(navItemNavigationDiv);
 
-  const kitchensOfIndiaLogoImg = document.createElement('img');
-  kitchensOfIndiaLogoImg.loading = 'lazy';
-  kitchensOfIndiaLogoImg.className = 'header-cmp-image__image';
-  kitchensOfIndiaLogoImg.setAttribute('itemprop', 'contentUrl');
-  kitchensOfIndiaLogoImg.alt = 'Kitchens of India';
-  kitchensOfIndiaLogoLink.append(kitchensOfIndiaLogoImg);
-  kitchensOfIndiaLogoLink.append(document.createElement('span')).className = 'header-cmp-link__screen-reader-only';
-  kitchensOfIndiaLogoLink.lastChild.textContent = 'opens in a new tab';
+  const cmpNavigationNav = document.createElement('nav');
+  cmpNavigationNav.id = 'navigation-6d5dcb0126';
+  cmpNavigationNav.className = 'header-cmp-navigation';
+  cmpNavigationNav.setAttribute('itemscope', '');
+  cmpNavigationNav.setAttribute('itemtype', 'http://schema.org/SiteNavigationElement');
+  cmpNavigationNav.setAttribute('role', 'navigation');
+  navItemNavigationDiv.append(cmpNavigationNav);
 
-  const navbarCollapse = document.createElement('div');
-  navbarCollapse.className = 'header-collapse header-navbar-collapse header-justify-content-center';
-  navbarCollapse.id = 'navbarSupportedContent';
-  navbar.append(navbarCollapse);
+  const navigationUl = document.createElement('ul');
+  navigationUl.className = 'header-cmp-navigation__group';
+  cmpNavigationNav.append(navigationUl);
 
-  const navItemNavigation = document.createElement('div');
-  navItemNavigation.className = 'header-nav-item header-navigation';
-  navbarCollapse.append(navItemNavigation);
+  const headerSectionDiv = document.createElement('div');
+  headerSectionDiv.className = 'header-header-section header-d-flex header-align-items-center header-justify-content-end';
+  navContentDiv.append(headerSectionDiv);
 
-  const navElement = document.createElement('nav');
-  navElement.id = 'navigation-6d5dcb0126';
-  navElement.className = 'header-cmp-navigation';
-  navElement.setAttribute('itemscope', '');
-  navElement.setAttribute('itemtype', 'http://schema.org/SiteNavigationElement');
-  navElement.setAttribute('role', 'navigation');
-  navItemNavigation.append(navElement);
+  const searchIconCountrySelectorTrigger = document.createElement('div');
+  searchIconCountrySelectorTrigger.className = 'header-search-icon header-country-selector-trigger header-d-flex header-align-items-center';
+  searchIconCountrySelectorTrigger.setAttribute('data-toggle', 'modal');
+  searchIconCountrySelectorTrigger.setAttribute('data-target', '#countryModal');
+  headerSectionDiv.append(searchIconCountrySelectorTrigger);
 
-  const navUl = document.createElement('ul');
-  navUl.className = 'header-cmp-navigation__group';
-  navElement.append(navUl);
-
-  const sectionDiv = document.createElement('div');
-  sectionDiv.className = 'header-section header-d-flex header-align-items-center header-justify-content-end';
-  navbarCollapse.append(sectionDiv);
-
-  const searchIconCountrySelector = document.createElement('div');
-  searchIconCountrySelector.className = 'header-search-icon header-country-selector-trigger header-d-flex header-align-items-center';
-  searchIconCountrySelector.setAttribute('data-toggle', 'modal');
-  searchIconCountrySelector.setAttribute('data-target', '#countryModal');
-  sectionDiv.append(searchIconCountrySelector);
-
-  const countryCodeSpan = document.createElement('span');
-  countryCodeSpan.className = 'header-country-code';
-  searchIconCountrySelector.append(countryCodeSpan);
-
-  const countryFlagImg = document.createElement('img');
-  countryFlagImg.className = 'header-country-flag';
-  countryFlagImg.alt = 'flag';
-  searchIconCountrySelector.append(countryFlagImg);
-
-  const dropdownIconImg = document.createElement('img');
-  dropdownIconImg.src = '/content/dam/aemigrate/uploaded-folder/image/dropdown-icon.png';
-  dropdownIconImg.alt = 'dropdown-icon';
-  dropdownIconImg.className = 'header-dropdown-icon';
-  searchIconCountrySelector.append(dropdownIconImg);
-
-  const itcHeaderIconList = document.createElement('div');
-  itcHeaderIconList.className = 'header-itc-header-icon-list';
-  navbar.append(itcHeaderIconList);
+  const headerItcHeaderIconList = document.createElement('div');
+  headerItcHeaderIconList.className = 'header-itc-header-icon-list';
+  navBar.append(headerItcHeaderIconList);
 
   const searchBlock = document.createElement('div');
   searchBlock.id = 'searchBlock';
   searchBlock.className = 'header-search-block header-hidden';
-  itcHeaderIconList.append(searchBlock);
+  headerItcHeaderIconList.append(searchBlock);
 
   const searchBox = document.createElement('div');
   searchBox.id = 'searchBox';
@@ -148,7 +116,6 @@ export default function decorate(block) {
 
   const searchButton = document.createElement('button');
   searchButton.id = 'searchButton';
-  searchButton.innerHTML = '<img loading="lazy" src="/content/dam/aemigrate/uploaded-folder/image/search-icon.png" alt="Search icon"/>';
   searchContainer.append(searchButton);
 
   const closeButton = document.createElement('img');
@@ -162,19 +129,19 @@ export default function decorate(block) {
   searchResults.className = 'header-search-results header-hidden';
   searchBlock.append(searchResults);
 
-  const popularSuggestionsH4 = document.createElement('h4');
-  popularSuggestionsH4.className = 'header-resultList';
-  popularSuggestionsH4.textContent = 'Popular Suggestions';
-  searchResults.append(popularSuggestionsH4);
+  const resultListH4 = document.createElement('h4');
+  resultListH4.className = 'header-resultList';
+  resultListH4.textContent = 'Popular Suggestions';
+  searchResults.append(resultListH4);
 
   const suggestionsListUl = document.createElement('ul');
   suggestionsListUl.id = 'suggestionsList';
   searchResults.append(suggestionsListUl);
 
-  const pagesH4 = document.createElement('h4');
-  pagesH4.className = 'header-resultList';
-  pagesH4.textContent = 'Pages';
-  searchResults.append(pagesH4);
+  const resultListH4Pages = document.createElement('h4');
+  resultListH4Pages.className = 'header-resultList';
+  resultListH4Pages.textContent = 'Pages';
+  searchResults.append(resultListH4Pages);
 
   const productsListUl = document.createElement('ul');
   productsListUl.id = 'productsList';
@@ -188,7 +155,7 @@ export default function decorate(block) {
 
   const searchNavLink = document.createElement('a');
   searchNavLink.className = 'header-nav-link';
-  itcHeaderIconList.append(searchNavLink);
+  headerItcHeaderIconList.append(searchNavLink);
 
   const searchIconImg = document.createElement('img');
   searchIconImg.loading = 'lazy';
@@ -203,23 +170,26 @@ export default function decorate(block) {
 
   const navItemLi = document.createElement('li');
   navItemLi.className = 'header-nav-item';
-  itcHeaderIconList.append(navItemLi);
-  navItemLi.append(document.createElement('a')).className = 'header-nav-link';
+  headerItcHeaderIconList.append(navItemLi);
 
-  const countryModal = document.createElement('div');
-  countryModal.className = 'header-modal header-fade header-itc-country-selector header-show';
-  countryModal.id = 'countryModal';
-  countryModal.tabIndex = '-1';
-  countryModal.setAttribute('role', 'dialog');
-  countryModal.setAttribute('aria-labelledby', 'countryModalLabel');
-  countryModal.setAttribute('aria-modal', 'true');
-  countryModal.style.display = 'block';
-  headerSection.append(countryModal);
+  const navItemLink = document.createElement('a');
+  navItemLink.className = 'header-nav-link';
+  navItemLi.append(navItemLink);
+
+  const modalDiv = document.createElement('div');
+  modalDiv.className = 'header-modal header-fade header-itc-country-selector header-show';
+  modalDiv.id = 'countryModal';
+  modalDiv.tabIndex = '-1';
+  modalDiv.setAttribute('role', 'dialog');
+  modalDiv.setAttribute('aria-labelledby', 'countryModalLabel');
+  modalDiv.setAttribute('aria-modal', 'true');
+  modalDiv.style.display = 'block';
+  headerSection.append(modalDiv);
 
   const modalDialog = document.createElement('div');
   modalDialog.className = 'header-modal-dialog header-modal-dialog-centered';
   modalDialog.setAttribute('role', 'document');
-  countryModal.append(modalDialog);
+  modalDiv.append(modalDialog);
 
   const modalContent = document.createElement('div');
   modalContent.className = 'header-modal-content';
@@ -229,19 +199,19 @@ export default function decorate(block) {
   modalHeader.className = 'header-modal-header header-border-0 header-text-center';
   modalContent.append(modalHeader);
 
-  const modalHeaderW100 = document.createElement('div');
-  modalHeaderW100.className = 'header-w-100';
-  modalHeader.append(modalHeaderW100);
+  const w100Div = document.createElement('div');
+  w100Div.className = 'header-w-100';
+  modalHeader.append(w100Div);
 
   const modalTitle = document.createElement('h2');
   modalTitle.className = 'header-modal-title';
-  modalTitle.innerHTML = 'SELECT YOUR <br/>KITCHENS OF INDIA';
-  modalHeaderW100.append(modalTitle);
+  modalTitle.innerHTML = 'SELECT YOUR <br>KITCHENS OF INDIA';
+  w100Div.append(modalTitle);
 
   const experienceText = document.createElement('p');
   experienceText.className = 'header-experience-text';
   experienceText.textContent = 'Experience';
-  modalHeaderW100.append(experienceText);
+  w100Div.append(experienceText);
 
   const modalBody = document.createElement('div');
   modalBody.className = 'header-modal-body';
@@ -253,89 +223,162 @@ export default function decorate(block) {
 
   // Process block children
   [...block.children].forEach((row) => {
+    moveInstrumentation(row, headerSection);
     const cells = [...row.children];
-    const model = row.dataset.model;
 
-    if (model === 'navigationItem') {
-      const label = cells[0].textContent.trim();
-      const link = cells[1].querySelector('a')?.href || '#';
+    // Logo Image and Link
+    const logoImageCell = cells[0];
+    if (logoImageCell) {
+      const img = logoImageCell.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '131' }]);
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        headerCmpImageLink.append(optimizedPic);
+        headerCmpImageLink.href = logoImageCell.querySelector('a')?.href || '/';
+        headerCmpImageLink.querySelector('img').width = '131';
+        headerCmpImageLink.querySelector('img').height = '71';
+        headerCmpImageLink.querySelector('img').alt = img.alt;
+        headerCmpImageLink.querySelector('img').className = 'header-cmp-image__image';
+        headerCmpImageLink.querySelector('img').setAttribute('itemprop', 'contentUrl');
+        headerCmpImageLink.querySelector('img').loading = 'lazy';
 
-      const li = document.createElement('li');
-      li.className = 'header-cmp-navigation__item header-cmp-navigation__item--level-0';
-      moveInstrumentation(row, li);
+        const screenReaderSpan = document.createElement('span');
+        screenReaderSpan.className = 'header-cmp-link__screen-reader-only';
+        screenReaderSpan.textContent = 'opens in a new tab';
+        headerCmpImageLink.append(screenReaderSpan);
 
-      const a = document.createElement('a');
-      a.className = 'header-cmp-navigation__item-link';
-      a.href = link;
-      a.textContent = label;
-      li.append(a);
-      navUl.append(li);
-    } else if (model === 'countryOption') {
-      const flagSrc = cells[0].querySelector('img')?.src || '';
-      const countryName = cells[1].textContent.trim();
-      const countryUrl = cells[2].querySelector('a')?.href || '#';
+        // For the first logo link that contains the SVG
+        const svgImg = logoImageCell.querySelector('img[src*=".svg"]');
+        if (svgImg) {
+          const svgOptimizedPic = createOptimizedPicture(svgImg.src, svgImg.alt);
+          moveInstrumentation(svgImg, svgOptimizedPic.querySelector('img'));
+          headerCheckLogoLink.append(svgOptimizedPic);
+          headerCheckLogoLink.querySelector('img').className = 'header-cmp-image__image header-itc-logo-image';
+          headerCheckLogoLink.querySelector('img').setAttribute('itemprop', 'contentUrl');
+          headerCheckLogoLink.querySelector('img').loading = 'lazy';
 
-      const countryOptionDiv = document.createElement('div');
-      countryOptionDiv.className = 'header-country-option header-mx-3 header-d-flex header-flex-column header-align-items-center';
-      countryOptionDiv.setAttribute('data-country', countryName.toLowerCase());
-      countryOptionDiv.setAttribute('data-url', countryUrl);
-      moveInstrumentation(row, countryOptionDiv);
+          const svgScreenReaderSpan = document.createElement('span');
+          svgScreenReaderSpan.className = 'header-cmp-link__screen-reader-only';
+          svgScreenReaderSpan.textContent = 'opens in a new tab';
+          headerCheckLogoLink.append(svgScreenReaderSpan);
+        }
 
-      const flagImg = createOptimizedPicture(flagSrc, `${countryName} Flag`);
-      flagImg.querySelector('img').className = `header-country-flag header-${countryName.toLowerCase()}-flag`;
-      moveInstrumentation(cells[0].querySelector('img'), flagImg.querySelector('img'));
-      countryOptionDiv.append(flagImg);
+        const logoLinkInput = logoImageCell.querySelector('input');
+        if (logoLinkInput) {
+          logoLinkIdInput.value = logoLinkInput.value;
+        }
+      }
+    }
 
-      const p = document.createElement('p');
-      p.className = 'header-country-name';
-      p.textContent = countryName;
-      countryOptionDiv.append(p);
+    // Navigation Links
+    const navigationLinksCell = cells[1];
+    if (navigationLinksCell) {
+      [...navigationLinksCell.children].forEach((linkRow) => {
+        const link = linkRow.querySelector('a');
+        if (link) {
+          const li = document.createElement('li');
+          li.className = 'header-cmp-navigation__item header-cmp-navigation__item--level-0';
+          moveInstrumentation(linkRow, li);
 
-      countryOptionsDiv.append(countryOptionDiv);
-    } else if (model === 'header') {
-      const logoImage = cells[0].querySelector('img');
-      if (logoImage) {
-        const optimizedLogo = createOptimizedPicture(logoImage.src, logoImage.alt);
-        moveInstrumentation(logoImage, optimizedLogo.querySelector('img'));
-        itcLogoImg.src = optimizedLogo.querySelector('img').src;
-        itcLogoImg.srcset = optimizedLogo.querySelector('img').srcset;
-        kitchensOfIndiaLogoImg.src = optimizedLogo.querySelector('img').src;
-        kitchensOfIndiaLogoImg.srcset = optimizedLogo.querySelector('img').srcset;
-        kitchensOfIndiaLogoImg.width = logoImage.width;
-        kitchensOfIndiaLogoImg.height = logoImage.height;
+          const a = document.createElement('a');
+          a.className = 'header-cmp-navigation__item-link';
+          a.href = link.href;
+          a.textContent = link.textContent;
+          li.append(a);
+          navigationUl.append(li);
+        }
+      });
+    }
+
+    // Search Icon
+    const searchIconCell = cells[2];
+    if (searchIconCell) {
+      const img = searchIconCell.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        searchIconImg.src = optimizedPic.querySelector('img').src;
+        searchIconImg.alt = optimizedPic.querySelector('img').alt;
       }
 
-      const logoLink = cells[1].querySelector('a');
-      if (logoLink) {
-        logoLinkInput.value = logoLink.href;
-        kitchensOfIndiaLogoLink.href = logoLink.href;
+      const closeImg = searchIconCell.querySelector('img[alt="Close icon"]');
+      if (closeImg) {
+        const optimizedClosePic = createOptimizedPicture(closeImg.src, closeImg.alt);
+        moveInstrumentation(closeImg, optimizedClosePic.querySelector('img'));
+        closeButton.src = optimizedClosePic.querySelector('img').src;
+        closeButton.alt = optimizedClosePic.querySelector('img').alt;
       }
 
-      const countryCode = cells[3].textContent.trim();
-      if (countryCode) {
-        countryCodeSpan.textContent = countryCode;
+      const searchButtonImg = searchIconCell.querySelector('button img');
+      if (searchButtonImg) {
+        const optimizedSearchButtonPic = createOptimizedPicture(searchButtonImg.src, searchButtonImg.alt);
+        moveInstrumentation(searchButtonImg, optimizedSearchButtonPic.querySelector('img'));
+        searchButton.append(optimizedSearchButtonPic);
       }
+    }
 
-      const countryFlag = cells[4].querySelector('img');
-      if (countryFlag) {
-        const optimizedFlag = createOptimizedPicture(countryFlag.src, countryFlag.alt);
-        moveInstrumentation(countryFlag, optimizedFlag.querySelector('img'));
-        countryFlagImg.src = optimizedFlag.querySelector('img').src;
-        countryFlagImg.srcset = optimizedFlag.querySelector('img').srcset;
-        searchIconCountrySelector.setAttribute('data-flag-in', optimizedFlag.querySelector('img').src);
-        searchIconCountrySelector.setAttribute('data-flag-usa', optimizedFlag.querySelector('img').src); // Assuming two flags for now
-      }
+    // Country Options
+    const countryOptionsCell = cells[3];
+    if (countryOptionsCell) {
+      const countryCodeSpan = document.createElement('span');
+      countryCodeSpan.className = 'header-country-code';
+      searchIconCountrySelectorTrigger.append(countryCodeSpan);
 
-      const searchIcon = cells[6].querySelector('img');
-      if (searchIcon) {
-        const optimizedSearchIcon = createOptimizedPicture(searchIcon.src, searchIcon.alt);
-        moveInstrumentation(searchIcon, optimizedSearchIcon.querySelector('img'));
-        searchButton.querySelector('img').src = optimizedSearchIcon.querySelector('img').src;
-        searchButton.querySelector('img').srcset = optimizedSearchIcon.querySelector('img').srcset;
-        searchIconImg.src = optimizedSearchIcon.querySelector('img').src;
-        searchIconImg.srcset = optimizedSearchIcon.querySelector('img').srcset;
-        closeButton.src = optimizedSearchIcon.querySelector('img').src; // Assuming close icon is also from searchIcon for now
-      }
+      const countryFlagImg = document.createElement('img');
+      countryFlagImg.className = 'header-header-country-flag';
+      countryFlagImg.alt = 'flag';
+      searchIconCountrySelectorTrigger.append(countryFlagImg);
+
+      const dropdownIconImg = document.createElement('img');
+      dropdownIconImg.className = 'header-dropdown-icon';
+      dropdownIconImg.alt = 'dropdown-icon';
+      searchIconCountrySelectorTrigger.append(dropdownIconImg);
+
+      [...countryOptionsCell.children].forEach((countryRow) => {
+        const countryFlagImgSrc = countryRow.querySelector('img')?.src;
+        const countryFlagImgAlt = countryRow.querySelector('img')?.alt;
+        const countryName = countryRow.querySelector('p')?.textContent;
+        const countryUrl = countryRow.querySelector('div[data-url]')?.getAttribute('data-url');
+        const countryData = countryRow.querySelector('div[data-country]')?.getAttribute('data-country');
+
+        if (countryFlagImgSrc && countryName && countryUrl && countryData) {
+          const countryOptionDiv = document.createElement('div');
+          countryOptionDiv.className = `header-country-option header-mx-3 header-d-flex header-flex-column header-align-items-center ${countryData === 'india' ? 'header-selected' : ''}`;
+          countryOptionDiv.setAttribute('data-country', countryData);
+          countryOptionDiv.setAttribute('data-url', countryUrl);
+          moveInstrumentation(countryRow, countryOptionDiv);
+
+          const flagImg = createOptimizedPicture(countryFlagImgSrc, countryFlagImgAlt);
+          moveInstrumentation(countryRow.querySelector('img'), flagImg.querySelector('img'));
+          flagImg.querySelector('img').className = `header-country-flag header-${countryData}-flag`;
+          countryOptionDiv.append(flagImg);
+
+          const p = document.createElement('p');
+          p.className = 'header-country-name';
+          p.textContent = countryName;
+          countryOptionDiv.append(p);
+
+          countryOptionsDiv.append(countryOptionDiv);
+
+          // Set initial country display
+          if (countryData === 'india') {
+            countryCodeSpan.textContent = 'IN';
+            countryFlagImg.src = flagImg.querySelector('img').src;
+            countryFlagImg.alt = countryFlagImgAlt;
+            searchIconCountrySelectorTrigger.setAttribute('data-flag-in', flagImg.querySelector('img').src);
+          } else if (countryData === 'usa') {
+            searchIconCountrySelectorTrigger.setAttribute('data-flag-usa', flagImg.querySelector('img').src);
+          }
+
+          const dropdownIcon = countryOptionsCell.querySelector('img[alt="dropdown-icon"]');
+          if (dropdownIcon) {
+            const optimizedDropdownPic = createOptimizedPicture(dropdownIcon.src, dropdownIcon.alt);
+            moveInstrumentation(dropdownIcon, optimizedDropdownPic.querySelector('img'));
+            dropdownIconImg.src = optimizedDropdownPic.querySelector('img').src;
+            dropdownIconImg.alt = optimizedDropdownPic.querySelector('img').alt;
+          }
+        }
+      });
     }
   });
 

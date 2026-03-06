@@ -1,0 +1,24 @@
+.text-content-container {
+  margin-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  color: #4f250a; /* Fallback for --koi-theme */
+  text-align: center;
+}
+.text-content-container .text-content-heading {
+  font-family: 'Paytone One';
+  font-size: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  font-weight: 500;
+  line-height: 1.2; /* Equivalent to 48px assuming 16px base */
+  margin-bottom: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  color: #4f250a; /* Fallback for --koi-theme */
+}
+@media (max-width: 768px) {
+  .text-content-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 1.375rem; /* Equivalent to 22px assuming 16px base */
+    padding-right: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  }
+  .text-content-container .text-content-heading {
+    font-size: 1.675rem; /* Equivalent to 26.8px assuming 16px base */
+  }
+}

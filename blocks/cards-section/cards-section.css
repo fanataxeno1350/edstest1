@@ -1,0 +1,160 @@
+.cards-section-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cards-section-col-xl-4 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+
+.cards-section-col-lg-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.cards-section-pb-md-0 {
+  padding-bottom: 0 !important;
+}
+
+.cards-section-pb-4 {
+  padding-bottom: 1.5rem !important;
+}
+
+.cards-section-row-gap-4 {
+  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+
+.cards-section-koi-rscard-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cards-section-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.cards-section-rs-card {
+  min-height: 460px;
+}
+
+.cards-section-w-100 {
+  width: 100% !important;
+}
+
+.cards-section-kitchens-image {
+  display: block;
+  object-fit: fill !important;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  min-height: 190px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px 40px 0 0;
+}
+
+.cards-section-card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  position: absolute;
+  padding: 24px 35px 25px !important;
+  bottom: 0;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+}
+
+.cards-section-blog-card-title {
+  margin-bottom: 0.75rem;
+  display: block;
+  font-size: 1.375rem; /* Equivalent to 22px assuming 16px base */
+  font-family: "Paytone One";
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.cards-section-card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-family: "Paytone One";
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.cards-section-card-title p {
+  margin-top: 0;
+  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  color: #fff;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cards-section-tab-para {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 807px;
+}
+
+@media (min-width: 768px) {
+  .cards-section-row-gap-4 {
+    margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-section-col-xl-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .cards-section-col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .cards-section-koi-rscard-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cards-section-card {
+    width: 80%;
+    justify-self: center;
+  }
+
+  .cards-section-blog-card-title {
+    font-size: 26px;
+  }
+
+  .cards-section-card-title p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cards-section-blog-card-title {
+    font-size: 1.313rem; /* Equivalent to 21px assuming 16px base */
+  }
+}
+
+@media (min-width: 768px) {
+  .cards-section-container .cards-section-row .cards-section-row-gap-4 {
+    margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  }
+}
