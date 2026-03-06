@@ -63,7 +63,9 @@
         "whyUsText",
         "bannerCarousel",
         "itcClubCarousel",
-        "delightfulDelicaciesBanner"
+        "delightfulDelicaciesBanner",
+        "spaceAdder",
+        "cardList"
       ]
     }
   ]

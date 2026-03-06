@@ -3,136 +3,117 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const carouselId = 'carouselExampleSlidesOnly'; // Static ID from HTML
+  block.setAttribute('id', carouselId);
+  block.classList.add('banner-bannerCarousel', 'banner-carousel', 'banner-slide');
+  block.setAttribute('data-ride', 'carousel');
 
-  const olIndicators = document.createElement('ol');
-  olIndicators.classList.add('banner-carousel-indicators');
+  const ol = document.createElement('ol');
+  ol.classList.add('banner-carousel-indicators');
 
-  const divCarouselInner = document.createElement('div');
-  divCarouselInner.classList.add('banner-carousel-inner');
+  const innerDiv = document.createElement('div');
+  innerDiv.classList.add('banner-carousel-inner');
 
   [...block.children].forEach((row, index) => {
-    // Create indicator
-    const liIndicator = document.createElement('li');
-    liIndicator.setAttribute('data-target', `#${carouselId}`);
-    liIndicator.setAttribute('data-slide-to', index.toString());
+    // Transfer instrumentation from the original row to the new carousel item
+    const carouselItem = document.createElement('div');
+    moveInstrumentation(row, carouselItem);
+    carouselItem.classList.add('banner-carousel-item');
     if (index === 0) {
-      liIndicator.classList.add('banner-active');
+      carouselItem.classList.add('banner-active');
     }
-    olIndicators.append(liIndicator);
 
-    // Create carousel item
-    const divCarouselItem = document.createElement('div');
-    divCarouselItem.classList.add('banner-carousel-item');
+    const indicatorLi = document.createElement('li');
+    indicatorLi.setAttribute('data-target', `#${carouselId}`);
+    indicatorLi.setAttribute('data-slide-to', index.toString());
     if (index === 0) {
-      divCarouselItem.classList.add('banner-active');
+      indicatorLi.classList.add('banner-active');
     }
-    moveInstrumentation(row, divCarouselItem);
+    ol.append(indicatorLi);
 
     const cells = [...row.children];
 
-    // Extract content from cells based on the model fields
-    const desktopImageCell = cells[0];
-    const mobileImageCell = cells[1];
-    const headingCell = cells[2];
-    const descriptionCell = cells[3];
-    const ctaLabelCell = cells[4];
-    const ctaUrlCell = cells[5];
-
     // Desktop Image
+    const desktopImageCell = cells[0];
     const desktopImg = desktopImageCell.querySelector('img');
     if (desktopImg) {
       const optimizedDesktopPic = createOptimizedPicture(desktopImg.src, desktopImg.alt);
-      optimizedDesktopPic.classList.add('banner-d-none', 'banner-d-sm-block', 'banner-w-100', 'banner-desktop-image');
+      moveInstrumentation(desktopImg, optimizedDesktopPic.querySelector('img'));
+      optimizedDesktopPic.querySelector('img').classList.add('banner-d-none', 'banner-d-sm-block', 'banner-w-100', 'banner-desktop-image');
       optimizedDesktopPic.querySelector('img').setAttribute('loading', desktopImg.getAttribute('loading') || 'lazy');
       optimizedDesktopPic.querySelector('img').setAttribute('fetchpriority', desktopImg.getAttribute('fetchpriority') || 'low');
-      moveInstrumentation(desktopImg, optimizedDesktopPic.querySelector('img'));
-      divCarouselItem.append(optimizedDesktopPic);
+      carouselItem.append(optimizedDesktopPic);
     }
 
     // Mobile Image
+    const mobileImageCell = cells[1];
     const mobileImg = mobileImageCell.querySelector('img');
     if (mobileImg) {
       const optimizedMobilePic = createOptimizedPicture(mobileImg.src, mobileImg.alt);
-      optimizedMobilePic.classList.add('banner-d-block', 'banner-d-sm-none', 'banner-w-100', 'banner-mobile-image');
+      moveInstrumentation(mobileImg, optimizedMobilePic.querySelector('img'));
+      optimizedMobilePic.querySelector('img').classList.add('banner-d-block', 'banner-d-sm-none', 'banner-w-100', 'banner-mobile-image');
       optimizedMobilePic.querySelector('img').setAttribute('loading', mobileImg.getAttribute('loading') || 'lazy');
       optimizedMobilePic.querySelector('img').setAttribute('fetchpriority', mobileImg.getAttribute('fetchpriority') || 'low');
-      moveInstrumentation(mobileImg, optimizedMobilePic.querySelector('img'));
-      divCarouselItem.append(optimizedMobilePic);
+      carouselItem.append(optimizedMobilePic);
     }
 
-    // Content Wrapper
-    const divContentWrapper = document.createElement('div');
-    divContentWrapper.classList.add('banner-banner-content-wrapper', 'banner-position-absolute');
+    const contentWrapper = document.createElement('div');
+    contentWrapper.classList.add('banner-content-wrapper', 'banner-position-absolute');
 
     // Heading
-    const heading = headingCell.querySelector('h1, h2, h3, h4, h5, h6');
+    const headingCell = cells[2];
+    const heading = headingCell.querySelector('h1');
     if (heading) {
       const newHeading = document.createElement('h1');
       newHeading.classList.add('banner-koi-carousel-heading', 'banner-text-sm-left');
-      newHeading.textContent = heading.textContent;
-      // Transfer data-color and style if present
-      if (heading.hasAttribute('data-color')) {
-        newHeading.setAttribute('data-color', heading.getAttribute('data-color'));
-      }
-      if (heading.hasAttribute('style')) {
-        newHeading.setAttribute('style', heading.getAttribute('style'));
-      }
-      moveInstrumentation(heading, newHeading);
-      divContentWrapper.append(newHeading);
+      newHeading.setAttribute('data-color', heading.getAttribute('data-color'));
+      newHeading.style.color = heading.style.color;
+      newHeading.innerHTML = heading.innerHTML;
+      contentWrapper.append(newHeading);
     }
 
     // Description
+    const descriptionCell = cells[3];
     const descriptionDiv = document.createElement('div');
     descriptionDiv.classList.add('banner-koi-carousel-description');
-    if (descriptionCell.hasAttribute('data-desc-color')) {
-      descriptionDiv.setAttribute('data-desc-color', descriptionCell.getAttribute('data-desc-color'));
-    }
-    // Append all child nodes from the description cell (h3, p, etc.)
-    [...descriptionCell.children].forEach((child) => {
-      descriptionDiv.append(child.cloneNode(true)); // Clone to avoid moving original nodes
-    });
-    moveInstrumentation(descriptionCell, descriptionDiv);
-    divContentWrapper.append(descriptionDiv);
+    descriptionDiv.setAttribute('data-desc-color', descriptionCell.querySelector('div')?.getAttribute('data-desc-color') || '');
+    descriptionDiv.innerHTML = descriptionCell.innerHTML;
+    contentWrapper.append(descriptionDiv);
 
     // CTA Button
+    const ctaTextCell = cells[4];
+    const ctaUrlCell = cells[5];
     const ctaLink = ctaUrlCell.querySelector('a');
-    if (ctaLink) {
+
+    if (ctaLink && ctaTextCell) {
       const newCta = document.createElement('a');
       newCta.href = ctaLink.href;
-      newCta.textContent = ctaLabelCell.textContent.trim() || ctaLink.textContent;
+      newCta.textContent = ctaTextCell.textContent.trim();
       newCta.classList.add('banner-koi-carousel-cta', 'banner-btn', 'banner-btn-primary', 'banner-btn-start-now');
-      // Transfer attributes from the original link
-      ['data-cmp-clickable', 'data-cmp-data-layer', 'data-bg-color', 'alt', 'target', 'style']
-        .forEach((attr) => {
-          if (ctaLink.hasAttribute(attr)) {
-            newCta.setAttribute(attr, ctaLink.getAttribute(attr));
-          }
-        });
-      // Add screen reader span if it exists
-      const screenReaderSpan = ctaLink.querySelector('.banner-cmp-link__screen-reader-only');
-      if (screenReaderSpan) {
-        newCta.append(screenReaderSpan.cloneNode(true));
-      }
-      moveInstrumentation(ctaLink, newCta);
-      divContentWrapper.append(newCta);
+      newCta.setAttribute('data-cmp-clickable', '');
+      newCta.setAttribute('data-bg-color', ctaLink.getAttribute('data-bg-color'));
+      newCta.setAttribute('alt', ctaLink.getAttribute('alt'));
+      newCta.setAttribute('target', ctaLink.getAttribute('target'));
+      newCta.style.backgroundColor = ctaLink.style.backgroundColor;
+
+      const screenReaderSpan = document.createElement('span');
+      screenReaderSpan.classList.add('banner-cmp-link__screen-reader-only');
+      screenReaderSpan.textContent = 'opens in a new tab';
+      newCta.append(screenReaderSpan);
+
+      contentWrapper.append(newCta);
     }
 
-    divCarouselItem.append(divContentWrapper);
-    divCarouselInner.append(divCarouselItem);
+    carouselItem.append(contentWrapper);
+    innerDiv.append(carouselItem);
   });
 
-  // Create the main carousel wrapper
-  const mainCarouselDiv = document.createElement('div');
-  mainCarouselDiv.id = carouselId;
-  mainCarouselDiv.classList.add('banner-bannerCarousel', 'banner-carousel', 'banner-slide');
-  mainCarouselDiv.setAttribute('data-ride', 'carousel');
+  block.textContent = '';
+  block.append(ol);
+  block.append(innerDiv);
 
-  mainCarouselDiv.append(olIndicators);
-  mainCarouselDiv.append(divCarouselInner);
-
-  // Add navigation buttons (static structure)
-  const divNextCarouselBtn = document.createElement('div');
-  divNextCarouselBtn.classList.add('banner-next-carousel-btn');
+  // Add next and previous buttons
+  const nextPrevDiv = document.createElement('div');
+  nextPrevDiv.classList.add('banner-next-carousel-btn');
 
   const prevLink = document.createElement('a');
   prevLink.classList.add('banner-carousel-control-prev');
@@ -140,7 +121,7 @@ export default function decorate(block) {
   prevLink.setAttribute('role', 'button');
   prevLink.setAttribute('data-slide', 'prev');
   prevLink.innerHTML = '<span class="banner-carousel-control-prev-icon" aria-hidden="true"></span><span class="banner-sr-only">Previous</span>';
-  divNextCarouselBtn.append(prevLink);
+  nextPrevDiv.append(prevLink);
 
   const nextLink = document.createElement('a');
   nextLink.classList.add('banner-carousel-control-next');
@@ -148,10 +129,7 @@ export default function decorate(block) {
   nextLink.setAttribute('role', 'button');
   nextLink.setAttribute('data-slide', 'next');
   nextLink.innerHTML = '<span class="banner-carousel-control-next-icon" aria-hidden="true"></span><span class="banner-sr-only">Next</span>';
-  divNextCarouselBtn.append(nextLink);
+  nextPrevDiv.append(nextLink);
 
-  mainCarouselDiv.append(divNextCarouselBtn);
-
-  block.textContent = '';
-  block.append(mainCarouselDiv);
+  block.append(nextPrevDiv);
 }

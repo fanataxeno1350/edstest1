@@ -170,14 +170,37 @@
       },
       {
         "component": "text",
-        "label": "CTA Label",
-        "name": "ctaLabel",
+        "label": "CTA Text",
+        "name": "ctaText",
         "valueType": "string"
       },
       {
         "component": "text",
         "label": "CTA URL",
         "name": "ctaUrl",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
         "valueType": "string"
       }
     ]
@@ -384,35 +407,12 @@
     ]
   },
   {
-    "id": "delicacyCategory",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Image",
-        "name": "image",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "label": "Link",
-        "name": "link",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Label",
-        "name": "label",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "delightfulDelicacies",
     "fields": [
       {
         "component": "reference",
-        "label": "Left Image",
-        "name": "leftImage",
+        "label": "Main Image",
+        "name": "mainImage",
         "valueType": "string"
       },
       {
@@ -422,9 +422,9 @@
         "valueType": "string"
       },
       {
-        "component": "richtext",
-        "label": "Subheading",
-        "name": "subheading",
+        "component": "text",
+        "label": "Sub Heading",
+        "name": "subHeading",
         "valueType": "string"
       },
       {
@@ -434,14 +434,7 @@
         "valueType": "string"
       },
       {
-        "component": "container",
-        "itemResourceType": "delicacyCategory",
-        "label": "Categories",
-        "name": "categories",
-        "valueType": "array"
-      },
-      {
-        "component": "aem-content",
+        "component": "reference",
         "label": "Button Link",
         "name": "buttonLink",
         "valueType": "string"
@@ -450,6 +443,35 @@
         "component": "text",
         "label": "Button Label",
         "name": "buttonLabel",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "delicacyItem",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Alt Text",
+        "name": "altText",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Label",
+        "name": "label",
         "valueType": "string"
       }
     ]
@@ -528,40 +550,28 @@
     "id": "footer",
     "fields": [
       {
-        "component": "reference",
-        "label": "ITC Logo",
-        "name": "itcLogo",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "FSSAI Logo",
-        "name": "fssaiLogo",
-        "valueType": "string"
-      },
-      {
-        "allowedComponents": [
-          "footerLink"
-        ],
         "component": "container",
+        "items": "logo",
+        "label": "Logos",
+        "name": "logos"
+      },
+      {
+        "component": "container",
+        "items": "footerLink",
         "label": "Footer Links",
         "name": "footerLinks"
       },
       {
-        "allowedComponents": [
-          "footerNav"
-        ],
         "component": "container",
-        "label": "Footer Nav",
-        "name": "footerNavs"
+        "items": "footerListLink",
+        "label": "Footer List Links",
+        "name": "footerListLinks"
       },
       {
-        "allowedComponents": [
-          "footerSocial"
-        ],
         "component": "container",
-        "label": "Footer Social Links",
-        "name": "footerSocials"
+        "items": "socialIcon",
+        "label": "Social Icons",
+        "name": "socialIcons"
       },
       {
         "component": "text",
@@ -583,14 +593,37 @@
       },
       {
         "component": "text",
-        "label": "Grievance Officer Time",
-        "name": "grievanceOfficerTime",
+        "label": "Grievance Officer Timing",
+        "name": "grievanceOfficerTiming",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Copyright Notice",
-        "name": "copyright",
+        "label": "Copyright Text",
+        "name": "copyrightText",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "logo",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Alt Text",
+        "name": "altText",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Logo Link",
+        "name": "link",
         "valueType": "string"
       }
     ]
@@ -600,48 +633,48 @@
     "fields": [
       {
         "component": "text",
-        "label": "Link Label",
-        "name": "label",
+        "label": "Link Text",
+        "name": "text",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Link URL",
+        "label": "URL",
         "name": "url",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerNav",
+    "id": "footerListLink",
     "fields": [
       {
         "component": "text",
-        "label": "Nav Item Label",
-        "name": "label",
+        "label": "List Link Text",
+        "name": "text",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Nav Item URL",
+        "label": "List Link URL",
         "name": "url",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerSocial",
+    "id": "socialIcon",
     "fields": [
+      {
+        "component": "text",
+        "label": "Social Link URL",
+        "name": "url",
+        "valueType": "string"
+      },
       {
         "component": "reference",
-        "label": "Social Icon",
+        "label": "Icon Image",
         "name": "icon",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Social URL",
-        "name": "url",
         "valueType": "string"
       }
     ]
@@ -663,60 +696,73 @@
       },
       {
         "component": "container",
-        "fields": [
-          {
-            "component": "text",
-            "label": "Shop Link",
-            "name": "shopLink",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "label": "Our Heritage Link",
-            "name": "ourHeritageLink",
-            "valueType": "string"
-          }
-        ],
-        "label": "Navigation",
-        "name": "navigation"
+        "itemType": "navigationItem",
+        "label": "Navigation Items",
+        "name": "navigationItems"
+      },
+      {
+        "component": "reference",
+        "label": "Country Code",
+        "name": "countryCode",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Country Flag",
+        "name": "countryFlag",
+        "valueType": "string"
       },
       {
         "component": "container",
-        "fields": [
-          {
-            "component": "text",
-            "label": "Selected Country",
-            "name": "selectedCountry",
-            "valueType": "string"
-          },
-          {
-            "component": "reference",
-            "label": "Country Flag Image",
-            "name": "countryFlagImage",
-            "valueType": "string"
-          }
-        ],
-        "label": "Country Selector",
-        "name": "countrySelector"
+        "itemType": "countryOption",
+        "label": "Country Options",
+        "name": "countryOptions"
       },
       {
-        "component": "container",
-        "fields": [
-          {
-            "component": "text",
-            "label": "Search Placeholder",
-            "name": "searchPlaceholder",
-            "valueType": "string"
-          },
-          {
-            "component": "reference",
-            "label": "Search Icon",
-            "name": "searchIcon",
-            "valueType": "string"
-          }
-        ],
-        "label": "Search",
-        "name": "search"
+        "component": "reference",
+        "label": "Search Icon",
+        "name": "searchIcon",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "navigationItem",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "countryOption",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Flag",
+        "name": "flag",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Country Name",
+        "name": "countryName",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Country URL",
+        "name": "countryUrl",
+        "valueType": "string"
       }
     ]
   },
@@ -772,6 +818,12 @@
       },
       {
         "component": "text",
+        "label": "Image Alt",
+        "name": "imageAlt",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "label": "Title",
         "name": "title",
         "valueType": "string"
@@ -785,12 +837,23 @@
     ]
   },
   {
+    "id": "spaceAdder",
+    "fields": [
+      {
+        "component": "number",
+        "label": "Padding",
+        "name": "padding",
+        "valueType": "number"
+      }
+    ]
+  },
+  {
     "id": "text",
     "fields": [
       {
         "component": "richtext",
-        "label": "Text",
-        "name": "text",
+        "label": "Content",
+        "name": "content",
         "valueType": "string"
       }
     ]

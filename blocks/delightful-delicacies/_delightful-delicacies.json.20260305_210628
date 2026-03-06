@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Delicacy-Item",
-      "id": "delicacyItem",
+      "title": "Delicacy-Category",
+      "id": "delicacyCategory",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "delicacyItem",
-              "name": "Delicacy-Item"
+              "model": "delicacyCategory",
+              "name": "Delicacy-Category"
             }
           }
         }
@@ -34,12 +34,35 @@
   ],
   "models": [
     {
+      "id": "delicacyCategory",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Image",
+          "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
       "id": "delightfulDelicacies",
       "fields": [
         {
           "component": "reference",
-          "label": "Main Image",
-          "name": "mainImage",
+          "label": "Left Image",
+          "name": "leftImage",
           "valueType": "string"
         },
         {
@@ -49,9 +72,9 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Sub Heading",
-          "name": "subHeading",
+          "component": "richtext",
+          "label": "Subheading",
+          "name": "subheading",
           "valueType": "string"
         },
         {
@@ -61,7 +84,14 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
+          "component": "container",
+          "itemResourceType": "delicacyCategory",
+          "label": "Categories",
+          "name": "categories",
+          "valueType": "array"
+        },
+        {
+          "component": "aem-content",
           "label": "Button Link",
           "name": "buttonLink",
           "valueType": "string"
@@ -73,42 +103,13 @@
           "valueType": "string"
         }
       ]
-    },
-    {
-      "id": "delicacyItem",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "Image",
-          "name": "image",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Alt Text",
-          "name": "altText",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Label",
-          "name": "label",
-          "valueType": "string"
-        }
-      ]
     }
   ],
   "filters": [
     {
       "id": "delightfulDelicacies",
       "components": [
-        "delicacyItem"
+        "delicacyCategory"
       ]
     }
   ]

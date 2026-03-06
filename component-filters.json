@@ -28,13 +28,21 @@
       "whyUsText",
       "bannerCarousel",
       "itcClubCarousel",
-      "delightfulDelicaciesBanner"
+      "delightfulDelicaciesBanner",
+      "spaceAdder",
+      "cardList"
     ]
   },
   {
     "id": "bannerCarousel",
     "components": [
       "bannerSlide"
+    ]
+  },
+  {
+    "id": "cardList",
+    "components": [
+      "card"
     ]
   },
   {
@@ -64,7 +72,7 @@
   {
     "id": "delightfulDelicacies",
     "components": [
-      "delicacyCategory"
+      "delicacyItem"
     ]
   },
   {
@@ -76,15 +84,17 @@
   {
     "id": "footer",
     "components": [
+      "logo",
       "footerLink",
-      "footerNav",
-      "footerSocial"
+      "footerListLink",
+      "socialIcon"
     ]
   },
   {
     "id": "header",
     "components": [
-      "header"
+      "navigationItem",
+      "countryOption"
     ]
   },
   {
@@ -98,6 +108,9 @@
     "components": [
       "carouselItem"
     ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "text",

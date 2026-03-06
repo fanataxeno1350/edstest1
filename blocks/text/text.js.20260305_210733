@@ -3,10 +3,10 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const row = block.children[0];
   if (row) {
-    const cell = row.children[0];
-    if (cell) {
-      moveInstrumentation(cell, block);
-      block.innerHTML = cell.innerHTML;
+    const textContent = row.children[0];
+    if (textContent) {
+      moveInstrumentation(textContent, block);
+      block.innerHTML = textContent.innerHTML;
     }
   }
 }
