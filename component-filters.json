@@ -15,7 +15,11 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "accessDenied"
     ]
+  },
+  {
+    "id": "accessDenied"
   }
 ]

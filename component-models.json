@@ -140,5 +140,34 @@
         ]
       }
     ]
+  },
+  {
+    "id": "accessDenied",
+    "fields": [
+      {
+        "component": "richtext",
+        "label": "Heading",
+        "name": "heading",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Message",
+        "name": "message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Reference Number",
+        "name": "reference",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Error URL",
+        "name": "errorUrl",
+        "valueType": "string"
+      }
+    ]
   }
 ]
