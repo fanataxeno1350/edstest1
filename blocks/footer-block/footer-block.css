@@ -1,7 +1,7 @@
 /* External stylesheet: https://letsboing.footer-com/etc.footer-clientlibs/itc-family-comedy/clientlibs/clientlib-base.footer-lc-7d77cd8ceba9b6463f4a0ebefb0f6030-lc.footer-min.footer-css */
 .footer-cmp-accordion__header { margin:0 }
 
-@keyframes cmp-search__loading-indicator-spin { 0{transform:rotate(0) }
+@keyframes cmp-search__loading-indicator-spin { 0%{transform:rotate(0) }
 
 100% { transform:rotate(360deg) }
 

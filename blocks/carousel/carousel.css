@@ -1,7 +1,7 @@
 .carousel-cmp-carousel__action { -webkit-appearance:none;-moz-appearance:none;appearance:none }
 
 @keyframes cmp-search__loading-indicator-spin{
-  0{transform:rotate(0)}
+  0%{transform:rotate(0)}
 100%{transform:rotate(360deg)}
 }
 
@@ -219,7 +219,7 @@
 
 .carousel-swiper-backface-hidden .carousel-swiper-slide { -webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateZ(0);transform:translateZ(0) }
 
-@keyframes swiper-preloader-spin{0{-webkit-transform:rotate(0);transform:rotate(0)}
+@keyframes swiper-preloader-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 }
 
@@ -336,7 +336,7 @@ to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 
 .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active:before { border:.05rem solid #aa1f30;border-radius:50%;content:"";height:.539375rem;left:50%;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:.539375rem }
 
-@keyframes hourglass-spin{0{-webkit-transform:rotate(0);transform:rotate(0)}
+@keyframes hourglass-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 }
 
@@ -396,7 +396,7 @@ a, .carousel-a:hover { text-decoration:none }
 
 body { font-family:Poppins,sans-serif }
 
-@keyframes slideUp{0{-webkit-transform:translateY(100%);transform:translateY(100%)}
+@keyframes slideUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%)}
 to{-webkit-transform:translateY(0);transform:translateY(0)}
 }
 

@@ -1,4 +1,4 @@
-@keyframes cmp-search__loading-indicator-spin{0{transform:rotate(0)}
+@keyframes cmp-search__loading-indicator-spin{0%{transform:rotate(0)}
 100%{transform:rotate(360deg)}
 }
 
@@ -172,7 +172,7 @@
 
 :host { display:block;margin-left:auto;margin-right:auto;position:relative;z-index:1 }
 
-@keyframes swiper-preloader-spin{0{-webkit-transform:rotate(0);transform:rotate(0)}
+@keyframes swiper-preloader-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 }
 
@@ -233,7 +233,7 @@ to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 
 .latestblogs-boing--text__body-5 { font-family:Barlow;font-size:.75rem;font-weight:500;line-height:normal }
 
-@keyframes hourglass-spin{0{-webkit-transform:rotate(0);transform:rotate(0)}
+@keyframes hourglass-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
 }
 
@@ -289,7 +289,7 @@ a, .latestblogs-a:hover { text-decoration:none }
 
 body { font-family:Poppins,sans-serif }
 
-@keyframes slideUp{0{-webkit-transform:translateY(100%);transform:translateY(100%)}
+@keyframes slideUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%)}
 to{-webkit-transform:translateY(0);transform:translateY(0)}
 }
 
