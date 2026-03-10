@@ -32,7 +32,12 @@
       "bannerBanner",
       "latestBlogsArticleListing",
       "bannerSection",
-      "stickyBottomNav"
+      "stickyBottomNav",
+      "headerFooter",
+      "footerBlock",
+      "latestBlogsListing",
+      "spaceadder",
+      "footerBrandFooter"
     ]
   },
   {
@@ -48,7 +53,10 @@
     "id": "bannerSection"
   },
   {
-    "id": "bannerVideo"
+    "id": "bannerVideo",
+    "components": [
+      "bannerVideo"
+    ]
   },
   {
     "id": "bolteSitareCardSection",
@@ -59,7 +67,7 @@
   {
     "id": "carousel",
     "components": [
-      "slide"
+      "carouselSlide"
     ]
   },
   {
@@ -72,6 +80,26 @@
     "id": "featureCards",
     "components": [
       "featureCard"
+    ]
+  },
+  {
+    "id": "footerBlock",
+    "components": [
+      "footerLinkGroup",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "footerLinkGroup",
+    "components": [
+      "footerLink"
+    ]
+  },
+  {
+    "id": "footerBrandFooter",
+    "components": [
+      "footerLinkList",
+      "footerSocialLink"
     ]
   },
   {
@@ -107,11 +135,19 @@
     ]
   },
   {
+    "id": "headerFooter",
+    "components": [
+      "menuItem",
+      "footerLink",
+      "socialLink"
+    ]
+  },
+  {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "footerSocialItem"
+      "menuItem",
+      "footerLink",
+      "socialLink"
     ]
   },
   {
@@ -121,6 +157,12 @@
     ]
   },
   {
+    "id": "latestBlogsListing",
+    "components": [
+      "blogCard"
+    ]
+  },
+  {
     "id": "latestBlogs",
     "components": [
       "blogCard"
@@ -131,6 +173,9 @@
     "components": [
       "blogCard"
     ]
+  },
+  {
+    "id": "spaceadder"
   },
   {
     "id": "stickyBottomNav",

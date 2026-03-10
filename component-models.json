@@ -288,6 +288,36 @@
         "label": "Video Source",
         "name": "videoSrc",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Play Icon",
+        "name": "playIcon",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Pause Icon",
+        "name": "pauseIcon",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Mute Icon",
+        "name": "muteIcon",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Unmute Icon",
+        "name": "unmuteIcon",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "No Audio Icon",
+        "name": "noAudioIcon",
+        "valueType": "string"
       }
     ]
   },
@@ -333,18 +363,18 @@
     ]
   },
   {
-    "id": "slide",
+    "id": "carouselSlide",
     "fields": [
       {
         "component": "reference",
-        "label": "Video",
-        "name": "video",
+        "label": "Video Source",
+        "name": "videoSrc",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Image",
-        "name": "image",
+        "label": "Image Source",
+        "name": "imageSrc",
         "valueType": "string"
       },
       {
@@ -354,15 +384,15 @@
         "valueType": "string"
       },
       {
-        "component": "aem-tag",
-        "label": "CTA Link",
-        "name": "ctaLink",
-        "valueType": "string"
-      },
-      {
         "component": "text",
         "label": "CTA Text",
         "name": "ctaText",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "CTA Link",
+        "name": "ctaHref",
         "valueType": "string"
       }
     ]
@@ -419,8 +449,8 @@
       },
       {
         "component": "text",
-        "label": "Alt Text",
-        "name": "alt",
+        "label": "Image Alt",
+        "name": "imageAlt",
         "valueType": "string"
       },
       {
@@ -437,14 +467,184 @@
       },
       {
         "component": "text",
-        "label": "Link",
-        "name": "link",
+        "label": "CTA Text",
+        "name": "ctaText",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Button Text",
-        "name": "buttonText",
+        "label": "CTA Link",
+        "name": "ctaLink",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerBlock",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo Image",
+        "name": "logoImage",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Secondary Logo Image",
+        "name": "secondaryLogoImage",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "items": {
+          "type": "footerLinkGroup"
+        },
+        "label": "Footer Link Groups",
+        "name": "linkGroups",
+        "valueType": "array"
+      },
+      {
+        "component": "container",
+        "items": {
+          "type": "footerSocialLink"
+        },
+        "label": "Social Links",
+        "name": "socialLinks",
+        "valueType": "array"
+      },
+      {
+        "component": "reference",
+        "label": "ITC Portal Link",
+        "name": "itcPortalLink",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Copyright",
+        "name": "copyright",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerLinkGroup",
+    "fields": [
+      {
+        "component": "container",
+        "items": {
+          "type": "footerLink"
+        },
+        "label": "Links",
+        "name": "links",
+        "valueType": "array"
+      }
+    ]
+  },
+  {
+    "id": "footerLink",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Link Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Link URL",
+        "name": "url",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerSocialLink",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Social Link URL",
+        "name": "socialUrl",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Social Icon Image",
+        "name": "iconImage",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerBrandFooter",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo 1",
+        "name": "logo1",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Logo 2",
+        "name": "logo2",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "itemType": "footerLinkList",
+        "label": "Footer Link Lists",
+        "name": "footerLinkLists"
+      },
+      {
+        "component": "container",
+        "itemType": "footerSocialLink",
+        "label": "Footer Social Links",
+        "name": "footerSocialLinks"
+      },
+      {
+        "component": "reference",
+        "label": "ITC Portal Link",
+        "name": "itcPortalLink",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Copyright Text",
+        "name": "copyright",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerLinkList",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Link Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Link URL",
+        "name": "url",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerSocialLink",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Social Link URL",
+        "name": "url",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Social Icon",
+        "name": "icon",
         "valueType": "string"
       }
     ]
@@ -567,14 +767,14 @@
     "fields": [
       {
         "component": "text",
-        "label": "Label",
-        "name": "label",
+        "label": "Link Text",
+        "name": "text",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "URL",
-        "name": "url",
+        "label": "Link URL",
+        "name": "href",
         "valueType": "string"
       }
     ]
@@ -666,6 +866,98 @@
     ]
   },
   {
+    "id": "headerFooter",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Logo",
+        "name": "logo",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "ITC Logo",
+        "name": "itcLogo",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "FSSI Logo",
+        "name": "fssiLogo",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Copyright Text",
+        "name": "copyrightText",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "menuItem",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Icon",
+        "name": "icon",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerLink",
+    "fields": [
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "socialLink",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Icon",
+        "name": "icon",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Platform",
+        "name": "platform",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "header",
     "fields": [
       {
@@ -687,116 +979,26 @@
         "valueType": "string"
       },
       {
-        "component": "text",
-        "label": "Login URL",
-        "name": "loginUrl",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Login Text",
-        "name": "loginText",
-        "valueType": "string"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "sidebarMenuItem",
-            "name": "items"
-          }
-        ],
-        "label": "Sidebar Menu",
-        "name": "sidebarMenu"
-      },
-      {
         "component": "reference",
-        "label": "Footer Logo 1",
-        "name": "footerLogo1",
+        "label": "Login Link",
+        "name": "loginLink",
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "label": "Footer Logo 2",
-        "name": "footerLogo2",
-        "valueType": "string"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "footerListItem",
-            "name": "items"
-          }
-        ],
-        "label": "Footer List Column 1",
-        "name": "footerListColumn1"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "footerListItem",
-            "name": "items"
-          }
-        ],
-        "label": "Footer List Column 2",
-        "name": "footerListColumn2"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "footerListItem",
-            "name": "items"
-          }
-        ],
-        "label": "Footer List Column 3",
-        "name": "footerListColumn3"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "footerListItem",
-            "name": "items"
-          }
-        ],
-        "label": "Footer List Column 4",
-        "name": "footerListColumn4"
-      },
-      {
-        "component": "container",
-        "fields": [
-          {
-            "component": "footerSocialItem",
-            "name": "items"
-          }
-        ],
-        "label": "Footer Social List",
-        "name": "footerSocialList"
-      },
-      {
-        "component": "text",
-        "label": "Footer Copyright",
-        "name": "footerCopyright",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Footer ITC Portal URL",
-        "name": "footerITCPortalUrl",
+        "component": "richtext",
+        "label": "Login Button Text",
+        "name": "loginButtonText",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "sidebarMenuItem",
+    "id": "menuItem",
     "fields": [
       {
         "component": "reference",
-        "label": "Menu Icon",
-        "name": "icon",
+        "label": "Menu Link",
+        "name": "link",
         "valueType": "string"
       },
       {
@@ -806,43 +1008,43 @@
         "valueType": "string"
       },
       {
-        "component": "text",
-        "label": "Menu URL",
-        "name": "url",
+        "component": "reference",
+        "label": "Menu Icon",
+        "name": "icon",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerListItem",
+    "id": "footerLink",
     "fields": [
       {
-        "component": "text",
-        "label": "Footer Link Text",
-        "name": "text",
+        "component": "reference",
+        "label": "Footer Link",
+        "name": "link",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Footer Link URL",
-        "name": "url",
+        "label": "Footer Text",
+        "name": "text",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerSocialItem",
+    "id": "socialLink",
     "fields": [
+      {
+        "component": "reference",
+        "label": "Social Link",
+        "name": "link",
+        "valueType": "string"
+      },
       {
         "component": "reference",
         "label": "Social Icon",
         "name": "icon",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Social URL",
-        "name": "url",
         "valueType": "string"
       }
     ]
@@ -872,6 +1074,58 @@
         "component": "text",
         "label": "Title",
         "name": "title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "latestBlogsListing",
+    "fields": [
+      {
+        "component": "richtext",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-tag",
+        "label": "CTA Link",
+        "name": "ctaLink",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "blogCard",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "label": "Card Link",
+        "name": "cardLink",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "date-time",
+        "label": "Date",
+        "name": "date",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Card Title",
+        "name": "cardTitle",
         "valueType": "string"
       }
     ]
@@ -987,6 +1241,9 @@
     ]
   },
   {
+    "id": "spaceadder"
+  },
+  {
     "id": "navigationItem",
     "fields": [
       {
@@ -1065,20 +1322,14 @@
       },
       {
         "component": "text",
-        "label": "Href",
-        "name": "href",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Data Link",
-        "name": "dataLink",
+        "label": "Link",
+        "name": "link",
         "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "Data Consent",
-        "name": "dataConsent",
+        "label": "Consent",
+        "name": "consent",
         "valueType": "boolean"
       }
     ]

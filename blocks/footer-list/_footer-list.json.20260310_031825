@@ -1,31 +1,31 @@
 {
   "definitions": [
     {
-      "title": "Sticky-Navigation",
-      "id": "stickyNavigation",
+      "title": "Footer-List",
+      "id": "footerList",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "stickyNavigation",
-              "model": "stickyNavigation",
-              "name": "Sticky-Navigation"
+              "filter": "footerList",
+              "model": "footerList",
+              "name": "Footer-List"
             }
           }
         }
       }
     },
     {
-      "title": "Navigation-Item",
-      "id": "navigationItem",
+      "title": "Footer Link",
+      "id": "footerLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "navigationItem",
-              "name": "Navigation-Item"
+              "model": "footerLink",
+              "name": "Footer Link"
             }
           }
         }
@@ -34,14 +34,8 @@
   ],
   "models": [
     {
-      "id": "navigationItem",
+      "id": "footerLink",
       "fields": [
-        {
-          "component": "reference",
-          "label": "Icon",
-          "name": "icon",
-          "valueType": "string"
-        },
         {
           "component": "text",
           "label": "Label",
@@ -50,24 +44,18 @@
         },
         {
           "component": "text",
-          "label": "Link",
-          "name": "link",
+          "label": "URL",
+          "name": "url",
           "valueType": "string"
-        },
-        {
-          "component": "boolean",
-          "label": "Consent",
-          "name": "consent",
-          "valueType": "boolean"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "stickyNavigation",
+      "id": "footerList",
       "components": [
-        "navigationItem"
+        "footerLink"
       ]
     }
   ]

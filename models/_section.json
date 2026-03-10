@@ -67,7 +67,12 @@
         "bannerBanner",
         "latestBlogsArticleListing",
         "bannerSection",
-        "stickyBottomNav"
+        "stickyBottomNav",
+        "headerFooter",
+        "footerBlock",
+        "latestBlogsListing",
+        "spaceadder",
+        "footerBrandFooter"
       ]
     }
   ]

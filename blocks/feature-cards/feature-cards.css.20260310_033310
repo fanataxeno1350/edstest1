@@ -1,0 +1,156 @@
+.featureCards-container {
+  padding: 1.5rem 1rem 1rem; /* Equivalent to 24px 16px 16px assuming 16px base */
+  position: relative;
+}
+.featureCards-text {
+  font-family: Barlow;
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700;
+  line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.featureCards-title {
+  text-align: center;
+  color: #161616;
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700;
+  line-height: normal;
+}
+.featureCards-title-highlight {
+  color: #aa1f30;
+}
+.featureCards-bolteSitare_cardSection {
+  border-radius: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  box-shadow: 0.125rem 0.25rem 1rem 0 rgba(0, 0, 0, 0.22); /* Equivalent to 2px 4px 16px 0px rgba(0,0,0,0.22) assuming 16px base */
+  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  padding: 0.75rem 1.125rem 0.75rem 0.75rem; /* Equivalent to 12px 18px 12px 12px assuming 16px base */
+  position: relative;
+  z-index: 11;
+}
+.featureCards-bolteSitare_cardSection:first-of-type {
+  padding-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+.featureCards-bolteSitare_cardSection:last-of-type {
+  margin-bottom: 3.375rem; /* Equivalent to 54px assuming 16px base */
+}
+.featureCards-bolteSitare_cardSection--wrapper {
+  display: flex;
+  gap: 0.75rem; /* Equivalent to 12px assuming 16px base */
+}
+.featureCards-bolteSitare_cardSection .featureCards-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.featureCards-bolteSitare_cardSection--img {
+  border-radius: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  height: 6.8125rem; /* Equivalent to 109px assuming 16px base */
+  width: 8.3125rem; /* Equivalent to 133px assuming 16px base */
+}
+.featureCards-bolteSitare_cardSection--img .featureCards-card-img {
+  border-radius: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.featureCards-bolteSitare_cardSection--title {
+  padding-bottom: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  font-family: Barlow;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 700;
+  line-height: normal;
+  color: #030303;
+}
+.featureCards-bolteSitare_cardSection--text {
+  font-family: Barlow;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 400;
+  line-height: normal;
+  color: #030303;
+}
+.featureCards-bolteSitare_cardSection--btn {
+  background-color: #aa1f30;
+  border-radius: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  cursor: pointer;
+  height: 1.8125rem; /* Equivalent to 29px assuming 16px base */
+  line-height: 1.8125rem; /* Equivalent to 29px assuming 16px base */
+  padding: 0 1rem; /* Equivalent to 0px 16px assuming 16px base */
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-family: Barlow;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 600;
+}
+.featureCards-curve-container {
+  background-color: #fff;
+  border-radius: 0 0 2rem 2rem; /* Equivalent to 0px 0px 32px 32px assuming 16px base */
+  bottom: -3.6875rem; /* Equivalent to -59px assuming 16px base */
+  height: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transform: skewY(-6.2deg);
+  width: 100%;
+  z-index: 10;
+}
+.featureCards-feature_card--Section {
+  margin-inline: auto;
+  padding-bottom: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  display: block;
+}
+.featureCards-link-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #000;
+}
+.featureCards-feature_card--image {
+  height: 12.0625rem; /* Equivalent to 193px assuming 16px base */
+  width: 100%;
+  padding-bottom: 0.75rem; /* Equivalent to 12px assuming 16px base */
+}
+.featureCards-feature_card--image .featureCards-w-100 {
+  width: 100%;
+}
+.featureCards-feature_card--image .featureCards-h-100 {
+  height: 100%;
+}
+.featureCards-text-center {
+  text-align: center;
+}
+.featureCards-feature_card--title {
+  color: #aa1f30;
+  margin-bottom: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  font-family: Barlow;
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700;
+  line-height: normal;
+}
+.featureCards-pb-5 {
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.featureCards-feature_card--desc {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  font-family: Barlow;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 400;
+  line-height: normal;
+  color: #030303;
+}
+.featureCards-redirected_btn {
+  display: none;
+}
+.featureCards-arrow-icon-btn {
+  background-color: #aa1f30;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  width: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  display: grid;
+  place-content: center;
+}

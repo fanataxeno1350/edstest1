@@ -1,0 +1,107 @@
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'banner-section__wrapper banner-position-relative banner-boing';
+
+  const videoWrapper = document.createElement('div');
+  videoWrapper.className = 'banner-video-wrapper';
+
+  const video = document.createElement('video');
+  video.className = 'banner-video banner-w-100 banner-object-fit-cover banner-media';
+  video.setAttribute('playsinline', '');
+  video.setAttribute('preload', 'metadata');
+  video.setAttribute('fetchpriority', 'high');
+
+  const videoControlsOverlay = document.createElement('div');
+  videoControlsOverlay.className = 'banner-position-absolute banner-w-100 banner-h-100 banner-start-0 banner-top-0 banner-d-flex banner-justify-content-center banner-align-items-center banner-cursor-pointer';
+
+  const playButton = document.createElement('button');
+  playButton.setAttribute('type', 'button');
+  playButton.className = 'banner-d-none banner-video-icon banner-icon-play banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
+
+  const pauseButton = document.createElement('button');
+  pauseButton.setAttribute('type', 'button');
+  pauseButton.className = 'banner-d-block banner-video-icon banner-icon-pause banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
+
+  const muteIconWrapper = document.createElement('div');
+  muteIconWrapper.className = 'banner-position-absolute banner-z-2 banner-d-flex banner-justify-content-center banner-align-items-center banner-cursor-pointer banner-mute-icon';
+
+  const muteButton = document.createElement('button');
+  muteButton.setAttribute('type', 'button');
+  muteButton.className = 'banner-video-icon-volume banner-icon-mute banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer banner-d-none';
+
+  const unmuteButton = document.createElement('button');
+  unmuteButton.setAttribute('type', 'button');
+  unmuteButton.className = 'banner-video-icon-volume banner-icon-unmute banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer banner-d-none';
+
+  const noAudioButton = document.createElement('button');
+  noAudioButton.setAttribute('type', 'button');
+  noAudioButton.className = 'banner-video-icon-volume banner-no-audio-icon banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
+
+  const ctaWrapper = document.createElement('div');
+  ctaWrapper.className = 'banner-boing__banner--cta banner-position-absolute banner-start-50 banner-translate-middle-x banner-w-100';
+
+  const cta = document.createElement('div');
+  cta.className = 'banner-cta';
+
+  // Assuming the block has only one row for the video details and icons
+  const row = block.children[0];
+  if (row) {
+    moveInstrumentation(row, wrapper);
+    const cells = row.children;
+
+    const videoSrc = cells[0]?.textContent.trim();
+    const videoTitle = cells[1]?.textContent.trim();
+    const isAutoplay = cells[2]?.textContent.trim().toLowerCase() === 'true';
+    const isLoop = cells[3]?.textContent.trim().toLowerCase() === 'true';
+    const isMuted = cells[4]?.textContent.trim().toLowerCase() === 'true';
+    const iconPlay = cells[5]?.textContent.trim();
+    const iconPause = cells[6]?.textContent.trim();
+    const iconMute = cells[7]?.textContent.trim();
+    const iconUnmute = cells[8]?.textContent.trim();
+    const iconNoAudio = cells[9]?.textContent.trim();
+
+    if (videoSrc) {
+      const source = document.createElement('source');
+      source.src = videoSrc;
+      source.type = 'video/mp4';
+      video.append(source);
+    }
+
+    if (videoTitle) {
+      video.setAttribute('title', videoTitle);
+      video.setAttribute('aria-label', videoTitle);
+    }
+
+    video.setAttribute('data-is-autoplay', isAutoplay);
+    video.loop = isLoop;
+    video.muted = isMuted;
+    video.autoplay = isAutoplay;
+
+    if (iconPlay) {
+      playButton.innerHTML = iconPlay;
+    }
+    if (iconPause) {
+      pauseButton.innerHTML = iconPause;
+    }
+    if (iconMute) {
+      muteButton.innerHTML = iconMute;
+    }
+    if (iconUnmute) {
+      unmuteButton.innerHTML = iconUnmute;
+    }
+    if (iconNoAudio) {
+      noAudioButton.innerHTML = iconNoAudio;
+    }
+  }
+
+  videoControlsOverlay.append(playButton, pauseButton);
+  muteIconWrapper.append(muteButton, unmuteButton, noAudioButton);
+  videoWrapper.append(video, videoControlsOverlay, muteIconWrapper);
+  ctaWrapper.append(cta);
+  wrapper.append(videoWrapper, ctaWrapper);
+
+  block.textContent = '';
+  block.append(wrapper);
+}

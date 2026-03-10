@@ -38,14 +38,14 @@
       "fields": [
         {
           "component": "text",
-          "label": "Label",
-          "name": "label",
+          "label": "Link Text",
+          "name": "text",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "URL",
-          "name": "url",
+          "label": "Link URL",
+          "name": "href",
           "valueType": "string"
         }
       ]
