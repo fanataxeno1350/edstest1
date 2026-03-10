@@ -65,7 +65,9 @@
         "bolteSitareCardSection",
         "featureCard",
         "bannerBanner",
-        "latestBlogsArticleListing"
+        "latestBlogsArticleListing",
+        "bannerSection",
+        "stickyBottomNav"
       ]
     }
   ]
