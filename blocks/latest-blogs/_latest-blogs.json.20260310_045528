@@ -49,7 +49,7 @@
           "valueType": "string"
         },
         {
-          "component": "aem-tag",
+          "component": "reference",
           "label": "View All Link",
           "name": "viewAllLink",
           "valueType": "string"
@@ -60,9 +60,9 @@
       "id": "blogCard",
       "fields": [
         {
-          "component": "aem-tag",
-          "label": "Card Link",
-          "name": "cardLink",
+          "component": "reference",
+          "label": "Article Link",
+          "name": "link",
           "valueType": "string"
         },
         {
@@ -73,14 +73,14 @@
         },
         {
           "component": "date-time",
-          "label": "Date",
-          "name": "date",
+          "label": "Publish Date",
+          "name": "publishDate",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Text",
-          "name": "text",
+          "label": "Article Heading",
+          "name": "heading",
           "valueType": "string"
         }
       ]
