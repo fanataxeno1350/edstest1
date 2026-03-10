@@ -28,30 +28,34 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Video Title",
-          "name": "videoTitle",
+          "component": "reference",
+          "label": "Play Icon",
+          "name": "playIcon",
           "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Autoplay",
-          "name": "autoplay"
+          "component": "reference",
+          "label": "Pause Icon",
+          "name": "pauseIcon",
+          "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Loop",
-          "name": "loop"
+          "component": "reference",
+          "label": "Mute Icon",
+          "name": "muteIcon",
+          "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Muted",
-          "name": "muted"
+          "component": "reference",
+          "label": "Unmute Icon",
+          "name": "unmuteIcon",
+          "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Plays Inline",
-          "name": "playsInline"
+          "component": "reference",
+          "label": "No Audio Icon",
+          "name": "noAudioIcon",
+          "valueType": "string"
         }
       ]
     }

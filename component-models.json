@@ -249,34 +249,30 @@
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "label": "Play Icon",
-        "name": "playIcon",
+        "component": "text",
+        "label": "Video Title",
+        "name": "videoTitle",
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "label": "Pause Icon",
-        "name": "pauseIcon",
-        "valueType": "string"
+        "component": "boolean",
+        "label": "Autoplay",
+        "name": "autoplay"
       },
       {
-        "component": "reference",
-        "label": "Mute Icon",
-        "name": "muteIcon",
-        "valueType": "string"
+        "component": "boolean",
+        "label": "Loop",
+        "name": "loop"
       },
       {
-        "component": "reference",
-        "label": "Unmute Icon",
-        "name": "unmuteIcon",
-        "valueType": "string"
+        "component": "boolean",
+        "label": "Muted",
+        "name": "muted"
       },
       {
-        "component": "reference",
-        "label": "No Audio Icon",
-        "name": "noAudioIcon",
-        "valueType": "string"
+        "component": "boolean",
+        "label": "Plays Inline",
+        "name": "playsInline"
       }
     ]
   },
@@ -363,18 +359,18 @@
     ]
   },
   {
-    "id": "carouselSlide",
+    "id": "carouselItem",
     "fields": [
       {
         "component": "reference",
-        "label": "Video Source",
-        "name": "videoSrc",
+        "label": "Video",
+        "name": "video",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Image Source",
-        "name": "imageSrc",
+        "label": "Image",
+        "name": "image",
         "valueType": "string"
       },
       {
@@ -390,8 +386,8 @@
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "label": "CTA Link",
+        "component": "text",
+        "label": "CTA Href",
         "name": "ctaHref",
         "valueType": "string"
       }
@@ -475,6 +471,47 @@
         "component": "text",
         "label": "CTA Link",
         "name": "ctaLink",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "featureCard",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Image Alt Text",
+        "name": "alt",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Description",
+        "name": "description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Button Text",
+        "name": "buttonText",
         "valueType": "string"
       }
     ]
@@ -579,27 +616,31 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Logo 1",
-        "name": "logo1",
+        "label": "Primary Logo",
+        "name": "primaryLogo",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Logo 2",
-        "name": "logo2",
+        "label": "Secondary Logo",
+        "name": "secondaryLogo",
         "valueType": "string"
       },
       {
         "component": "container",
-        "itemType": "footerLinkList",
-        "label": "Footer Link Lists",
-        "name": "footerLinkLists"
+        "items": {
+          "component": "footerNavList"
+        },
+        "label": "Navigation Lists",
+        "name": "navLists"
       },
       {
         "component": "container",
-        "itemType": "footerSocialLink",
-        "label": "Footer Social Links",
-        "name": "footerSocialLinks"
+        "items": {
+          "component": "footerSocialLink"
+        },
+        "label": "Social Links",
+        "name": "socialLinks"
       },
       {
         "component": "reference",
@@ -608,26 +649,26 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "label": "Copyright Text",
-        "name": "copyright",
+        "name": "copyrightText",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerLinkList",
+    "id": "footerNavList",
     "fields": [
       {
         "component": "text",
         "label": "Link Label",
-        "name": "label",
+        "name": "linkLabel",
         "valueType": "string"
       },
       {
         "component": "reference",
         "label": "Link URL",
-        "name": "url",
+        "name": "linkUrl",
         "valueType": "string"
       }
     ]
@@ -637,8 +678,8 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Social Link URL",
-        "name": "url",
+        "label": "Social URL",
+        "name": "socialUrl",
         "valueType": "string"
       },
       {
@@ -974,20 +1015,44 @@
       },
       {
         "component": "text",
-        "label": "Logo Alt Text",
+        "label": "Logo Alt",
         "name": "logoAlt",
         "valueType": "string"
       },
       {
-        "component": "reference",
+        "component": "text",
+        "label": "Logo Link",
+        "name": "logoHref",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Login Button Label",
+        "name": "loginLabel",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "label": "Login Link",
-        "name": "loginLink",
+        "name": "loginHref",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Brand Logo 1",
+        "name": "brandLogo1",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Brand Logo 2",
+        "name": "brandLogo2",
         "valueType": "string"
       },
       {
         "component": "richtext",
-        "label": "Login Button Text",
-        "name": "loginButtonText",
+        "label": "Copyright",
+        "name": "copyright",
         "valueType": "string"
       }
     ]
@@ -996,20 +1061,20 @@
     "id": "menuItem",
     "fields": [
       {
-        "component": "reference",
-        "label": "Menu Link",
-        "name": "link",
+        "component": "text",
+        "label": "Label",
+        "name": "label",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Menu Text",
-        "name": "text",
+        "label": "Link",
+        "name": "href",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Menu Icon",
+        "label": "Icon",
         "name": "icon",
         "valueType": "string"
       }
@@ -1019,15 +1084,15 @@
     "id": "footerLink",
     "fields": [
       {
-        "component": "reference",
-        "label": "Footer Link",
-        "name": "link",
+        "component": "text",
+        "label": "Label",
+        "name": "label",
         "valueType": "string"
       },
       {
         "component": "text",
-        "label": "Footer Text",
-        "name": "text",
+        "label": "Link",
+        "name": "href",
         "valueType": "string"
       }
     ]
@@ -1036,14 +1101,20 @@
     "id": "socialLink",
     "fields": [
       {
-        "component": "reference",
-        "label": "Social Link",
-        "name": "link",
+        "component": "text",
+        "label": "Platform",
+        "name": "platform",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link",
+        "name": "href",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Social Icon",
+        "label": "Icon",
         "name": "icon",
         "valueType": "string"
       }
@@ -1131,41 +1202,12 @@
     ]
   },
   {
-    "id": "blogCard",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Link",
-        "name": "link",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "label": "Image",
-        "name": "image",
-        "valueType": "string"
-      },
-      {
-        "component": "date-time",
-        "label": "Published Date",
-        "name": "date",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Title",
-        "name": "title",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "latestBlogs",
     "fields": [
       {
         "component": "richtext",
-        "label": "Heading",
-        "name": "heading",
+        "label": "Title",
+        "name": "title",
         "valueType": "string"
       },
       {
@@ -1181,9 +1223,44 @@
         "valueType": "string"
       },
       {
-        "component": "text",
-        "label": "CTA Text",
-        "name": "ctaText",
+        "component": "richtext",
+        "label": "CTA Label",
+        "name": "ctaLabel",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "CTA Icon",
+        "name": "ctaIcon",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "blogCard",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Blog Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "date-time",
+        "label": "Date",
+        "name": "date",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Title",
+        "name": "title",
         "valueType": "string"
       }
     ]
@@ -1320,14 +1397,19 @@
       {
         "component": "text",
         "label": "Link",
-        "name": "link",
+        "name": "href",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Data Link",
+        "name": "dataLink",
         "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "Consent",
-        "name": "consent",
-        "valueType": "boolean"
+        "label": "Data Consent",
+        "name": "dataConsent"
       }
     ]
   },

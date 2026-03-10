@@ -80,44 +80,20 @@
         },
         {
           "component": "text",
-          "label": "Logo Alt",
+          "label": "Logo Alt Text",
           "name": "logoAlt",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Logo Link",
-          "name": "logoHref",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Login Button Label",
-          "name": "loginLabel",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
+          "component": "reference",
           "label": "Login Link",
-          "name": "loginHref",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Brand Logo 1",
-          "name": "brandLogo1",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Brand Logo 2",
-          "name": "brandLogo2",
+          "name": "loginLink",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Copyright",
-          "name": "copyright",
+          "label": "Login Button Text",
+          "name": "loginButtonText",
           "valueType": "string"
         }
       ]
@@ -126,20 +102,20 @@
       "id": "menuItem",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
+          "component": "reference",
+          "label": "Menu Link",
+          "name": "link",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link",
-          "name": "href",
+          "label": "Menu Text",
+          "name": "text",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon",
+          "label": "Menu Icon",
           "name": "icon",
           "valueType": "string"
         }
@@ -149,15 +125,15 @@
       "id": "footerLink",
       "fields": [
         {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
+          "component": "reference",
+          "label": "Footer Link",
+          "name": "link",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link",
-          "name": "href",
+          "label": "Footer Text",
+          "name": "text",
           "valueType": "string"
         }
       ]
@@ -166,20 +142,14 @@
       "id": "socialLink",
       "fields": [
         {
-          "component": "text",
-          "label": "Platform",
-          "name": "platform",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Link",
-          "name": "href",
+          "component": "reference",
+          "label": "Social Link",
+          "name": "link",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon",
+          "label": "Social Icon",
           "name": "icon",
           "valueType": "string"
         }

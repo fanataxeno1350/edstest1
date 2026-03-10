@@ -15,25 +15,34 @@ export default function decorate(block) {
 
     const link = row.querySelector('a');
     const img = row.querySelector('img');
-    const span = row.querySelector('span');
+    const labelSpan = row.querySelector('p:last-of-type'); // Assuming the label is in the last paragraph
 
-    if (link && img && span) {
+    if (link) {
       const newLink = document.createElement('a');
       newLink.href = link.href;
       newLink.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
-      newLink.setAttribute('data-consent', link.getAttribute('data-consent'));
-      newLink.setAttribute('data-link', link.getAttribute('data-link'));
+      if (link.dataset.consent) {
+        newLink.setAttribute('data-consent', link.dataset.consent);
+      }
+      if (link.dataset.link) {
+        newLink.setAttribute('data-link', link.dataset.link);
+      }
+      moveInstrumentation(link, newLink);
 
-      const optimizedPic = createOptimizedPicture(img.src, img.alt);
-      moveInstrumentation(img, optimizedPic.querySelector('img'));
-      optimizedPic.querySelector('img').className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        optimizedPic.querySelector('img').className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        newLink.append(optimizedPic);
+      }
 
-      const newSpan = document.createElement('span');
-      newSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
-      newSpan.textContent = span.textContent;
-
-      newLink.append(optimizedPic);
-      newLink.append(newSpan);
+      if (labelSpan) {
+        const span = document.createElement('span');
+        span.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
+        span.textContent = labelSpan.textContent;
+        moveInstrumentation(labelSpan, span);
+        newLink.append(span);
+      }
       li.append(newLink);
     }
     ul.append(li);

@@ -66,11 +66,17 @@
   {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "carouselItem"
     ]
   },
   {
     "id": "featureCard",
+    "components": [
+      "featureCard"
+    ]
+  },
+  {
+    "id": "featureCards",
     "components": [
       "featureCard"
     ]
@@ -97,7 +103,7 @@
   {
     "id": "footerBrandFooter",
     "components": [
-      "footerLinkList",
+      "footerNavList",
       "footerSocialLink"
     ]
   },
