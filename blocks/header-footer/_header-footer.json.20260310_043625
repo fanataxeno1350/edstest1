@@ -67,49 +67,10 @@
       "id": "headerFooter",
       "fields": [
         {
-          "component": "text",
-          "label": "App Name",
-          "name": "appName",
-          "valueType": "string"
-        },
-        {
           "component": "reference",
-          "label": "Logo Image",
-          "name": "logoImage",
+          "label": "Logo",
+          "name": "logo",
           "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Login Button Text",
-          "name": "loginButtonText",
-          "valueType": "string"
-        },
-        {
-          "component": "container",
-          "items": {
-            "type": "menuItem"
-          },
-          "label": "Menu Items",
-          "name": "menuItems",
-          "valueType": "array"
-        },
-        {
-          "component": "container",
-          "items": {
-            "type": "footerLink"
-          },
-          "label": "Footer Links",
-          "name": "footerLinks",
-          "valueType": "array"
-        },
-        {
-          "component": "container",
-          "items": {
-            "type": "socialLink"
-          },
-          "label": "Social Links",
-          "name": "socialLinks",
-          "valueType": "array"
         },
         {
           "component": "reference",
@@ -124,7 +85,7 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
+          "component": "richtext",
           "label": "Copyright Text",
           "name": "copyrightText",
           "valueType": "string"
@@ -175,6 +136,12 @@
       "id": "socialLink",
       "fields": [
         {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
           "component": "text",
           "label": "Platform",
           "name": "platform",
@@ -184,12 +151,6 @@
           "component": "text",
           "label": "Link",
           "name": "link",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "Icon",
-          "name": "icon",
           "valueType": "string"
         }
       ]

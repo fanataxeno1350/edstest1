@@ -50,8 +50,20 @@
         },
         {
           "component": "reference",
-          "label": "View All Link",
-          "name": "viewAllLink",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "CTA Label",
+          "name": "ctaLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Icon",
+          "name": "ctaIcon",
           "valueType": "string"
         }
       ]
@@ -61,7 +73,7 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Article Link",
+          "label": "Blog Link",
           "name": "link",
           "valueType": "string"
         },
@@ -73,14 +85,14 @@
         },
         {
           "component": "date-time",
-          "label": "Publish Date",
-          "name": "publishDate",
+          "label": "Date",
+          "name": "date",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Article Heading",
-          "name": "heading",
+          "label": "Title",
+          "name": "title",
           "valueType": "string"
         }
       ]

@@ -1,31 +1,31 @@
 {
   "definitions": [
     {
-      "title": "Sticky-Navigation",
-      "id": "stickyNavigation",
+      "title": "Feature-Cards",
+      "id": "featureCards",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "stickyNavigation",
-              "model": "stickyNavigation",
-              "name": "Sticky-Navigation"
+              "filter": "featureCards",
+              "model": "featureCards",
+              "name": "Feature-Cards"
             }
           }
         }
       }
     },
     {
-      "title": "Sticky-Navigation-Item",
-      "id": "stickyNavigationItem",
+      "title": "FeatureCard",
+      "id": "featureCard",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "stickyNavigationItem",
-              "name": "Sticky-Navigation-Item"
+              "model": "featureCard",
+              "name": "FeatureCard"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "stickyNavigationItem",
+      "id": "featureCard",
       "fields": [
         {
           "component": "reference",
@@ -44,42 +44,42 @@
         },
         {
           "component": "text",
-          "label": "Alt Text",
-          "name": "alt",
+          "label": "Image Alt",
+          "name": "imageAlt",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Label",
-          "name": "label",
+          "label": "Title",
+          "name": "title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Description",
+          "name": "description",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Link URL",
-          "name": "href",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Data Link",
-          "name": "dataLink",
+          "label": "CTA Link",
+          "name": "ctaLink",
           "valueType": "string"
-        },
-        {
-          "component": "boolean",
-          "label": "Data Consent",
-          "name": "dataConsent",
-          "valueType": "boolean"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "stickyNavigation",
+      "id": "featureCards",
       "components": [
-        "stickyNavigationItem"
+        "featureCard"
       ]
     }
   ]
