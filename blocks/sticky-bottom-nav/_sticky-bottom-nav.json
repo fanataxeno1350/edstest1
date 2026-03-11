@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Nav-Item",
-      "id": "navItem",
+      "title": "Sticky-Bottom-Nav-Item",
+      "id": "stickyBottomNavItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "navItem",
-              "name": "Nav-Item"
+              "model": "stickyBottomNavItem",
+              "name": "Sticky-Bottom-Nav-Item"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "navItem",
+      "id": "stickyBottomNavItem",
       "fields": [
         {
           "component": "reference",
@@ -43,9 +43,9 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Label",
-          "name": "label",
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
           "valueType": "string"
         },
         {
@@ -55,19 +55,19 @@
           "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Consent",
-          "name": "consent",
-          "valueType": "boolean"
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "sticky-bottom-nav",
+      "id": "stickyBottomNav",
       "components": [
-        "navItem"
+        "stickyBottomNavItem"
       ]
     }
   ]

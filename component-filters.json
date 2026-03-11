@@ -16,39 +16,13 @@
       "cards",
       "columns",
       "fragment",
-      "header",
+      "headerFooter",
       "carousel",
-      "bannerVideo",
+      "bannerSection",
       "featureCards",
       "latestBlogs",
-      "footer",
-      "stickyBottomNavigation",
       "footerBrand",
-      "stickyNavigation",
-      "footerList",
-      "bannerCta",
-      "bolteSitareCardSection",
-      "featureCard",
-      "bannerBanner",
-      "latestBlogsArticleListing",
-      "bannerSection",
-      "stickyBottomNav",
-      "headerFooter",
-      "footerBlock",
-      "latestBlogsListing",
-      "footerBrandFooter",
-      "headerBoing",
-      "spaceAdder",
-      "latestblogsArticleListing"
-    ]
-  },
-  {
-    "id": "bannerBanner"
-  },
-  {
-    "id": "bannerCta",
-    "components": [
-      "bannerCta"
+      "stickyBottomNav"
     ]
   },
   {
@@ -58,24 +32,9 @@
     ]
   },
   {
-    "id": "bannerVideo"
-  },
-  {
-    "id": "bolteSitareCardSection",
-    "components": [
-      "bolteSitareCardSection"
-    ]
-  },
-  {
     "id": "carousel",
     "components": [
-      "carouselSlide"
-    ]
-  },
-  {
-    "id": "featureCard",
-    "components": [
-      "featureCard"
+      "carouselItem"
     ]
   },
   {
@@ -85,139 +44,30 @@
     ]
   },
   {
-    "id": "featureCards",
+    "id": "footer-brand",
     "components": [
-      "featureCard"
-    ]
-  },
-  {
-    "id": "footerBlock",
-    "components": [
-      "footerLinkGroup",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footerLinkGroup",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "footer-brand-footer",
-    "components": [
-      "footerNavList",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footerBrand",
-    "components": [
-      "footerLinkGroup",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footerLinkGroup",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "footerList",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "footer",
-    "components": [
-      "footerLinkGroup",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footerLinkGroup",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "headerBoing",
-    "components": [
-      "headerMenuItem",
-      "footerMenuItem",
-      "footerSocialLink"
+      "footerLink",
+      "footerSocial"
     ]
   },
   {
     "id": "headerFooter",
     "components": [
-      "sidebarMenuItem",
-      "footerLinkItem",
-      "socialMediaLink"
-    ]
-  },
-  {
-    "id": "header",
-    "components": [
-      "sidebarMenuItem",
+      "menuItem",
       "footerLink",
       "socialLink"
     ]
   },
   {
-    "id": "latestBlogsArticleListing",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogsListing",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
     "id": "latestBlogs",
     "components": [
-      "blogCard"
+      "blogItem"
     ]
   },
   {
-    "id": "latestblogsArticleListing",
+    "id": "stickyBottomNav",
     "components": [
-      "article"
-    ]
-  },
-  {
-    "id": "latestBlogs",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "sticky-bottom-nav",
-    "components": [
-      "navItem"
-    ]
-  },
-  {
-    "id": "stickyBottomNavigation",
-    "components": [
-      "navigationItem"
-    ]
-  },
-  {
-    "id": "stickyNavigation",
-    "components": [
-      "navigationItem"
-    ]
-  },
-  {
-    "id": "text",
-    "components": [
-      "text"
+      "stickyBottomNavItem"
     ]
   }
 ]

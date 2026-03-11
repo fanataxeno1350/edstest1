@@ -23,8 +23,8 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Video",
-          "name": "video",
+          "label": "Video Source",
+          "name": "videoSrc",
           "valueType": "string"
         },
         {

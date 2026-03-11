@@ -51,30 +51,13 @@
         "cards",
         "columns",
         "fragment",
-        "header",
+        "headerFooter",
         "carousel",
-        "bannerVideo",
+        "bannerSection",
         "featureCards",
         "latestBlogs",
-        "footer",
-        "stickyBottomNavigation",
         "footerBrand",
-        "stickyNavigation",
-        "footerList",
-        "bannerCta",
-        "bolteSitareCardSection",
-        "featureCard",
-        "bannerBanner",
-        "latestBlogsArticleListing",
-        "bannerSection",
-        "stickyBottomNav",
-        "headerFooter",
-        "footerBlock",
-        "latestBlogsListing",
-        "footerBrandFooter",
-        "headerBoing",
-        "spaceAdder",
-        "latestblogsArticleListing"
+        "stickyBottomNav"
       ]
     }
   ]

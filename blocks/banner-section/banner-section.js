@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-export default async function decorate(block) {
+export default function decorate(block) {
   const bannerSection = document.createElement('section');
   bannerSection.className = 'banner-section';
 
@@ -11,8 +11,8 @@ export default async function decorate(block) {
   const bannerVideoWrapper = document.createElement('div');
   bannerVideoWrapper.className = 'banner-video-wrapper';
 
-  const videoElement = block.querySelector('[data-aue-prop="video"]');
-  if (videoElement) {
+  const videoSrc = block.querySelector('[data-aue-prop="videoSrc"]');
+  if (videoSrc) {
     const video = document.createElement('video');
     video.className = 'banner-video w-100 object-fit-cover banner-media';
     video.title = 'Video';
@@ -25,88 +25,85 @@ export default async function decorate(block) {
     video.autoplay = true;
 
     const source = document.createElement('source');
-    source.src = videoElement.href;
+    source.src = videoSrc.textContent.trim();
     source.type = 'video/mp4';
     video.append(source);
     bannerVideoWrapper.append(video);
-    moveInstrumentation(videoElement, video);
+    moveInstrumentation(videoSrc, video);
   }
 
   const bannerVideoControls = document.createElement('div');
   bannerVideoControls.className = 'banner-video-controls position-absolute w-100 h-100 start-0 top-0 d-flex justify-content-center align-items-center cursor-pointer';
 
-  const playIconElement = block.querySelector('[data-aue-prop="playIcon"]');
-  if (playIconElement) {
+  const playIcon = block.querySelector('[data-aue-prop="playIcon"]');
+  if (playIcon) {
     const playButton = document.createElement('button');
     playButton.type = 'button';
     playButton.className = 'banner-video-icon icon-play bg-transparent d-none d-flex align-items-center justify-content-center cursor-pointer';
     const playIconImg = document.createElement('img');
-    playIconImg.src = playIconElement.href;
+    playIconImg.src = playIcon.textContent.trim();
     playIconImg.alt = 'Play';
     playButton.append(playIconImg);
     bannerVideoControls.append(playButton);
-    moveInstrumentation(playIconElement, playButton);
+    moveInstrumentation(playIcon, playButton);
   }
 
-  const pauseIconElement = block.querySelector('[data-aue-prop="pauseIcon"]');
-  if (pauseIconElement) {
+  const pauseIcon = block.querySelector('[data-aue-prop="pauseIcon"]');
+  if (pauseIcon) {
     const pauseButton = document.createElement('button');
     pauseButton.type = 'button';
     pauseButton.className = 'banner-video-icon icon-pause bg-transparent d-block d-flex align-items-center justify-content-center cursor-pointer';
     const pauseIconImg = document.createElement('img');
-    pauseIconImg.src = pauseIconElement.href;
+    pauseIconImg.src = pauseIcon.textContent.trim();
     pauseIconImg.alt = 'Pause';
     pauseButton.append(pauseIconImg);
     bannerVideoControls.append(pauseButton);
-    moveInstrumentation(pauseIconElement, pauseButton);
+    moveInstrumentation(pauseIcon, pauseButton);
   }
-
   bannerVideoWrapper.append(bannerVideoControls);
 
   const bannerMuteIcon = document.createElement('div');
   bannerMuteIcon.className = 'banner-mute-icon position-absolute z-2 d-flex justify-content-center align-items-center cursor-pointer ';
 
-  const muteIconElement = block.querySelector('[data-aue-prop="muteIcon"]');
-  if (muteIconElement) {
+  const muteIcon = block.querySelector('[data-aue-prop="muteIcon"]');
+  if (muteIcon) {
     const muteButton = document.createElement('button');
     muteButton.type = 'button';
     muteButton.className = 'banner-video-icon-volume icon-mute bg-transparent d-none d-flex align-items-center justify-content-center cursor-pointer';
     const muteIconImg = document.createElement('img');
-    muteIconImg.src = muteIconElement.href;
+    muteIconImg.src = muteIcon.textContent.trim();
     muteIconImg.alt = 'Mute';
     muteButton.append(muteIconImg);
     bannerMuteIcon.append(muteButton);
-    moveInstrumentation(muteIconElement, muteButton);
+    moveInstrumentation(muteIcon, muteButton);
   }
 
-  const unmuteIconElement = block.querySelector('[data-aue-prop="unmuteIcon"]');
-  if (unmuteIconElement) {
+  const unmuteIcon = block.querySelector('[data-aue-prop="unmuteIcon"]');
+  if (unmuteIcon) {
     const unmuteButton = document.createElement('button');
     unmuteButton.type = 'button';
     unmuteButton.className = 'banner-video-icon-volume icon-unmute bg-transparent d-none d-flex align-items-center justify-content-center cursor-pointer';
     const unmuteIconImg = document.createElement('img');
-    unmuteIconImg.src = unmuteIconElement.href;
+    unmuteIconImg.src = unmuteIcon.textContent.trim();
     unmuteIconImg.alt = 'Unmute';
     unmuteButton.append(unmuteIconImg);
     bannerMuteIcon.append(unmuteButton);
-    moveInstrumentation(unmuteIconElement, unmuteButton);
+    moveInstrumentation(unmuteIcon, unmuteButton);
   }
 
-  const noAudioIconElement = block.querySelector('[data-aue-prop="noAudioIcon"]');
-  if (noAudioIconElement) {
+  const noAudioIcon = block.querySelector('[data-aue-prop="noAudioIcon"]');
+  if (noAudioIcon) {
     const noAudioButton = document.createElement('button');
     noAudioButton.type = 'button';
     noAudioButton.className = 'banner-video-icon-volume no-audio-icon bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
     const noAudioIconImg = document.createElement('img');
-    noAudioIconImg.src = noAudioIconElement.href;
+    noAudioIconImg.src = noAudioIcon.textContent.trim();
     noAudioIconImg.alt = 'No Audio';
     noAudioButton.append(noAudioIconImg);
     bannerMuteIcon.append(noAudioButton);
-    moveInstrumentation(noAudioIconElement, noAudioButton);
+    moveInstrumentation(noAudioIcon, noAudioButton);
   }
-
   bannerVideoWrapper.append(bannerMuteIcon);
-  bannerWrapper.append(bannerVideoWrapper);
 
   const bannerCtaWrapper = document.createElement('div');
   bannerCtaWrapper.className = 'banner-cta-wrapper position-absolute start-50 translate-middle-x w-100';
@@ -114,12 +111,16 @@ export default async function decorate(block) {
   const bannerCta = document.createElement('div');
   bannerCta.className = 'banner-cta';
 
-  // Assuming any remaining content in the block is for the CTA
-  const ctaContent = Array.from(block.children).filter(child => !child.hasAttribute('data-aue-prop'));
-  ctaContent.forEach(node => bannerCta.append(node));
+  // Move any remaining content into the bannerCta div
+  const contentDiv = block.querySelector('div:not([data-aue-prop])');
+  if (contentDiv) {
+    bannerCta.append(...Array.from(contentDiv.children));
+    moveInstrumentation(contentDiv, bannerCta);
+  }
 
   bannerCtaWrapper.append(bannerCta);
-  bannerWrapper.append(bannerCtaWrapper);
+
+  bannerWrapper.append(bannerVideoWrapper, bannerCtaWrapper);
   bannerSection.append(bannerWrapper);
 
   block.textContent = '';
