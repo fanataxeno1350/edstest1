@@ -26,7 +26,9 @@
       "header",
       "featurecards",
       "stickyNavigation",
-      "latestBlogsListing"
+      "latestBlogsListing",
+      "latestBlogsArticleList",
+      "footer"
     ]
   },
   {
@@ -38,13 +40,13 @@
   {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "carouselItem"
     ]
   },
   {
     "id": "featureCards",
     "components": [
-      "card"
+      "featureCard"
     ]
   },
   {
@@ -67,6 +69,19 @@
     ]
   },
   {
+    "id": "footer",
+    "components": [
+      "footerLinkList",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "footerLinkList",
+    "components": [
+      "footerLink"
+    ]
+  },
+  {
     "id": "headerFooter",
     "components": [
       "sidebarMenuItem",
@@ -77,9 +92,9 @@
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
-      "headerFooterListItem",
-      "headerSocialLink"
+      "sidebarMenuItem",
+      "footerListItem",
+      "socialLink"
     ]
   },
   {
@@ -95,6 +110,12 @@
     ]
   },
   {
+    "id": "latestBlogsArticleList",
+    "components": [
+      "articleCard"
+    ]
+  },
+  {
     "id": "stickyBottomNav",
     "components": [
       "stickyBottomNavItem"
@@ -103,7 +124,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "stickyNavItem"
+      "stickyNavigationItem"
     ]
   }
 ]

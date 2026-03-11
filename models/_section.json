@@ -61,7 +61,9 @@
         "header",
         "featurecards",
         "stickyNavigation",
-        "latestBlogsListing"
+        "latestBlogsListing",
+        "latestBlogsArticleList",
+        "footer"
       ]
     }
   ]

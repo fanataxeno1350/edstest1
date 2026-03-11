@@ -3,154 +3,88 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const rootDiv = document.createElement('div');
-  rootDiv.classList.add('feature-cards-container');
+  rootDiv.classList.add('feature-cards-section');
 
-  const titleWrapper = document.createElement('div');
-  titleWrapper.classList.add('feature-cards-title-wrapper');
-  const titleElement = block.querySelector('[data-aue-prop="title"]');
-  if (titleElement) {
-    titleWrapper.append(titleElement);
-    moveInstrumentation(titleElement, titleWrapper);
-  } else {
-    const h1 = block.querySelector('h1');
-    if (h1) {
-      titleWrapper.append(h1);
-      moveInstrumentation(h1, titleWrapper);
-    }
+  const headingWrapper = document.createElement('div');
+  headingWrapper.classList.add('feature-cards-heading-wrapper');
+  const authoredHeading = block.querySelector('.featurecards-featureCards-text h1');
+  if (authoredHeading) {
+    headingWrapper.append(authoredHeading);
+    moveInstrumentation(authoredHeading, headingWrapper);
   }
-  rootDiv.append(titleWrapper);
+  rootDiv.append(headingWrapper);
 
   const cardsWrapper = document.createElement('div');
-  cardsWrapper.classList.add('feature-cards-cards-wrapper');
+  cardsWrapper.classList.add('feature-cards-wrapper');
 
-  const cardItems = block.querySelectorAll('[data-aue-model="card"]');
-  cardItems.forEach((cardNode) => {
+  const featureCards = block.querySelectorAll('[data-aue-model="featureCard"]');
+  featureCards.forEach((cardNode) => {
     const cardLink = cardNode.querySelector('a');
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('feature-card');
+    const linkHref = cardLink ? cardLink.href : '#';
+    const linkTitle = cardLink ? cardLink.title : '';
+    const linkTarget = cardLink ? cardLink.target : '';
 
-    if (cardLink) {
-      const link = document.createElement('a');
-      link.href = cardLink.href;
-      if (cardLink.target) {
-        link.target = cardLink.target;
-      }
-      if (cardLink.title) {
-        link.title = cardLink.title;
-      }
-      link.classList.add('feature-card-link');
-
-      const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('feature-card-image');
-      const img = cardNode.querySelector('[data-aue-prop="image"]');
-      if (img) {
-        imageWrapper.append(createOptimizedPicture(img.src, img.alt));
-        moveInstrumentation(img, imageWrapper);
-      }
-      link.append(imageWrapper);
-
-      const contentWrapper = document.createElement('div');
-      contentWrapper.classList.add('feature-card-content');
-
-      const heading = cardNode.querySelector('[data-aue-prop="heading"]');
-      if (heading) {
-        const h2 = document.createElement('h2');
-        h2.classList.add('feature-card-heading');
-        h2.append(...heading.childNodes);
-        contentWrapper.append(h2);
-        moveInstrumentation(heading, h2);
-      }
-
-      const description = cardNode.querySelector('[data-aue-prop="description"]');
-      if (description) {
-        const p = document.createElement('p');
-        p.classList.add('feature-card-description');
-        p.append(...description.childNodes);
-        contentWrapper.append(p);
-        moveInstrumentation(description, p);
-      }
-
-      const buttonContainer = document.createElement('div');
-      buttonContainer.classList.add('feature-card-button-container');
-      const button = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--btn');
-      if (button) {
-        const buttonLink = document.createElement('a');
-        buttonLink.href = cardLink.href;
-        if (cardLink.target) {
-          buttonLink.target = cardLink.target;
-        }
-        buttonLink.textContent = button.textContent.trim();
-        buttonLink.classList.add('button');
-        buttonContainer.append(buttonLink);
-        moveInstrumentation(button, buttonContainer);
-      }
-      contentWrapper.append(buttonContainer);
-
-      link.append(contentWrapper);
-      cardDiv.append(link);
-      moveInstrumentation(cardLink, link);
-    } else {
-      // Fallback for cards without a direct link wrapper
-      const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('feature-card-image');
-      const img = cardNode.querySelector('[data-aue-prop="image"]');
-      if (img) {
-        imageWrapper.append(createOptimizedPicture(img.src, img.alt));
-        moveInstrumentation(img, imageWrapper);
-      }
-      cardDiv.append(imageWrapper);
-
-      const contentWrapper = document.createElement('div');
-      contentWrapper.classList.add('feature-card-content');
-
-      const heading = cardNode.querySelector('[data-aue-prop="heading"]');
-      if (heading) {
-        const h2 = document.createElement('h2');
-        h2.classList.add('feature-card-heading');
-        h2.append(...heading.childNodes);
-        contentWrapper.append(h2);
-        moveInstrumentation(heading, h2);
-      }
-
-      const description = cardNode.querySelector('[data-aue-prop="description"]');
-      if (description) {
-        const p = document.createElement('p');
-        p.classList.add('feature-card-description');
-        p.append(...description.childNodes);
-        contentWrapper.append(p);
-        moveInstrumentation(description, p);
-      }
-
-      const buttonContainer = document.createElement('div');
-      buttonContainer.classList.add('feature-card-button-container');
-      const button = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--btn');
-      if (button) {
-        // If there's no overall card link, the button itself might be a link
-        const buttonLink = document.createElement('a');
-        const authoredLink = cardNode.querySelector('[data-aue-prop="link"]');
-        if (authoredLink) {
-          buttonLink.href = authoredLink.href;
-          if (authoredLink.target) {
-            buttonLink.target = authoredLink.target;
-          }
-          moveInstrumentation(authoredLink, buttonLink);
-        } else if (cardNode.closest('a')) {
-          buttonLink.href = cardNode.closest('a').href;
-          if (cardNode.closest('a').target) {
-            buttonLink.target = cardNode.closest('a').target;
-          }
-        }
-        buttonLink.textContent = button.textContent.trim();
-        buttonLink.classList.add('button');
-        buttonContainer.append(buttonLink);
-        moveInstrumentation(button, buttonContainer);
-      }
-      contentWrapper.append(buttonContainer);
-      cardDiv.append(contentWrapper);
+    const cardContainer = document.createElement('a');
+    cardContainer.classList.add('feature-card-item');
+    cardContainer.href = linkHref;
+    cardContainer.title = linkTitle;
+    if (linkTarget) {
+      cardContainer.target = linkTarget;
     }
 
-    cardsWrapper.append(cardDiv);
-    moveInstrumentation(cardNode, cardDiv);
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('feature-card-image');
+    const authoredImage = cardNode.querySelector('img[data-aue-prop="image"]');
+    if (authoredImage) {
+      const picture = createOptimizedPicture(authoredImage.src, authoredImage.alt);
+      imageDiv.append(picture);
+      moveInstrumentation(authoredImage, imageDiv);
+    } else {
+      // Fallback for image if data-aue-prop is missing but img exists
+      const fallbackImage = cardNode.querySelector('img');
+      if (fallbackImage) {
+        const picture = createOptimizedPicture(fallbackImage.src, fallbackImage.alt);
+        imageDiv.append(picture);
+        moveInstrumentation(fallbackImage, imageDiv);
+      }
+    }
+    cardContainer.append(imageDiv);
+
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('feature-card-content');
+
+    const title = cardNode.querySelector('[data-aue-prop="title"]');
+    if (title) {
+      const h2 = document.createElement('h2');
+      h2.textContent = title.textContent;
+      contentDiv.append(h2);
+      moveInstrumentation(title, h2);
+    }
+
+    const description = cardNode.querySelector('[data-aue-prop="description"]');
+    if (description) {
+      const p = document.createElement('p');
+      p.textContent = description.textContent;
+      contentDiv.append(p);
+      moveInstrumentation(description, p);
+    }
+
+    const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('feature-card-button');
+    const authoredButton = cardNode.querySelector('button');
+    if (authoredButton) {
+      const buttonLink = document.createElement('a');
+      buttonLink.href = linkHref;
+      buttonLink.textContent = authoredButton.textContent;
+      buttonLink.classList.add('button'); // Apply default button class
+      buttonDiv.append(buttonLink);
+      moveInstrumentation(authoredButton, buttonLink);
+    }
+    contentDiv.append(buttonDiv);
+    cardContainer.append(contentDiv);
+
+    cardsWrapper.append(cardContainer);
+    moveInstrumentation(cardNode, cardContainer);
   });
 
   rootDiv.append(cardsWrapper);
