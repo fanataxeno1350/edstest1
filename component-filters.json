@@ -37,8 +37,7 @@
       "footerBlock",
       "latestBlogsListing",
       "footerBrandFooter",
-      "headerBoing",
-      "spaceAdder"
+      "headerBoing"
     ]
   },
   {
@@ -179,9 +178,6 @@
     "components": [
       "blogCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "sticky-bottom-nav",
