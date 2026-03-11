@@ -1,7 +1,77 @@
+.banner-object-fit-cover { -o-object-fit:cover !important;object-fit:cover !important }
+
+.banner-d-none { display:none !important }
+
+.banner-position-relative { position:relative !important }
+
+.banner-position-absolute { position:absolute !important }
+
+.banner-top-0 { top:0 !important }
+
+.banner-start-0 { left:0 !important }
+
+.banner-start-50 { left:50% !important }
+
+.banner-translate-middle-x { -webkit-transform:translateX(-50%) !important;transform:translateX(-50%) !important }
+
+.banner-justify-content-center { -webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important }
+
+.banner-align-items-center { -webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important }
+
+.banner-bg-transparent { --bs-bg-opacity:1;background-color:transparent !important }
+
+.banner-z-2 { z-index:2 !important }
+
+.banner-section__wrapper { padding-inline:.046875rem }
+
 video { vertical-align:middle }
 
 @media print { * { background:transparent !important;-webkit-box-shadow:none !important;box-shadow:none !important;color:#000 !important;text-shadow:none !important } }
 
+video { zoom:1;display:inline-block;display:inline }
+
+button { font-size:100%;margin:0;vertical-align:baseline;vertical-align:middle }
+
+button { line-height:normal }
+
+button::-moz-focus-inner { border:0;padding:0 }
+
+button { font:inherit }
+
+.banner-object-fit-cover {  object-fit: cover !important;  }
+
+.banner-d-none {  display: none !important;  }
+
+.banner-position-relative {  position: relative !important;  }
+
+.banner-position-absolute {  position: absolute !important;  }
+
+.banner-top-0 {  top: 0px !important;  }
+
+.banner-start-0 {  left: 0px !important;  }
+
+.banner-start-50 {  left: 50% !important;  }
+
+.banner-translate-middle-x {  transform: translateX(-50%) !important;  }
+
+.banner-justify-content-center {  -webkit-box-pack: center !important; justify-content: center !important;  }
+
+.banner-align-items-center {  -webkit-box-align: center !important; align-items: center !important;  }
+
+.banner-bg-transparent {  --bs-bg-opacity: 1; background-color: transparent !important;  }
+
+.banner-z-2 {  z-index: 2 !important;  }
+
+.banner-section__wrapper {  padding-inline: 0.046875rem;  }
+
 video {  vertical-align: middle;  }
 
 @media print { * {  background: transparent !important; box-shadow: none !important; color: rgb(0, 0, 0) !important; text-shadow: none !important;  } }
+
+video {  zoom: 1; display: inline;  }
+
+button {  font-size: 100%; margin: 0px; vertical-align: middle;  }
+
+button {  line-height: normal;  }
+
+button {  font: inherit;  }

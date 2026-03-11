@@ -15,9 +15,9 @@ export default function decorate(block) {
 
     const link = row.querySelector('a');
     const img = row.querySelector('img');
-    const labelSpan = row.querySelector('span');
+    const span = row.querySelector('span');
 
-    if (link && img && labelSpan) {
+    if (link && img && span) {
       const newLink = document.createElement('a');
       newLink.href = link.href;
       newLink.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
@@ -25,15 +25,15 @@ export default function decorate(block) {
       newLink.setAttribute('data-link', link.getAttribute('data-link'));
 
       const optimizedPic = createOptimizedPicture(img.src, img.alt);
-      optimizedPic.querySelector('img').className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
       moveInstrumentation(img, optimizedPic.querySelector('img'));
-      newLink.append(optimizedPic);
+      optimizedPic.querySelector('img').className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
 
-      const newLabelSpan = document.createElement('span');
-      newLabelSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
-      newLabelSpan.textContent = labelSpan.textContent;
-      newLink.append(newLabelSpan);
-      
+      const newSpan = document.createElement('span');
+      newSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
+      newSpan.textContent = span.textContent;
+
+      newLink.append(optimizedPic);
+      newLink.append(newSpan);
       li.append(newLink);
     }
     ul.append(li);

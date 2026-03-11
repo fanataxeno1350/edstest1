@@ -44,6 +44,12 @@
         },
         {
           "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
           "label": "Title",
           "name": "title",
           "valueType": "string"
@@ -56,14 +62,14 @@
         },
         {
           "component": "text",
-          "label": "Link",
-          "name": "link",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Button Text",
-          "name": "buttonText",
+          "label": "CTA URL",
+          "name": "ctaUrl",
           "valueType": "string"
         }
       ]

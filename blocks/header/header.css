@@ -6,7 +6,37 @@
 
 .header-boing-container { --bs-gutter-x:0;--bs-gutter-y:0;margin-left:auto;margin-right:auto;max-width:33.75rem;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100% }
 
+@media print { * { background:transparent !important;-webkit-box-shadow:none !important;box-shadow:none !important;color:#000 !important;text-shadow:none !important }
+
+a, .header-a:visited { text-decoration:none }
+
+a[href]:after { content:" (" attr(href) ")" }
+
+img { page-break-inside:avoid }
+
+img { max-width:100% !important }
+
+h3 { orphans:3;widows:3 }
+
+h3 { page-break-after:avoid } }
+
 aside, .header-header, .header-nav, section { display:block }
+
+ul { margin:1em 0 }
+
+ul { padding:0 0 0 40px }
+
+nav ul { list-style:none;list-style-image:none }
+
+button { font-size:100%;margin:0;vertical-align:baseline;vertical-align:middle }
+
+button { line-height:normal }
+
+button::-moz-focus-inner { border:0;padding:0 }
+
+li, ul { list-style:none;margin:0;padding:0 }
+
+button { font:inherit }
 
 .header-header__logo-img {  display: inline-block; height: 3.125rem;  }
 
@@ -16,4 +46,32 @@ aside, .header-header, .header-nav, section { display:block }
 
 .header-boing-container {  --bs-gutter-x: 0; --bs-gutter-y: 0; margin-left: auto; margin-right: auto; max-width: 33.75rem; padding-left: calc(var(--bs-gutter-x)*.5); padding-right: calc(var(--bs-gutter-x)*.5); width: 100%;  }
 
+@media print { * {  background: transparent !important; box-shadow: none !important; color: rgb(0, 0, 0) !important; text-shadow: none !important;  }
+
+a, .header-a:visited {  text-decoration: none;  }
+
+a[href]::after {  content: " (" attr(href) ")";  }
+
+img {  break-inside: avoid;  }
+
+img {  max-width: 100% !important;  }
+
+h3 {  orphans: 3; widows: 3;  }
+
+h3 {  break-after: avoid;  } }
+
 aside, .header-header, .header-nav, section {  display: block;  }
+
+ul {  margin: 1em 0px;  }
+
+ul {  padding: 0px 0px 0px 40px;  }
+
+nav ul {  list-style: none none;  }
+
+button {  font-size: 100%; margin: 0px; vertical-align: middle;  }
+
+button {  line-height: normal;  }
+
+li, ul {  list-style: none; margin: 0px; padding: 0px;  }
+
+button {  font: inherit;  }

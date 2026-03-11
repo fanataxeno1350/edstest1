@@ -1,0 +1,39 @@
+.latestblogs-m-0 { margin:0 !important }
+
+.latestblogs-mb-3 { margin-bottom:.5rem !important }
+
+.latestblogs-pb-3 { padding-bottom:.5rem !important }
+
+.latestblogs-pb-4 { padding-bottom:.75rem !important }
+
+.latestblogs-boing--text__heading-1 { font-family:Barlow;font-weight:700;line-height:normal }
+
+.latestblogs-boing--text__heading-1 { font-size:1.5rem }
+
+.latestblogs-boing--text__title-3 { font-family:Barlow;font-size:1rem;font-weight:600;line-height:normal }
+
+.latestblogs-boing--text__body-2 { font-family:Barlow;font-weight:400;line-height:normal }
+
+.latestblogs-boing--text__body-2 { font-size:1rem }
+
+.latestblogs-boing--text__body-5 { font-family:Barlow;font-size:.75rem;font-weight:500;line-height:normal }
+
+.latestblogs-m-0 {  margin: 0px !important;  }
+
+.latestblogs-mb-3 {  margin-bottom: 0.5rem !important;  }
+
+.latestblogs-pb-3 {  padding-bottom: 0.5rem !important;  }
+
+.latestblogs-pb-4 {  padding-bottom: 0.75rem !important;  }
+
+.latestblogs-boing--text__heading-1 {  font-family: Barlow; font-weight: 700; line-height: normal;  }
+
+.latestblogs-boing--text__heading-1 {  font-size: 1.5rem;  }
+
+.latestblogs-boing--text__title-3 {  font-family: Barlow; font-size: 1rem; font-weight: 600; line-height: normal;  }
+
+.latestblogs-boing--text__body-2 {  font-family: Barlow; font-weight: 400; line-height: normal;  }
+
+.latestblogs-boing--text__body-2 {  font-size: 1rem;  }
+
+.latestblogs-boing--text__body-5 {  font-family: Barlow; font-size: 0.75rem; font-weight: 500; line-height: normal;  }

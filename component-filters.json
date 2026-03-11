@@ -121,8 +121,14 @@
   {
     "id": "footer",
     "components": [
-      "footerNavList",
-      "socialLink"
+      "footerLinkGroup",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "footerLinkGroup",
+    "components": [
+      "footerLink"
     ]
   },
   {
@@ -144,9 +150,14 @@
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
-      "footerListItem",
-      "socialLink"
+      "headerMenuItem"
+    ]
+  },
+  {
+    "id": "footer",
+    "components": [
+      "footerMenuItem",
+      "footerSocialLink"
     ]
   },
   {
@@ -164,7 +175,7 @@
   {
     "id": "latestBlogs",
     "components": [
-      "blogCard"
+      "blogItem"
     ]
   },
   {
@@ -188,7 +199,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "stickyNavigationItem"
+      "navItem"
     ]
   },
   {
