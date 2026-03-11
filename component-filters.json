@@ -36,7 +36,8 @@
       "headerFooter",
       "footerBlock",
       "latestBlogsListing",
-      "footerBrandFooter"
+      "footerBrandFooter",
+      "headerBoing"
     ]
   },
   {
@@ -52,10 +53,7 @@
     "id": "bannerSection"
   },
   {
-    "id": "bannerVideo",
-    "components": [
-      "bannerVideo"
-    ]
+    "id": "bannerVideo"
   },
   {
     "id": "bolteSitareCardSection",
@@ -66,7 +64,7 @@
   {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "slide"
     ]
   },
   {
@@ -78,7 +76,7 @@
   {
     "id": "featureCards",
     "components": [
-      "featureCard"
+      "card"
     ]
   },
   {
@@ -123,14 +121,16 @@
   {
     "id": "footer",
     "components": [
-      "footerLinkGroup",
-      "footerSocialLink"
+      "footerNavList",
+      "socialLink"
     ]
   },
   {
-    "id": "footerLinkGroup",
+    "id": "headerBoing",
     "components": [
-      "footerLink"
+      "headerMenuItem",
+      "footerMenuItem",
+      "footerSocialLink"
     ]
   },
   {
@@ -188,7 +188,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "navigationItem"
+      "navItem"
     ]
   },
   {

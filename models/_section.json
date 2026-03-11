@@ -71,7 +71,8 @@
         "headerFooter",
         "footerBlock",
         "latestBlogsListing",
-        "footerBrandFooter"
+        "footerBrandFooter",
+        "headerBoing"
       ]
     }
   ]

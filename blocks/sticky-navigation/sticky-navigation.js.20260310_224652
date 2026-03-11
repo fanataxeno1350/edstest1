@@ -21,7 +21,6 @@ export default function decorate(block) {
       const newLink = document.createElement('a');
       newLink.href = link.href;
       newLink.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
-
       if (link.dataset.consent) {
         newLink.setAttribute('data-consent', link.dataset.consent);
       }
