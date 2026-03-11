@@ -34,53 +34,59 @@
   ],
   "models": [
     {
-      "id": "latestBlogs",
-      "fields": [
-        {
-          "component": "richtext",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-tag",
-          "label": "CTA Link",
-          "name": "ctaLink",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
       "id": "blogCard",
       "fields": [
         {
-          "component": "aem-tag",
-          "label": "Card Link",
-          "name": "link",
+          "component": "reference",
+          "label": "URL",
+          "name": "url",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Card Image",
+          "label": "Image",
           "name": "image",
           "valueType": "string"
         },
         {
           "component": "date-time",
-          "label": "Published Date",
+          "label": "Date",
           "name": "date",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Headline",
-          "name": "headline",
+          "component": "text",
+          "label": "Title",
+          "name": "title",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "latestBlogs",
+      "fields": [
+        {
+          "component": "text",
+          "label": "Heading",
+          "name": "heading",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Description",
+          "name": "description",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA URL",
+          "name": "ctaUrl",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         }
       ]
