@@ -43,7 +43,7 @@
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Label",
           "name": "label",
           "valueType": "string"
@@ -52,6 +52,12 @@
           "component": "aem-content",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Data Link",
+          "name": "dataLink",
           "valueType": "string"
         },
         {
