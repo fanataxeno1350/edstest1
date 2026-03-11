@@ -23,38 +23,38 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Video",
-          "name": "video",
+          "label": "Video Source",
+          "name": "videoSrc",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Play Icon",
-          "name": "playIcon",
+          "name": "iconPlay",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Pause Icon",
-          "name": "pauseIcon",
+          "name": "iconPause",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Mute Icon",
-          "name": "muteIcon",
+          "name": "iconMute",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Unmute Icon",
-          "name": "unmuteIcon",
+          "name": "iconUnmute",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "No Audio Icon",
-          "name": "noAudioIcon",
+          "name": "iconNoAudio",
           "valueType": "string"
         }
       ]

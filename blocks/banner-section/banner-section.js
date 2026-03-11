@@ -2,111 +2,112 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const videoSrc = block.querySelector('[data-aue-prop="videoSrc"]');
-  const iconPlay = block.querySelector('[data-aue-prop="iconPlay"]');
-  const iconPause = block.querySelector('[data-aue-prop="iconPause"]');
-  const iconMute = block.querySelector('[data-aue-prop="iconMute"]');
-  const iconUnmute = block.querySelector('[data-aue-prop="iconUnmute"]');
-  const iconNoAudio = block.querySelector('[data-aue-prop="iconNoAudio"]');
+  const wrapperDiv = document.createElement('div');
+  wrapperDiv.classList.add('banner-section__wrapper', 'banner-position-relative', 'banner-boing');
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('banner-section__wrapper', 'position-relative', 'boing');
+  const videoWrapper = document.createElement('div');
+  videoWrapper.classList.add('banner-video-wrapper');
 
-  const bannerVideoWrapper = document.createElement('div');
-  bannerVideoWrapper.classList.add('banner-video-wrapper');
+  const videoElement = block.querySelector('video');
+  if (videoElement) {
+    videoElement.classList.add('banner-video', 'banner-w-100', 'banner-object-fit-cover', 'banner-media');
+    videoWrapper.append(videoElement);
+    moveInstrumentation(block.querySelector('[data-aue-prop="video"]'), videoWrapper);
+  } else {
+    const videoLink = block.querySelector('[data-aue-prop="video"] a');
+    if (videoLink && videoLink.href.endsWith('.mp4')) {
+      const newVideo = document.createElement('video');
+      newVideo.classList.add('banner-video', 'banner-w-100', 'banner-object-fit-cover', 'banner-media');
+      newVideo.setAttribute('title', 'Video');
+      newVideo.setAttribute('aria-label', 'Video');
+      newVideo.setAttribute('playsinline', '');
+      newVideo.setAttribute('preload', 'metadata');
+      newVideo.setAttribute('fetchpriority', 'high');
+      newVideo.setAttribute('loop', 'false');
+      newVideo.setAttribute('muted', 'true');
+      newVideo.setAttribute('autoplay', 'true');
 
-  if (videoSrc) {
-    const video = document.createElement('video');
-    video.classList.add('banner-video', 'w-100', 'object-fit-cover', 'banner-media');
-    video.setAttribute('title', 'Video');
-    video.setAttribute('aria-label', 'Video');
-    video.setAttribute('data-is-autoplay', 'true');
-    video.setAttribute('playsinline', '');
-    video.setAttribute('preload', 'metadata');
-    video.setAttribute('loop', 'false');
-    video.setAttribute('muted', 'true');
-    video.setAttribute('autoplay', 'true');
-
-    const source = document.createElement('source');
-    source.setAttribute('src', videoSrc.textContent.trim());
-    source.setAttribute('type', 'video/mp4');
-    video.append(source);
-    bannerVideoWrapper.append(video);
-    moveInstrumentation(videoSrc, video);
+      const source = document.createElement('source');
+      source.src = videoLink.href;
+      source.type = 'video/mp4';
+      newVideo.append(source);
+      videoWrapper.append(newVideo);
+      moveInstrumentation(videoLink, newVideo);
+    }
   }
 
-  const bannerVideoControls = document.createElement('div');
-  bannerVideoControls.classList.add('banner-video-controls', 'position-absolute', 'w-100', 'h-100', 'start-0', 'top-0', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer');
+  const playPauseWrapper = document.createElement('div');
+  playPauseWrapper.classList.add('banner-video-position-absolute', 'banner-w-100', 'banner-h-100', 'banner-start-0', 'banner-top-0', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer');
 
   const playButton = document.createElement('button');
   playButton.setAttribute('type', 'button');
-  playButton.classList.add('banner-video-icon', 'icon-play', 'bg-transparent', 'd-none', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  if (iconPlay) {
-    playButton.innerHTML = iconPlay.textContent.trim();
-    moveInstrumentation(iconPlay, playButton);
+  playButton.classList.add('banner-video-d-none', 'banner-video-icon', 'banner-icon-play', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const playIcon = block.querySelector('[data-aue-prop="playIcon"]');
+  if (playIcon) {
+    playButton.innerHTML = playIcon.innerHTML;
+    moveInstrumentation(playIcon, playButton);
   }
+  playPauseWrapper.append(playButton);
 
   const pauseButton = document.createElement('button');
   pauseButton.setAttribute('type', 'button');
-  pauseButton.classList.add('banner-video-icon', 'icon-pause', 'bg-transparent', 'd-block', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  if (iconPause) {
-    pauseButton.innerHTML = iconPause.textContent.trim();
-    moveInstrumentation(iconPause, pauseButton);
+  pauseButton.classList.add('banner-video-d-block', 'banner-video-icon', 'banner-icon-pause', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const pauseIcon = block.querySelector('[data-aue-prop="pauseIcon"]');
+  if (pauseIcon) {
+    pauseButton.innerHTML = pauseIcon.innerHTML;
+    moveInstrumentation(pauseIcon, pauseButton);
   }
+  playPauseWrapper.append(pauseButton);
+  videoWrapper.append(playPauseWrapper);
 
-  bannerVideoControls.append(playButton, pauseButton);
-  bannerVideoWrapper.append(bannerVideoControls);
-
-  const bannerMuteIcon = document.createElement('div');
-  bannerMuteIcon.classList.add('banner-mute-icon', 'position-absolute', 'z-2', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer');
+  const muteControlWrapper = document.createElement('div');
+  muteControlWrapper.classList.add('banner-video-position-absolute', 'banner-z-2', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer', 'banner-mute-icon');
 
   const muteButton = document.createElement('button');
   muteButton.setAttribute('type', 'button');
-  muteButton.classList.add('banner-video-icon-volume', 'icon-mute', 'bg-transparent', 'd-none', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  if (iconMute) {
-    muteButton.innerHTML = iconMute.textContent.trim();
-    moveInstrumentation(iconMute, muteButton);
+  muteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-mute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  const muteIcon = block.querySelector('[data-aue-prop="muteIcon"]');
+  if (muteIcon) {
+    muteButton.innerHTML = muteIcon.innerHTML;
+    moveInstrumentation(muteIcon, muteButton);
   }
+  muteControlWrapper.append(muteButton);
 
   const unmuteButton = document.createElement('button');
   unmuteButton.setAttribute('type', 'button');
-  unmuteButton.classList.add('banner-video-icon-volume', 'icon-unmute', 'bg-transparent', 'd-none', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  if (iconUnmute) {
-    unmuteButton.innerHTML = iconUnmute.textContent.trim();
-    moveInstrumentation(iconUnmute, unmuteButton);
+  unmuteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-unmute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  const unmuteIcon = block.querySelector('[data-aue-prop="unmuteIcon"]');
+  if (unmuteIcon) {
+    unmuteButton.innerHTML = unmuteIcon.innerHTML;
+    moveInstrumentation(unmuteIcon, unmuteButton);
   }
+  muteControlWrapper.append(unmuteButton);
 
   const noAudioButton = document.createElement('button');
   noAudioButton.setAttribute('type', 'button');
-  noAudioButton.classList.add('banner-video-icon-volume', 'no-audio-icon', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  if (iconNoAudio) {
-    noAudioButton.innerHTML = iconNoAudio.textContent.trim();
-    moveInstrumentation(iconNoAudio, noAudioButton);
+  noAudioButton.classList.add('banner-video-video-icon-volume', 'banner-no-audio-icon', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const noAudioIcon = block.querySelector('[data-aue-prop="noAudioIcon"]');
+  if (noAudioIcon) {
+    noAudioButton.innerHTML = noAudioIcon.innerHTML;
+    moveInstrumentation(noAudioIcon, noAudioButton);
   }
+  muteControlWrapper.append(noAudioButton);
+  videoWrapper.append(muteControlWrapper);
 
-  bannerMuteIcon.append(muteButton, unmuteButton, noAudioButton);
-  bannerVideoWrapper.append(bannerMuteIcon);
+  wrapperDiv.append(videoWrapper);
 
-  wrapper.append(bannerVideoWrapper);
+  const ctaWrapper = document.createElement('div');
+  ctaWrapper.classList.add('banner-boing__banner--cta', 'banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100');
 
-  const bannerCtaWrapper = document.createElement('div');
-  bannerCtaWrapper.classList.add('banner-cta-wrapper', 'position-absolute', 'start-50', 'translate-middle-x', 'w-100');
-
-  const bannerCta = document.createElement('div');
-  bannerCta.classList.add('banner-cta');
-
-  // Move any remaining content into the bannerCta div
-  const authoredCtaContent = block.querySelector('.button-container');
-  if (authoredCtaContent) {
-    bannerCta.append(authoredCtaContent);
-    moveInstrumentation(authoredCtaContent, bannerCta);
+  const ctaContent = block.querySelector('.banner-cta');
+  if (ctaContent) {
+    ctaWrapper.append(ctaContent);
+    moveInstrumentation(ctaContent, ctaWrapper);
   }
-
-  bannerCtaWrapper.append(bannerCta);
-  wrapper.append(bannerCtaWrapper);
+  wrapperDiv.append(ctaWrapper);
 
   block.textContent = '';
-  block.append(wrapper);
-  block.className = `banner-section block`;
+  block.append(wrapperDiv);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

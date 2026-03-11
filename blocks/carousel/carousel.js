@@ -2,29 +2,39 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const carouselItems = block.querySelectorAll('[data-aue-model="carouselItem"]');
+  const slides = [...block.querySelectorAll('[data-aue-model="carouselSlide"]')];
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('carousel-wrapper');
+  const carouselWrapper = document.createElement('div');
+  carouselWrapper.classList.add('carousel-wrapper');
 
-  carouselItems.forEach((itemNode) => {
-    const itemWrapper = document.createElement('div');
-    itemWrapper.classList.add('carousel-item');
+  slides.forEach((slide) => {
+    const slideWrapper = document.createElement('div');
+    slideWrapper.classList.add('carousel-slide');
 
-    const videoEl = itemNode.querySelector('[data-aue-prop="video"]');
-    const imageEl = itemNode.querySelector('[data-aue-prop="image"]');
-    const ctaLinkEl = itemNode.querySelector('[data-aue-prop="ctaLink"]');
-    const ctaTextEl = itemNode.querySelector('[data-aue-prop="ctaText"]');
+    const videoEl = slide.querySelector('[data-aue-prop="video"]');
+    const imageEl = slide.querySelector('[data-aue-prop="image"]');
+    const ctaLinkEl = slide.querySelector('[data-aue-prop="ctaLink"]');
+    const ctaTextEl = slide.querySelector('[data-aue-prop="ctaText"]');
 
     if (videoEl) {
-      const videoContainer = document.createElement('div');
-      videoContainer.classList.add('carousel-video-container');
-      videoContainer.append(videoEl);
-      moveInstrumentation(videoEl, videoContainer);
-      itemWrapper.append(videoContainer);
+      const videoWrapper = document.createElement('div');
+      videoWrapper.classList.add('video-wrapper');
+      const video = document.createElement('video');
+      video.controls = true;
+      video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.playsInline = true;
+      const source = document.createElement('source');
+      source.src = videoEl.getAttribute('src') || videoEl.textContent.trim();
+      source.type = 'video/mp4';
+      video.append(source);
+      videoWrapper.append(video);
+      slideWrapper.append(videoWrapper);
+      moveInstrumentation(videoEl, videoWrapper);
     } else if (imageEl) {
       const picture = createOptimizedPicture(imageEl.src, imageEl.alt);
-      itemWrapper.append(picture);
+      slideWrapper.append(picture);
       moveInstrumentation(imageEl, picture);
     }
 
@@ -32,29 +42,35 @@ export default function decorate(block) {
       const ctaWrapper = document.createElement('div');
       ctaWrapper.classList.add('carousel-cta');
       const link = document.createElement('a');
-      link.href = ctaLinkEl.href;
-      link.textContent = ctaTextEl.textContent;
+      link.href = ctaLinkEl.href || ctaLinkEl.textContent.trim();
+      link.textContent = ctaTextEl.textContent.trim();
       ctaWrapper.append(link);
-      moveInstrumentation(ctaLinkEl, link);
-      moveInstrumentation(ctaTextEl, link);
-      itemWrapper.append(ctaWrapper);
+      slideWrapper.append(ctaWrapper);
+      moveInstrumentation(ctaLinkEl, ctaWrapper);
+      moveInstrumentation(ctaTextEl, ctaWrapper);
     } else if (ctaLinkEl) {
       const ctaWrapper = document.createElement('div');
       ctaWrapper.classList.add('carousel-cta');
       const link = document.createElement('a');
-      link.href = ctaLinkEl.href;
-      link.textContent = ctaLinkEl.textContent || 'Learn More'; // Fallback text
+      link.href = ctaLinkEl.href || ctaLinkEl.textContent.trim();
+      // Attempt to find authored link text within the button container
+      const authoredLinkText = slide.querySelector('.button-container a');
+      if (authoredLinkText) {
+        link.textContent = authoredLinkText.textContent.trim();
+      } else {
+        link.textContent = link.href;
+      }
       ctaWrapper.append(link);
-      moveInstrumentation(ctaLinkEl, link);
-      itemWrapper.append(ctaWrapper);
+      slideWrapper.append(ctaWrapper);
+      moveInstrumentation(ctaLinkEl, ctaWrapper);
     }
 
-    wrapper.append(itemWrapper);
-    moveInstrumentation(itemNode, itemWrapper);
+    carouselWrapper.append(slideWrapper);
+    moveInstrumentation(slide, slideWrapper);
   });
 
   block.textContent = '';
-  block.append(wrapper);
+  block.append(carouselWrapper);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

@@ -60,7 +60,8 @@
         "stickyBottomNav",
         "header",
         "featurecards",
-        "stickyNavigation"
+        "stickyNavigation",
+        "latestBlogsListing"
       ]
     }
   ]
