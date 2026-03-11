@@ -226,7 +226,7 @@
           }
         },
         {
-          "title": "Feature-Card",
+          "title": "FeatureCard",
           "id": "featureCard",
           "plugins": {
             "xwalk": {
@@ -234,7 +234,7 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "model": "featureCard",
-                  "name": "Feature-Card"
+                  "name": "FeatureCard"
                 }
               }
             }
@@ -410,15 +410,15 @@
           }
         },
         {
-          "title": "Footer-Social-Link",
-          "id": "footerSocialLink",
+          "title": "Footer-Social",
+          "id": "footerSocial",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "footerSocialLink",
-                  "name": "Footer-Social-Link"
+                  "model": "footerSocial",
+                  "name": "Footer-Social"
                 }
               }
             }
@@ -655,30 +655,30 @@
           }
         },
         {
-          "title": "HeaderMenuItem",
-          "id": "headerMenuItem",
+          "title": "SidebarMenuItem",
+          "id": "sidebarMenuItem",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "headerMenuItem",
-                  "name": "HeaderMenuItem"
+                  "model": "sidebarMenuItem",
+                  "name": "SidebarMenuItem"
                 }
               }
             }
           }
         },
         {
-          "title": "FooterLink",
-          "id": "footerLink",
+          "title": "FooterListItem",
+          "id": "footerListItem",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "footerLink",
-                  "name": "FooterLink"
+                  "model": "footerListItem",
+                  "name": "FooterListItem"
                 }
               }
             }
@@ -902,15 +902,15 @@
           }
         },
         {
-          "title": "Nav-Item",
-          "id": "navItem",
+          "title": "Navigation-Item",
+          "id": "navigationItem",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "navItem",
-                  "name": "Nav-Item"
+                  "model": "navigationItem",
+                  "name": "Navigation-Item"
                 }
               }
             }

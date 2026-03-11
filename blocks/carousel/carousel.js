@@ -3,12 +3,11 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const carouselPositionRelative = document.createElement('div');
-  carouselPositionRelative.className = 'carousel-position-relative';
+  carouselPositionRelative.classList.add('carousel-position-relative');
+  moveInstrumentation(block, carouselPositionRelative);
 
   const carouselSwiper = document.createElement('div');
-  carouselSwiper.className = 'carousel-swiper carousel-primary-swiper carousel-primary-swiper-carousel-419d8524f7 swiper-initialized swiper-horizontal swiper-backface-hidden';
-  carouselSwiper.setAttribute('data-swiper-id', '.carousel-primary-swiper-carousel-419d8524f7');
-  carouselSwiper.id = 'carousel-419d8524f7';
+  carouselSwiper.classList.add('carousel-swiper', 'carousel-primary-swiper', 'carousel-primary-swiper-carousel-419d8524f7', 'swiper-initialized', 'swiper-horizontal', 'swiper-backface-hidden');
   carouselSwiper.setAttribute('role', 'group');
   carouselSwiper.setAttribute('aria-live', 'polite');
   carouselSwiper.setAttribute('aria-roledescription', 'carousel');
@@ -19,145 +18,165 @@ export default function decorate(block) {
   carouselSwiper.setAttribute('data-placeholder-text', 'false');
 
   const carouselSwiperWrapper = document.createElement('div');
-  carouselSwiperWrapper.className = 'carousel-swiper-wrapper carousel-primary-swiper-wrapper carousel-z-0';
+  carouselSwiperWrapper.classList.add('carousel-swiper-wrapper', 'carousel-primary-swiper-wrapper', 'carousel-z-0');
 
-  const carouselItems = block.querySelectorAll('[data-aue-model="carouselItem"]');
-
-  carouselItems.forEach((itemNode, index) => {
+  [...block.children].forEach((row) => {
     const carouselSwiperSlide = document.createElement('div');
-    carouselSwiperSlide.className = `carousel-swiper-slide carousel-primary-swiper-slide ${index === 0 ? 'carousel-swiper-slide-prev' : 'carousel-swiper-slide-active'}`;
+    carouselSwiperSlide.classList.add('carousel-swiper-slide', 'carousel-primary-swiper-slide');
     carouselSwiperSlide.setAttribute('role', 'tabpanel');
-    carouselSwiperSlide.setAttribute('aria-labelledby', `carousel-419d8524f7-item-${index}-tab`);
     carouselSwiperSlide.setAttribute('aria-roledescription', 'slide');
+    moveInstrumentation(row, carouselSwiperSlide);
 
     const bannerDiv = document.createElement('div');
-    bannerDiv.className = 'banner';
+    bannerDiv.classList.add('banner');
+    carouselSwiperSlide.append(bannerDiv);
 
-    const bannerSection = document.createElement('section');
-    bannerSection.className = 'banner-section';
+    const section = document.createElement('section');
+    section.classList.add('banner-section');
+    bannerDiv.append(section);
 
-    const bannerSectionWrapper = document.createElement('div');
-    bannerSectionWrapper.className = 'carousel-position-relative carousel-boing banner-section__wrapper ';
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('carousel-position-relative', 'carousel-boing', 'banner-section__wrapper');
+    section.append(wrapperDiv);
 
-    const videoField = itemNode.querySelector('[data-aue-prop="video"]');
-    const imageField = itemNode.querySelector('[data-aue-prop="image"]');
-    const ctaLinkField = itemNode.querySelector('[data-aue-prop="ctaLink"]');
+    const cells = [...row.children];
+    const videoCell = cells[0];
+    const imageCell = cells[1];
+    const ctaLinkCell = cells[2];
+    const ctaTextCell = cells[3];
 
-    if (videoField) {
-      const bannerVideoWrapper = document.createElement('div');
-      bannerVideoWrapper.className = 'banner-video-wrapper';
+    let mediaElement = null;
+    let mediaWrapper = null;
 
-      const videoElement = document.createElement('video');
-      videoElement.className = 'carousel-w-100 carousel-object-fit-cover banner-media banner-video';
-      videoElement.title = 'Video';
-      videoElement.ariaLabel = 'Video';
-      videoElement.setAttribute('data-is-autoplay', 'true');
-      videoElement.playsInline = true;
-      videoElement.preload = 'metadata';
-      videoElement.fetchPriority = 'high';
-      videoElement.loop = false;
-      videoElement.muted = true;
-      videoElement.autoplay = true;
+    const video = videoCell ? videoCell.querySelector('a') : null;
+    const image = imageCell ? imageCell.querySelector('img') : null;
 
-      const sourceElement = document.createElement('source');
-      sourceElement.src = videoField.textContent.trim();
-      sourceElement.type = 'video/mp4';
-      videoElement.append(sourceElement);
+    if (video && video.href) {
+      mediaWrapper = document.createElement('div');
+      mediaWrapper.classList.add('banner-video-wrapper');
+      wrapperDiv.append(mediaWrapper);
+
+      mediaElement = document.createElement('video');
+      mediaElement.classList.add('carousel-w-100', 'carousel-object-fit-cover', 'banner-media', 'banner-video');
+      mediaElement.setAttribute('title', 'Video');
+      mediaElement.setAttribute('aria-label', 'Video');
+      mediaElement.setAttribute('data-is-autoplay', 'true');
+      mediaElement.setAttribute('playsinline', '');
+      mediaElement.setAttribute('preload', 'metadata');
+      mediaElement.setAttribute('fetchpriority', 'high');
+      mediaElement.setAttribute('loop', 'false');
+      mediaElement.setAttribute('muted', 'true');
+      mediaElement.setAttribute('autoplay', 'true');
+      moveInstrumentation(video, mediaElement);
+
+      const source = document.createElement('source');
+      source.setAttribute('src', video.href);
+      source.setAttribute('type', 'video/mp4');
+      mediaElement.append(source);
+      mediaWrapper.append(mediaElement);
 
       const playPauseWrapper = document.createElement('div');
-      playPauseWrapper.className = 'carousel-position-absolute carousel-w-100 carousel-h-100 carousel-start-0 carousel-top-0 carousel-d-flex carousel-justify-content-center carousel-align-items-center carousel-cursor-pointer';
+      playPauseWrapper.classList.add('carousel-position-absolute', 'carousel-w-100', 'carousel-h-100', 'carousel-start-0', 'carousel-top-0', 'carousel-d-flex', 'carousel-justify-content-center', 'carousel-align-items-center', 'carousel-cursor-pointer');
+      mediaWrapper.append(playPauseWrapper);
 
       const playButton = document.createElement('button');
-      playButton.type = 'button';
-      playButton.className = 'carousel-d-none banner-video-icon banner-icon-play carousel-bg-transparent carousel-d-flex carousel-align-items-center carousel-justify-content-center carousel-cursor-pointer';
-      playButton.innerHTML = '/content/dam/aemigrate/uploaded-folder/image/1773217200362.svg+xml';
+      playButton.setAttribute('type', 'button');
+      playButton.classList.add('carousel-d-none', 'banner-video-icon', 'banner-icon-play', 'carousel-bg-transparent', 'carousel-d-flex', 'carousel-align-items-center', 'carousel-justify-content-center', 'carousel-cursor-pointer');
+      playPauseWrapper.append(playButton);
 
       const pauseButton = document.createElement('button');
-      pauseButton.type = 'button';
-      pauseButton.className = 'carousel-d-block banner-video-icon banner-icon-pause carousel-bg-transparent carousel-d-flex carousel-align-items-center carousel-justify-content-center carousel-cursor-pointer';
-      pauseButton.innerHTML = '/content/dam/aemigrate/uploaded-folder/image/1773217200389.svg+xml';
-
-      playPauseWrapper.append(playButton, pauseButton);
+      pauseButton.setAttribute('type', 'button');
+      pauseButton.classList.add('carousel-d-block', 'banner-video-icon', 'banner-icon-pause', 'carousel-bg-transparent', 'carousel-d-flex', 'carousel-align-items-center', 'carousel-justify-content-center', 'carousel-cursor-pointer');
+      playPauseWrapper.append(pauseButton);
 
       const muteIconWrapper = document.createElement('div');
-      muteIconWrapper.className = 'carousel-position-absolute carousel-z-2 carousel-d-flex carousel-justify-content-center carousel-align-items-center carousel-cursor-pointer banner-mute-icon ';
+      muteIconWrapper.classList.add('carousel-position-absolute', 'carousel-z-2', 'carousel-d-flex', 'carousel-justify-content-center', 'carousel-align-items-center', 'carousel-cursor-pointer', 'banner-mute-icon');
+      mediaWrapper.append(muteIconWrapper);
 
       const muteButton = document.createElement('button');
-      muteButton.type = 'button';
-      muteButton.className = 'banner-video-icon-volume banner-icon-mute carousel-bg-transparent carousel-d-flex carousel-align-items-center carousel-justify-content-center carousel-cursor-pointer carousel-d-none';
-      muteButton.innerHTML = '/content/dam/aemigrate/uploaded-folder/image/1773217200473.svg+xml';
+      muteButton.setAttribute('type', 'button');
+      muteButton.classList.add('banner-video-icon-volume', 'banner-icon-mute', 'carousel-bg-transparent', 'carousel-d-flex', 'carousel-align-items-center', 'carousel-justify-content-center', 'carousel-cursor-pointer', 'carousel-d-none');
+      muteIconWrapper.append(muteButton);
 
       const unmuteButton = document.createElement('button');
-      unmuteButton.type = 'button';
-      unmuteButton.className = 'banner-video-icon-volume banner-icon-unmute carousel-bg-transparent carousel-d-flex carousel-align-items-center carousel-justify-content-center carousel-cursor-pointer carousel-d-none';
-      unmuteButton.innerHTML = '/content/dam/aemigrate/uploaded-folder/image/1773217200505.svg+xml';
+      unmuteButton.setAttribute('type', 'button');
+      unmuteButton.classList.add('banner-video-icon-volume', 'banner-icon-unmute', 'carousel-bg-transparent', 'carousel-d-flex', 'carousel-align-items-center', 'carousel-justify-content-center', 'carousel-cursor-pointer', 'carousel-d-none');
+      muteIconWrapper.append(unmuteButton);
 
       const noAudioButton = document.createElement('button');
-      noAudioButton.type = 'button';
-      noAudioButton.className = 'banner-video-icon-volume banner-no-audio-icon carousel-bg-transparent carousel-d-flex carousel-align-items-center carousel-justify-content-center carousel-cursor-pointer';
-      noAudioButton.innerHTML = '/content/dam/aemigrate/uploaded-folder/image/1773217200550.svg+xml';
+      noAudioButton.setAttribute('type', 'button');
+      noAudioButton.classList.add('banner-video-icon-volume', 'banner-no-audio-icon', 'carousel-bg-transparent', 'carousel-d-flex', 'carousel-align-items-center', 'carousel-justify-content-center', 'carousel-cursor-pointer');
+      muteIconWrapper.append(noAudioButton);
 
-      muteIconWrapper.append(muteButton, unmuteButton, noAudioButton);
-
-      bannerVideoWrapper.append(videoElement, playPauseWrapper, muteIconWrapper);
-      bannerSectionWrapper.append(bannerVideoWrapper);
-      moveInstrumentation(videoField, bannerVideoWrapper);
-    } else if (imageField) {
-      const img = imageField.querySelector('img');
-      if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt, true, [{ width: '2000' }]);
-        picture.querySelector('img').className = 'carousel-w-100 carousel-h-100 carousel-object-fit-cover banner-media banner-image';
-        bannerSectionWrapper.append(picture);
-        moveInstrumentation(imageField, picture);
-      }
+    } else if (image) {
+      mediaElement = createOptimizedPicture(image.src, image.alt);
+      mediaElement.querySelector('img').classList.add('carousel-w-100', 'carousel-h-100', 'carousel-object-fit-cover', 'banner-media', 'banner-image');
+      mediaElement.querySelector('img').setAttribute('loading', 'eager');
+      mediaElement.querySelector('img').setAttribute('fetchpriority', 'high');
+      mediaElement.querySelector('img').setAttribute('decoding', 'async');
+      moveInstrumentation(image, mediaElement.querySelector('img'));
+      wrapperDiv.append(mediaElement);
+    } else if (imageCell && imageCell.querySelector('a')) {
+      const imgLink = imageCell.querySelector('a');
+      mediaElement = createOptimizedPicture(imgLink.href, '');
+      mediaElement.querySelector('img').classList.add('carousel-w-100', 'carousel-h-100', 'carousel-object-fit-cover', 'banner-media', 'banner-image');
+      mediaElement.querySelector('img').setAttribute('loading', 'eager');
+      mediaElement.querySelector('img').setAttribute('fetchpriority', 'high');
+      mediaElement.querySelector('img').setAttribute('decoding', 'async');
+      moveInstrumentation(imgLink, mediaElement.querySelector('img'));
+      wrapperDiv.append(mediaElement);
     }
 
     const ctaWrapper = document.createElement('div');
-    ctaWrapper.className = 'carousel-position-absolute carousel-start-50 carousel-translate-middle-x carousel-w-100 carousel-boing__banner--cta';
+    ctaWrapper.classList.add('carousel-position-absolute', 'carousel-start-50', 'carousel-translate-middle-x', 'carousel-w-100', 'carousel-boing__banner--cta');
+    wrapperDiv.append(ctaWrapper);
 
-    const bannerCtaDiv = document.createElement('div');
-    bannerCtaDiv.className = 'banner-cta';
+    const bannerCta = document.createElement('div');
+    bannerCta.classList.add('banner-cta');
+    ctaWrapper.append(bannerCta);
 
-    if (ctaLinkField) {
-      const ctaLink = ctaLinkField.querySelector('a');
-      if (ctaLink) {
-        const ctaContainer = document.createElement('div');
-        ctaContainer.className = 'carousel-text-center ';
-        const newCtaLink = document.createElement('a');
-        newCtaLink.id = `cta-${Math.random().toString(36).substring(2, 11)}`;
-        newCtaLink.className = 'cmp-button carousel-analytics_cta_click carousel-text-center carousel-cta-layout';
-        newCtaLink.setAttribute('data-link-region', 'CTA');
-        newCtaLink.setAttribute('data-is-internal', 'true');
-        newCtaLink.setAttribute('data-enable-gating', 'false');
-        newCtaLink.href = ctaLink.href;
-        newCtaLink.target = '_blank';
+    const textCenterDiv = document.createElement('div');
+    textCenterDiv.classList.add('carousel-text-center');
+    bannerCta.append(textCenterDiv);
 
-        const spanText = document.createElement('span');
-        spanText.className = 'cmp-button__text carousel-primary-btn carousel-w-75 carousel-p-5 carousel-rounded-pill carousel-d-inline-flex carousel-justify-content-center carousel-align-items-center carousel-famlf-cta-btn';
-        spanText.textContent = ctaLink.textContent.trim();
-        newCtaLink.append(spanText);
+    const ctaLink = ctaLinkCell ? ctaLinkCell.querySelector('a') : null;
+    const ctaText = ctaTextCell ? ctaTextCell.textContent.trim() : '';
 
-        const popUpDiv = document.createElement('div');
-        popUpDiv.className = 'carousel-pop-up carousel-d-none';
-        popUpDiv.innerHTML = '<input type="hidden" class="carousel-popup-message"><input type="hidden" class="carousel-proceed-button-label"><input type="hidden" class="carousel-cancel-button-label"><input type="hidden" class="carousel-background-color">';
+    if (ctaLink && ctaText) {
+      const anchor = document.createElement('a');
+      anchor.classList.add('cmp-button', 'carousel-analytics_cta_click', 'carousel-text-center', 'carousel-cta-layout');
+      anchor.setAttribute('data-link-region', 'CTA');
+      anchor.setAttribute('data-is-internal', 'true');
+      anchor.setAttribute('data-enable-gating', 'false');
+      anchor.setAttribute('href', ctaLink.href);
+      anchor.setAttribute('target', '_blank');
+      moveInstrumentation(ctaLink, anchor);
 
-        ctaContainer.append(newCtaLink, popUpDiv);
-        bannerCtaDiv.append(ctaContainer);
-        moveInstrumentation(ctaLinkField, bannerCtaDiv);
-      }
+      const span = document.createElement('span');
+      span.classList.add('cmp-button__text', 'carousel-primary-btn', 'carousel-w-75', 'carousel-p-5', 'carousel-rounded-pill', 'carousel-d-inline-flex', 'carousel-justify-content-center', 'carousel-align-items-center', 'carousel-famlf-cta-btn');
+      span.textContent = ctaText;
+      moveInstrumentation(ctaTextCell, span);
+      anchor.append(span);
+      textCenterDiv.append(anchor);
+
+      const popupDiv = document.createElement('div');
+      popupDiv.classList.add('carousel-pop-up', 'carousel-d-none');
+      popupDiv.innerHTML = `
+        <input type="hidden" class="carousel-popup-message">
+        <input type="hidden" class="carousel-proceed-button-label">
+        <input type="hidden" class="carousel-cancel-button-label">
+        <input type="hidden" class="carousel-background-color">
+      `;
+      textCenterDiv.append(popupDiv);
     }
 
-    ctaWrapper.append(bannerCtaDiv);
-    bannerSectionWrapper.append(ctaWrapper);
-    bannerSection.append(bannerSectionWrapper);
-    bannerDiv.append(bannerSection);
-    carouselSwiperSlide.append(bannerDiv);
     carouselSwiperWrapper.append(carouselSwiperSlide);
-    moveInstrumentation(itemNode, carouselSwiperSlide);
   });
 
+  carouselSwiper.append(carouselSwiperWrapper);
+
   const actionsDiv = document.createElement('div');
-  actionsDiv.className = 'cmp-carousel__actions';
+  actionsDiv.classList.add('cmp-carousel__actions');
   actionsDiv.innerHTML = `
     <button class="cmp-carousel__action cmp-carousel__action--previous" type="button" aria-label="Previous" data-cmp-hook-carousel="previous">
         <span class="cmp-carousel__action-icon"></span>
@@ -179,7 +198,7 @@ export default function decorate(block) {
   carouselSwiperWrapper.append(actionsDiv);
 
   const swiperContainer = document.createElement('div');
-  swiperContainer.className = 'carousel-swiper-container';
+  swiperContainer.classList.add('carousel-swiper-container');
   swiperContainer.innerHTML = `
     <div>
         <button class="carousel-primary-swiper__buttonNext carousel-position-absolute carousel-top-50 carousel-swiper-buttonBg carousel-d-none carousel-d-sm-block carousel-cursor-pointer carousel-analytics_cta_click carousel-disabled" disabled="">
@@ -192,16 +211,14 @@ export default function decorate(block) {
         </button>
     </div>
   `;
+  carouselSwiper.append(swiperContainer);
 
   const swiperPagination = document.createElement('div');
-  swiperPagination.className = 'carousel-swiper-pagination carousel-primary-swiper-pagination carousel-pagination-set carousel-mb-md-8 carousel-mb-10 carousel-mt-6 carousel-position-absolute carousel-swiper-pagination-clickable carousel-swiper-pagination-bullets carousel-swiper-pagination-horizontal';
+  swiperPagination.classList.add('carousel-swiper-pagination', 'carousel-primary-swiper-pagination', 'carousel-pagination-set', 'carousel-mb-md-8', 'carousel-mb-10', 'carousel-mt-6', 'carousel-position-absolute', 'swiper-pagination-clickable', 'swiper-pagination-bullets', 'swiper-pagination-horizontal');
   swiperPagination.innerHTML = '<span class="carousel-swiper-pagination-bullet"></span><span class="carousel-swiper-pagination-bullet carousel-swiper-pagination-bullet-active"></span>';
+  carouselSwiper.append(swiperPagination);
 
-  carouselSwiper.append(carouselSwiperWrapper, swiperContainer, swiperPagination);
   carouselPositionRelative.append(carouselSwiper);
-
   block.textContent = '';
   block.append(carouselPositionRelative);
-  block.className = `${block.dataset.blockName} block`;
-  block.dataset.blockStatus = 'loaded';
 }
