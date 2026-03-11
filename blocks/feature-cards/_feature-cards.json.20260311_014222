@@ -43,7 +43,13 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
           "label": "Title",
           "name": "title",
           "valueType": "string"
@@ -55,9 +61,15 @@
           "valueType": "string"
         },
         {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
+          "component": "text",
+          "label": "CTA Text",
+          "name": "ctaText",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA URL",
+          "name": "ctaUrl",
           "valueType": "string"
         }
       ]

@@ -4,63 +4,68 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const popUpDiv = document.createElement('div');
   popUpDiv.id = 'pop-up';
-  block.append(popUpDiv);
 
-  const transPopUpDiv = document.createElement('div');
-  transPopUpDiv.classList.add('stickyNavigation-trans-pop-up');
-  block.append(transPopUpDiv);
+  const stickyNavigationTransPopUpDiv = document.createElement('div');
+  stickyNavigationTransPopUpDiv.classList.add('sticky-navigation-trans-pop-up');
 
   const section = document.createElement('section');
-  section.classList.add('stickyNavigation-sticky-bottom-nav');
-  
+  section.classList.add('sticky-navigation-sticky-bottom-nav', 'sticky-navigation-position-fixed', 'sticky-navigation-bottom-0', 'sticky-navigation-p-3', 'sticky-navigation-d-flex', 'sticky-navigation-align-items-center', 'sticky-navigation-boing-container', 'sticky-navigation-bg-boing-primary');
+
   const ul = document.createElement('ul');
-  ul.classList.add('stickyNavigation-sticky-bottom-nav__list');
+  ul.classList.add('sticky-navigation-sticky-bottom-nav__list', 'sticky-navigation-d-flex', 'sticky-navigation-justify-content-around', 'sticky-navigation-align-items-center', 'sticky-navigation-flex-grow-1');
 
-  [...block.children].forEach((row) => {
-    // Assuming each row directly represents a navigation item
+  const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
+
+  navItems.forEach((itemNode) => {
     const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    li.classList.add('stickyNavigation-sticky-bottom-nav__item');
+    li.classList.add('sticky-navigation-sticky-bottom-nav__item', 'sticky-navigation-position-relative');
 
-    const link = document.createElement('a');
-    link.classList.add('stickyNavigation-sticky-bottom-nav__link', 'stickyNavigation-analytics_cta_click');
+    const anchor = document.createElement('a');
+    anchor.classList.add('sticky-navigation-sticky-bottom-nav__link', 'sticky-navigation-d-flex', 'sticky-navigation-flex-column', 'sticky-navigation-align-items-center', 'sticky-navigation-gap-1', 'sticky-navigation-analytics_cta_click');
 
-    // Extracting content from the cells of the row
-    const cells = [...row.children];
-
-    // Cell 1: Icon (image)
-    const iconCell = cells[0];
-    const img = iconCell.querySelector('img');
-    if (img) {
-      const optimizedPic = createOptimizedPicture(img.src, img.alt);
-      moveInstrumentation(img, optimizedPic.querySelector('img'));
-      optimizedPic.querySelector('img').classList.add('stickyNavigation-sticky-bottom-nav__icon');
-      link.append(optimizedPic);
+    const linkField = itemNode.querySelector('[data-aue-prop="link"]');
+    if (linkField) {
+      anchor.href = linkField.textContent.trim();
+      anchor.dataset.link = linkField.textContent.trim();
+      moveInstrumentation(linkField, anchor);
     }
 
-    // Cell 2: Label (text)
-    const labelCell = cells[1];
-    const labelSpan = document.createElement('span');
-    labelSpan.classList.add('stickyNavigation-sticky-bottom-nav__label');
-    labelSpan.textContent = labelCell.textContent.trim();
-    link.append(labelSpan);
+    const consentField = itemNode.querySelector('[data-aue-prop="consent"]');
+    if (consentField) {
+      anchor.dataset.consent = consentField.textContent.trim().toLowerCase();
+      moveInstrumentation(consentField, anchor);
+    }
 
-    // Cell 3: Link (href)
-    const linkCell = cells[2];
-    const linkText = linkCell.textContent.trim();
-    link.href = linkText;
-    link.setAttribute('data-link', linkText);
+    const iconField = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (iconField) {
+      const img = iconField.querySelector('img');
+      if (img) {
+        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '40' }]);
+        const pictureImg = picture.querySelector('img');
+        pictureImg.classList.add('sticky-navigation-sticky-bottom-nav__icon');
+        anchor.append(picture);
+        moveInstrumentation(iconField, picture);
+      }
+    }
 
-    // Cell 4: Consent (boolean)
-    const consentCell = cells[3];
-    const consentValue = consentCell.textContent.trim().toLowerCase() === 'true';
-    link.setAttribute('data-consent', consentValue);
+    const labelField = itemNode.querySelector('[data-aue-prop="label"]');
+    if (labelField) {
+      const span = document.createElement('span');
+      span.classList.add('sticky-navigation-sticky-bottom-nav__label');
+      span.textContent = labelField.textContent.trim();
+      anchor.append(span);
+      moveInstrumentation(labelField, span);
+    }
 
-    li.append(link);
+    li.append(anchor);
     ul.append(li);
+    moveInstrumentation(itemNode, li);
   });
 
   section.append(ul);
+
   block.textContent = '';
-  block.append(popUpDiv, transPopUpDiv, section);
+  block.append(popUpDiv, stickyNavigationTransPopUpDiv, section);
+  block.className = 'sticky-bottom-nav block';
+  block.dataset.blockStatus = 'loaded';
 }
