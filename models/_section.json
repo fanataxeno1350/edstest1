@@ -57,7 +57,10 @@
         "featureCards",
         "latestBlogs",
         "footerBrand",
-        "stickyBottomNav"
+        "stickyBottomNav",
+        "header",
+        "featurecards",
+        "stickyNavigation"
       ]
     }
   ]

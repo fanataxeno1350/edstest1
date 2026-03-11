@@ -22,7 +22,10 @@
       "featureCards",
       "latestBlogs",
       "footerBrand",
-      "stickyBottomNav"
+      "stickyBottomNav",
+      "header",
+      "featurecards",
+      "stickyNavigation"
     ]
   },
   {
@@ -44,10 +47,16 @@
     ]
   },
   {
-    "id": "footer-brand",
+    "id": "featurecards",
     "components": [
-      "footerLink",
-      "footerSocial"
+      "featurecard"
+    ]
+  },
+  {
+    "id": "footerBrand",
+    "components": [
+      "footerNavLink",
+      "footerSocialLink"
     ]
   },
   {
@@ -59,15 +68,29 @@
     ]
   },
   {
+    "id": "header",
+    "components": [
+      "headerMenuItem",
+      "headerFooterListItem",
+      "headerSocialLink"
+    ]
+  },
+  {
     "id": "latestBlogs",
     "components": [
-      "blogItem"
+      "blogCard"
     ]
   },
   {
     "id": "stickyBottomNav",
     "components": [
       "stickyBottomNavItem"
+    ]
+  },
+  {
+    "id": "stickyNavigation",
+    "components": [
+      "navigationItem"
     ]
   }
 ]

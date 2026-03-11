@@ -17,30 +17,30 @@
       }
     },
     {
-      "title": "Footer-Nav-Link",
-      "id": "footerNavLink",
+      "title": "Footer-Link",
+      "id": "footerLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerNavLink",
-              "name": "Footer-Nav-Link"
+              "model": "footerLink",
+              "name": "Footer-Link"
             }
           }
         }
       }
     },
     {
-      "title": "Footer-Social-Link",
-      "id": "footerSocialLink",
+      "title": "Footer-Social",
+      "id": "footerSocial",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerSocialLink",
-              "name": "Footer-Social-Link"
+              "model": "footerSocial",
+              "name": "Footer-Social"
             }
           }
         }
@@ -53,8 +53,14 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Main Logo",
-          "name": "mainLogo",
+          "label": "Primary Logo",
+          "name": "primaryLogo",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Primary Logo Link",
+          "name": "primaryLogoLink",
           "valueType": "string"
         },
         {
@@ -64,67 +70,55 @@
           "valueType": "string"
         },
         {
-          "component": "container",
-          "item": {
-            "type": "footerNavLink"
-          },
-          "label": "Footer Nav Links",
-          "name": "footerNavLinks",
-          "valueType": "array"
+          "block": "footerLink",
+          "component": "block",
+          "label": "Footer Links",
+          "name": "footerLinks"
         },
         {
-          "component": "container",
-          "item": {
-            "type": "footerSocialLink"
-          },
-          "label": "Footer Social Links",
-          "name": "footerSocialLinks",
-          "valueType": "array"
+          "block": "footerSocial",
+          "component": "block",
+          "label": "Footer Socials",
+          "name": "footerSocials"
         },
         {
           "component": "aem-content",
+          "label": "Copyright Link",
+          "name": "copyrightLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
           "label": "Copyright Text",
           "name": "copyrightText",
           "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "ITC Portal Link",
-          "name": "itcPortalLink",
-          "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerNavLink",
+      "id": "footerLink",
       "fields": [
         {
           "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
           "label": "Label",
           "name": "label",
           "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
         }
       ]
     },
     {
-      "id": "footerSocialLink",
+      "id": "footerSocial",
       "fields": [
         {
           "component": "aem-content",
-          "label": "Platform",
-          "name": "platform",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "URL",
-          "name": "url",
+          "label": "Social Link",
+          "name": "socialLink",
           "valueType": "string"
         },
         {
@@ -138,10 +132,10 @@
   ],
   "filters": [
     {
-      "id": "footerBrand",
+      "id": "footer-brand",
       "components": [
-        "footerNavLink",
-        "footerSocialLink"
+        "footerLink",
+        "footerSocial"
       ]
     }
   ]
