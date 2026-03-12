@@ -2,60 +2,58 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const ul = document.createElement('ul');
-  ul.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__list', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-justify-content-around', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-flex-grow-1');
+  const stickyNavigationSection = document.createElement('div');
+  stickyNavigationSection.id = 'sticky-navigation';
+  stickyNavigationSection.className = 'sticky-navigation-section sticky-navigation-position-fixed sticky-navigation-bottom-0 sticky-navigation-p-3 sticky-navigation-d-flex sticky-navigation-align-items-center sticky-navigation-container sticky-navigation-bg-boing-primary';
 
-  const navItems = block.querySelectorAll('[data-aue-model="navigationItem"]');
-  navItems.forEach((itemNode) => {
-    const li = document.createElement('li');
-    li.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__item', 'stickynavigation-stickyNavigation-position-relative');
+  const stickyNavigationList = document.createElement('ul');
+  stickyNavigationList.className = 'sticky-navigation-list sticky-navigation-d-flex sticky-navigation-justify-content-around sticky-navigation-align-items-center sticky-navigation-flex-grow-1';
 
-    const linkElement = itemNode.querySelector('a');
-    if (linkElement) {
-      const newLink = document.createElement('a');
-      newLink.href = linkElement.href;
-      newLink.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__link', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-flex-column', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-gap-1', 'stickynavigation-stickyNavigation-analytics_cta_click');
-      if (linkElement.dataset.consent) {
-        newLink.dataset.consent = linkElement.dataset.consent;
-      }
-      if (linkElement.dataset.link) {
-        newLink.dataset.link = linkElement.dataset.link;
-      }
+  const navigationItems = block.querySelectorAll('[data-aue-model="navigationItem"]');
 
-      const img = itemNode.querySelector('[data-aue-prop="icon"]');
+  navigationItems.forEach((itemNode) => {
+    const stickyNavigationItem = document.createElement('li');
+    stickyNavigationItem.className = 'sticky-navigation-item sticky-navigation-position-relative';
+
+    const linkElement = itemNode.querySelector('[data-aue-prop="link"]');
+    const href = linkElement ? linkElement.textContent.trim() : '#';
+    const dataLink = linkElement ? linkElement.textContent.trim() : '';
+
+    const anchor = document.createElement('a');
+    anchor.href = href;
+    anchor.className = 'sticky-navigation-link sticky-navigation-d-flex sticky-navigation-flex-column sticky-navigation-align-items-center sticky-navigation-gap-1 analytics_cta_click';
+    anchor.setAttribute('data-link', dataLink);
+
+    const iconElement = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (iconElement) {
+      const img = iconElement.querySelector('img');
       if (img) {
-        const picture = createOptimizedPicture(img.src, img.alt);
-        picture.querySelector('img').classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__icon');
-        newLink.append(picture);
-        moveInstrumentation(img, picture);
+        const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '40' }]);
+        const imgInPicture = picture.querySelector('img');
+        imgInPicture.className = 'sticky-navigation-icon';
+        anchor.append(picture);
+        moveInstrumentation(iconElement, picture);
       }
-
-      const labelSpan = document.createElement('span');
-      labelSpan.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__label');
-      const labelContent = itemNode.querySelector('[data-aue-prop="label"]');
-      if (labelContent) {
-        labelSpan.append(...labelContent.childNodes);
-        moveInstrumentation(labelContent, labelSpan);
-      } else {
-        // Fallback for label if data-aue-prop is not found directly on span
-        const authoredLabel = linkElement.querySelector('.stickynavigation-stickyNavigation-sticky-bottom-nav__label');
-        if (authoredLabel) {
-          labelSpan.append(...authoredLabel.childNodes);
-          moveInstrumentation(authoredLabel, labelSpan);
-        }
-      }
-      newLink.append(labelSpan);
-
-      li.append(newLink);
-      moveInstrumentation(linkElement, newLink);
     }
 
-    ul.append(li);
-    moveInstrumentation(itemNode, li);
+    const labelElement = itemNode.querySelector('[data-aue-prop="label"]');
+    if (labelElement) {
+      const span = document.createElement('span');
+      span.className = 'sticky-navigation-label';
+      span.textContent = labelElement.textContent.trim();
+      anchor.append(span);
+      moveInstrumentation(labelElement, span);
+    }
+
+    stickyNavigationItem.append(anchor);
+    stickyNavigationList.append(stickyNavigationItem);
+    moveInstrumentation(itemNode, stickyNavigationItem);
   });
 
+  stickyNavigationSection.append(stickyNavigationList);
+
   block.textContent = '';
-  block.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav', 'stickynavigation-stickyNavigation-position-fixed', 'stickynavigation-stickyNavigation-bottom-0', 'stickynavigation-stickyNavigation-p-3', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-boing-container', 'stickynavigation-stickyNavigation-bg-boing-primary');
-  block.append(ul);
+  block.append(stickyNavigationSection);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

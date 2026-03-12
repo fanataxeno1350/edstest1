@@ -75,8 +75,8 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLink",
-      "footerSocial"
+      "footerNavColumn",
+      "footerSocialLink"
     ]
   },
   {
@@ -97,8 +97,8 @@
   {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerListItem",
+      "headerMenuItem",
+      "footerMenuItem",
       "socialLink"
     ]
   },
@@ -117,7 +117,7 @@
   {
     "id": "latestBlogs",
     "components": [
-      "blogCard"
+      "blogItem"
     ]
   },
   {
