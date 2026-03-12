@@ -87,8 +87,8 @@
   {
     "id": "footer",
     "components": [
-      "footerList",
-      "footerSocial"
+      "footerNavList",
+      "footerSocialLink"
     ]
   },
   {
@@ -103,8 +103,8 @@
     "id": "header",
     "components": [
       "headerMenuItem",
-      "footerMenuItem",
-      "socialLink"
+      "footerLinkItem",
+      "footerSocialItem"
     ]
   },
   {

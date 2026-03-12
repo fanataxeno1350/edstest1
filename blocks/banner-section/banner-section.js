@@ -3,131 +3,128 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const wrapper = document.createElement('div');
-  wrapper.className = 'banner-section__wrapper banner-position-relative banner-boing';
+  wrapper.classList.add('banner-section__wrapper', 'banner-position-relative', 'banner-boing');
 
   const videoWrapper = document.createElement('div');
-  videoWrapper.className = 'banner-video-wrapper';
+  videoWrapper.classList.add('banner-video-wrapper');
 
-  const videoElement = document.createElement('video');
-  videoElement.className = 'banner-video banner-w-100 banner-object-fit-cover banner-media';
-  videoElement.title = 'Video';
-  videoElement.ariaLabel = 'Video';
-  videoElement.playsInline = true;
-  videoElement.preload = 'metadata';
-  videoElement.fetchPriority = 'high';
-  videoElement.loop = false;
-  videoElement.muted = true;
-  videoElement.autoplay = true;
+  const videoElement = block.querySelector('video');
+  if (videoElement) {
+    const srcElement = videoElement.querySelector('source');
+    if (srcElement) {
+      const video = document.createElement('video');
+      video.classList.add('banner-video', 'banner-w-100', 'banner-object-fit-cover', 'banner-media');
+      video.setAttribute('title', 'Video');
+      video.setAttribute('aria-label', 'Video');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('preload', 'metadata');
+      video.setAttribute('fetchpriority', 'high');
+      video.setAttribute('loop', 'false');
+      video.setAttribute('muted', 'true');
+      video.setAttribute('autoplay', 'true');
+      if (videoElement.dataset.isAutoplay === 'true') {
+        video.setAttribute('autoplay', 'true');
+      }
 
-  const videoSource = document.createElement('source');
-  const authoredVideo = block.querySelector('[data-aue-prop="video"]');
-  if (authoredVideo) {
-    videoSource.src = authoredVideo.src;
-    videoSource.type = authoredVideo.type || 'video/mp4';
-    moveInstrumentation(authoredVideo, videoSource);
-  } else {
-    // Fallback: search for an <a> tag with a video href
-    const videoLink = block.querySelector('a[href$=".mp4"], a[href$=".webm"], a[href$=".ogg"]');
-    if (videoLink) {
-      videoSource.src = videoLink.href;
-      videoSource.type = `video/${videoLink.href.split('.').pop()}`;
-      moveInstrumentation(videoLink, videoSource);
+      const source = document.createElement('source');
+      source.setAttribute('src', srcElement.src);
+      source.setAttribute('type', srcElement.type);
+      video.append(source);
+      videoWrapper.append(video);
+      moveInstrumentation(videoElement, video);
+      moveInstrumentation(srcElement, source);
     }
   }
-  videoElement.append(videoSource);
-  videoWrapper.append(videoElement);
 
   const playPauseWrapper = document.createElement('div');
-  playPauseWrapper.className = 'banner-video-position-absolute banner-w-100 banner-h-100 banner-start-0 banner-top-0 banner-d-flex banner-justify-content-center banner-align-items-center banner-cursor-pointer';
+  playPauseWrapper.classList.add('banner-video-position-absolute', 'banner-w-100', 'banner-h-100', 'banner-start-0', 'banner-top-0', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer');
 
   const playButton = document.createElement('button');
-  playButton.type = 'button';
-  playButton.className = 'banner-video-d-none banner-video-icon banner-icon-play banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
-  const authoredPlayIcon = block.querySelector('[data-aue-prop="playIcon"]');
-  if (authoredPlayIcon) {
-    playButton.innerHTML = authoredPlayIcon.innerHTML;
-    moveInstrumentation(authoredPlayIcon, playButton);
-  } else {
-    playButton.textContent = '/content/dam/aemigrate/uploaded-folder/image/1773138350907.svg+xml'; // Fallback content
+  playButton.setAttribute('type', 'button');
+  playButton.classList.add('banner-video-d-none', 'banner-video-icon', 'banner-icon-play', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const iconPlaySrc = block.querySelector('[data-aue-prop="iconPlay"]')?.textContent.trim();
+  if (iconPlaySrc) {
+    const playImg = document.createElement('img');
+    playImg.src = iconPlaySrc;
+    playImg.alt = 'Play';
+    playButton.append(playImg);
   }
   playPauseWrapper.append(playButton);
 
   const pauseButton = document.createElement('button');
-  pauseButton.type = 'button';
-  pauseButton.className = 'banner-video-d-block banner-video-icon banner-icon-pause banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
-  const authoredPauseIcon = block.querySelector('[data-aue-prop="pauseIcon"]');
-  if (authoredPauseIcon) {
-    pauseButton.innerHTML = authoredPauseIcon.innerHTML;
-    moveInstrumentation(authoredPauseIcon, pauseButton);
-  } else {
-    pauseButton.textContent = '/content/dam/aemigrate/uploaded-folder/image/1773138350940.svg+xml'; // Fallback content
+  pauseButton.setAttribute('type', 'button');
+  pauseButton.classList.add('banner-video-d-block', 'banner-video-icon', 'banner-icon-pause', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const iconPauseSrc = block.querySelector('[data-aue-prop="iconPause"]')?.textContent.trim();
+  if (iconPauseSrc) {
+    const pauseImg = document.createElement('img');
+    pauseImg.src = iconPauseSrc;
+    pauseImg.alt = 'Pause';
+    pauseButton.append(pauseImg);
   }
   playPauseWrapper.append(pauseButton);
   videoWrapper.append(playPauseWrapper);
 
-  const muteUnmuteWrapper = document.createElement('div');
-  muteUnmuteWrapper.className = 'banner-video-position-absolute banner-z-2 banner-d-flex banner-justify-content-center banner-align-items-center banner-cursor-pointer banner-mute-icon';
+  const muteWrapper = document.createElement('div');
+  muteWrapper.classList.add('banner-video-position-absolute', 'banner-z-2', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer', 'banner-mute-icon');
 
   const muteButton = document.createElement('button');
-  muteButton.type = 'button';
-  muteButton.className = 'banner-video-video-icon-volume banner-icon-mute banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer banner-d-none';
-  const authoredMuteIcon = block.querySelector('[data-aue-prop="muteIcon"]');
-  if (authoredMuteIcon) {
-    muteButton.innerHTML = authoredMuteIcon.innerHTML;
-    moveInstrumentation(authoredMuteIcon, muteButton);
-  } else {
-    muteButton.textContent = '/content/dam/aemigrate/uploaded-folder/image/1773138350994.svg+xml'; // Fallback content
+  muteButton.setAttribute('type', 'button');
+  muteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-mute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  const iconMuteSrc = block.querySelector('[data-aue-prop="iconMute"]')?.textContent.trim();
+  if (iconMuteSrc) {
+    const muteImg = document.createElement('img');
+    muteImg.src = iconMuteSrc;
+    muteImg.alt = 'Mute';
+    muteButton.append(muteImg);
   }
-  muteUnmuteWrapper.append(muteButton);
+  muteWrapper.append(muteButton);
 
   const unmuteButton = document.createElement('button');
-  unmuteButton.type = 'button';
-  unmuteButton.className = 'banner-video-video-icon-volume banner-icon-unmute banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer banner-d-none';
-  const authoredUnmuteIcon = block.querySelector('[data-aue-prop="unmuteIcon"]');
-  if (authoredUnmuteIcon) {
-    unmuteButton.innerHTML = authoredUnmuteIcon.innerHTML;
-    moveInstrumentation(authoredUnmuteIcon, unmuteButton);
-  } else {
-    unmuteButton.textContent = '/content/dam/aemigrate/uploaded-folder/image/1773138351066.svg+xml'; // Fallback content
+  unmuteButton.setAttribute('type', 'button');
+  unmuteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-unmute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
+  const iconUnmuteSrc = block.querySelector('[data-aue-prop="iconUnmute"]')?.textContent.trim();
+  if (iconUnmuteSrc) {
+    const unmuteImg = document.createElement('img');
+    unmuteImg.src = iconUnmuteSrc;
+    unmuteImg.alt = 'Unmute';
+    unmuteButton.append(unmuteImg);
   }
-  muteUnmuteWrapper.append(unmuteButton);
+  muteWrapper.append(unmuteButton);
 
   const noAudioButton = document.createElement('button');
-  noAudioButton.type = 'button';
-  noAudioButton.className = 'banner-video-video-icon-volume banner-no-audio-icon banner-bg-transparent banner-d-flex banner-align-items-center banner-justify-content-center banner-cursor-pointer';
-  const authoredNoAudioIcon = block.querySelector('[data-aue-prop="noAudioIcon"]');
-  if (authoredNoAudioIcon) {
-    noAudioButton.innerHTML = authoredNoAudioIcon.innerHTML;
-    moveInstrumentation(authoredNoAudioIcon, noAudioButton);
-  } else {
-    noAudioButton.textContent = '/content/dam/aemigrate/uploaded-folder/image/1773138351139.svg+xml'; // Fallback content
+  noAudioButton.setAttribute('type', 'button');
+  noAudioButton.classList.add('banner-video-video-icon-volume', 'banner-no-audio-icon', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
+  const iconNoAudioSrc = block.querySelector('[data-aue-prop="iconNoAudio"]')?.textContent.trim();
+  if (iconNoAudioSrc) {
+    const noAudioImg = document.createElement('img');
+    noAudioImg.src = iconNoAudioSrc;
+    noAudioImg.alt = 'No Audio';
+    noAudioButton.append(noAudioImg);
   }
-  muteUnmuteWrapper.append(noAudioButton);
-  videoWrapper.append(muteUnmuteWrapper);
+  muteWrapper.append(noAudioButton);
+  videoWrapper.append(muteWrapper);
 
   wrapper.append(videoWrapper);
 
   const ctaWrapper = document.createElement('div');
-  ctaWrapper.className = 'banner-boing__banner--cta banner-position-absolute banner-start-50 banner-translate-middle-x banner-w-100';
-
+  ctaWrapper.classList.add('banner-boing__banner--cta', 'banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100');
   const ctaDiv = document.createElement('div');
-  ctaDiv.className = 'banner-cta';
-
-  // Move any remaining content from the block into the CTA div
-  // This assumes any content not explicitly mapped above should go here.
-  // If there's specific authored content for CTA, it should be extracted using data-aue-prop
-  Array.from(block.children).forEach((child) => {
-    if (!child.hasAttribute('data-aue-prop') && !child.hasAttribute('data-aue-model')) {
+  ctaDiv.classList.add('banner-cta');
+  // Assuming CTA content is directly within the block's last div, or needs to be extracted from a specific data-aue-prop if defined.
+  // For now, let's assume it's the last child of the block if it exists and is not one of the video/icon props.
+  const authoredCtaContent = block.querySelector('.banner-cta');
+  if (authoredCtaContent) {
+    Array.from(authoredCtaContent.children).forEach((child) => {
       ctaDiv.append(child);
       moveInstrumentation(child, ctaDiv);
-    }
-  });
-
+    });
+    moveInstrumentation(authoredCtaContent, ctaDiv);
+  }
   ctaWrapper.append(ctaDiv);
   wrapper.append(ctaWrapper);
 
   block.textContent = '';
   block.append(wrapper);
-  block.className = `banner-section block`;
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

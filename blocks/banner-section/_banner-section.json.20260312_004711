@@ -29,32 +29,32 @@
         },
         {
           "component": "reference",
-          "label": "Icon Play",
-          "name": "iconPlay",
+          "label": "Play Icon",
+          "name": "playIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon Pause",
-          "name": "iconPause",
+          "label": "Pause Icon",
+          "name": "pauseIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon Mute",
-          "name": "iconMute",
+          "label": "Mute Icon",
+          "name": "muteIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon Unmute",
-          "name": "iconUnmute",
+          "label": "Unmute Icon",
+          "name": "unmuteIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon No Audio",
-          "name": "iconNoAudio",
+          "label": "No Audio Icon",
+          "name": "noAudioIcon",
           "valueType": "string"
         }
       ]

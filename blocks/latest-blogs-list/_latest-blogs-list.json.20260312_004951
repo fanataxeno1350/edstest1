@@ -34,37 +34,8 @@
   ],
   "models": [
     {
-      "id": "latestBlogsList",
-      "fields": [
-        {
-          "component": "richtext",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "View All Link",
-          "name": "viewAllLink",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
       "id": "blogCard",
       "fields": [
-        {
-          "component": "aem-content",
-          "label": "Blog Link",
-          "name": "link",
-          "valueType": "string"
-        },
         {
           "component": "reference",
           "label": "Image",
@@ -72,7 +43,7 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "date-time",
           "label": "Date",
           "name": "date",
           "valueType": "string"
@@ -81,6 +52,12 @@
           "component": "richtext",
           "label": "Title",
           "name": "title",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]
