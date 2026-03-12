@@ -17,38 +17,36 @@ export default function decorate(block) {
   leftSection.classList.add('brand-footer__left', 'd-flex', 'gap-16', 'px-10', 'align-items-center', 'justify-content-center');
   primaryContent.append(leftSection);
 
-  const logoLink = block.querySelector('[data-aue-prop="logo"]');
-  if (logoLink) {
-    const logoAnchor = document.createElement('a');
-    logoAnchor.classList.add('brand-footer__logo', 'd-inline-block', 'analytics_cta_click');
-    logoAnchor.href = logoLink.href;
-    logoAnchor.target = logoLink.target;
-    logoAnchor.setAttribute('aria-label', 'ITC Logo');
-
-    const logoImg = logoLink.querySelector('img');
-    if (logoImg) {
-      const picture = createOptimizedPicture(logoImg.src, logoImg.alt);
-      logoAnchor.append(picture);
-      moveInstrumentation(logoImg, picture);
+  // Logo 1
+  const logo1Wrapper = document.createElement('a');
+  logo1Wrapper.classList.add('brand-footer__logo', 'd-inline-block', 'analytics_cta_click');
+  const logo1Aue = block.querySelector('[data-aue-prop="logo1"]');
+  if (logo1Aue) {
+    const img1 = logo1Aue.querySelector('img');
+    if (img1) {
+      const picture1 = createOptimizedPicture(img1.src, img1.alt);
+      logo1Wrapper.append(picture1);
+      logo1Wrapper.href = logo1Aue.href;
+      if (logo1Aue.target) logo1Wrapper.target = logo1Aue.target;
+      if (logo1Aue.getAttribute('aria-label')) logo1Wrapper.setAttribute('aria-label', logo1Aue.getAttribute('aria-label'));
+      moveInstrumentation(logo1Aue, logo1Wrapper);
     }
-    leftSection.append(logoAnchor);
-    moveInstrumentation(logoLink, logoAnchor);
   }
+  leftSection.append(logo1Wrapper);
 
-  const secondaryLogoDiv = block.querySelector('[data-aue-prop="secondaryLogo"]');
-  if (secondaryLogoDiv) {
-    const secondaryLogoWrapper = document.createElement('div');
-    secondaryLogoWrapper.classList.add('brand-footer__secondary--logo', 'd-inline-block');
-
-    const secondaryLogoImg = secondaryLogoDiv.querySelector('img');
-    if (secondaryLogoImg) {
-      const picture = createOptimizedPicture(secondaryLogoImg.src, secondaryLogoImg.alt);
-      secondaryLogoWrapper.append(picture);
-      moveInstrumentation(secondaryLogoImg, picture);
+  // Logo 2
+  const logo2Wrapper = document.createElement('div');
+  logo2Wrapper.classList.add('brand-footer__secondary--logo', 'd-inline-block');
+  const logo2Aue = block.querySelector('[data-aue-prop="logo2"]');
+  if (logo2Aue) {
+    const img2 = logo2Aue.querySelector('img');
+    if (img2) {
+      const picture2 = createOptimizedPicture(img2.src, img2.alt);
+      logo2Wrapper.append(picture2);
+      moveInstrumentation(logo2Aue, logo2Wrapper);
     }
-    leftSection.append(secondaryLogoWrapper);
-    moveInstrumentation(secondaryLogoDiv, secondaryLogoWrapper);
   }
+  leftSection.append(logo2Wrapper);
 
   const rightSection = document.createElement('section');
   rightSection.classList.add('brand-footer__right');
@@ -67,50 +65,35 @@ export default function decorate(block) {
   navRight.classList.add('brand-footer__navbar--right', 'd-flex', 'flex-column', 'flex-md-row');
   nav.append(navRight);
 
-  const footerLinkLists = block.querySelectorAll('[data-aue-model="footerLinkList"]');
-  footerLinkLists.forEach((listNode, index) => {
-    const listWrapper = document.createElement('div');
-    listWrapper.classList.add('footerList-footer');
-
+  // Navigation Lists
+  const navLists = block.querySelectorAll('[data-aue-model="footerNavList"]');
+  navLists.forEach((navListAue, index) => {
+    const footerListDiv = document.createElement('div');
+    footerListDiv.classList.add('footerList-footer');
     const ul = document.createElement('ul');
     ul.classList.add('list-footer', 'd-flex', 'align-items-center', 'justify-content-center', 'align-items-md-start', 'flex-column');
-    listWrapper.append(ul);
+    footerListDiv.append(ul);
 
-    const links = listNode.querySelectorAll('[data-aue-model="footerLink"]');
-    links.forEach((linkNode) => {
+    const linksAue = navListAue.querySelectorAll('[data-aue-prop="links"]');
+    linksAue.forEach((linkAue) => {
       const li = document.createElement('li');
       li.classList.add('list-footer__item');
-
-      const link = document.createElement('a');
-      link.classList.add('cta-analytics', 'analytics_cta_click', 'list-footer__item--link', 'd-inline-block');
-      link.setAttribute('data-link-region', 'Footer List');
-
-      const url = linkNode.querySelector('[data-aue-prop="url"]');
-      if (url) {
-        link.href = url.href;
-        if (url.target) link.target = url.target;
-        moveInstrumentation(url, link);
-      }
-
-      const text = linkNode.querySelector('[data-aue-prop="text"]');
-      if (text) {
-        link.textContent = text.textContent;
-        moveInstrumentation(text, link);
-      } else if (url) {
-        link.textContent = url.textContent;
-      }
-
-      li.append(link);
+      const a = document.createElement('a');
+      a.classList.add('cta-analytics', 'analytics_cta_click', 'list-footer__item--link', 'd-inline-block');
+      a.href = linkAue.href;
+      a.textContent = linkAue.textContent;
+      if (linkAue.target) a.target = linkAue.target;
+      if (linkAue.dataset.linkRegion) a.dataset.linkRegion = linkAue.dataset.linkRegion;
+      li.append(a);
       ul.append(li);
-      moveInstrumentation(linkNode, li);
+      moveInstrumentation(linkAue, a);
     });
-
+    moveInstrumentation(navListAue, footerListDiv);
     if (index < 2) {
-      navLeft.append(listWrapper);
+      navLeft.append(footerListDiv);
     } else {
-      navRight.append(listWrapper);
+      navRight.append(footerListDiv);
     }
-    moveInstrumentation(listNode, listWrapper);
   });
 
   const secondarySection = document.createElement('section');
@@ -128,41 +111,48 @@ export default function decorate(block) {
   socialMediaSection.classList.add('brand-footer__right', 'd-flex', 'flex-column', 'pb-5');
   secondaryContent.append(socialMediaSection);
 
-  const socialTitle = document.createElement('h3');
-  socialTitle.classList.add('social_media-footer--title');
-  socialTitle.textContent = 'Follow Us On';
-  socialMediaSection.append(socialTitle);
+  const followUsTitle = document.createElement('h3');
+  followUsTitle.classList.add('social_media-footer--title');
+  followUsTitle.textContent = 'Follow Us On';
+  socialMediaSection.append(followUsTitle);
 
   const socialList = document.createElement('ul');
   socialList.classList.add('brand-footer__right--list', 'd-flex', 'align-items-center', 'justify-content-center', 'px-10', 'flex-wrap');
   socialMediaSection.append(socialList);
 
-  const socialLinks = block.querySelectorAll('[data-aue-model="socialLink"]');
-  socialLinks.forEach((socialLinkNode) => {
+  // Social Links
+  const socialLinks = block.querySelectorAll('[data-aue-model="footerSocial"]');
+  socialLinks.forEach((socialLinkAue) => {
     const li = document.createElement('li');
     li.classList.add('brand-footer__right--item', 'd-flex', 'justify-content-center', 'align-items-center');
+    const a = document.createElement('a');
+    a.classList.add('brand-footer__right--link', 'd-flex', 'justify-content-center', 'align-items-center', 'analytics_cta_click');
 
-    const anchor = document.createElement('a');
-    anchor.classList.add('brand-footer__right--link', 'd-flex', 'justify-content-center', 'align-items-center', 'analytics_cta_click');
-    anchor.setAttribute('data-cta-region', 'Footer');
-
-    const url = socialLinkNode.querySelector('[data-aue-prop="url"]');
-    if (url) {
-      anchor.href = url.href;
-      if (url.target) anchor.target = url.target;
-      moveInstrumentation(url, anchor);
+    const linkAue = socialLinkAue.querySelector('[data-aue-prop="socialLink"]');
+    if (linkAue) {
+      a.href = linkAue.href;
+      if (linkAue.target) a.target = linkAue.target;
+      if (linkAue.dataset.ctaRegion) a.dataset.ctaRegion = linkAue.dataset.ctaRegion;
+      if (linkAue.dataset.ctaLabel) a.dataset.ctaLabel = linkAue.dataset.ctaLabel;
+      if (linkAue.dataset.platformName) a.dataset.platformName = linkAue.dataset.platformName;
+      if (linkAue.dataset.socialLinktype) a.dataset.socialLinktype = linkAue.dataset.socialLinktype;
+      moveInstrumentation(linkAue, a);
     }
 
-    const icon = socialLinkNode.querySelector('[data-aue-prop="icon"]');
-    if (icon && icon.tagName === 'IMG') {
-      const picture = createOptimizedPicture(icon.src, icon.alt || '');
-      anchor.append(picture);
-      moveInstrumentation(icon, picture);
+    const iconAue = socialLinkAue.querySelector('[data-aue-prop="icon"]');
+    if (iconAue) {
+      const img = iconAue.querySelector('img');
+      if (img) {
+        const picture = createOptimizedPicture(img.src, img.alt);
+        if (img.getAttribute('aria-label')) picture.querySelector('img').setAttribute('aria-label', img.getAttribute('aria-label'));
+        a.append(picture);
+        moveInstrumentation(iconAue, a);
+      }
     }
 
-    li.append(anchor);
+    li.append(a);
     socialList.append(li);
-    moveInstrumentation(socialLinkNode, li);
+    moveInstrumentation(socialLinkAue, li);
   });
 
   const copyrightSection = document.createElement('section');
@@ -173,19 +163,20 @@ export default function decorate(block) {
   copyrightList.classList.add('brand-footer__left--list', 'd-flex', 'align-items-center', 'justify-content-center', 'flex-wrap');
   copyrightSection.append(copyrightList);
 
-  const itcPortalLink = block.querySelector('[data-aue-prop="itcPortalLink"]');
-  if (itcPortalLink) {
-    const li = document.createElement('li');
-    li.classList.add('brand-footer__left--item', 'foot_link-footer');
-    const anchor = document.createElement('a');
-    anchor.classList.add('brand-footer__left--link', 'analytics_cta_click');
-    anchor.setAttribute('data-cta-region', 'Footer');
-    anchor.href = itcPortalLink.href;
-    if (itcPortalLink.target) anchor.target = itcPortalLink.target;
-    anchor.textContent = itcPortalLink.textContent;
-    li.append(anchor);
-    copyrightList.append(li);
-    moveInstrumentation(itcPortalLink, li);
+  // ITC Portal Link
+  const itcPortalLi = document.createElement('li');
+  itcPortalLi.classList.add('brand-footer__left--item', 'foot_link-footer');
+  const itcPortalA = document.createElement('a');
+  itcPortalA.classList.add('brand-footer__left--link', 'analytics_cta_click');
+  const itcPortalLinkAue = block.querySelector('[data-aue-prop="itcPortalLink"]');
+  if (itcPortalLinkAue) {
+    itcPortalA.href = itcPortalLinkAue.href;
+    itcPortalA.textContent = itcPortalLinkAue.textContent;
+    if (itcPortalLinkAue.target) itcPortalA.target = itcPortalLinkAue.target;
+    if (itcPortalLinkAue.dataset.ctaRegion) itcPortalA.dataset.ctaRegion = itcPortalLinkAue.dataset.ctaRegion;
+    itcPortalLi.append(itcPortalA);
+    copyrightList.append(itcPortalLi);
+    moveInstrumentation(itcPortalLinkAue, itcPortalA);
   }
 
   const copyrightDiv = document.createElement('div');
@@ -194,19 +185,19 @@ export default function decorate(block) {
 
   const copyrightSpan = document.createElement('span');
   copyrightSpan.classList.add('brand-footer__left--text', 'text-white');
-  const copyrightText = block.querySelector('[data-aue-prop="copyright"]');
-  if (copyrightText) {
-    copyrightSpan.innerHTML = copyrightText.innerHTML;
-    moveInstrumentation(copyrightText, copyrightSpan);
+  const copyrightAue = block.querySelector('[data-aue-prop="copyright"]');
+  if (copyrightAue) {
+    copyrightSpan.textContent = copyrightAue.textContent;
+    moveInstrumentation(copyrightAue, copyrightSpan);
   }
   copyrightDiv.append(copyrightSpan);
 
-  const rootDiv = document.createElement('div');
-  rootDiv.classList.add('brand-footer', 'w-100', 'bg-boing-neutral-gray-600');
-  rootDiv.append(primarySection, secondarySection);
+  const footerBrandDiv = document.createElement('div');
+  footerBrandDiv.classList.add('brand-footer', 'w-100', 'bg-boing-neutral-gray-600');
+  footerBrandDiv.append(primarySection, secondarySection);
 
   block.textContent = '';
-  block.append(rootDiv);
+  block.append(footerBrandDiv);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

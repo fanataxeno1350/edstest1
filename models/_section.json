@@ -63,7 +63,9 @@
         "stickyNavigation",
         "latestBlogsListing",
         "latestBlogsArticleList",
-        "footer"
+        "footer",
+        "bannerVideo",
+        "latestBlogsList"
       ]
     }
   ]

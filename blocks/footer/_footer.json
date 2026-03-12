@@ -17,45 +17,30 @@
       }
     },
     {
-      "title": "Footer Link List",
-      "id": "footerLinkList",
+      "title": "FooterNavList",
+      "id": "footerNavList",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerLinkList",
-              "name": "Footer Link List"
+              "model": "footerNavList",
+              "name": "FooterNavList"
             }
           }
         }
       }
     },
     {
-      "title": "Footer Link",
-      "id": "footerLink",
+      "title": "FooterSocial",
+      "id": "footerSocial",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerLink",
-              "name": "Footer Link"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "Social Link",
-      "id": "socialLink",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "model": "socialLink",
-              "name": "Social Link"
+              "model": "footerSocial",
+              "name": "FooterSocial"
             }
           }
         }
@@ -68,63 +53,26 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Logo",
-          "name": "logo",
+          "label": "Logo 1",
+          "name": "logo1",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Secondary Logo",
-          "name": "secondaryLogo",
+          "label": "Logo 2",
+          "name": "logo2",
           "valueType": "string"
         },
         {
-          "component": "container",
-          "fields": [
-            {
-              "component": "footerLinkList",
-              "label": "Footer Link List 1",
-              "name": "footerLinkList1"
-            },
-            {
-              "component": "footerLinkList",
-              "label": "Footer Link List 2",
-              "name": "footerLinkList2"
-            },
-            {
-              "component": "footerLinkList",
-              "label": "Footer Link List 3",
-              "name": "footerLinkList3"
-            },
-            {
-              "component": "footerLinkList",
-              "label": "Footer Link List 4",
-              "name": "footerLinkList4"
-            }
-          ],
-          "label": "Footer Links",
-          "name": "footerLinks"
+          "component": "footerNavList",
+          "label": "Navigation Lists",
+          "multiple": true,
+          "name": "navLists"
         },
         {
-          "component": "container",
-          "fields": [
-            {
-              "component": "socialLink",
-              "label": "Facebook",
-              "name": "facebook"
-            },
-            {
-              "component": "socialLink",
-              "label": "Instagram",
-              "name": "instagram"
-            },
-            {
-              "component": "socialLink",
-              "label": "YouTube",
-              "name": "youtube"
-            }
-          ],
+          "component": "footerSocial",
           "label": "Social Links",
+          "multiple": true,
           "name": "socialLinks"
         },
         {
@@ -134,7 +82,7 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
           "label": "Copyright",
           "name": "copyright",
           "valueType": "string"
@@ -142,56 +90,24 @@
       ]
     },
     {
-      "id": "footerLinkList",
+      "id": "footerNavList",
       "fields": [
         {
-          "component": "container",
-          "fields": [
-            {
-              "component": "footerLink",
-              "label": "Link 1",
-              "name": "link1"
-            },
-            {
-              "component": "footerLink",
-              "label": "Link 2",
-              "name": "link2"
-            },
-            {
-              "component": "footerLink",
-              "label": "Link 3",
-              "name": "link3"
-            }
-          ],
+          "component": "aem-content",
           "label": "Links",
-          "name": "links"
-        }
-      ]
-    },
-    {
-      "id": "footerLink",
-      "fields": [
-        {
-          "component": "aem-content",
-          "label": "URL",
-          "name": "url",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Text",
-          "name": "text",
+          "multiple": true,
+          "name": "links",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "socialLink",
+      "id": "footerSocial",
       "fields": [
         {
           "component": "aem-content",
-          "label": "URL",
-          "name": "url",
+          "label": "Social Link",
+          "name": "socialLink",
           "valueType": "string"
         },
         {
@@ -207,14 +123,8 @@
     {
       "id": "footer",
       "components": [
-        "footerLinkList",
-        "socialLink"
-      ]
-    },
-    {
-      "id": "footerLinkList",
-      "components": [
-        "footerLink"
+        "footerNavList",
+        "footerSocial"
       ]
     }
   ]
