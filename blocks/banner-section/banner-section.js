@@ -2,129 +2,214 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('banner-section__wrapper', 'banner-position-relative', 'banner-boing');
+  const bannerSection = document.createElement('section');
+  bannerSection.className = 'banner-section';
 
-  const videoWrapper = document.createElement('div');
-  videoWrapper.classList.add('banner-video-wrapper');
+  const bannerSectionWrapper = document.createElement('div');
+  bannerSectionWrapper.className = 'banner-section__wrapper';
 
-  const videoElement = block.querySelector('video');
-  if (videoElement) {
-    const srcElement = videoElement.querySelector('source');
-    if (srcElement) {
-      const video = document.createElement('video');
-      video.classList.add('banner-video', 'banner-w-100', 'banner-object-fit-cover', 'banner-media');
-      video.setAttribute('title', 'Video');
-      video.setAttribute('aria-label', 'Video');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('preload', 'metadata');
-      video.setAttribute('fetchpriority', 'high');
-      video.setAttribute('loop', 'false');
-      video.setAttribute('muted', 'true');
-      video.setAttribute('autoplay', 'true');
-      if (videoElement.dataset.isAutoplay === 'true') {
-        video.setAttribute('autoplay', 'true');
-      }
+  const videoElement = document.createElement('video');
+  videoElement.className = 'banner-section__video';
+  videoElement.setAttribute('playsinline', '');
+  videoElement.setAttribute('preload', 'metadata');
 
-      const source = document.createElement('source');
-      source.setAttribute('src', srcElement.src);
-      source.setAttribute('type', srcElement.type);
-      video.append(source);
-      videoWrapper.append(video);
-      moveInstrumentation(videoElement, video);
-      moveInstrumentation(srcElement, source);
+  const videoSrc = block.querySelector('[data-aue-prop="videoSrc"]');
+  if (videoSrc) {
+    const sourceElement = document.createElement('source');
+    sourceElement.src = videoSrc.textContent.trim();
+    sourceElement.type = 'video/mp4';
+    videoElement.append(sourceElement);
+    moveInstrumentation(videoSrc, sourceElement);
+  } else {
+    const fallbackVideo = block.querySelector('a[href$=".mp4"]');
+    if (fallbackVideo) {
+      const sourceElement = document.createElement('source');
+      sourceElement.src = fallbackVideo.href;
+      sourceElement.type = 'video/mp4';
+      videoElement.append(sourceElement);
+      moveInstrumentation(fallbackVideo, sourceElement);
     }
   }
 
-  const playPauseWrapper = document.createElement('div');
-  playPauseWrapper.classList.add('banner-video-position-absolute', 'banner-w-100', 'banner-h-100', 'banner-start-0', 'banner-top-0', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer');
+  const videoTitle = block.querySelector('[data-aue-prop="videoTitle"]');
+  if (videoTitle) {
+    videoElement.setAttribute('title', videoTitle.textContent.trim());
+    videoElement.setAttribute('aria-label', videoTitle.textContent.trim());
+    moveInstrumentation(videoTitle, videoElement);
+  }
+
+  const isAutoplay = block.querySelector('[data-aue-prop="isAutoplay"]');
+  if (isAutoplay && isAutoplay.textContent.trim().toLowerCase() === 'true') {
+    videoElement.setAttribute('autoplay', 'true');
+    videoElement.setAttribute('data-is-autoplay', 'true');
+    videoElement.setAttribute('loop', 'false');
+    moveInstrumentation(isAutoplay, videoElement);
+  } else {
+    videoElement.setAttribute('autoplay', 'false');
+    videoElement.setAttribute('data-is-autoplay', 'false');
+    videoElement.setAttribute('loop', 'false');
+  }
+
+  const isMuted = block.querySelector('[data-aue-prop="isMuted"]');
+  if (isMuted && isMuted.textContent.trim().toLowerCase() === 'true') {
+    videoElement.setAttribute('muted', 'true');
+    moveInstrumentation(isMuted, videoElement);
+  } else {
+    videoElement.setAttribute('muted', 'false');
+  }
+
+  bannerSectionWrapper.append(videoElement);
+
+  const videoControls = document.createElement('div');
+  videoControls.className = 'banner-section__video-controls';
 
   const playButton = document.createElement('button');
-  playButton.setAttribute('type', 'button');
-  playButton.classList.add('banner-video-d-none', 'banner-video-icon', 'banner-icon-play', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
-  const iconPlaySrc = block.querySelector('[data-aue-prop="iconPlay"]')?.textContent.trim();
-  if (iconPlaySrc) {
-    const playImg = document.createElement('img');
-    playImg.src = iconPlaySrc;
-    playImg.alt = 'Play';
-    playButton.append(playImg);
+  playButton.type = 'button';
+  playButton.className = 'banner-section__video-icon banner-section__icon-play';
+  playButton.style.display = 'none';
+  const playIcon = block.querySelector('[data-aue-prop="playIcon"]');
+  if (playIcon) {
+    playButton.innerHTML = playIcon.textContent.trim();
+    moveInstrumentation(playIcon, playButton);
+  } else {
+    const fallbackPlayIcon = block.querySelector('a[href$=".svg"]');
+    if (fallbackPlayIcon) {
+      playButton.innerHTML = `<img src="${fallbackPlayIcon.href}" alt="Play Icon"/>`;
+      moveInstrumentation(fallbackPlayIcon, playButton);
+    }
   }
-  playPauseWrapper.append(playButton);
+  videoControls.append(playButton);
 
   const pauseButton = document.createElement('button');
-  pauseButton.setAttribute('type', 'button');
-  pauseButton.classList.add('banner-video-d-block', 'banner-video-icon', 'banner-icon-pause', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
-  const iconPauseSrc = block.querySelector('[data-aue-prop="iconPause"]')?.textContent.trim();
-  if (iconPauseSrc) {
-    const pauseImg = document.createElement('img');
-    pauseImg.src = iconPauseSrc;
-    pauseImg.alt = 'Pause';
-    pauseButton.append(pauseImg);
+  pauseButton.type = 'button';
+  pauseButton.className = 'banner-section__video-icon banner-section__icon-pause';
+  const pauseIcon = block.querySelector('[data-aue-prop="pauseIcon"]');
+  if (pauseIcon) {
+    pauseButton.innerHTML = pauseIcon.textContent.trim();
+    moveInstrumentation(pauseIcon, pauseButton);
+  } else {
+    const fallbackPauseIcon = block.querySelectorAll('a[href$=".svg"]')[1];
+    if (fallbackPauseIcon) {
+      pauseButton.innerHTML = `<img src="${fallbackPauseIcon.href}" alt="Pause Icon"/>`;
+      moveInstrumentation(fallbackPauseIcon, pauseButton);
+    }
   }
-  playPauseWrapper.append(pauseButton);
-  videoWrapper.append(playPauseWrapper);
+  videoControls.append(pauseButton);
+  bannerSectionWrapper.append(videoControls);
 
-  const muteWrapper = document.createElement('div');
-  muteWrapper.classList.add('banner-video-position-absolute', 'banner-z-2', 'banner-d-flex', 'banner-justify-content-center', 'banner-align-items-center', 'banner-cursor-pointer', 'banner-mute-icon');
+  const muteControls = document.createElement('div');
+  muteControls.className = 'banner-section__mute-controls';
 
   const muteButton = document.createElement('button');
-  muteButton.setAttribute('type', 'button');
-  muteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-mute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
-  const iconMuteSrc = block.querySelector('[data-aue-prop="iconMute"]')?.textContent.trim();
-  if (iconMuteSrc) {
-    const muteImg = document.createElement('img');
-    muteImg.src = iconMuteSrc;
-    muteImg.alt = 'Mute';
-    muteButton.append(muteImg);
+  muteButton.type = 'button';
+  muteButton.className = 'banner-section__volume-icon banner-section__icon-mute';
+  muteButton.style.display = 'none';
+  const muteIcon = block.querySelector('[data-aue-prop="muteIcon"]');
+  if (muteIcon) {
+    muteButton.innerHTML = muteIcon.textContent.trim();
+    moveInstrumentation(muteIcon, muteButton);
+  } else {
+    const fallbackMuteIcon = block.querySelectorAll('a[href$=".svg"]')[2];
+    if (fallbackMuteIcon) {
+      muteButton.innerHTML = `<img src="${fallbackMuteIcon.href}" alt="Mute Icon"/>`;
+      moveInstrumentation(fallbackMuteIcon, muteButton);
+    }
   }
-  muteWrapper.append(muteButton);
+  muteControls.append(muteButton);
 
   const unmuteButton = document.createElement('button');
-  unmuteButton.setAttribute('type', 'button');
-  unmuteButton.classList.add('banner-video-video-icon-volume', 'banner-icon-unmute', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer', 'banner-d-none');
-  const iconUnmuteSrc = block.querySelector('[data-aue-prop="iconUnmute"]')?.textContent.trim();
-  if (iconUnmuteSrc) {
-    const unmuteImg = document.createElement('img');
-    unmuteImg.src = iconUnmuteSrc;
-    unmuteImg.alt = 'Unmute';
-    unmuteButton.append(unmuteImg);
+  unmuteButton.type = 'button';
+  unmuteButton.className = 'banner-section__volume-icon banner-section__icon-unmute';
+  unmuteButton.style.display = 'none';
+  const unmuteIcon = block.querySelector('[data-aue-prop="unmuteIcon"]');
+  if (unmuteIcon) {
+    unmuteButton.innerHTML = unmuteIcon.textContent.trim();
+    moveInstrumentation(unmuteIcon, unmuteButton);
+  } else {
+    const fallbackUnmuteIcon = block.querySelectorAll('a[href$=".svg"]')[3];
+    if (fallbackUnmuteIcon) {
+      unmuteButton.innerHTML = `<img src="${fallbackUnmuteIcon.href}" alt="Unmute Icon"/>`;
+      moveInstrumentation(fallbackUnmuteIcon, unmuteButton);
+    }
   }
-  muteWrapper.append(unmuteButton);
+  muteControls.append(unmuteButton);
 
   const noAudioButton = document.createElement('button');
-  noAudioButton.setAttribute('type', 'button');
-  noAudioButton.classList.add('banner-video-video-icon-volume', 'banner-no-audio-icon', 'banner-bg-transparent', 'banner-d-flex', 'banner-align-items-center', 'banner-justify-content-center', 'banner-cursor-pointer');
-  const iconNoAudioSrc = block.querySelector('[data-aue-prop="iconNoAudio"]')?.textContent.trim();
-  if (iconNoAudioSrc) {
-    const noAudioImg = document.createElement('img');
-    noAudioImg.src = iconNoAudioSrc;
-    noAudioImg.alt = 'No Audio';
-    noAudioButton.append(noAudioImg);
+  noAudioButton.type = 'button';
+  noAudioButton.className = 'banner-section__volume-icon banner-section__no-audio-icon';
+  const noAudioIcon = block.querySelector('[data-aue-prop="noAudioIcon"]');
+  if (noAudioIcon) {
+    noAudioButton.innerHTML = noAudioIcon.textContent.trim();
+    moveInstrumentation(noAudioIcon, noAudioButton);
+  } else {
+    const fallbackNoAudioIcon = block.querySelectorAll('a[href$=".svg"]')[4];
+    if (fallbackNoAudioIcon) {
+      noAudioButton.innerHTML = `<img src="${fallbackNoAudioIcon.href}" alt="No Audio Icon"/>`;
+      moveInstrumentation(fallbackNoAudioIcon, noAudioButton);
+    }
   }
-  muteWrapper.append(noAudioButton);
-  videoWrapper.append(muteWrapper);
-
-  wrapper.append(videoWrapper);
+  muteControls.append(noAudioButton);
+  bannerSectionWrapper.append(muteControls);
 
   const ctaWrapper = document.createElement('div');
-  ctaWrapper.classList.add('banner-boing__banner--cta', 'banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100');
-  const ctaDiv = document.createElement('div');
-  ctaDiv.classList.add('banner-cta');
-  // Assuming CTA content is directly within the block's last div, or needs to be extracted from a specific data-aue-prop if defined.
-  // For now, let's assume it's the last child of the block if it exists and is not one of the video/icon props.
-  const authoredCtaContent = block.querySelector('.banner-cta');
-  if (authoredCtaContent) {
-    Array.from(authoredCtaContent.children).forEach((child) => {
-      ctaDiv.append(child);
-      moveInstrumentation(child, ctaDiv);
-    });
-    moveInstrumentation(authoredCtaContent, ctaDiv);
+  ctaWrapper.className = 'banner-section__cta-wrapper';
+
+  const bannerCta = document.createElement('div');
+  bannerCta.className = 'banner-cta';
+
+  const textCenterDiv = document.createElement('div');
+  textCenterDiv.className = 'text-center ';
+
+  const ctaLink = block.querySelector('[data-aue-prop="ctaLink"]');
+  const ctaText = block.querySelector('[data-aue-prop="ctaText"]');
+
+  if (ctaLink || ctaText) {
+    const anchor = document.createElement('a');
+    anchor.id = `cta-${Math.random().toString(36).substring(2, 11)}`;
+    anchor.className = 'cmp-button analytics_cta_click text-center cta-layout';
+    anchor.setAttribute('data-link-region', 'CTA');
+    anchor.setAttribute('data-is-internal', 'true');
+    anchor.setAttribute('data-enable-gating', 'false');
+    anchor.setAttribute('target', '_blank');
+
+    if (ctaLink) {
+      anchor.href = ctaLink.textContent.trim();
+      moveInstrumentation(ctaLink, anchor);
+    } else {
+      anchor.href = '#';
+    }
+
+    const span = document.createElement('span');
+    span.className = 'cmp-button__text primary-btn w-75 p-5 rounded-pill d-inline-flex justify-content-center align-items-center famlf-cta-btn';
+
+    if (ctaText) {
+      span.textContent = ctaText.textContent.trim();
+      moveInstrumentation(ctaText, span);
+    } else {
+      span.textContent = 'Learn More';
+    }
+
+    anchor.append(span);
+    textCenterDiv.append(anchor);
   }
-  ctaWrapper.append(ctaDiv);
-  wrapper.append(ctaWrapper);
+
+  const popUpDiv = document.createElement('div');
+  popUpDiv.className = 'pop-up d-none';
+  popUpDiv.innerHTML = `
+    <input type="hidden" class="popup-message">
+    <input type="hidden" class="proceed-button-label">
+    <input type="hidden" class="cancel-button-label">
+    <input type="hidden" class="background-color">
+  `;
+  textCenterDiv.append(popUpDiv);
+
+  bannerCta.append(textCenterDiv);
+  ctaWrapper.append(bannerCta);
+  bannerSectionWrapper.append(ctaWrapper);
+  bannerSection.append(bannerSectionWrapper);
 
   block.textContent = '';
-  block.append(wrapper);
+  block.append(bannerSection);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

@@ -1,631 +1,318 @@
-.header-header__logo-img {  display:inline-block;height:3.125rem  }
-
-.header-header__login-btn-wrapper {  display:none  }
-
-.header-header__login-btn {  border:.0625rem solid #aa1f30;cursor:pointer;font-size:.75rem  }
-
-.header-boing-container {  --bs-gutter-x:0;--bs-gutter-y:0;margin-left:auto;margin-right:auto;max-width:33.75rem;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100%  }
-
-.header-header__logo-img {   display: inline-block; height: 3.125rem;   }
-
-.header-header__login-btn-wrapper {   display: none;   }
-
-.header-header__login-btn {   border: 0.0625rem solid rgb(170, 31, 48); cursor: pointer; font-size: 0.75rem;   }
-
-.header-boing-container {   --bs-gutter-x: 0; --bs-gutter-y: 0; margin-left: auto; margin-right: auto; max-width: 33.75rem; padding-left: calc(var(--bs-gutter-x)*.5); padding-right: calc(var(--bs-gutter-x)*.5); width: 100%;   }
-
-/* .header-Computed .header-styles: .header-div.header-header__logo .header-d-flex .header-align-items-center */ @media (min-width: 1200px) {  
-  div.header__logo d-flex align-items-center {
-    align-items: center;
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 50px;
-    border-block-end-color: rgb(0, 0, 0);
-    border-block-start-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(0, 0, 0);
-    border-inline-start-color: rgb(0, 0, 0);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(0, 0, 0);
-    clip-rule: nonzero;
-    color: rgb(0, 0, 0);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(0, 0, 0);
-    cursor: pointer;
-    direction: ltr;
-    display: flex;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 50px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 63.7812px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(0, 0, 0);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 31.8906px 25px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(0, 0, 0);
-    text-decoration-color: rgb(0, 0, 0);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(0, 0, 0);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 31.8906px 25px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 63.7812px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: center;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(0, 0, 0);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .header-Computed .header-styles: .header-img.header-header__logo-img */ @media (min-width: 1200px) {  
-  img.header__logo-img {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 50px;
-    border-block-end-color: rgb(0, 0, 0);
-    border-block-start-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(0, 0, 0);
-    border-inline-start-color: rgb(0, 0, 0);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(0, 0, 0);
-    clip-rule: nonzero;
-    color: rgb(0, 0, 0);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(0, 0, 0);
-    cursor: pointer;
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 50px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 63.7812px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(0, 0, 0);
-    overflow-block: clip;
-    overflow-clip-margin: content-box;
-    overflow-inline: clip;
-    overflow-x: clip;
-    overflow-y: clip;
-    perspective-origin: 31.8906px 25px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(0, 0, 0);
-    text-decoration-color: rgb(0, 0, 0);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(0, 0, 0);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 31.8906px 25px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    vertical-align: middle;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 63.7812px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(0, 0, 0);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .header-Computed .header-styles: .header-a.header-header__login-btn-wrapper .header-analytics_cta_click */ @media (min-width: 1200px) {  
-  a.header__login-btn-wrapper analytics_cta_click {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 32px;
-    border-block-end-color: rgb(0, 0, 0);
-    border-block-start-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(0, 0, 0);
-    border-inline-start-color: rgb(0, 0, 0);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(0, 0, 0);
-    clip-rule: nonzero;
-    color: rgb(0, 0, 0);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(0, 0, 0);
-    cursor: pointer;
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 32px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 57px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(0, 0, 0);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 28.5px 16px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(0, 0, 0);
-    text-decoration-color: rgb(0, 0, 0);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(0, 0, 0);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 28.5px 16px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 57px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(0, 0, 0);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .header-Computed .header-styles: .header-button.header-header__login-btn .header-btn .header-text-boing-primary .header-bg-transparent .header-fw-semibold .header-rounded-4 .header-btn-sm .header-py-3 .header-px-4 */ @media (min-width: 1200px) {  
-  button.header__login-btn btn text-boing-primary bg-transparent fw-semibold rounded-4 btn-sm py-3 px-4 {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    appearance: button;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 32px;
-    border-block-end-color: rgb(170, 31, 48);
-    border-block-end-style: solid;
-    border-block-end-width: 1px;
-    border-block-start-color: rgb(170, 31, 48);
-    border-block-start-style: solid;
-    border-block-start-width: 1px;
-    border-bottom-color: rgb(170, 31, 48);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-collapse: separate;
-    border-end-end-radius: 16px;
-    border-end-start-radius: 16px;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(170, 31, 48);
-    border-inline-end-style: solid;
-    border-inline-end-width: 1px;
-    border-inline-start-color: rgb(170, 31, 48);
-    border-inline-start-style: solid;
-    border-inline-start-width: 1px;
-    border-left-color: rgb(170, 31, 48);
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-right-color: rgb(170, 31, 48);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-start-end-radius: 16px;
-    border-start-start-radius: 16px;
-    border-top-color: rgb(170, 31, 48);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-top-style: solid;
-    border-top-width: 1px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(170, 31, 48);
-    clip-rule: nonzero;
-    color: rgb(170, 31, 48);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(170, 31, 48);
-    cursor: pointer;
-    direction: ltr;
-    display: inline-block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 12px;
-    font-stretch: 100%;
-    font-weight: 600;
-    grid-auto-flow: row;
-    height: 32px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 57px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(170, 31, 48);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    padding-block-end: 8px;
-    padding-block-start: 8px;
-    padding-bottom: 8px;
-    padding-inline-end: 12px;
-    padding-inline-start: 12px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 8px;
-    perspective-origin: 28.5px 16px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: center;
-    text-anchor: start;
-    text-decoration: none solid rgb(170, 31, 48);
-    text-decoration-color: rgb(170, 31, 48);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(170, 31, 48);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 28.5px 16px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    vertical-align: middle;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 57px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(170, 31, 48);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(170, 31, 48);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
+.header-container-position-relative {
+  position: relative;
+  margin-bottom: 3.5rem; /* Equivalent to 56px assuming 16px base */
+}
+.header-app-name {
+  display: none;
+}
+.header-main {
+  background-color: #fff; /* Explicitly defined */
+  box-shadow: 0.125rem 0.125rem 0.9375rem 0 rgba(0, 0, 0, 0.071); /* Equivalent to 2px 2px 15px 0px rgba(0,0,0,0.071) assuming 16px base */
+  max-height: 3.5rem; /* Equivalent to 56px assuming 16px base */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 0.9375rem; /* Equivalent to 15px assuming 16px base */
+  padding: 0.25rem 0.625rem; /* Equivalent to 4px 10px assuming 16px base */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+}
+.header-menu-wrapper {
+  display: flex;
+  width: 25%;
+}
+.header-logo-center {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+.header-logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+.header-logo-img {
+  display: inline-block;
+  height: 3.125rem; /* Equivalent to 50px assuming 16px base */
+}
+.header-login-section {
+  display: flex;
+  justify-content: flex-end;
+  width: 25%;
+}
+.header-login-btn-wrapper {
+  display: inline;
+}
+.header-login-btn {
+  border: 0.0625rem solid #aa1f30; /* Equivalent to 1px solid #aa1f30 assuming 16px base */
+  cursor: pointer;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 600; /* Explicitly defined */
+  color: #aa1f30; /* Explicitly defined */
+  background-color: transparent; /* Explicitly defined */
+  border-radius: 1rem; /* Equivalent to 16px assuming 16px base */
+  padding: 0.375rem 0.5rem; /* Equivalent to 6px 8px assuming 16px base */
+}
+.header-submenu-container {
+  bottom: -100vh;
+  display: none;
+  max-width: 33.75rem; /* Equivalent to 540px assuming 16px base */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow: hidden;
+  z-index: 999;
+}
+.header-sidebar {
+  background-color: #fff; /* Explicitly defined */
+  height: 100vh;
+  max-height: 100vh;
+  scrollbar-width: none;
+  top: 3.5rem; /* Equivalent to 56px assuming 16px base */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  width: 17.8125rem; /* Equivalent to 285px assuming 16px base */
+  position: absolute;
+  left: 0;
+  z-index: 999;
+}
+.header-sidebar::-webkit-scrollbar {
+  display: none;
+}
+.header-sidebar.open {
+  overflow: auto;
+  transform: translateX(0);
+}
+.header-sidebar-menu {
+  list-style: none;
+}
+.header-sidebar-menu-item {
+  padding-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  padding-bottom: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  border-bottom: 0.0625rem solid #d9d9d9; /* Equivalent to 1px solid #d9d9d9 assuming 16px base */
+}
+.header-sidebar-menu-item--logout {
+  display: none;
+}
+.header-sidebar-menu-link {
+  color: #030303; /* Explicitly defined */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  padding-right: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  font-weight: 500; /* Explicitly defined */
+}
+.header-sidebar-menu-icon {
+  height: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  width: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  margin-right: 0.75rem; /* Equivalent to 12px assuming 16px base */
+}
+.header-sidebar-curve {
+  background-color: #fff; /* Explicitly defined */
+  border-radius: 0 0 2rem 2rem; /* Equivalent to 0px 0px 32px 32px assuming 16px base */
+  bottom: -3rem; /* Equivalent to -48px assuming 16px base */
+  height: 4.5rem; /* Equivalent to 72px assuming 16px base */
+  overflow: hidden;
+  position: relative;
+  right: 0;
+  transform: skewY(-8.34deg);
+  z-index: 10;
+}
+.header-overlay {
+  background-color: #000; /* Explicitly defined */
+  opacity: 0.25;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 998;
+}
+.header-footer-brand {
+  background-color: #161616; /* Explicitly defined */
+  padding-bottom: 6rem; /* Equivalent to 96px assuming 16px base */
+  padding-top: 11.0625rem; /* Equivalent to 177px assuming 16px base */
+  width: 100%;
+  position: relative;
+}
+.header-footer-brand-primary {
+  background-color: transparent; /* Explicitly defined */
+  background-position: 50% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 3.75rem 1rem; /* Equivalent to 0px 60px 16px assuming 16px base */
+}
+.header-footer-brand-primary--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem 7.5rem; /* Equivalent to 32px 120px assuming 16px base */
+}
+.header-footer-brand-left {
+  display: flex;
+  gap: 3.75rem; /* Equivalent to 60px assuming 16px base */
+  padding-left: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-right: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  align-items: center;
+  justify-content: center;
+}
+.header-footer-brand-logo {
+  display: inline-block;
+  height: 3.9375rem; /* Equivalent to 63px assuming 16px base */
+  min-width: 3.375rem; /* Equivalent to 54px assuming 16px base */
+}
+.header-footer-brand-secondary--logo {
+  display: inline-block;
+  max-height: 100%;
+  min-width: 4.375rem; /* Equivalent to 70px assuming 16px base */
+  width: 4.375rem; /* Equivalent to 70px assuming 16px base */
+}
+.header-footer-brand-right {
+  width: 100%;
+}
+.header-footer-brand-navbar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.header-footer-brand-navbar--left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-right: 2rem; /* Equivalent to 32px assuming 16px base */
+}
+.header-footer-list-wrapper {
+  /* No specific styles needed for this wrapper */
+}
+.header-footer-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  list-style: none;
+}
+.header-footer-list-item {
+  width: 100%;
+}
+.header-cta-analytics {
+  color: #fff; /* Explicitly defined */
+  cursor: pointer;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 600; /* Explicitly defined */
+  line-height: 1.5; /* Explicitly defined */
+  text-decoration: none;
+  display: inline-block;
+  white-space: normal;
+}
+.header-cta-analytics:hover {
+  text-decoration: underline;
+}
+.header-footer-brand-navbar--right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-left: 2rem; /* Equivalent to 32px assuming 16px base */
+}
+.header-footer-brand-secondary {
+  background-color: transparent; /* Explicitly defined */
+  padding: 1rem 1.5rem; /* Equivalent to 16px 24px assuming 16px base */
+}
+.header-footer-brand-secondary--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 1.5rem; /* Equivalent to 24px assuming 16px base */
+}
+.header-footer-brand-right {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.header-social-media--title {
+  color: #fff; /* Explicitly defined */
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700; /* Explicitly defined */
+  line-height: 2rem; /* Equivalent to 32px assuming 16px base */
+  padding-bottom: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  text-align: center;
+}
+.header-footer-brand-right--list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-right: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  flex-wrap: wrap;
+  gap: 1rem; /* Equivalent to 16px assuming 16px base */
+  list-style: none;
+  max-width: 100%;
+}
+.header-footer-brand-right--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-footer-brand-right--link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.6875rem; /* Equivalent to 43px assuming 16px base */
+  width: 2.6875rem; /* Equivalent to 43px assuming 16px base */
+  transition: transform 0.2s linear;
+}
+.header-footer-brand-left {
+  padding-top: 1rem; /* Equivalent to 16px assuming 16px base */
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Equivalent to 8px assuming 16px base */
+}
+.header-footer-brand-left--list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  list-style: none;
+}
+.header-footer-brand-left--item {
+  border-right: 0.125rem solid rgba(255, 255, 255, 0.302); /* Equivalent to 2px solid rgba(255,255,255,0.302) assuming 16px base */
+  padding: 0 1.5rem; /* Equivalent to 0px 24px assuming 16px base */
+}
+.header-footer-brand-left--item:first-child {
+  padding-left: 0;
+}
+.header-footer-brand-left--item:last-child {
+  border: 0;
+  padding-right: 0;
+}
+.header-footer-brand-left--link {
+  color: #fff; /* Explicitly defined */
+  display: inline-block;
+  font-size: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  line-height: 1.5; /* Explicitly defined */
+  text-decoration: none;
+}
+.header-footer-brand-left--link:hover {
+  text-decoration: underline;
+}
+.header-footer-brand-left--copyright {
+  display: inline-block;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  line-height: 1.5; /* Explicitly defined */
+  text-align: center;
+}
+.header-footer-brand-left--text {
+  color: #fff; /* Explicitly defined */
+}

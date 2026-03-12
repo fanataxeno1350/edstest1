@@ -1,31 +1,31 @@
 {
   "definitions": [
     {
-      "title": "Carousel",
-      "id": "carousel",
+      "title": "Sticky-Navigation-Bottom-Nav",
+      "id": "stickyNavigationBottomNav",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "carousel",
-              "model": "carousel",
-              "name": "Carousel"
+              "filter": "stickyNavigationBottomNav",
+              "model": "stickyNavigationBottomNav",
+              "name": "Sticky-Navigation-Bottom-Nav"
             }
           }
         }
       }
     },
     {
-      "title": "Carousel-Item",
-      "id": "carouselItem",
+      "title": "Navigation-Item",
+      "id": "navigationItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "carouselItem",
-              "name": "Carousel-Item"
+              "model": "navigationItem",
+              "name": "Navigation-Item"
             }
           }
         }
@@ -34,46 +34,45 @@
   ],
   "models": [
     {
-      "id": "carouselItem",
+      "id": "navigationItem",
       "fields": [
         {
-          "component": "reference",
-          "label": "Video",
-          "name": "video",
+          "component": "text",
+          "label": "Link",
+          "name": "href",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Image",
+          "label": "Icon",
           "name": "image",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "Image Alt Text",
-          "name": "imageAlt",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "CTA Link",
-          "name": "ctaLink",
+          "label": "Icon Alt Text",
+          "name": "alt",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "label": "Consent Required",
+          "name": "consent"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "carousel",
+      "id": "stickyNavigationBottomNav",
       "components": [
-        "carouselItem"
+        "navigationItem"
       ]
     }
   ]

@@ -49,9 +49,9 @@
           "valueType": "string"
         },
         {
-          "component": "aem-tag",
-          "label": "CTA",
-          "name": "cta",
+          "component": "aem-content",
+          "label": "View All Link",
+          "name": "viewAllLink",
           "valueType": "string"
         }
       ]
@@ -60,8 +60,8 @@
       "id": "blogCard",
       "fields": [
         {
-          "component": "aem-tag",
-          "label": "Link",
+          "component": "aem-content",
+          "label": "Blog Link",
           "name": "link",
           "valueType": "string"
         },
@@ -73,14 +73,14 @@
         },
         {
           "component": "date-time",
-          "label": "Date",
-          "name": "date",
+          "label": "Publish Date",
+          "name": "publishDate",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Card Title",
-          "name": "cardTitle",
+          "label": "Blog Title",
+          "name": "title",
           "valueType": "string"
         }
       ]
