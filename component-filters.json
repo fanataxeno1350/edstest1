@@ -32,7 +32,6 @@
       "bannerVideo",
       "latestBlogsList",
       "footerBrandFooter",
-      "spaceAdder",
       "stickyNavigationBottomNav"
     ]
   },
@@ -126,9 +125,6 @@
     "components": [
       "articleCard"
     ]
-  },
-  {
-    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNav",
