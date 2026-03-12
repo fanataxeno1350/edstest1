@@ -2,50 +2,56 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const carouselItems = block.querySelectorAll('[data-aue-model="carouselItem"]');
+  const carouselWrapper = document.createElement('div');
+  carouselWrapper.classList.add('carousel-wrapper');
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('carousel-wrapper');
+  const slidesContainer = document.createElement('div');
+  slidesContainer.classList.add('slides-container');
 
-  carouselItems.forEach((itemNode) => {
-    const slide = document.createElement('div');
-    slide.classList.add('carousel-slide');
+  const authoredSlides = block.querySelectorAll('[data-aue-model="carouselItem"]');
 
-    const videoElement = itemNode.querySelector('[data-aue-prop="video"]');
-    const imageElement = itemNode.querySelector('[data-aue-prop="image"]');
-    const linkElement = itemNode.querySelector('[data-aue-prop="link"] .carousel-cmp-button');
+  authoredSlides.forEach((slide) => {
+    const slideWrapper = document.createElement('div');
+    slideWrapper.classList.add('slide');
+
+    const videoElement = slide.querySelector('[data-aue-prop="video"]');
+    const imageElement = slide.querySelector('[data-aue-prop="image"]');
+    const ctaLink = slide.querySelector('[data-aue-prop="ctaLink"] .carousel-cmp-button');
 
     if (videoElement) {
       const videoWrapper = document.createElement('div');
-      videoWrapper.classList.add('carousel-video-wrapper');
+      videoWrapper.classList.add('video-wrapper');
       videoWrapper.append(videoElement);
+      slideWrapper.append(videoWrapper);
       moveInstrumentation(videoElement, videoWrapper);
-      slide.append(videoWrapper);
     } else if (imageElement) {
       const picture = createOptimizedPicture(imageElement.src, imageElement.alt);
-      slide.append(picture);
+      slideWrapper.append(picture);
       moveInstrumentation(imageElement, picture);
     }
 
-    if (linkElement) {
+    if (ctaLink) {
       const ctaWrapper = document.createElement('div');
-      ctaWrapper.classList.add('carousel-cta-wrapper');
+      ctaWrapper.classList.add('cta-wrapper');
       const link = document.createElement('a');
-      link.href = linkElement.href;
-      link.textContent = linkElement.querySelector('.carousel-cmp-button__text')?.textContent || '';
-      link.className = linkElement.className;
-      link.target = linkElement.target;
+      link.href = ctaLink.href;
+      link.textContent = ctaLink.querySelector('.carousel-cmp-button__text').textContent.trim();
+      if (ctaLink.target) {
+        link.target = ctaLink.target;
+      }
       ctaWrapper.append(link);
-      moveInstrumentation(linkElement, ctaWrapper);
-      slide.append(ctaWrapper);
+      slideWrapper.append(ctaWrapper);
+      moveInstrumentation(ctaLink, ctaWrapper);
     }
 
-    wrapper.append(slide);
-    moveInstrumentation(itemNode, slide);
+    slidesContainer.append(slideWrapper);
+    moveInstrumentation(slide, slideWrapper);
   });
 
+  carouselWrapper.append(slidesContainer);
+
   block.textContent = '';
-  block.append(wrapper);
-  block.className = `${block.dataset.blockName} block`;
+  block.append(carouselWrapper);
+  block.className = 'carousel block';
   block.dataset.blockStatus = 'loaded';
 }

@@ -30,7 +30,8 @@
       "latestBlogsArticleList",
       "footer",
       "bannerVideo",
-      "latestBlogsList"
+      "latestBlogsList",
+      "footerBrandFooter"
     ]
   },
   {
@@ -40,10 +41,7 @@
     ]
   },
   {
-    "id": "bannerVideo",
-    "components": [
-      "bannerVideo"
-    ]
+    "id": "bannerVideo"
   },
   {
     "id": "carousel",
@@ -61,6 +59,13 @@
     "id": "featureCards",
     "components": [
       "featureCard"
+    ]
+  },
+  {
+    "id": "footerBrandFooter",
+    "components": [
+      "footerLinkList",
+      "footerSocialLink"
     ]
   },
   {
@@ -94,8 +99,8 @@
   {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerListItem",
+      "headerMenuItem",
+      "footerMenuItem",
       "socialLink"
     ]
   },
