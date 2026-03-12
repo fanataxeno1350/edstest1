@@ -53,6 +53,18 @@
           "label": "View All Link",
           "name": "viewAllLink",
           "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "View All Icon",
+          "name": "viewAllIcon",
+          "valueType": "string"
+        },
+        {
+          "component": "blogCard",
+          "label": "Blogs",
+          "name": "blogs",
+          "valueType": "array"
         }
       ]
     },

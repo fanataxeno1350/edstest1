@@ -43,15 +43,15 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Label",
-          "name": "label",
-          "valueType": "string"
-        },
-        {
           "component": "aem-content",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]

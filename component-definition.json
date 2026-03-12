@@ -131,7 +131,7 @@
           }
         },
         {
-          "title": "Carousel Item",
+          "title": "Carousel-Item",
           "id": "carouselItem",
           "plugins": {
             "xwalk": {
@@ -139,7 +139,7 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "model": "carouselItem",
-                  "name": "Carousel Item"
+                  "name": "Carousel-Item"
                 }
               }
             }
@@ -162,7 +162,7 @@
           }
         },
         {
-          "title": "FeatureCard",
+          "title": "Feature-Card",
           "id": "featureCard",
           "plugins": {
             "xwalk": {
@@ -170,7 +170,7 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "model": "featureCard",
-                  "name": "FeatureCard"
+                  "name": "Feature-Card"
                 }
               }
             }
@@ -331,15 +331,15 @@
           }
         },
         {
-          "title": "FooterNavList",
-          "id": "footerNavList",
+          "title": "FooterList",
+          "id": "footerList",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "footerNavList",
-                  "name": "FooterNavList"
+                  "model": "footerList",
+                  "name": "FooterList"
                 }
               }
             }
@@ -392,15 +392,15 @@
           }
         },
         {
-          "title": "Footer List Item",
-          "id": "footerListItem",
+          "title": "Footer Link",
+          "id": "footerLink",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "model": "footerListItem",
-                  "name": "Footer List Item"
+                  "model": "footerLink",
+                  "name": "Footer Link"
                 }
               }
             }

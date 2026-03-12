@@ -2,113 +2,92 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const featureCardsWrapper = document.createElement('div');
-  featureCardsWrapper.classList.add('featurecards-wrapper');
+  const rootDiv = document.createElement('div');
+  rootDiv.classList.add('feature-cards-container');
 
   const textContent = block.querySelector('.featurecards-featureCards-text');
   if (textContent) {
-    const titleDiv = document.createElement('div');
-    titleDiv.classList.add('featurecards-title');
+    const textWrapper = document.createElement('div');
+    textWrapper.classList.add('feature-cards-text-wrapper');
     const h1 = textContent.querySelector('h1');
     if (h1) {
-      titleDiv.append(h1);
-      moveInstrumentation(textContent, titleDiv);
+      textWrapper.append(h1);
+      moveInstrumentation(textContent, textWrapper);
     }
-    featureCardsWrapper.append(titleDiv);
+    rootDiv.append(textWrapper);
   }
 
-  const cardsContainer = document.createElement('div');
-  cardsContainer.classList.add('featurecards-cards-container');
+  const cardsWrapper = document.createElement('div');
+  cardsWrapper.classList.add('feature-cards-cards-wrapper');
 
   const authoredCards = block.querySelectorAll('[data-aue-model="featureCard"]');
 
   authoredCards.forEach((cardNode) => {
-    const linkElement = cardNode.querySelector('a');
-    const cardLink = document.createElement('a');
-    cardLink.classList.add('featurecards-featureCards-bolteSitare_cardSection', 'featurecards-featureCards-analytics_cta_click', 'featurecards-featureCards-text-decoration-none');
-    if (linkElement) {
-      cardLink.href = linkElement.href;
-      cardLink.title = linkElement.title;
-      if (linkElement.target) {
-        cardLink.target = linkElement.target;
+    const cardLink = cardNode.querySelector('a');
+    if (cardLink) {
+      const cardAnchor = document.createElement('a');
+      cardAnchor.classList.add('feature-card-item');
+      cardAnchor.href = cardLink.href;
+      if (cardLink.target) {
+        cardAnchor.target = cardLink.target;
       }
-      moveInstrumentation(linkElement, cardLink);
-    }
+      if (cardLink.title) {
+        cardAnchor.title = cardLink.title;
+      }
+      if (cardLink.dataset.title) {
+        cardAnchor.dataset.title = cardLink.dataset.title;
+      }
 
-    const imageWrapper = document.createElement('div');
-    imageWrapper.classList.add('featurecards-featureCards-bolteSitare_cardSection--img');
-    const img = cardNode.querySelector('img[data-aue-prop="image"]');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt);
-      imageWrapper.append(picture);
-      moveInstrumentation(img, picture);
-    } else {
-      const imgFallback = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--img img');
-      if (imgFallback) {
-        const picture = createOptimizedPicture(imgFallback.src, imgFallback.alt);
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('feature-card-image');
+      const img = cardNode.querySelector('img');
+      if (img) {
+        const picture = createOptimizedPicture(img.src, img.alt);
         imageWrapper.append(picture);
-        moveInstrumentation(imgFallback, picture);
+        moveInstrumentation(img, imageWrapper);
       }
-    }
-    cardLink.append(imageWrapper);
+      cardAnchor.append(imageWrapper);
 
-    const contentWrapper = document.createElement('div');
-    contentWrapper.classList.add('featurecards-featureCards-content-wrapper', 'featurecards-featureCards-d-flex', 'featurecards-featureCards-flex-column', 'featurecards-featureCards-justify-content-between');
+      const contentWrapper = document.createElement('div');
+      contentWrapper.classList.add('feature-card-content');
 
-    const textContentDiv = document.createElement('div');
-
-    const titleElement = cardNode.querySelector('h2[data-aue-prop="title"]');
-    if (titleElement) {
-      textContentDiv.append(titleElement);
-      moveInstrumentation(titleElement, textContentDiv);
-    } else {
-      const h2Fallback = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--title');
-      if (h2Fallback) {
-        textContentDiv.append(h2Fallback);
-        moveInstrumentation(h2Fallback, textContentDiv);
+      const title = cardNode.querySelector('h2');
+      if (title) {
+        const h3 = document.createElement('h3');
+        h3.textContent = title.textContent;
+        contentWrapper.append(h3);
+        moveInstrumentation(title, h3);
       }
-    }
 
-    const descriptionElement = cardNode.querySelector('p[data-aue-prop="description"]');
-    if (descriptionElement) {
-      textContentDiv.append(descriptionElement);
-      moveInstrumentation(descriptionElement, textContentDiv);
-    } else {
-      const pFallback = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--text');
-      if (pFallback) {
-        textContentDiv.append(pFallback);
-        moveInstrumentation(pFallback, textContentDiv);
+      const description = cardNode.querySelector('p');
+      if (description) {
+        const p = document.createElement('p');
+        p.innerHTML = description.innerHTML;
+        contentWrapper.append(p);
+        moveInstrumentation(description, p);
       }
-    }
-    contentWrapper.append(textContentDiv);
 
-    const buttonDiv = document.createElement('div');
-    const button = document.createElement('button');
-    button.classList.add('featurecards-featureCards-bolteSitare_cardSection--btn', 'featurecards-featureCards-text-white', 'featurecards-featureCards-boing--text__body-4', 'featurecards-featureCards-d-inline-block');
-
-    const buttonTextElement = cardNode.querySelector('[data-aue-prop="buttonText"]');
-    if (buttonTextElement) {
-      button.textContent = buttonTextElement.textContent;
-      moveInstrumentation(buttonTextElement, button);
-    } else {
-      const buttonFallback = cardNode.querySelector('.featurecards-featureCards-bolteSitare_cardSection--btn');
-      if (buttonFallback) {
-        button.textContent = buttonFallback.textContent;
-        moveInstrumentation(buttonFallback, button);
+      const button = cardNode.querySelector('button');
+      if (button) {
+        const buttonDiv = document.createElement('div');
+        buttonDiv.classList.add('feature-card-button');
+        const buttonText = document.createElement('span');
+        buttonText.textContent = button.textContent;
+        buttonDiv.append(buttonText);
+        contentWrapper.append(buttonDiv);
+        moveInstrumentation(button, buttonDiv);
       }
-    }
-    buttonDiv.append(button);
-    contentWrapper.append(buttonDiv);
 
-    cardLink.append(contentWrapper);
-    cardsContainer.append(cardLink);
-    moveInstrumentation(cardNode, cardLink);
+      cardAnchor.append(contentWrapper);
+      cardsWrapper.append(cardAnchor);
+      moveInstrumentation(cardNode, cardAnchor);
+    }
   });
 
-  featureCardsWrapper.append(cardsContainer);
+  rootDiv.append(cardsWrapper);
 
   block.textContent = '';
-  block.append(featureCardsWrapper);
-  block.className = `feature-cards block`;
+  block.append(rootDiv);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

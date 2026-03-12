@@ -1,25 +1,220 @@
+@keyframes latestblogs-cmp-search__loading-indicator-spin { 0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+ }
+
+.latestblogs-d-flex { display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important }
+
+.latestblogs-position-relative { position:relative !important }
+
+.latestblogs-w-100 { width:100% !important }
+
+.latestblogs-h-100 { height:100% !important }
+
+.latestblogs-m-0 { margin:0 !important }
+
+.latestblogs-mb-3 { margin-bottom:.5rem !important }
+
+.latestblogs-p-0 { padding:0 !important }
+
+.latestblogs-pb-3 { padding-bottom:.5rem !important }
+
+.latestblogs-pb-4 { padding-bottom:.75rem !important }
+
+.latestblogs-text-center { text-align:center !important }
+
+.latestblogs-text-white { --bs-text-opacity:1;color:#fff !important }
+
+@font-face{font-family:swiper-icons;font-style:normal;font-weight:400;src:url("data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA") format("woff")}
+
+@keyframes latestblogs-swiper-preloader-spin { 0%{-webkit-transform:rotate(0);transform:rotate(0)}
+to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+ }
+
 @font-face{font-display:swap;font-family:Barlow;font-style:normal;font-weight:300;src:url(clientlib-boing/resources/fonts/barlow/barlow-light.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Bricolage;font-style:normal;font-weight:300;src:url(clientlib-boing/resources/fonts/bricolage/bricolage-light.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Nunito;font-style:normal;font-weight:300;src:url(clientlib-boing/resources/fonts/nunito/nunito-light.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Roboto,sans-serif;font-style:normal;font-weight:300;src:url(clientlib-boing/resources/fonts/roboto/roboto-light.ttf) format("truetype")}
 
 @font-face{font-display:swap;font-family:Barlow;font-style:normal;font-weight:400;src:url(clientlib-boing/resources/fonts/barlow/barlow-regular.ttf) format("truetype")}
 
+@font-face{font-display:swap;font-family:Bricolage;font-style:normal;font-weight:400;src:url(clientlib-boing/resources/fonts/bricolage/bricolage-regular.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Nunito;font-style:normal;font-weight:400;src:url(clientlib-boing/resources/fonts/nunito/nunito-regular.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Roboto,sans-serif;font-style:normal;font-weight:400;src:url(clientlib-boing/resources/fonts/roboto/roboto-regular.ttf) format("truetype")}
+
 @font-face{font-display:swap;font-family:Barlow;font-style:normal;font-weight:500;src:url(clientlib-boing/resources/fonts/barlow/barlow-medium.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Bricolage;font-style:normal;font-weight:500;src:url(clientlib-boing/resources/fonts/bricolage/bricolage-medium.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Nunito;font-style:normal;font-weight:500;src:url(clientlib-boing/resources/fonts/nunito/nunito-medium.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Roboto,sans-serif;font-style:normal;font-weight:500;src:url(clientlib-boing/resources/fonts/roboto/roboto-medium.ttf) format("truetype")}
 
 @font-face{font-display:swap;font-family:Barlow;font-style:normal;font-weight:600;src:url(clientlib-boing/resources/fonts/barlow/barlow-semibold.ttf) format("truetype")}
 
+@font-face{font-display:swap;font-family:Bricolage;font-style:normal;font-weight:600;src:url(clientlib-boing/resources/fonts/bricolage/bricolage-semibold.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Nunito;font-style:normal;font-weight:600;src:url(clientlib-boing/resources/fonts/nunito/nunito-semibold.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Roboto,sans-serif;font-style:normal;font-weight:600;src:url(clientlib-boing/resources/fonts/roboto/roboto-semibold.ttf) format("truetype")}
+
 @font-face{font-display:swap;font-family:Barlow;font-style:normal;font-weight:700;src:url(clientlib-boing/resources/fonts/barlow/barlow-bold.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Bricolage;font-style:normal;font-weight:700;src:url(clientlib-boing/resources/fonts/bricolage/bricolage-bold.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Nunito;font-style:normal;font-weight:700;src:url(clientlib-boing/resources/fonts/nunito/nunito-bold.ttf) format("truetype")}
+
+@font-face{font-display:swap;font-family:Roboto,sans-serif;font-style:normal;font-weight:700;src:url(clientlib-boing/resources/fonts/roboto/roboto-bold.ttf) format("truetype")}
+
+@keyframes latestblogs-spinner-boing { to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+ }
+
+.latestblogs-boing--text__heading-1 { font-family:Barlow;font-weight:700;line-height:normal }
+
+.latestblogs-boing--text__heading-1 { font-size:1.5rem }
+
+.latestblogs-boing--text__title-3 { font-family:Barlow;font-size:1rem;font-weight:600;line-height:normal }
+
+.latestblogs-boing--text__body-2 { font-family:Barlow;font-weight:400;line-height:normal }
+
+.latestblogs-boing--text__body-2 { font-size:1rem }
+
+.latestblogs-boing--text__body-5 { font-family:Barlow;font-size:.75rem;font-weight:500;line-height:normal }
+
+@keyframes latestblogs-hourglass-spin { 0%{-webkit-transform:rotate(0);transform:rotate(0)}
+to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+ }
+
+@keyframes latestblogs-slideUp { 0%{-webkit-transform:translateY(100%);transform:translateY(100%)}
+to{-webkit-transform:translateY(0);transform:translateY(0)}
+ }
+
+@keyframes latestblogs-cmp-search__loading-indicator-spin {  
+  100% { transform: rotate(360deg); }
+ }
+
+.latestblogs-d-flex {  display: flex !important;  }
+
+.latestblogs-position-relative {  position: relative !important;  }
+
+.latestblogs-w-100 {  width: 100% !important;  }
+
+.latestblogs-h-100 {  height: 100% !important;  }
+
+.latestblogs-m-0 {  margin: 0px !important;  }
+
+.latestblogs-mb-3 {  margin-bottom: 0.5rem !important;  }
+
+.latestblogs-p-0 {  padding: 0px !important;  }
+
+.latestblogs-pb-3 {  padding-bottom: 0.5rem !important;  }
+
+.latestblogs-pb-4 {  padding-bottom: 0.75rem !important;  }
+
+.latestblogs-text-center {  text-align: center !important;  }
+
+.latestblogs-text-white {  --bs-text-opacity: 1; color: rgb(255, 255, 255) !important;  }
+
+@font-face { font-family: swiper-icons; font-style: normal; font-weight: 400; src: url("data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA") format("woff"); }
+
+@keyframes latestblogs-swiper-preloader-spin {  
+  100% { transform: rotate(1turn); }
+ }
 
 @font-face { font-display: swap; font-family: Barlow; font-style: normal; font-weight: 300; src: url("clientlib-boing/resources/fonts/barlow/barlow-light.ttf") format("truetype"); }
 
+@font-face { font-display: swap; font-family: Bricolage; font-style: normal; font-weight: 300; src: url("clientlib-boing/resources/fonts/bricolage/bricolage-light.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Nunito; font-style: normal; font-weight: 300; src: url("clientlib-boing/resources/fonts/nunito/nunito-light.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-style: normal; font-weight: 300; src: url("clientlib-boing/resources/fonts/roboto/roboto-light.ttf") format("truetype"); }
+
 @font-face { font-display: swap; font-family: Barlow; font-style: normal; font-weight: 400; src: url("clientlib-boing/resources/fonts/barlow/barlow-regular.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Bricolage; font-style: normal; font-weight: 400; src: url("clientlib-boing/resources/fonts/bricolage/bricolage-regular.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Nunito; font-style: normal; font-weight: 400; src: url("clientlib-boing/resources/fonts/nunito/nunito-regular.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-style: normal; font-weight: 400; src: url("clientlib-boing/resources/fonts/roboto/roboto-regular.ttf") format("truetype"); }
 
 @font-face { font-display: swap; font-family: Barlow; font-style: normal; font-weight: 500; src: url("clientlib-boing/resources/fonts/barlow/barlow-medium.ttf") format("truetype"); }
 
+@font-face { font-display: swap; font-family: Bricolage; font-style: normal; font-weight: 500; src: url("clientlib-boing/resources/fonts/bricolage/bricolage-medium.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Nunito; font-style: normal; font-weight: 500; src: url("clientlib-boing/resources/fonts/nunito/nunito-medium.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-style: normal; font-weight: 500; src: url("clientlib-boing/resources/fonts/roboto/roboto-medium.ttf") format("truetype"); }
+
 @font-face { font-display: swap; font-family: Barlow; font-style: normal; font-weight: 600; src: url("clientlib-boing/resources/fonts/barlow/barlow-semibold.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Bricolage; font-style: normal; font-weight: 600; src: url("clientlib-boing/resources/fonts/bricolage/bricolage-semibold.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Nunito; font-style: normal; font-weight: 600; src: url("clientlib-boing/resources/fonts/nunito/nunito-semibold.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-style: normal; font-weight: 600; src: url("clientlib-boing/resources/fonts/roboto/roboto-semibold.ttf") format("truetype"); }
 
 @font-face { font-display: swap; font-family: Barlow; font-style: normal; font-weight: 700; src: url("clientlib-boing/resources/fonts/barlow/barlow-bold.ttf") format("truetype"); }
 
+@font-face { font-display: swap; font-family: Bricolage; font-style: normal; font-weight: 700; src: url("clientlib-boing/resources/fonts/bricolage/bricolage-bold.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-family: Nunito; font-style: normal; font-weight: 700; src: url("clientlib-boing/resources/fonts/nunito/nunito-bold.ttf") format("truetype"); }
+
+@font-face { font-display: swap; font-style: normal; font-weight: 700; src: url("clientlib-boing/resources/fonts/roboto/roboto-bold.ttf") format("truetype"); }
+
+@keyframes latestblogs-spinner-boing {  
+  100% { transform: rotate(1turn); }
+ }
+
+.latestblogs-boing--text__heading-1 {  font-family: Barlow; font-weight: 700; line-height: normal;  }
+
+.latestblogs-boing--text__heading-1 {  font-size: 1.5rem;  }
+
+.latestblogs-boing--text__title-3 {  font-family: Barlow; font-size: 1rem; font-weight: 600; line-height: normal;  }
+
+.latestblogs-boing--text__body-2 {  font-family: Barlow; font-weight: 400; line-height: normal;  }
+
+.latestblogs-boing--text__body-2 {  font-size: 1rem;  }
+
+.latestblogs-boing--text__body-5 {  font-family: Barlow; font-size: 0.75rem; font-weight: 500; line-height: normal;  }
+
+@keyframes latestblogs-hourglass-spin {  
+  100% { transform: rotate(1turn); }
+ }
+
+@keyframes latestblogs-slideUp {  
+  100% { transform: translateY(0px); }
+ }
+
+@font-face {
+    font-family: 'swiper-icons';
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: undefined;
+}
+
 @font-face {
     font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Bricolage';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Nunito';
     font-style: normal;
     font-weight: 300;
     font-display: swap;
@@ -35,7 +230,39 @@
 }
 
 @font-face {
+    font-family: 'Bricolage';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
     font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Bricolage';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Nunito';
     font-style: normal;
     font-weight: 500;
     font-display: swap;
@@ -51,6 +278,22 @@
 }
 
 @font-face {
+    font-family: 'Bricolage';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: undefined;
+}
+
+@font-face {
     font-family: 'Barlow';
     font-style: normal;
     font-weight: 700;
@@ -58,71 +301,23 @@
     src: undefined;
 }
 
-.banner-object-fit-cover {  -o-object-fit:cover !important;object-fit:cover !important  }
+@font-face {
+    font-family: 'Bricolage';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: undefined;
+}
 
-.banner-d-flex {  display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important  }
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: undefined;
+}
 
-.banner-d-none {  display:none !important  }
-
-.banner-position-relative {  position:relative !important  }
-
-.banner-position-absolute {  position:absolute !important  }
-
-.banner-top-0 {  top:0 !important  }
-
-.banner-start-0 {  left:0 !important  }
-
-.banner-start-50 {  left:50% !important  }
-
-.banner-translate-middle-x {  -webkit-transform:translateX(-50%) !important;transform:translateX(-50%) !important  }
-
-.banner-w-100 {  width:100% !important  }
-
-.banner-h-100 {  height:100% !important  }
-
-.banner-justify-content-center {  -webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important  }
-
-.banner-align-items-center {  -webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important  }
-
-.banner-bg-transparent {  --bs-bg-opacity:1;background-color:transparent !important  }
-
-.banner-z-2 {  z-index:2 !important  }
-
-.banner-section__wrapper {  padding-inline:.046875rem  }
-
-.banner-object-fit-cover {   object-fit: cover !important;   }
-
-.banner-d-flex {   display: flex !important;   }
-
-.banner-d-none {   display: none !important;   }
-
-.banner-position-relative {   position: relative !important;   }
-
-.banner-position-absolute {   position: absolute !important;   }
-
-.banner-top-0 {   top: 0px !important;   }
-
-.banner-start-0 {   left: 0px !important;   }
-
-.banner-start-50 {   left: 50% !important;   }
-
-.banner-translate-middle-x {   transform: translateX(-50%) !important;   }
-
-.banner-w-100 {   width: 100% !important;   }
-
-.banner-h-100 {   height: 100% !important;   }
-
-.banner-justify-content-center {   -webkit-box-pack: center !important; justify-content: center !important;   }
-
-.banner-align-items-center {   -webkit-box-align: center !important; align-items: center !important;   }
-
-.banner-bg-transparent {   --bs-bg-opacity: 1; background-color: transparent !important;   }
-
-.banner-z-2 {   z-index: 2 !important;   }
-
-.banner-section__wrapper {   padding-inline: 0.046875rem;   }
-
-/* .banner-Computed .banner-styles: .banner-section.banner-position-relative .banner-mb-15 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-section.latestblogs-position-relative .latestblogs-mb-15 */ @media (min-width: 1200px) { 
   section.position-relative mb-15 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -265,9 +460,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-d-flex .banner-w-25 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-d-flex .latestblogs-w-25 */ @media (min-width: 1200px) { 
   div.d-flex w-25 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -410,9 +605,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-d-flex .banner-justify-content-center .banner-w-25 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-d-flex .latestblogs-justify-content-center .latestblogs-w-25 */ @media (min-width: 1200px) { 
   div.d-flex  justify-content-center w-25 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -556,9 +751,154 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-d-flex .banner-w-25 .banner-justify-content-end */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-analytics_cta_click */ @media (min-width: 1200px) { 
+  a.analytics_cta_click {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 50px;
+    border-block-end-color: rgb(0, 0, 0);
+    border-block-start-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(0, 0, 0);
+    border-inline-start-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(0, 0, 0);
+    clip-rule: nonzero;
+    color: rgb(0, 0, 0);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 50px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 63.7812px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(0, 0, 0);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 31.8906px 25px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(0, 0, 0);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 31.8906px 25px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 63.7812px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-d-flex .latestblogs-w-25 .latestblogs-justify-content-end */ @media (min-width: 1200px) { 
   div.d-flex w-25 justify-content-end {
     animation-composition: replace;
     animation-delay: 0s;
@@ -702,9 +1042,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-relative */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-position-relative */ @media (min-width: 1200px) { 
   div.position-relative {
     animation-composition: replace;
     animation-delay: 0s;
@@ -847,9 +1187,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-relative .banner-boing .banner-section__wrapper */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-position-relative .latestblogs-boing .latestblogs-banner-section__wrapper */ @media (min-width: 1200px) { 
   div.position-relative boing banner-section__wrapper {
     animation-composition: replace;
     animation-delay: 0s;
@@ -995,9 +1335,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-video.banner-w-100 .banner-object-fit-cover .banner-media .banner-video */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-video.latestblogs-w-100 .latestblogs-object-fit-cover .latestblogs-banner-media .latestblogs-banner-video */ @media (min-width: 1200px) { 
   video.w-100 object-fit-cover banner-media banner-video {
     animation-composition: replace;
     animation-delay: 0s;
@@ -1147,603 +1487,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-w-100 .banner-h-100 .banner-start-0 .banner-top-0 .banner-d-flex .banner-justify-content-center .banner-align-items-center .banner-cursor-pointer */ @media (min-width: 1200px) {  
-  div.position-absolute w-100 h-100 start-0 top-0 d-flex justify-content-center align-items-center cursor-pointer {
-    align-items: center;
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 677.328px;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: flex;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 677.328px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 508px;
-    interpolate-size: numeric-only;
-    justify-content: center;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 254px 338.656px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 254px 338.664px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 508px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: center;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-z-2 .banner-d-flex .banner-justify-content-center .banner-align-items-center .banner-cursor-pointer .banner-mute-icon */ @media (min-width: 1200px) {  
-  div.position-absolute z-2 d-flex justify-content-center align-items-center cursor-pointer mute-icon {
-    align-items: center;
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 24px;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    bottom: 13px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: flex;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 24px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 24px;
-    inset-block-end: 13px;
-    inset-block-start: 640.328px;
-    inset-inline-end: 11px;
-    inset-inline-start: 473px;
-    interpolate-size: numeric-only;
-    justify-content: center;
-    left: 473px;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 12px 12px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    right: 11px;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    top: 640.328px;
-    transform-origin: 12px 12px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 24px;
-    writing-mode: horizontal-tb;
-    z-index: 2;
-    zoom: 1;
-    -webkit-box-align: center;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-start-50 .banner-translate-middle-x .banner-w-100 .banner-boing__banner--cta */ @media (min-width: 1200px) {  
-  div.position-absolute start-50 translate-middle-x w-100 boing__banner--cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    bottom: 30px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 508px;
-    inset-block-end: 30px;
-    inset-block-start: 647.328px;
-    inset-inline-end: -254px;
-    inset-inline-start: 254px;
-    interpolate-size: numeric-only;
-    left: 254px;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 254px 0px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    right: -254px;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    top: 647.328px;
-    transform: matrix(1, 0, 0, 1, -254, 0);
-    transform-origin: 254px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 508px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-cta */ @media (min-width: 1200px) {  
-  div.banner-cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 508px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 254px 0px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 254px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 508px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-position-relative .banner-boing .banner-section__wrapper */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-position-relative .latestblogs-boing .latestblogs-banner-section__wrapper */ @media (min-width: 1200px) { 
   div.position-relative boing banner-section__wrapper {
     animation-composition: replace;
     animation-delay: 0s;
@@ -1889,9 +1635,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-img.banner-w-100 .banner-h-100 .banner-object-fit-cover .banner-media .banner-image */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-img.latestblogs-w-100 .latestblogs-h-100 .latestblogs-object-fit-cover .latestblogs-banner-media .latestblogs-banner-image */ @media (min-width: 1200px) { 
   img.w-100 h-100 object-fit-cover banner-media banner-image {
     animation-composition: replace;
     animation-delay: 0s;
@@ -2041,163 +1787,10 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-start-50 .banner-translate-middle-x .banner-w-100 .banner-boing__banner--cta */ @media (min-width: 1200px) {  
-  div.position-absolute start-50 translate-middle-x w-100 boing__banner--cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    block-size: 51px;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    bottom: 30px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    height: 51px;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 508px;
-    inset-block-end: 30px;
-    inset-block-start: 596.328px;
-    inset-inline-end: -254px;
-    inset-inline-start: 254px;
-    interpolate-size: numeric-only;
-    left: 254px;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 254px 25.5px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    right: -254px;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    top: 596.328px;
-    transform: matrix(1, 0, 0, 1, -254, 0);
-    transform-origin: 254px 25.5px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 508px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-cta */ @media (min-width: 1200px) {  
-  div.banner-cta {
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-text-center */ @media (min-width: 1200px) { 
+  div.text-center {
     animation-composition: replace;
     animation-delay: 0s;
     animation-duration: 0s;
@@ -2295,7 +1888,7 @@
     stroke-opacity: 1;
     stroke-width: 1px;
     tab-size: 8;
-    text-align: start;
+    text-align: center;
     text-anchor: start;
     text-decoration: none solid rgb(34, 34, 34);
     text-decoration-color: rgb(34, 34, 34);
@@ -2338,9 +1931,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-relative .banner-boing .banner-section__wrapper */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-position-relative .latestblogs-boing .latestblogs-banner-section__wrapper */ @media (min-width: 1200px) { 
   div.position-relative boing banner-section__wrapper {
     animation-composition: replace;
     animation-delay: 0s;
@@ -2485,304 +2078,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-start-50 .banner-translate-middle-x .banner-w-100 .banner-boing__banner--cta */ @media (min-width: 1200px) {  
-  div.position-absolute start-50 translate-middle-x w-100 boing__banner--cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    bottom: 30px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 540px;
-    inset-block-end: 30px;
-    inset-block-start: -30px;
-    inset-inline-end: -270px;
-    inset-inline-start: 270px;
-    interpolate-size: numeric-only;
-    left: 270px;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 270px 0px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    right: -270px;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    top: -30px;
-    transform: matrix(1, 0, 0, 1, -270, 0);
-    transform-origin: 270px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 540px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-cta */ @media (min-width: 1200px) {  
-  div.banner-cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 540px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 270px 0px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 270px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 540px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-position-relative .banner-boing .banner-section__wrapper */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-position-relative .latestblogs-boing .latestblogs-banner-section__wrapper */ @media (min-width: 1200px) { 
   div.position-relative boing banner-section__wrapper {
     animation-composition: replace;
     animation-delay: 0s;
@@ -2927,304 +2225,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-div.banner-position-absolute .banner-start-50 .banner-translate-middle-x .banner-w-100 .banner-boing__banner--cta */ @media (min-width: 1200px) {  
-  div.position-absolute start-50 translate-middle-x w-100 boing__banner--cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    bottom: 30px;
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 540px;
-    inset-block-end: 30px;
-    inset-block-start: -30px;
-    inset-inline-end: -270px;
-    inset-inline-start: 270px;
-    interpolate-size: numeric-only;
-    left: 270px;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 270px 0px;
-    position: absolute;
-    position-visibility: always;
-    print-color-adjust: economy;
-    right: -270px;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    top: -30px;
-    transform: matrix(1, 0, 0, 1, -270, 0);
-    transform-origin: 270px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 540px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-div.banner-cta */ @media (min-width: 1200px) {  
-  div.banner-cta {
-    animation-composition: replace;
-    animation-delay: 0s;
-    animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-play-state: running;
-    animation-timing-function: ease;
-    backface-visibility: visible;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
-    border-block-end-color: rgb(34, 34, 34);
-    border-block-start-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-collapse: separate;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-width: 1;
-    border-inline-end-color: rgb(34, 34, 34);
-    border-inline-start-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    box-decoration-break: slice;
-    box-sizing: border-box;
-    caption-side: top;
-    caret-color: rgb(34, 34, 34);
-    clip-rule: nonzero;
-    color: rgb(34, 34, 34);
-    color-interpolation: srgb;
-    color-interpolation-filters: linearrgb;
-    column-rule-color: rgb(34, 34, 34);
-    direction: ltr;
-    display: block;
-    dynamic-range-limit: no-limit;
-    empty-cells: show;
-    field-sizing: fixed;
-    fill: rgb(0, 0, 0);
-    fill-opacity: 1;
-    fill-rule: nonzero;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-wrap: nowrap;
-    flood-color: rgb(0, 0, 0);
-    flood-opacity: 1;
-    font-family: Barlow;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-weight: 400;
-    grid-auto-flow: row;
-    hyphens: manual;
-    image-orientation: from-image;
-    inline-size: 540px;
-    interpolate-size: numeric-only;
-    lighting-color: rgb(255, 255, 255);
-    list-style-position: outside;
-    list-style-type: disc;
-    mask-clip: border-box;
-    mask-composite: add;
-    mask-mode: match-source;
-    mask-origin: border-box;
-    mask-position: 0% 0%;
-    mask-repeat: repeat;
-    mask-type: luminance;
-    math-depth: 0;
-    object-fit: fill;
-    object-position: 50% 50%;
-    offset-rotate: auto 0deg;
-    opacity: 1;
-    order: 0;
-    orphans: 2;
-    outline-color: rgb(34, 34, 34);
-    overflow-block: visible;
-    overflow-inline: visible;
-    overflow-x: visible;
-    overflow-y: visible;
-    perspective-origin: 270px 0px;
-    position: static;
-    position-visibility: always;
-    print-color-adjust: economy;
-    ruby-align: space-around;
-    ruby-position: over;
-    scroll-timeline-axis: block;
-    shape-image-threshold: 0;
-    stop-color: rgb(0, 0, 0);
-    stop-opacity: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-opacity: 1;
-    stroke-width: 1px;
-    tab-size: 8;
-    text-align: start;
-    text-anchor: start;
-    text-decoration: none solid rgb(34, 34, 34);
-    text-decoration-color: rgb(34, 34, 34);
-    text-decoration-style: solid;
-    text-emphasis-color: rgb(34, 34, 34);
-    text-emphasis-position: over;
-    text-overflow: clip;
-    text-size-adjust: 100%;
-    text-wrap-mode: wrap;
-    transform-origin: 270px 0px;
-    transform-style: flat;
-    transition-delay: 0s;
-    transition-duration: 0s;
-    transition-property: all;
-    transition-timing-function: ease;
-    unicode-bidi: isolate;
-    vertical-align: baseline;
-    view-timeline-axis: block;
-    visibility: visible;
-    white-space-collapse: collapse;
-    widows: 2;
-    width: 540px;
-    writing-mode: horizontal-tb;
-    zoom: 1;
-    -webkit-box-align: stretch;
-    -webkit-box-decoration-break: slice;
-    -webkit-box-flex: 0;
-    -webkit-box-ordinal-group: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: start;
-    -webkit-locale: "hi-IN";
-    -webkit-mask-box-image-outset: 0;
-    -webkit-mask-box-image-repeat: stretch;
-    -webkit-mask-box-image-slice: 0 fill;
-    -webkit-rtl-ordering: logical;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-fill-color: rgb(34, 34, 34);
-    -webkit-text-orientation: vertical-right;
-    -webkit-text-stroke-color: rgb(34, 34, 34);
-    -webkit-user-modify: read-only;
-    -webkit-writing-mode: horizontal-tb;
-  }
-  }
-
-/* .banner-Computed .banner-styles: .banner-a.banner-d-flex .banner-flex-column .banner-analytics_cta_click .banner-text-decoration-none */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-d-flex .latestblogs-flex-column .latestblogs-analytics_cta_click .latestblogs-text-decoration-none */ @media (min-width: 1200px) { 
   a.d-flex flex-column analytics_cta_click text-decoration-none {
     animation-composition: replace;
     animation-delay: 0s;
@@ -3367,9 +2370,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-img.banner-w-100 .banner-h-100 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-img.latestblogs-w-100 .latestblogs-h-100 */ @media (min-width: 1200px) { 
   img.w-100 h-100 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -3513,9 +2516,155 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-a.banner-d-flex .banner-flex-column .banner-analytics_cta_click .banner-text-decoration-none */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-text-center */ @media (min-width: 1200px) { 
+  div.text-center {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 68px;
+    border-block-end-color: rgb(0, 0, 0);
+    border-block-start-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(0, 0, 0);
+    border-inline-start-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(0, 0, 0);
+    clip-rule: nonzero;
+    color: rgb(0, 0, 0);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 68px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 508px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(0, 0, 0);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 254px 34px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: center;
+    text-anchor: start;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(0, 0, 0);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 254px 34px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 508px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-d-flex .latestblogs-flex-column .latestblogs-analytics_cta_click .latestblogs-text-decoration-none */ @media (min-width: 1200px) { 
   a.d-flex flex-column analytics_cta_click text-decoration-none {
     animation-composition: replace;
     animation-delay: 0s;
@@ -3658,9 +2807,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-img.banner-w-100 .banner-h-100 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-img.latestblogs-w-100 .latestblogs-h-100 */ @media (min-width: 1200px) { 
   img.w-100 h-100 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -3804,9 +2953,155 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-a.banner-d-flex .banner-flex-column .banner-analytics_cta_click .banner-text-decoration-none */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-text-center */ @media (min-width: 1200px) { 
+  div.text-center {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 68px;
+    border-block-end-color: rgb(0, 0, 0);
+    border-block-start-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(0, 0, 0);
+    border-inline-start-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(0, 0, 0);
+    clip-rule: nonzero;
+    color: rgb(0, 0, 0);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 68px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 508px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(0, 0, 0);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 254px 34px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: center;
+    text-anchor: start;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(0, 0, 0);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 254px 34px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 508px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-d-flex .latestblogs-flex-column .latestblogs-analytics_cta_click .latestblogs-text-decoration-none */ @media (min-width: 1200px) { 
   a.d-flex flex-column analytics_cta_click text-decoration-none {
     animation-composition: replace;
     animation-delay: 0s;
@@ -3949,9 +3244,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-img.banner-w-100 .banner-h-100 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-img.latestblogs-w-100 .latestblogs-h-100 */ @media (min-width: 1200px) { 
   img.w-100 h-100 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -4095,9 +3390,155 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-a.banner-d-flex .banner-flex-column .banner-analytics_cta_click .banner-text-decoration-none */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-text-center */ @media (min-width: 1200px) { 
+  div.text-center {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 68px;
+    border-block-end-color: rgb(0, 0, 0);
+    border-block-start-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(0, 0, 0);
+    border-inline-start-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(0, 0, 0);
+    clip-rule: nonzero;
+    color: rgb(0, 0, 0);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 68px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 508px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(0, 0, 0);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 254px 34px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: center;
+    text-anchor: start;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(0, 0, 0);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 254px 34px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 508px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-d-flex .latestblogs-flex-column .latestblogs-analytics_cta_click .latestblogs-text-decoration-none */ @media (min-width: 1200px) { 
   a.d-flex flex-column analytics_cta_click text-decoration-none {
     animation-composition: replace;
     animation-delay: 0s;
@@ -4240,9 +3681,9 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
-  }
+ }
 
-/* .banner-Computed .banner-styles: .banner-img.banner-w-100 .banner-h-100 */ @media (min-width: 1200px) {  
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-img.latestblogs-w-100 .latestblogs-h-100 */ @media (min-width: 1200px) { 
   img.w-100 h-100 {
     animation-composition: replace;
     animation-delay: 0s;
@@ -4386,4 +3827,2678 @@
     -webkit-user-modify: read-only;
     -webkit-writing-mode: horizontal-tb;
   }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-div.latestblogs-text-center */ @media (min-width: 1200px) { 
+  div.text-center {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 68px;
+    border-block-end-color: rgb(0, 0, 0);
+    border-block-start-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(0, 0, 0);
+    border-inline-start-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(0, 0, 0);
+    clip-rule: nonzero;
+    color: rgb(0, 0, 0);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 68px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 508px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(0, 0, 0);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 254px 34px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: center;
+    text-anchor: start;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(0, 0, 0);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 254px 34px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 508px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
   }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-a.latestblogs-boing--text__title-3 .latestblogs-article_listing--btn .latestblogs-analytics_cta_click */ @media (min-width: 1200px) { 
+  a.boing--text__title-3 article_listing--btn analytics_cta_click {
+    align-items: center;
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(246, 187, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 48px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-collapse: separate;
+    border-end-end-radius: 22px;
+    border-end-start-radius: 22px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-start-end-radius: 22px;
+    border-start-start-radius: 22px;
+    border-top-color: rgb(3, 3, 3);
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-gap: 10px;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flex;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 600;
+    grid-auto-flow: row;
+    height: 48px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 134px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-inline-end: 187px;
+    margin-inline-start: 187px;
+    margin-left: 187px;
+    margin-right: 187px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding-block-end: 12px;
+    padding-block-start: 12px;
+    padding-bottom: 12px;
+    padding-inline-end: 22px;
+    padding-inline-start: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 12px;
+    perspective-origin: 67px 24px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    row-gap: 10px;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: center;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 67px 24px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 134px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: center;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 19px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 19px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 9.5px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 9.5px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-5 .latestblogs-p-0 .latestblogs-m-0 .latestblogs-mb-3 .latestblogs-published_date */ @media (min-width: 1200px) { 
+  p.boing--text__body-5 p-0 m-0 mb-3 published_date {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 14px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 12px;
+    font-stretch: 100%;
+    font-weight: 500;
+    grid-auto-flow: row;
+    height: 14px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-end: 8px;
+    margin-bottom: 8px;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: visible;
+    overflow-inline: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    perspective-origin: 96px 7px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 7px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: start;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }
+
+/* .latestblogs-Computed .latestblogs-styles: .latestblogs-p.latestblogs-boing--text__body-2 .latestblogs-boing--text__body */ @media (min-width: 1200px) { 
+  p.boing--text__body-2 boing--text__body {
+    animation-composition: replace;
+    animation-delay: 0s;
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    block-size: 38px;
+    border-block-end-color: rgb(3, 3, 3);
+    border-block-start-color: rgb(3, 3, 3);
+    border-bottom-color: rgb(3, 3, 3);
+    border-collapse: separate;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-inline-end-color: rgb(3, 3, 3);
+    border-inline-start-color: rgb(3, 3, 3);
+    border-left-color: rgb(3, 3, 3);
+    border-right-color: rgb(3, 3, 3);
+    border-top-color: rgb(3, 3, 3);
+    box-decoration-break: slice;
+    box-sizing: border-box;
+    caption-side: top;
+    caret-color: rgb(3, 3, 3);
+    clip-rule: nonzero;
+    color: rgb(3, 3, 3);
+    color-interpolation: srgb;
+    color-interpolation-filters: linearrgb;
+    column-rule-color: rgb(3, 3, 3);
+    cursor: pointer;
+    direction: ltr;
+    display: flow-root;
+    dynamic-range-limit: no-limit;
+    empty-cells: show;
+    field-sizing: fixed;
+    fill: rgb(0, 0, 0);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flood-color: rgb(0, 0, 0);
+    flood-opacity: 1;
+    font-family: Barlow;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    grid-auto-flow: row;
+    height: 38px;
+    hyphens: manual;
+    image-orientation: from-image;
+    inline-size: 192px;
+    interpolate-size: numeric-only;
+    lighting-color: rgb(255, 255, 255);
+    list-style-position: outside;
+    list-style-type: disc;
+    mask-clip: border-box;
+    mask-composite: add;
+    mask-mode: match-source;
+    mask-origin: border-box;
+    mask-position: 0% 0%;
+    mask-repeat: repeat;
+    mask-type: luminance;
+    math-depth: 0;
+    object-fit: fill;
+    object-position: 50% 50%;
+    offset-rotate: auto 0deg;
+    opacity: 1;
+    order: 0;
+    orphans: 2;
+    outline-color: rgb(3, 3, 3);
+    overflow-block: hidden;
+    overflow-inline: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective-origin: 96px 19px;
+    position: static;
+    position-visibility: always;
+    print-color-adjust: economy;
+    ruby-align: space-around;
+    ruby-position: over;
+    scroll-timeline-axis: block;
+    shape-image-threshold: 0;
+    stop-color: rgb(0, 0, 0);
+    stop-opacity: 1;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 1px;
+    tab-size: 8;
+    text-align: start;
+    text-anchor: start;
+    text-decoration: none solid rgb(3, 3, 3);
+    text-decoration-color: rgb(3, 3, 3);
+    text-decoration-style: solid;
+    text-emphasis-color: rgb(3, 3, 3);
+    text-emphasis-position: over;
+    text-overflow: clip;
+    text-size-adjust: 100%;
+    text-wrap-mode: wrap;
+    transform-origin: 96px 19px;
+    transform-style: flat;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
+    unicode-bidi: isolate;
+    vertical-align: baseline;
+    view-timeline-axis: block;
+    visibility: visible;
+    white-space-collapse: collapse;
+    widows: 2;
+    width: 192px;
+    writing-mode: horizontal-tb;
+    zoom: 1;
+    -webkit-box-align: stretch;
+    -webkit-box-decoration-break: slice;
+    -webkit-box-flex: 0;
+    -webkit-box-ordinal-group: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: start;
+    -webkit-line-clamp: 2;
+    -webkit-locale: "hi-IN";
+    -webkit-mask-box-image-outset: 0;
+    -webkit-mask-box-image-repeat: stretch;
+    -webkit-mask-box-image-slice: 0 fill;
+    -webkit-rtl-ordering: logical;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: rgb(3, 3, 3);
+    -webkit-text-orientation: vertical-right;
+    -webkit-text-stroke-color: rgb(3, 3, 3);
+    -webkit-user-modify: read-only;
+    -webkit-writing-mode: horizontal-tb;
+  }
+ }

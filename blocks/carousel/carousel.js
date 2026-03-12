@@ -6,52 +6,115 @@ export default function decorate(block) {
   carouselWrapper.classList.add('carousel-wrapper');
 
   const slidesContainer = document.createElement('div');
-  slidesContainer.classList.add('slides-container');
+  slidesContainer.classList.add('carousel-slides-container');
 
-  const authoredSlides = block.querySelectorAll('[data-aue-model="carouselItem"]');
+  const items = block.querySelectorAll('[data-aue-model="carouselItem"]');
 
-  authoredSlides.forEach((slide) => {
-    const slideWrapper = document.createElement('div');
-    slideWrapper.classList.add('slide');
+  items.forEach((itemNode) => {
+    const slide = document.createElement('div');
+    slide.classList.add('carousel-slide');
 
-    const videoElement = slide.querySelector('[data-aue-prop="video"]');
-    const imageElement = slide.querySelector('[data-aue-prop="image"]');
-    const ctaLink = slide.querySelector('[data-aue-prop="ctaLink"] .carousel-cmp-button');
+    const videoSrc = itemNode.querySelector('[data-aue-prop="videoSrc"]');
+    const imageSrc = itemNode.querySelector('[data-aue-prop="imageSrc"]');
+    const ctaLink = itemNode.querySelector('[data-aue-prop="ctaLink"]');
+    const ctaText = itemNode.querySelector('[data-aue-prop="ctaText"]');
 
-    if (videoElement) {
-      const videoWrapper = document.createElement('div');
-      videoWrapper.classList.add('video-wrapper');
-      videoWrapper.append(videoElement);
-      slideWrapper.append(videoWrapper);
-      moveInstrumentation(videoElement, videoWrapper);
-    } else if (imageElement) {
-      const picture = createOptimizedPicture(imageElement.src, imageElement.alt);
-      slideWrapper.append(picture);
-      moveInstrumentation(imageElement, picture);
-    }
-
-    if (ctaLink) {
-      const ctaWrapper = document.createElement('div');
-      ctaWrapper.classList.add('cta-wrapper');
-      const link = document.createElement('a');
-      link.href = ctaLink.href;
-      link.textContent = ctaLink.querySelector('.carousel-cmp-button__text').textContent.trim();
-      if (ctaLink.target) {
-        link.target = ctaLink.target;
+    if (videoSrc && videoSrc.querySelector('source')) {
+      const videoElement = document.createElement('video');
+      videoElement.classList.add('carousel-video');
+      videoElement.setAttribute('autoplay', '');
+      videoElement.setAttribute('loop', '');
+      videoElement.setAttribute('muted', '');
+      videoElement.setAttribute('playsinline', '');
+      videoElement.setAttribute('preload', 'metadata');
+      const sourceElement = videoSrc.querySelector('source');
+      if (sourceElement) {
+        videoElement.append(sourceElement);
+        moveInstrumentation(sourceElement, videoElement);
       }
-      ctaWrapper.append(link);
-      slideWrapper.append(ctaWrapper);
-      moveInstrumentation(ctaLink, ctaWrapper);
+      slide.append(videoElement);
+      moveInstrumentation(videoSrc, slide);
+    } else if (imageSrc && imageSrc.querySelector('img')) {
+      const imgElement = imageSrc.querySelector('img');
+      const picture = createOptimizedPicture(imgElement.src, imgElement.alt);
+      slide.append(picture);
+      moveInstrumentation(imgElement, picture);
+      moveInstrumentation(imageSrc, slide);
     }
 
-    slidesContainer.append(slideWrapper);
-    moveInstrumentation(slide, slideWrapper);
+    if (ctaLink || ctaText) {
+      const ctaWrapper = document.createElement('div');
+      ctaWrapper.classList.add('carousel-cta-wrapper');
+      const link = document.createElement('a');
+      if (ctaLink) {
+        link.href = ctaLink.href || ctaLink.textContent.trim();
+        moveInstrumentation(ctaLink, link);
+      }
+      if (ctaText) {
+        link.textContent = ctaText.textContent.trim();
+        moveInstrumentation(ctaText, link);
+      } else if (ctaLink) {
+        // Fallback for button text if only link is provided
+        link.textContent = new URL(link.href).pathname.split('/').pop().replace(/\.html$/, '').replace(/-/g, ' ');
+      }
+      if (link.href && link.textContent) {
+        ctaWrapper.append(link);
+        slide.append(ctaWrapper);
+      }
+    }
+
+    slidesContainer.append(slide);
+    moveInstrumentation(itemNode, slide);
   });
 
   carouselWrapper.append(slidesContainer);
+
+  // Add navigation buttons
+  const navButtons = document.createElement('div');
+  navButtons.classList.add('carousel-nav-buttons');
+
+  const prevButton = document.createElement('button');
+  prevButton.classList.add('carousel-prev');
+  prevButton.textContent = 'Previous';
+  navButtons.append(prevButton);
+
+  const nextButton = document.createElement('button');
+  nextButton.classList.add('carousel-next');
+  nextButton.textContent = 'Next';
+  navButtons.append(nextButton);
+
+  carouselWrapper.append(navButtons);
 
   block.textContent = '';
   block.append(carouselWrapper);
   block.className = 'carousel block';
   block.dataset.blockStatus = 'loaded';
+
+  // Basic carousel logic (can be expanded with a proper library like Swiper)
+  let currentIndex = 0;
+  const slides = slidesContainer.children;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slidesContainer.style.transform = `translateX(${-index * 100}%)`;
+    Array.from(slides).forEach((slide, i) => {
+      if (i === index) {
+        slide.setAttribute('aria-hidden', 'false');
+      } else {
+        slide.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  });
+
+  showSlide(currentIndex);
 }

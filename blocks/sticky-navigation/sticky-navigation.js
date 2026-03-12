@@ -2,56 +2,80 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const stickyBottomNav = document.createElement('section');
-  stickyBottomNav.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav stickynavigation-stickyNavigation-position-fixed stickynavigation-stickyNavigation-bottom-0 stickynavigation-stickyNavigation-p-3 stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-boing-container stickynavigation-stickyNavigation-bg-boing-primary';
+  const ul = document.createElement('ul');
+  ul.classList.add(
+    'stickynavigation-stickyNavigation-sticky-bottom-nav__list',
+    'stickynavigation-stickyNavigation-d-flex',
+    'stickynavigation-stickyNavigation-justify-content-around',
+    'stickynavigation-stickyNavigation-align-items-center',
+    'stickynavigation-stickyNavigation-flex-grow-1',
+  );
 
-  const stickyBottomNavList = document.createElement('ul');
-  stickyBottomNavList.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__list stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-justify-content-around stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-flex-grow-1';
+  const navItems = block.querySelectorAll('[data-aue-model="navigationItem"]');
+  navItems.forEach((itemNode) => {
+    const li = document.createElement('li');
+    li.classList.add(
+      'stickynavigation-stickyNavigation-sticky-bottom-nav__item',
+      'stickynavigation-stickyNavigation-position-relative',
+    );
 
-  const navigationItems = block.querySelectorAll('[data-aue-model="navigationItem"]');
+    const linkEl = itemNode.querySelector('a');
+    const link = document.createElement('a');
+    link.classList.add(
+      'stickynavigation-stickyNavigation-sticky-bottom-nav__link',
+      'stickynavigation-stickyNavigation-d-flex',
+      'stickynavigation-stickyNavigation-flex-column',
+      'stickynavigation-stickyNavigation-align-items-center',
+      'stickynavigation-stickyNavigation-gap-1',
+      'stickynavigation-stickyNavigation-analytics_cta_click',
+    );
+    if (linkEl) {
+      link.href = linkEl.href;
+      if (linkEl.dataset.consent) {
+        link.dataset.consent = linkEl.dataset.consent;
+      }
+      if (linkEl.dataset.link) {
+        link.dataset.link = linkEl.dataset.link;
+      }
+      moveInstrumentation(linkEl, link);
+    }
 
-  navigationItems.forEach((itemNode) => {
-    const listItem = document.createElement('li');
-    listItem.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__item stickynavigation-stickyNavigation-position-relative';
-
-    const linkElement = itemNode.querySelector('[data-aue-prop="link"]');
-    const linkHref = linkElement ? linkElement.href : '#';
-    const linkDataConsent = linkElement ? linkElement.dataset.consent : 'false';
-    const linkDataLink = linkElement ? linkElement.dataset.link : '';
-
-    const anchor = document.createElement('a');
-    anchor.href = linkHref;
-    anchor.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
-    anchor.dataset.consent = linkDataConsent;
-    anchor.dataset.link = linkDataLink;
-
-    const iconImage = itemNode.querySelector('[data-aue-prop="icon"]');
-    if (iconImage) {
-      const picture = createOptimizedPicture(iconImage.src, iconImage.alt);
+    const imgEl = itemNode.querySelector('img[data-aue-prop="icon"]');
+    if (imgEl) {
+      const picture = createOptimizedPicture(imgEl.src, imgEl.alt, false, [{
+        width: 'auto',
+      }]);
       const img = picture.querySelector('img');
-      img.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
-      anchor.append(picture);
-      moveInstrumentation(iconImage, picture);
+      img.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__icon');
+      link.append(picture);
+      moveInstrumentation(imgEl, picture);
     }
 
-    const labelSpan = document.createElement('span');
-    labelSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
-    const labelContent = itemNode.querySelector('[data-aue-prop="label"]');
-    if (labelContent) {
-      labelSpan.textContent = labelContent.textContent;
-      anchor.append(labelSpan);
-      moveInstrumentation(labelContent, labelSpan);
+    const labelSpan = itemNode.querySelector('span[data-aue-prop="label"]');
+    if (labelSpan) {
+      const span = document.createElement('span');
+      span.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__label');
+      span.textContent = labelSpan.textContent;
+      link.append(span);
+      moveInstrumentation(labelSpan, span);
     }
 
-    listItem.append(anchor);
-    moveInstrumentation(itemNode, listItem);
-    stickyBottomNavList.append(listItem);
+    li.append(link);
+    moveInstrumentation(itemNode, li);
+    ul.append(li);
   });
 
-  stickyBottomNav.append(stickyBottomNavList);
-
   block.textContent = '';
-  block.append(stickyBottomNav);
-  block.className = `${block.dataset.blockName} block`;
+  block.classList.add(
+    'stickynavigation-stickyNavigation-sticky-bottom-nav',
+    'stickynavigation-stickyNavigation-position-fixed',
+    'stickynavigation-stickyNavigation-bottom-0',
+    'stickynavigation-stickyNavigation-p-3',
+    'stickynavigation-stickyNavigation-d-flex',
+    'stickynavigation-stickyNavigation-align-items-center',
+    'stickynavigation-stickyNavigation-boing-container',
+    'stickynavigation-stickyNavigation-bg-boing-primary',
+  );
+  block.append(ul);
   block.dataset.blockStatus = 'loaded';
 }
