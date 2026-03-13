@@ -81,7 +81,425 @@
     {
       "title": "Blocks",
       "id": "blocks",
-      "components": []
+      "components": [
+        {
+          "title": "Better-World",
+          "id": "betterWorld",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "betterWorld",
+                  "model": "betterWorld",
+                  "name": "Better-World"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Better-World-Item",
+          "id": "betterWorldItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "betterWorldItem",
+                  "name": "Better-World-Item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Cards",
+          "id": "cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "cards",
+                  "model": "cards",
+                  "name": "Cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card",
+          "id": "card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "card",
+                  "name": "Card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer-New",
+          "id": "footerNew",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "footerNew",
+                  "model": "footerNew",
+                  "name": "Footer-New"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer-Navigation-Group",
+          "id": "footerNavigationGroup",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "footerNavigationGroup",
+                  "name": "Footer-Navigation-Group"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer-Navigation-Item",
+          "id": "footerNavigationItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "footerNavigationItem",
+                  "name": "Footer-Navigation-Item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Footer-Social-Link",
+          "id": "footerSocialLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "footerSocialLink",
+                  "name": "Footer-Social-Link"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Header",
+          "id": "header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "header",
+                  "model": "header",
+                  "name": "Header"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "NavLink",
+          "id": "navLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "navLink",
+                  "name": "NavLink"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "PolicyLink",
+          "id": "policyLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "policyLink",
+                  "name": "PolicyLink"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "SocialLink",
+          "id": "socialLink",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "socialLink",
+                  "name": "SocialLink"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Multi-Title-Container",
+          "id": "multiTitleContainer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "multiTitleContainer",
+                  "model": "multiTitleContainer",
+                  "name": "Multi-Title-Container"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product-Tabs",
+          "id": "productTabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "productTabs",
+                  "model": "productTabs",
+                  "name": "Product-Tabs"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tab",
+          "id": "tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "tab",
+                  "name": "Tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Carousel-Item",
+          "id": "carouselItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "carouselItem",
+                  "name": "Carousel-Item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Recipe-Group",
+          "id": "recipeGroup",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "recipeGroup",
+                  "model": "recipeGroup",
+                  "name": "Recipe-Group"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tab",
+          "id": "tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "tab",
+                  "name": "Tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Recipe-Card",
+          "id": "recipeCard",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "recipeCard",
+                  "name": "Recipe-Card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Search",
+          "id": "search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "search",
+                  "model": "search",
+                  "name": "Search"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "SearchCategory",
+          "id": "searchCategory",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "searchCategory",
+                  "name": "SearchCategory"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Separator",
+          "id": "separator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "separator",
+                  "model": "separator",
+                  "name": "Separator"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Social-Media-Social",
+          "id": "socialMediaSocial",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "socialMediaSocial",
+                  "model": "socialMediaSocial",
+                  "name": "Social-Media-Social"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Social-Media-Card",
+          "id": "socialMediaCard",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "socialMediaCard",
+                  "name": "Social-Media-Card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Text",
+          "id": "text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "text",
+                  "model": "text",
+                  "name": "Text"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Yippee-Banner",
+          "id": "yippeeBanner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "filter": "yippeeBanner",
+                  "model": "yippeeBanner",
+                  "name": "Yippee-Banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Banner-Item",
+          "id": "bannerItem",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "model": "bannerItem",
+                  "name": "Banner-Item"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

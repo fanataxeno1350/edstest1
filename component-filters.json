@@ -15,7 +15,102 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "header",
+      "search",
+      "yippeeBanner",
+      "multiTitleContainer",
+      "productTabs",
+      "separator",
+      "recipeGroup",
+      "betterWorld",
+      "socialMediaSocial",
+      "footerNew"
+    ]
+  },
+  {
+    "id": "betterWorld",
+    "components": [
+      "betterWorldItem"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "footerNew",
+    "components": [
+      "footerNavigationGroup",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "footerNavigationGroup",
+    "components": [
+      "footerNavigationItem"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "navLink",
+      "policyLink",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "multi-title-container",
+    "components": [
+      "multiTitleContainer"
+    ]
+  },
+  {
+    "id": "productTabs",
+    "components": [
+      "tab"
+    ]
+  },
+  {
+    "id": "tab",
+    "components": [
+      "carouselItem"
+    ]
+  },
+  {
+    "id": "recipeGroup",
+    "components": [
+      "tab",
+      "recipeCard"
+    ]
+  },
+  {
+    "id": "search",
+    "components": [
+      "searchCategory"
+    ]
+  },
+  {
+    "id": "separator"
+  },
+  {
+    "id": "socialMediaSocial",
+    "components": [
+      "socialMediaCard"
+    ]
+  },
+  {
+    "id": "text",
+    "components": [
+      "text"
+    ]
+  },
+  {
+    "id": "yippeeBanner",
+    "components": [
+      "bannerItem"
     ]
   }
 ]
