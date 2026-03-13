@@ -55,9 +55,9 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "CTA Text",
-          "name": "ctaText",
+          "component": "text",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]
