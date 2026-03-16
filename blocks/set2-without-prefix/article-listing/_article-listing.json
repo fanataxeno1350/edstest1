@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Article-Card",
-      "id": "articleCard",
+      "title": "Article",
+      "id": "article",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "articleCard",
-              "name": "Article-Card"
+              "model": "article",
+              "name": "Article"
             }
           }
         }
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "id": "articleCard",
+      "id": "article",
       "fields": [
         {
           "component": "aem-content",
@@ -73,14 +73,14 @@
         },
         {
           "component": "richtext",
-          "label": "Date",
+          "label": "Published Date",
           "name": "date",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Card Title",
-          "name": "cardTitle",
+          "label": "Headline",
+          "name": "headline",
           "valueType": "string"
         }
       ]
@@ -90,7 +90,7 @@
     {
       "id": "articleListing",
       "components": [
-        "articleCard"
+        "article"
       ]
     }
   ]

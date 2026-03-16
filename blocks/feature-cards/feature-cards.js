@@ -5,74 +5,86 @@ export default function decorate(block) {
   const rootDiv = document.createElement('div');
   rootDiv.classList.add('feature-cards-wrapper');
 
-  // Extract and move the title
-  const titleContainer = block.querySelector('.cmp-text');
-  if (titleContainer) {
-    const titleWrapper = document.createElement('div');
-    titleWrapper.classList.add('feature-cards-title');
-    titleWrapper.append(titleContainer.querySelector('h1'));
-    moveInstrumentation(titleContainer.querySelector('h1'), titleWrapper);
-    rootDiv.append(titleWrapper);
-    moveInstrumentation(titleContainer, titleWrapper);
+  const headingContainer = document.createElement('div');
+  headingContainer.classList.add('feature-cards-heading-container');
+  const authoredHeading = block.querySelector('.cmp-text h1');
+  if (authoredHeading) {
+    const h1 = document.createElement('h1');
+    h1.innerHTML = authoredHeading.innerHTML;
+    headingContainer.append(h1);
+    moveInstrumentation(authoredHeading, h1);
+  } else {
+    const firstP = block.querySelector('p');
+    if (firstP) {
+      const h1 = document.createElement('h1');
+      h1.innerHTML = firstP.innerHTML;
+      headingContainer.append(h1);
+      moveInstrumentation(firstP, h1);
+    }
   }
+  rootDiv.append(headingContainer);
 
-  const cardsWrapper = document.createElement('div');
-  cardsWrapper.classList.add('feature-cards-grid');
+  const cardsContainer = document.createElement('div');
+  cardsContainer.classList.add('feature-cards-container');
 
-  const authoredCards = block.querySelectorAll('section.feature_card--Section.feature_card');
+  const authoredCards = block.querySelectorAll('[data-aue-model="featureCard"]');
 
   authoredCards.forEach((cardNode) => {
-    const cardLink = cardNode.querySelector('a');
-    if (cardLink) {
-      const cardAnchor = document.createElement('a');
-      cardAnchor.classList.add('feature-card-item');
-      cardAnchor.href = cardLink.href;
-      if (cardLink.target) {
-        cardAnchor.target = cardLink.target;
-      }
-      if (cardLink.title) {
-        cardAnchor.title = cardLink.title;
-      }
-      if (cardLink.dataset.ctaLabel) {
-        cardAnchor.dataset.ctaLabel = cardLink.dataset.ctaLabel;
-      }
+    const cardWrapper = document.createElement('div');
+    cardWrapper.classList.add('feature-card-item');
 
-      const imageContainer = cardNode.querySelector('.feature_card--image');
-      if (imageContainer) {
-        const img = imageContainer.querySelector('img');
-        if (img) {
-          const picture = createOptimizedPicture(img.src, img.alt);
-          cardAnchor.append(picture);
-          moveInstrumentation(img, picture);
-        }
-        moveInstrumentation(imageContainer, cardAnchor);
+    const linkElement = cardNode.querySelector('a');
+    const cardLink = document.createElement('a');
+    if (linkElement) {
+      cardLink.href = linkElement.href;
+      cardLink.title = linkElement.title;
+      if (linkElement.target) {
+        cardLink.target = linkElement.target;
       }
-
-      const textContentWrapper = document.createElement('div');
-      textContentWrapper.classList.add('feature-card-content');
-
-      const title = cardNode.querySelector('.feature_card--title');
-      if (title) {
-        textContentWrapper.append(title);
-        moveInstrumentation(title, textContentWrapper);
-      }
-
-      const description = cardNode.querySelector('.feature_card--desc');
-      if (description) {
-        textContentWrapper.append(description);
-        moveInstrumentation(description, textContentWrapper);
-      }
-
-      cardAnchor.append(textContentWrapper);
-      cardsWrapper.append(cardAnchor);
-      moveInstrumentation(cardNode, cardAnchor);
+      cardLink.classList.add('feature-card-link');
+      moveInstrumentation(linkElement, cardLink);
     }
+
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('feature-card-image');
+    const authoredImage = cardNode.querySelector('[data-aue-prop="image"]');
+    if (authoredImage) {
+      const picture = createOptimizedPicture(authoredImage.src, authoredImage.alt);
+      imageDiv.append(picture);
+      moveInstrumentation(authoredImage, picture);
+    }
+    cardLink.append(imageDiv);
+
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('feature-card-content');
+
+    const titleElement = cardNode.querySelector('[data-aue-prop="title"]');
+    if (titleElement) {
+      const h2 = document.createElement('h2');
+      h2.innerHTML = titleElement.innerHTML;
+      contentDiv.append(h2);
+      moveInstrumentation(titleElement, h2);
+    }
+
+    const descriptionElement = cardNode.querySelector('[data-aue-prop="description"]');
+    if (descriptionElement) {
+      const p = document.createElement('p');
+      p.innerHTML = descriptionElement.innerHTML;
+      contentDiv.append(p);
+      moveInstrumentation(descriptionElement, p);
+    }
+
+    cardLink.append(contentDiv);
+    cardWrapper.append(cardLink);
+    cardsContainer.append(cardWrapper);
+
+    moveInstrumentation(cardNode, cardWrapper);
   });
 
-  rootDiv.append(cardsWrapper);
+  rootDiv.append(cardsContainer);
 
   block.textContent = '';
   block.append(rootDiv);
-  block.className = 'feature-cards block';
+  block.className = `feature-cards block`;
   block.dataset.blockStatus = 'loaded';
 }

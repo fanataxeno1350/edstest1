@@ -12,13 +12,11 @@ export default function decorate(block) {
 
   const section = document.createElement('section');
   section.className = 'sticky-bottom-nav position-fixed bottom-0 p-3 d-flex align-items-center boing-container bg-boing-primary';
-  moveInstrumentation(block.querySelector('section'), section);
 
   const ul = document.createElement('ul');
   ul.className = 'sticky-bottom-nav__list d-flex justify-content-around align-items-center flex-grow-1';
-  section.append(ul);
 
-  const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
+  const navItems = block.querySelectorAll('[data-aue-model="stickyBottomNavItem"]');
   navItems.forEach((itemNode) => {
     const li = document.createElement('li');
     li.className = 'sticky-bottom-nav__item position-relative';
@@ -37,29 +35,26 @@ export default function decorate(block) {
     const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
     if (imgElement) {
       const picture = createOptimizedPicture(imgElement.src, imgElement.alt);
+      picture.querySelector('img').className = 'sticky-bottom-nav__icon';
       a.append(picture);
       moveInstrumentation(imgElement, picture);
     }
 
     const labelSpan = document.createElement('span');
     labelSpan.className = 'sticky-bottom-nav__label';
-    const labelText = itemNode.querySelector('[data-aue-prop="label"]');
-    if (labelText) {
-      labelSpan.textContent = labelText.textContent;
-      moveInstrumentation(labelText, labelSpan);
-    } else if (linkElement) {
-      // Fallback for label if data-aue-prop is missing
-      labelSpan.textContent = linkElement.textContent.trim();
+    const labelContent = itemNode.querySelector('[data-aue-prop="label"]') || itemNode.querySelector('span.sticky-bottom-nav__label');
+    if (labelContent) {
+      labelSpan.textContent = labelContent.textContent;
+      moveInstrumentation(labelContent, labelSpan);
     }
     a.append(labelSpan);
 
     li.append(a);
-    ul.append(li);
     moveInstrumentation(itemNode, li);
-    if (linkElement) {
-      moveInstrumentation(linkElement, a);
-    }
+    ul.append(li);
   });
+
+  section.append(ul);
 
   block.textContent = '';
   block.append(popUpDiv, transPopUpDiv, section);

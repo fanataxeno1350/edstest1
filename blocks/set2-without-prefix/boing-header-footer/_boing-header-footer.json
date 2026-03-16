@@ -74,8 +74,8 @@
         },
         {
           "component": "reference",
-          "label": "Header Image",
-          "name": "headerImage",
+          "label": "Header Logo",
+          "name": "headerLogo",
           "valueType": "string"
         },
         {
@@ -85,74 +85,74 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Header Logo",
-          "name": "headerLogo",
-          "valueType": "string"
-        },
-        {
           "component": "aem-content",
           "label": "Login Link",
           "name": "loginLink",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Login Text",
-          "name": "loginText",
-          "valueType": "string"
-        },
-        {
-          "component": "container",
-          "itemType": "sidebarMenuItem",
+          "component": "block",
+          "item": {
+            "$ref": "sidebarMenuItem"
+          },
           "label": "Sidebar Menu",
           "name": "sidebarMenu",
           "valueType": "array"
         },
         {
           "component": "reference",
-          "label": "Footer ITC Logo",
-          "name": "footerLogoITC",
+          "label": "Footer Primary Logo",
+          "name": "footerPrimaryLogo",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Footer FSSI Logo",
-          "name": "footerLogoFSSI",
+          "label": "Footer Secondary Logo",
+          "name": "footerSecondaryLogo",
           "valueType": "string"
         },
         {
-          "component": "container",
-          "itemType": "footerListItem",
-          "label": "Footer List 1",
-          "name": "footerList1",
+          "component": "block",
+          "item": {
+            "$ref": "footerListItem"
+          },
+          "label": "Footer List",
+          "name": "footerList",
           "valueType": "array"
         },
         {
-          "component": "container",
-          "itemType": "footerListItem",
+          "component": "block",
+          "item": {
+            "$ref": "footerListItem"
+          },
           "label": "Footer List 2",
           "name": "footerList2",
           "valueType": "array"
         },
         {
-          "component": "container",
-          "itemType": "footerListItem",
+          "component": "block",
+          "item": {
+            "$ref": "footerListItem"
+          },
           "label": "Footer List 3",
           "name": "footerList3",
           "valueType": "array"
         },
         {
-          "component": "container",
-          "itemType": "footerListItem",
+          "component": "block",
+          "item": {
+            "$ref": "footerListItem"
+          },
           "label": "Footer List 4",
           "name": "footerList4",
           "valueType": "array"
         },
         {
-          "component": "container",
-          "itemType": "socialLink",
-          "label": "Footer Social Links",
+          "component": "block",
+          "item": {
+            "$ref": "socialLink"
+          },
+          "label": "Social Links",
           "name": "socialLinks",
           "valueType": "array"
         },
@@ -163,9 +163,9 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Footer Copyright",
-          "name": "footerCopyright",
+          "component": "text",
+          "label": "Copyright",
+          "name": "copyright",
           "valueType": "string"
         }
       ]
@@ -174,21 +174,21 @@
       "id": "sidebarMenuItem",
       "fields": [
         {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
           "component": "aem-content",
           "label": "Menu Link",
           "name": "link",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Menu Icon",
-          "name": "icon",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Menu Text",
-          "name": "text",
+          "component": "text",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
@@ -198,14 +198,14 @@
       "fields": [
         {
           "component": "aem-content",
-          "label": "Footer List Link",
+          "label": "Footer Link",
           "name": "link",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Footer List Text",
-          "name": "text",
+          "component": "text",
+          "label": "Footer Link Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
@@ -230,7 +230,7 @@
   ],
   "filters": [
     {
-      "id": "boingHeaderFooter",
+      "id": "boing-header-footer",
       "components": [
         "sidebarMenuItem",
         "footerListItem",

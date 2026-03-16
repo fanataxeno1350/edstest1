@@ -45,7 +45,7 @@
   {
     "id": "articleListing",
     "components": [
-      "article"
+      "articleCard"
     ]
   },
   {
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "id": "boing-header-footer",
+    "id": "boingHeaderFooter",
     "components": [
       "sidebarMenuItem",
       "footerListItem",
@@ -63,9 +63,9 @@
     ]
   },
   {
-    "id": "carousel-banner",
+    "id": "carousel",
     "components": [
-      "banner"
+      "slide"
     ]
   },
   {
@@ -77,20 +77,19 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLinkList",
-      "footerSocialLink"
+      "footerBrandLogo",
+      "footerBrandNavList",
+      "footerBrandSocialLink",
+      "footerBrandLeftLink"
     ]
   },
   {
-    "id": "footerLinkList",
-    "components": [
-      "footerLink"
-    ]
+    "id": "spaceAdder"
   },
   {
-    "id": "stickyBottomNav",
+    "id": "sticky-bottom-nav",
     "components": [
-      "stickyBottomNavItem"
+      "navItem"
     ]
   }
 ]

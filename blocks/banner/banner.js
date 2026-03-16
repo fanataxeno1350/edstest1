@@ -11,8 +11,18 @@ export default function decorate(block) {
   const videoWrapper = document.createElement('div');
   videoWrapper.classList.add('video-wrapper');
 
-  const videoElement = block.querySelector('video[data-aue-prop="video"]');
+  const videoElement = block.querySelector('video');
   if (videoElement) {
+    videoElement.classList.add('w-100', 'object-fit-cover', 'banner-media', 'banner-video');
+    videoElement.setAttribute('title', 'Video');
+    videoElement.setAttribute('aria-label', 'Video');
+    videoElement.setAttribute('data-is-autoplay', 'true');
+    videoElement.setAttribute('playsinline', '');
+    videoElement.setAttribute('preload', 'metadata');
+    videoElement.setAttribute('fetchpriority', 'high');
+    videoElement.setAttribute('loop', 'false');
+    videoElement.setAttribute('muted', 'true');
+    videoElement.setAttribute('autoplay', 'true');
     videoWrapper.append(videoElement);
     moveInstrumentation(videoElement, videoWrapper);
   }
@@ -20,60 +30,51 @@ export default function decorate(block) {
   const playPauseWrapper = document.createElement('div');
   playPauseWrapper.classList.add('position-absolute', 'w-100', 'h-100', 'start-0', 'top-0', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer');
 
-  const iconPlay = block.querySelector('[data-aue-prop="iconPlay"]');
-  if (iconPlay) {
-    const playButton = document.createElement('button');
-    playButton.setAttribute('type', 'button');
+  const playButton = block.querySelector('.video-icon.icon-play');
+  if (playButton) {
     playButton.classList.add('d-none', 'video-icon', 'icon-play', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-    playButton.innerHTML = iconPlay.innerHTML;
+    playButton.setAttribute('type', 'button');
     playPauseWrapper.append(playButton);
-    moveInstrumentation(iconPlay, playButton);
+    moveInstrumentation(playButton, playPauseWrapper);
   }
 
-  const iconPause = block.querySelector('[data-aue-prop="iconPause"]');
-  if (iconPause) {
-    const pauseButton = document.createElement('button');
-    pauseButton.setAttribute('type', 'button');
+  const pauseButton = block.querySelector('.video-icon.icon-pause');
+  if (pauseButton) {
     pauseButton.classList.add('d-block', 'video-icon', 'icon-pause', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-    pauseButton.innerHTML = iconPause.innerHTML;
+    pauseButton.setAttribute('type', 'button');
     playPauseWrapper.append(pauseButton);
-    moveInstrumentation(iconPause, pauseButton);
+    moveInstrumentation(pauseButton, playPauseWrapper);
   }
   videoWrapper.append(playPauseWrapper);
 
   const muteIconWrapper = document.createElement('div');
   muteIconWrapper.classList.add('position-absolute', 'z-2', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer', 'mute-icon');
 
-  const iconMute = block.querySelector('[data-aue-prop="iconMute"]');
-  if (iconMute) {
-    const muteButton = document.createElement('button');
-    muteButton.setAttribute('type', 'button');
+  const muteButton = block.querySelector('.video-icon-volume.icon-mute');
+  if (muteButton) {
     muteButton.classList.add('video-icon-volume', 'icon-mute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
-    muteButton.innerHTML = iconMute.innerHTML;
+    muteButton.setAttribute('type', 'button');
     muteIconWrapper.append(muteButton);
-    moveInstrumentation(iconMute, muteButton);
+    moveInstrumentation(muteButton, muteIconWrapper);
   }
 
-  const iconUnmute = block.querySelector('[data-aue-prop="iconUnmute"]');
-  if (iconUnmute) {
-    const unmuteButton = document.createElement('button');
-    unmuteButton.setAttribute('type', 'button');
+  const unmuteButton = block.querySelector('.video-icon-volume.icon-unmute');
+  if (unmuteButton) {
     unmuteButton.classList.add('video-icon-volume', 'icon-unmute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
-    unmuteButton.innerHTML = iconUnmute.innerHTML;
+    unmuteButton.setAttribute('type', 'button');
     muteIconWrapper.append(unmuteButton);
-    moveInstrumentation(iconUnmute, unmuteButton);
+    moveInstrumentation(unmuteButton, muteIconWrapper);
   }
 
-  const iconNoAudio = block.querySelector('[data-aue-prop="iconNoAudio"]');
-  if (iconNoAudio) {
-    const noAudioButton = document.createElement('button');
-    noAudioButton.setAttribute('type', 'button');
-    noAudioButton.classList.add('video-icon-volume', 'no-audio-icon', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-    noAudioButton.innerHTML = iconNoAudio.innerHTML;
-    muteIconWrapper.append(noAudioButton);
-    moveInstrumentation(iconNoAudio, noAudioButton);
+  const noAudioIcon = block.querySelector('.video-icon-volume.no-audio-icon');
+  if (noAudioIcon) {
+    noAudioIcon.classList.add('video-icon-volume', 'no-audio-icon', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
+    noAudioIcon.setAttribute('type', 'button');
+    muteIconWrapper.append(noAudioIcon);
+    moveInstrumentation(noAudioIcon, muteIconWrapper);
   }
   videoWrapper.append(muteIconWrapper);
+
   positionRelativeDiv.append(videoWrapper);
 
   const ctaWrapper = document.createElement('div');
@@ -82,25 +83,18 @@ export default function decorate(block) {
   const bannerCta = document.createElement('div');
   bannerCta.classList.add('banner-cta');
 
-  // Assuming the banner-cta content is directly inside the block and not explicitly defined with data-aue-prop
-  // If there's specific authored content for banner-cta, it needs a data-aue-prop to be extracted.
-  // For now, we'll assume it's an empty container or content needs to be moved from an existing element.
-  const existingBannerCta = block.querySelector('.banner-cta');
-  if (existingBannerCta) {
-    Array.from(existingBannerCta.children).forEach((child) => {
-      bannerCta.append(child);
-      moveInstrumentation(child, bannerCta);
-    });
-    moveInstrumentation(existingBannerCta, bannerCta);
+  const authoredCta = block.querySelector('.banner-cta > div:not(.video-wrapper)');
+  if (authoredCta) {
+    bannerCta.append(...authoredCta.children);
+    moveInstrumentation(authoredCta, bannerCta);
   }
-
   ctaWrapper.append(bannerCta);
-  positionRelativeDiv.append(ctaWrapper);
 
+  positionRelativeDiv.append(ctaWrapper);
   bannerSection.append(positionRelativeDiv);
 
   block.textContent = '';
   block.append(bannerSection);
-  block.className = 'banner block';
+  block.classList.add('banner');
   block.dataset.blockStatus = 'loaded';
 }
