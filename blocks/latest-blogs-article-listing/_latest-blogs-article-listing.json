@@ -43,13 +43,13 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Date",
-          "name": "date",
+          "component": "date-time",
+          "label": "Publish Date",
+          "name": "publishDate",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Title",
           "name": "title",
           "valueType": "string"
@@ -58,6 +58,41 @@
           "component": "aem-content",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "latestBlogsArticleListing",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Heading",
+          "name": "heading",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Description",
+          "name": "description",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "CTA Text",
+          "name": "ctaText",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Icon",
+          "name": "ctaIcon",
           "valueType": "string"
         }
       ]

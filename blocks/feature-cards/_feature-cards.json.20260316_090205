@@ -45,7 +45,7 @@
         {
           "component": "text",
           "label": "Alt Text",
-          "name": "alt",
+          "name": "altText",
           "valueType": "string"
         },
         {
@@ -64,6 +64,18 @@
           "component": "aem-content",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Link Title",
+          "name": "linkTitle",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Button Label",
+          "name": "buttonLabel",
           "valueType": "string"
         }
       ]

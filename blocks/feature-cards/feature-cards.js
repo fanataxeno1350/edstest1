@@ -2,95 +2,96 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const featureCardsSection = document.createElement('section');
-  featureCardsSection.className = 'feature-cards-section';
+  const rootDiv = document.createElement('div');
+  rootDiv.className = 'feature-cards-container';
 
-  const textContainer = block.querySelector('.featureCards-text');
-  if (textContainer) {
+  const textDiv = block.querySelector('.featureCards-text');
+  if (textDiv) {
     const headerDiv = document.createElement('div');
     headerDiv.className = 'feature-cards-header';
-    const h1 = textContainer.querySelector('h1');
+    const h1 = textDiv.querySelector('h1');
     if (h1) {
       headerDiv.append(h1);
-      moveInstrumentation(textContainer, headerDiv);
+      moveInstrumentation(textDiv, headerDiv);
     }
-    featureCardsSection.append(headerDiv);
+    rootDiv.append(headerDiv);
   }
 
-  const cardsWrapper = document.createElement('div');
-  cardsWrapper.className = 'feature-cards-wrapper';
+  const cardSection = document.createElement('div');
+  cardSection.className = 'feature-cards-section';
 
-  const authoredCards = block.querySelectorAll('[data-aue-model="featureCard"]');
+  const featureCardElements = block.querySelectorAll('[data-aue-model="featureCard"]');
 
-  authoredCards.forEach((cardNode) => {
-    const linkElement = cardNode.querySelector('a');
+  featureCardElements.forEach((cardElement) => {
     const cardLink = document.createElement('a');
-    cardLink.className = 'feature-cards-card-link';
-    cardLink.href = linkElement?.href || '#';
-    if (linkElement?.target) {
-      cardLink.target = linkElement.target;
-    }
-    if (linkElement?.title) {
-      cardLink.title = linkElement.title;
-    }
-    if (linkElement?.dataset.title) {
-      cardLink.dataset.title = linkElement.dataset.title;
-    }
+    cardLink.className = 'feature-card-item';
 
-    const cardDiv = document.createElement('div');
-    cardDiv.className = 'feature-cards-card';
+    const link = cardElement.querySelector('[data-aue-prop="link"]');
+    if (link) {
+      cardLink.href = link.href;
+      cardLink.title = link.title;
+      if (link.target) {
+        cardLink.target = link.target;
+      }
+    }
 
     const imageDiv = document.createElement('div');
-    imageDiv.className = 'feature-cards-card-image';
-    const img = cardNode.querySelector('[data-aue-prop="image"]');
+    imageDiv.className = 'feature-card-image';
+    const img = cardElement.querySelector('[data-aue-prop="image"]');
     if (img) {
       imageDiv.append(createOptimizedPicture(img.src, img.alt));
       moveInstrumentation(img, imageDiv);
     }
-    cardDiv.append(imageDiv);
+    cardLink.append(imageDiv);
 
     const contentDiv = document.createElement('div');
-    contentDiv.className = 'feature-cards-card-content';
+    contentDiv.className = 'feature-card-content';
 
-    const title = cardNode.querySelector('[data-aue-prop="title"]');
-    if (title) {
+    const titleElement = cardElement.querySelector('[data-aue-prop="title"]');
+    if (titleElement) {
       const h2 = document.createElement('h2');
-      h2.className = 'feature-cards-card-title';
-      h2.append(...title.childNodes);
+      h2.className = 'feature-card-title';
+      h2.innerHTML = titleElement.innerHTML;
       contentDiv.append(h2);
-      moveInstrumentation(title, h2);
+      moveInstrumentation(titleElement, h2);
     }
 
-    const description = cardNode.querySelector('[data-aue-prop="description"]');
-    if (description) {
+    const descriptionElement = cardElement.querySelector('[data-aue-prop="description"]');
+    if (descriptionElement) {
       const p = document.createElement('p');
-      p.className = 'feature-cards-card-description';
-      p.append(...description.childNodes);
+      p.className = 'feature-card-description';
+      p.innerHTML = descriptionElement.innerHTML;
       contentDiv.append(p);
-      moveInstrumentation(description, p);
+      moveInstrumentation(descriptionElement, p);
     }
 
-    const buttonLabel = cardNode.querySelector('[data-aue-prop="buttonLabel"]');
-    if (buttonLabel) {
-      const buttonWrapper = document.createElement('div');
-      const button = document.createElement('button');
-      button.className = 'feature-cards-card-button';
-      button.textContent = buttonLabel.textContent.trim();
-      buttonWrapper.append(button);
-      contentDiv.append(buttonWrapper);
-      moveInstrumentation(buttonLabel, button);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'feature-card-button-container';
+    const button = cardElement.querySelector('.featureCards-bolteSitare_cardSection--btn');
+    if (button) {
+      const buttonLink = document.createElement('a');
+      buttonLink.className = 'feature-card-button';
+      buttonLink.textContent = button.textContent;
+      if (link) {
+        buttonLink.href = link.href;
+        if (link.target) {
+          buttonLink.target = link.target;
+        }
+      }
+      buttonContainer.append(buttonLink);
+      moveInstrumentation(button, buttonLink);
     }
+    contentDiv.append(buttonContainer);
 
-    cardDiv.append(contentDiv);
-    cardLink.append(cardDiv);
-    cardsWrapper.append(cardLink);
-    moveInstrumentation(cardNode, cardLink);
+    cardLink.append(contentDiv);
+    cardSection.append(cardLink);
+    moveInstrumentation(cardElement, cardLink);
   });
 
-  featureCardsSection.append(cardsWrapper);
+  rootDiv.append(cardSection);
 
   block.textContent = '';
-  block.append(featureCardsSection);
-  block.className = `feature-cards block`;
+  block.append(rootDiv);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

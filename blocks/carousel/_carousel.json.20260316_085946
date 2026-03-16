@@ -53,12 +53,6 @@
           "label": "CTA Link",
           "name": "cta",
           "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Alt Text",
-          "name": "altText",
-          "valueType": "string"
         }
       ]
     }

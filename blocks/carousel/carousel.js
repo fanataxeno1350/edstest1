@@ -2,51 +2,79 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const carouselItems = block.querySelectorAll('[data-cmp-hook-carousel="item"]');
+  const carouselWrapper = document.createElement('div');
+  carouselWrapper.classList.add('carousel-wrapper');
 
-  const wrapperDiv = document.createElement('div');
-  wrapperDiv.classList.add('carousel-wrapper');
+  const slidesContainer = document.createElement('div');
+  slidesContainer.classList.add('slides-container');
 
-  carouselItems.forEach((itemNode) => {
-    const itemWrapper = document.createElement('div');
-    itemWrapper.classList.add('carousel-item');
+  const items = block.querySelectorAll('[data-cmp-hook-carousel="item"]');
+
+  items.forEach((itemNode) => {
+    const slide = document.createElement('div');
+    slide.classList.add('slide');
 
     const videoElement = itemNode.querySelector('video');
     const imageElement = itemNode.querySelector('img');
-    const ctaLink = itemNode.querySelector('.carousel-banner-cta a');
+    const ctaContainer = itemNode.querySelector('.carousel-banner-cta');
 
     if (videoElement) {
-      const videoContainer = document.createElement('div');
-      videoContainer.classList.add('carousel-video-container');
-      videoContainer.append(videoElement);
-      moveInstrumentation(videoElement, videoContainer);
-      itemWrapper.append(videoContainer);
+      const videoWrapper = document.createElement('div');
+      videoWrapper.classList.add('video-wrapper');
+
+      const sourceElement = videoElement.querySelector('source');
+      if (sourceElement) {
+        const newVideo = document.createElement('video');
+        newVideo.setAttribute('controls', '');
+        newVideo.setAttribute('autoplay', '');
+        newVideo.setAttribute('muted', '');
+        newVideo.setAttribute('loop', '');
+        newVideo.setAttribute('playsinline', '');
+        newVideo.setAttribute('preload', 'metadata');
+        newVideo.setAttribute('title', videoElement.getAttribute('title') || '');
+        newVideo.setAttribute('aria-label', videoElement.getAttribute('aria-label') || '');
+
+        const newSource = document.createElement('source');
+        newSource.setAttribute('src', sourceElement.getAttribute('src'));
+        newSource.setAttribute('type', sourceElement.getAttribute('type'));
+        newVideo.append(newSource);
+        videoWrapper.append(newVideo);
+        moveInstrumentation(videoElement, videoWrapper);
+      }
+      slide.append(videoWrapper);
     } else if (imageElement) {
       const picture = createOptimizedPicture(imageElement.src, imageElement.alt);
-      itemWrapper.append(picture);
+      slide.append(picture);
       moveInstrumentation(imageElement, picture);
     }
 
-    if (ctaLink) {
-      const ctaWrapper = document.createElement('div');
-      ctaWrapper.classList.add('carousel-cta');
-      const link = document.createElement('a');
-      link.href = ctaLink.href;
-      link.textContent = ctaLink.querySelector('.carousel-cmp-button__text')?.textContent || '';
-      if (ctaLink.target) {
-        link.target = ctaLink.target;
+    if (ctaContainer) {
+      const ctaLink = ctaContainer.querySelector('a');
+      if (ctaLink) {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+
+        const newCta = document.createElement('a');
+        newCta.href = ctaLink.href;
+        newCta.textContent = ctaLink.textContent.trim();
+        if (ctaLink.target) {
+          newCta.target = ctaLink.target;
+        }
+
+        buttonContainer.append(newCta);
+        slide.append(buttonContainer);
+        moveInstrumentation(ctaLink, buttonContainer);
       }
-      ctaWrapper.append(link);
-      moveInstrumentation(ctaLink, ctaWrapper);
-      itemWrapper.append(ctaWrapper);
     }
 
-    wrapperDiv.append(itemWrapper);
-    moveInstrumentation(itemNode, itemWrapper);
+    slidesContainer.append(slide);
+    moveInstrumentation(itemNode, slide);
   });
 
+  carouselWrapper.append(slidesContainer);
+
   block.textContent = '';
-  block.append(wrapperDiv);
-  block.className = 'carousel block';
+  block.append(carouselWrapper);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

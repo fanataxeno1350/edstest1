@@ -44,6 +44,12 @@
     ]
   },
   {
+    "id": "bannerVideo",
+    "components": [
+      "bannerVideo"
+    ]
+  },
+  {
     "id": "carousel",
     "components": [
       "carouselItem"
@@ -58,16 +64,22 @@
   {
     "id": "footer",
     "components": [
-      "footerNavList",
+      "footerLinkList",
       "socialLink"
+    ]
+  },
+  {
+    "id": "footerLinkList",
+    "components": [
+      "footerLink"
     ]
   },
   {
     "id": "headerSection",
     "components": [
       "sidebarMenuItem",
-      "footerLink",
-      "socialLink"
+      "footerListItem",
+      "footerSocialLink"
     ]
   },
   {
