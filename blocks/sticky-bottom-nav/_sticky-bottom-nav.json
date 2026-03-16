@@ -43,29 +43,23 @@
           "valueType": "string"
         },
         {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
+          "component": "text",
           "label": "Label",
           "name": "label",
           "valueType": "string"
         },
         {
-          "component": "boolean",
-          "label": "Consent",
-          "name": "consent",
-          "valueType": "boolean"
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "stickyBottomNav",
+      "id": "sticky-bottom-nav",
       "components": [
         "navItem"
       ]

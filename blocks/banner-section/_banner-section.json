@@ -23,27 +23,9 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Video Source",
-          "name": "videoSrc",
+          "label": "Video",
+          "name": "video",
           "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Video Title",
-          "name": "videoTitle",
-          "valueType": "string"
-        },
-        {
-          "component": "boolean",
-          "label": "Autoplay",
-          "name": "isAutoplay",
-          "valueType": "boolean"
-        },
-        {
-          "component": "boolean",
-          "label": "Muted",
-          "name": "isMuted",
-          "valueType": "boolean"
         },
         {
           "component": "reference",
@@ -73,18 +55,6 @@
           "component": "reference",
           "label": "No Audio Icon",
           "name": "noAudioIcon",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
-          "label": "CTA Link",
-          "name": "ctaLink",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
           "valueType": "string"
         }
       ]

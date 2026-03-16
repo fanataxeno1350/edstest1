@@ -44,13 +44,25 @@
         },
         {
           "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
           "label": "Title",
           "name": "title",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Link URL",
+          "component": "richtext",
+          "label": "Description",
+          "name": "description",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Link",
           "name": "link",
           "valueType": "string"
         },
@@ -61,9 +73,9 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
+          "component": "text",
+          "label": "Button Label",
+          "name": "buttonLabel",
           "valueType": "string"
         }
       ]

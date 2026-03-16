@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Sidebar-Menu-Item",
+      "title": "Sidebar Menu Item",
       "id": "sidebarMenuItem",
       "plugins": {
         "xwalk": {
@@ -25,37 +25,37 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "sidebarMenuItem",
-              "name": "Sidebar-Menu-Item"
+              "name": "Sidebar Menu Item"
             }
           }
         }
       }
     },
     {
-      "title": "Footer-Link-Item",
-      "id": "footerLinkItem",
+      "title": "Footer Link",
+      "id": "footerLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "footerLinkItem",
-              "name": "Footer-Link-Item"
+              "model": "footerLink",
+              "name": "Footer Link"
             }
           }
         }
       }
     },
     {
-      "title": "Social-Link-Item",
-      "id": "socialLinkItem",
+      "title": "Social Link",
+      "id": "socialLink",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "socialLinkItem",
-              "name": "Social-Link-Item"
+              "model": "socialLink",
+              "name": "Social Link"
             }
           }
         }
@@ -64,94 +64,43 @@
   ],
   "models": [
     {
-      "id": "sidebarMenuItem",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "Icon",
-          "name": "icon",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "footerLinkItem",
-      "fields": [
-        {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "socialLinkItem",
-      "fields": [
-        {
-          "component": "reference",
-          "label": "Icon",
-          "name": "icon",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
       "id": "headerSection",
       "fields": [
         {
-          "component": "text",
-          "label": "App Name",
-          "name": "appName",
+          "component": "reference",
+          "label": "Left Icon",
+          "name": "leftIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Main Logo",
-          "name": "mainLogo",
+          "label": "Logo Image",
+          "name": "logoImage",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Main Logo Alt",
-          "name": "mainLogoAlt",
+          "component": "aem-content",
+          "label": "Logo Link",
+          "name": "logoLink",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "aem-content",
           "label": "Login Link",
           "name": "loginLink",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Login Label",
-          "name": "loginLabel",
+          "component": "richtext",
+          "label": "Login Text",
+          "name": "loginText",
           "valueType": "string"
+        },
+        {
+          "component": "container",
+          "itemType": "sidebarMenuItem",
+          "label": "Sidebar Menu Items",
+          "name": "sidebarMenuItems"
         },
         {
           "component": "reference",
@@ -166,9 +115,78 @@
           "valueType": "string"
         },
         {
+          "component": "container",
+          "itemType": "footerLink",
+          "label": "Footer Links",
+          "name": "footerLinks"
+        },
+        {
+          "component": "container",
+          "itemType": "socialLink",
+          "label": "Social Links",
+          "name": "socialLinks"
+        },
+        {
+          "component": "aem-content",
+          "label": "Copyright",
+          "name": "copyright",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "sidebarMenuItem",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Menu Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Menu Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
           "component": "richtext",
-          "label": "Copyright Text",
-          "name": "copyrightText",
+          "label": "Menu Text",
+          "name": "text",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "footerLink",
+      "fields": [
+        {
+          "component": "aem-content",
+          "label": "Footer Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Footer Text",
+          "name": "text",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "socialLink",
+      "fields": [
+        {
+          "component": "aem-content",
+          "label": "Social Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Social Icon",
+          "name": "icon",
           "valueType": "string"
         }
       ]
@@ -179,8 +197,8 @@
       "id": "headerSection",
       "components": [
         "sidebarMenuItem",
-        "footerLinkItem",
-        "socialLinkItem"
+        "footerLink",
+        "socialLink"
       ]
     }
   ]

@@ -44,12 +44,6 @@
     ]
   },
   {
-    "id": "bannerVideo",
-    "components": [
-      "bannerVideo"
-    ]
-  },
-  {
     "id": "carousel",
     "components": [
       "carouselItem"
@@ -62,43 +56,9 @@
     ]
   },
   {
-    "id": "featureCards",
-    "components": [
-      "featureCard"
-    ]
-  },
-  {
-    "id": "footerBrandFooter",
-    "components": [
-      "footerLinkList",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footerBrand",
-    "components": [
-      "footerNavColumn",
-      "footerSocialLink"
-    ]
-  },
-  {
     "id": "footer",
     "components": [
-      "footerLinkList",
-      "footerSocial"
-    ]
-  },
-  {
-    "id": "footerLinkList",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "headerFooter",
-    "components": [
-      "sidebarMenuItem",
-      "footerLink",
+      "footerNavList",
       "socialLink"
     ]
   },
@@ -106,64 +66,20 @@
     "id": "headerSection",
     "components": [
       "sidebarMenuItem",
-      "footerLinkItem",
-      "socialLinkItem"
-    ]
-  },
-  {
-    "id": "header",
-    "components": [
-      "headerMenuItem",
       "footerLink",
       "socialLink"
     ]
   },
   {
-    "id": "latestBlogsList",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogsListing",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogs",
-    "components": [
-      "blogItem"
-    ]
-  },
-  {
     "id": "latestBlogsArticleListing",
     "components": [
-      "article"
+      "blogCard"
     ]
   },
   {
-    "id": "latestBlogsArticleList",
-    "components": [
-      "articleCard"
-    ]
-  },
-  {
-    "id": "stickyBottomNav",
+    "id": "sticky-bottom-nav",
     "components": [
       "navItem"
-    ]
-  },
-  {
-    "id": "stickyNavigationBottomNav",
-    "components": [
-      "navigationItem"
-    ]
-  },
-  {
-    "id": "stickyNavigation",
-    "components": [
-      "stickyNavigationItem"
     ]
   }
 ]

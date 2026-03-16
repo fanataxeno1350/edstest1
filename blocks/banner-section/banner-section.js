@@ -2,214 +2,171 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const bannerSection = document.createElement('section');
-  bannerSection.className = 'banner-section';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'banner-section__wrapper position-relative';
 
-  const bannerSectionWrapper = document.createElement('div');
-  bannerSectionWrapper.className = 'banner-section__wrapper';
+  const videoWrapper = document.createElement('div');
+  videoWrapper.className = 'banner-video-wrapper';
 
-  const videoElement = document.createElement('video');
-  videoElement.className = 'banner-section__video';
-  videoElement.setAttribute('playsinline', '');
-  videoElement.setAttribute('preload', 'metadata');
-
-  const videoSrc = block.querySelector('[data-aue-prop="videoSrc"]');
-  if (videoSrc) {
-    const sourceElement = document.createElement('source');
-    sourceElement.src = videoSrc.textContent.trim();
-    sourceElement.type = 'video/mp4';
-    videoElement.append(sourceElement);
-    moveInstrumentation(videoSrc, sourceElement);
-  } else {
-    const fallbackVideo = block.querySelector('a[href$=".mp4"]');
-    if (fallbackVideo) {
-      const sourceElement = document.createElement('source');
-      sourceElement.src = fallbackVideo.href;
-      sourceElement.type = 'video/mp4';
-      videoElement.append(sourceElement);
-      moveInstrumentation(fallbackVideo, sourceElement);
+  const videoElement = block.querySelector('video');
+  if (videoElement) {
+    const newVideo = document.createElement('video');
+    newVideo.className = 'banner-video w-100 object-fit-cover banner-media';
+    newVideo.title = videoElement.title || 'Video';
+    newVideo.ariaLabel = videoElement.ariaLabel || 'Video';
+    newVideo.playsInline = videoElement.playsInline;
+    newVideo.preload = videoElement.preload;
+    newVideo.fetchPriority = videoElement.fetchPriority;
+    newVideo.loop = videoElement.loop;
+    newVideo.muted = videoElement.muted;
+    newVideo.autoplay = videoElement.autoplay;
+    if (videoElement.dataset.isAutoplay) {
+      newVideo.dataset.isAutoplay = videoElement.dataset.isAutoplay;
     }
-  }
 
-  const videoTitle = block.querySelector('[data-aue-prop="videoTitle"]');
-  if (videoTitle) {
-    videoElement.setAttribute('title', videoTitle.textContent.trim());
-    videoElement.setAttribute('aria-label', videoTitle.textContent.trim());
-    moveInstrumentation(videoTitle, videoElement);
-  }
-
-  const isAutoplay = block.querySelector('[data-aue-prop="isAutoplay"]');
-  if (isAutoplay && isAutoplay.textContent.trim().toLowerCase() === 'true') {
-    videoElement.setAttribute('autoplay', 'true');
-    videoElement.setAttribute('data-is-autoplay', 'true');
-    videoElement.setAttribute('loop', 'false');
-    moveInstrumentation(isAutoplay, videoElement);
-  } else {
-    videoElement.setAttribute('autoplay', 'false');
-    videoElement.setAttribute('data-is-autoplay', 'false');
-    videoElement.setAttribute('loop', 'false');
-  }
-
-  const isMuted = block.querySelector('[data-aue-prop="isMuted"]');
-  if (isMuted && isMuted.textContent.trim().toLowerCase() === 'true') {
-    videoElement.setAttribute('muted', 'true');
-    moveInstrumentation(isMuted, videoElement);
-  } else {
-    videoElement.setAttribute('muted', 'false');
-  }
-
-  bannerSectionWrapper.append(videoElement);
-
-  const videoControls = document.createElement('div');
-  videoControls.className = 'banner-section__video-controls';
-
-  const playButton = document.createElement('button');
-  playButton.type = 'button';
-  playButton.className = 'banner-section__video-icon banner-section__icon-play';
-  playButton.style.display = 'none';
-  const playIcon = block.querySelector('[data-aue-prop="playIcon"]');
-  if (playIcon) {
-    playButton.innerHTML = playIcon.textContent.trim();
-    moveInstrumentation(playIcon, playButton);
-  } else {
-    const fallbackPlayIcon = block.querySelector('a[href$=".svg"]');
-    if (fallbackPlayIcon) {
-      playButton.innerHTML = `<img src="${fallbackPlayIcon.href}" alt="Play Icon"/>`;
-      moveInstrumentation(fallbackPlayIcon, playButton);
+    const sourceElement = videoElement.querySelector('source');
+    if (sourceElement) {
+      const newSource = document.createElement('source');
+      newSource.src = sourceElement.src;
+      newSource.type = sourceElement.type;
+      newVideo.append(newSource);
     }
+    moveInstrumentation(videoElement, newVideo);
+    videoWrapper.append(newVideo);
   }
-  videoControls.append(playButton);
 
-  const pauseButton = document.createElement('button');
-  pauseButton.type = 'button';
-  pauseButton.className = 'banner-section__video-icon banner-section__icon-pause';
-  const pauseIcon = block.querySelector('[data-aue-prop="pauseIcon"]');
-  if (pauseIcon) {
-    pauseButton.innerHTML = pauseIcon.textContent.trim();
-    moveInstrumentation(pauseIcon, pauseButton);
-  } else {
-    const fallbackPauseIcon = block.querySelectorAll('a[href$=".svg"]')[1];
-    if (fallbackPauseIcon) {
-      pauseButton.innerHTML = `<img src="${fallbackPauseIcon.href}" alt="Pause Icon"/>`;
-      moveInstrumentation(fallbackPauseIcon, pauseButton);
-    }
-  }
-  videoControls.append(pauseButton);
-  bannerSectionWrapper.append(videoControls);
+  const playPauseContainer = document.createElement('div');
+  playPauseContainer.className = 'position-absolute w-100 h-100 start-0 top-0 d-flex justify-content-center align-items-center cursor-pointer';
 
-  const muteControls = document.createElement('div');
-  muteControls.className = 'banner-section__mute-controls';
-
-  const muteButton = document.createElement('button');
-  muteButton.type = 'button';
-  muteButton.className = 'banner-section__volume-icon banner-section__icon-mute';
-  muteButton.style.display = 'none';
-  const muteIcon = block.querySelector('[data-aue-prop="muteIcon"]');
-  if (muteIcon) {
-    muteButton.innerHTML = muteIcon.textContent.trim();
-    moveInstrumentation(muteIcon, muteButton);
-  } else {
-    const fallbackMuteIcon = block.querySelectorAll('a[href$=".svg"]')[2];
-    if (fallbackMuteIcon) {
-      muteButton.innerHTML = `<img src="${fallbackMuteIcon.href}" alt="Mute Icon"/>`;
-      moveInstrumentation(fallbackMuteIcon, muteButton);
-    }
-  }
-  muteControls.append(muteButton);
-
-  const unmuteButton = document.createElement('button');
-  unmuteButton.type = 'button';
-  unmuteButton.className = 'banner-section__volume-icon banner-section__icon-unmute';
-  unmuteButton.style.display = 'none';
-  const unmuteIcon = block.querySelector('[data-aue-prop="unmuteIcon"]');
-  if (unmuteIcon) {
-    unmuteButton.innerHTML = unmuteIcon.textContent.trim();
-    moveInstrumentation(unmuteIcon, unmuteButton);
-  } else {
-    const fallbackUnmuteIcon = block.querySelectorAll('a[href$=".svg"]')[3];
-    if (fallbackUnmuteIcon) {
-      unmuteButton.innerHTML = `<img src="${fallbackUnmuteIcon.href}" alt="Unmute Icon"/>`;
-      moveInstrumentation(fallbackUnmuteIcon, unmuteButton);
-    }
-  }
-  muteControls.append(unmuteButton);
-
-  const noAudioButton = document.createElement('button');
-  noAudioButton.type = 'button';
-  noAudioButton.className = 'banner-section__volume-icon banner-section__no-audio-icon';
-  const noAudioIcon = block.querySelector('[data-aue-prop="noAudioIcon"]');
-  if (noAudioIcon) {
-    noAudioButton.innerHTML = noAudioIcon.textContent.trim();
-    moveInstrumentation(noAudioIcon, noAudioButton);
-  } else {
-    const fallbackNoAudioIcon = block.querySelectorAll('a[href$=".svg"]')[4];
-    if (fallbackNoAudioIcon) {
-      noAudioButton.innerHTML = `<img src="${fallbackNoAudioIcon.href}" alt="No Audio Icon"/>`;
-      moveInstrumentation(fallbackNoAudioIcon, noAudioButton);
-    }
-  }
-  muteControls.append(noAudioButton);
-  bannerSectionWrapper.append(muteControls);
-
-  const ctaWrapper = document.createElement('div');
-  ctaWrapper.className = 'banner-section__cta-wrapper';
-
-  const bannerCta = document.createElement('div');
-  bannerCta.className = 'banner-cta';
-
-  const textCenterDiv = document.createElement('div');
-  textCenterDiv.className = 'text-center ';
-
-  const ctaLink = block.querySelector('[data-aue-prop="ctaLink"]');
-  const ctaText = block.querySelector('[data-aue-prop="ctaText"]');
-
-  if (ctaLink || ctaText) {
-    const anchor = document.createElement('a');
-    anchor.id = `cta-${Math.random().toString(36).substring(2, 11)}`;
-    anchor.className = 'cmp-button analytics_cta_click text-center cta-layout';
-    anchor.setAttribute('data-link-region', 'CTA');
-    anchor.setAttribute('data-is-internal', 'true');
-    anchor.setAttribute('data-enable-gating', 'false');
-    anchor.setAttribute('target', '_blank');
-
-    if (ctaLink) {
-      anchor.href = ctaLink.textContent.trim();
-      moveInstrumentation(ctaLink, anchor);
+  const playButton = block.querySelector('.video-icon.icon-play');
+  if (playButton) {
+    const newPlayButton = document.createElement('button');
+    newPlayButton.type = 'button';
+    newPlayButton.className = 'video-icon icon-play bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
+    if (playButton.classList.contains('d-none')) {
+      newPlayButton.classList.add('d-none');
     } else {
-      anchor.href = '#';
+      newPlayButton.classList.add('d-block');
     }
-
-    const span = document.createElement('span');
-    span.className = 'cmp-button__text primary-btn w-75 p-5 rounded-pill d-inline-flex justify-content-center align-items-center famlf-cta-btn';
-
-    if (ctaText) {
-      span.textContent = ctaText.textContent.trim();
-      moveInstrumentation(ctaText, span);
-    } else {
-      span.textContent = 'Learn More';
+    const playIconSrc = playButton.textContent.trim();
+    if (playIconSrc) {
+      const playIconImg = document.createElement('img');
+      playIconImg.src = playIconSrc;
+      playIconImg.alt = 'Play';
+      newPlayButton.append(playIconImg);
     }
-
-    anchor.append(span);
-    textCenterDiv.append(anchor);
+    moveInstrumentation(playButton, newPlayButton);
+    playPauseContainer.append(newPlayButton);
   }
 
-  const popUpDiv = document.createElement('div');
-  popUpDiv.className = 'pop-up d-none';
-  popUpDiv.innerHTML = `
-    <input type="hidden" class="popup-message">
-    <input type="hidden" class="proceed-button-label">
-    <input type="hidden" class="cancel-button-label">
-    <input type="hidden" class="background-color">
-  `;
-  textCenterDiv.append(popUpDiv);
+  const pauseButton = block.querySelector('.video-icon.icon-pause');
+  if (pauseButton) {
+    const newPauseButton = document.createElement('button');
+    newPauseButton.type = 'button';
+    newPauseButton.className = 'video-icon icon-pause bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
+    if (pauseButton.classList.contains('d-none')) {
+      newPauseButton.classList.add('d-none');
+    } else {
+      newPauseButton.classList.add('d-block');
+    }
+    const pauseIconSrc = pauseButton.textContent.trim();
+    if (pauseIconSrc) {
+      const pauseIconImg = document.createElement('img');
+      pauseIconImg.src = pauseIconSrc;
+      pauseIconImg.alt = 'Pause';
+      newPauseButton.append(pauseIconImg);
+    }
+    moveInstrumentation(pauseButton, newPauseButton);
+    playPauseContainer.append(newPauseButton);
+  }
+  videoWrapper.append(playPauseContainer);
 
-  bannerCta.append(textCenterDiv);
-  ctaWrapper.append(bannerCta);
-  bannerSectionWrapper.append(ctaWrapper);
-  bannerSection.append(bannerSectionWrapper);
+  const muteIconContainer = document.createElement('div');
+  muteIconContainer.className = 'mute-icon position-absolute z-2 d-flex justify-content-center align-items-center cursor-pointer';
+
+  const muteButton = block.querySelector('.video-icon-volume.icon-mute');
+  if (muteButton) {
+    const newMuteButton = document.createElement('button');
+    newMuteButton.type = 'button';
+    newMuteButton.className = 'video-icon-volume icon-mute bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
+    if (muteButton.classList.contains('d-none')) {
+      newMuteButton.classList.add('d-none');
+    } else {
+      newMuteButton.classList.add('d-block');
+    }
+    const muteIconSrc = muteButton.textContent.trim();
+    if (muteIconSrc) {
+      const muteIconImg = document.createElement('img');
+      muteIconImg.src = muteIconSrc;
+      muteIconImg.alt = 'Mute';
+      newMuteButton.append(muteIconImg);
+    }
+    moveInstrumentation(muteButton, newMuteButton);
+    muteIconContainer.append(newMuteButton);
+  }
+
+  const unmuteButton = block.querySelector('.video-icon-volume.icon-unmute');
+  if (unmuteButton) {
+    const newUnmuteButton = document.createElement('button');
+    newUnmuteButton.type = 'button';
+    newUnmuteButton.className = 'video-icon-volume icon-unmute bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
+    if (unmuteButton.classList.contains('d-none')) {
+      newUnmuteButton.classList.add('d-none');
+    } else {
+      newUnmuteButton.classList.add('d-block');
+    }
+    const unmuteIconSrc = unmuteButton.textContent.trim();
+    if (unmuteIconSrc) {
+      const unmuteIconImg = document.createElement('img');
+      unmuteIconImg.src = unmuteIconSrc;
+      unmuteIconImg.alt = 'Unmute';
+      newUnmuteButton.append(unmuteIconImg);
+    }
+    moveInstrumentation(unmuteButton, newUnmuteButton);
+    muteIconContainer.append(newUnmuteButton);
+  }
+
+  const noAudioButton = block.querySelector('.video-icon-volume.no-audio-icon');
+  if (noAudioButton) {
+    const newNoAudioButton = document.createElement('button');
+    newNoAudioButton.type = 'button';
+    newNoAudioButton.className = 'video-icon-volume no-audio-icon bg-transparent d-flex align-items-center justify-content-center cursor-pointer';
+    if (noAudioButton.classList.contains('d-none')) {
+      newNoAudioButton.classList.add('d-none');
+    } else {
+      newNoAudioButton.classList.add('d-block');
+    }
+    const noAudioIconSrc = noAudioButton.textContent.trim();
+    if (noAudioIconSrc) {
+      const noAudioIconImg = document.createElement('img');
+      noAudioIconImg.src = noAudioIconSrc;
+      noAudioIconImg.alt = 'No Audio';
+      newNoAudioButton.append(noAudioIconImg);
+    }
+    moveInstrumentation(noAudioButton, newNoAudioButton);
+    muteIconContainer.append(newNoAudioButton);
+  }
+  videoWrapper.append(muteIconContainer);
+  wrapper.append(videoWrapper);
+
+  const ctaContainer = document.createElement('div');
+  ctaContainer.className = 'boing__banner--cta position-absolute start-50 translate-middle-x w-100';
+
+  const bannerCtaDiv = document.createElement('div');
+  bannerCtaDiv.className = 'banner-cta';
+
+  const ctaContent = block.querySelector('.banner-cta');
+  if (ctaContent) {
+    [...ctaContent.children].forEach((child) => {
+      moveInstrumentation(child, bannerCtaDiv);
+      bannerCtaDiv.append(child);
+    });
+  }
+  ctaContainer.append(bannerCtaDiv);
+  wrapper.append(ctaContainer);
 
   block.textContent = '';
-  block.append(bannerSection);
-  block.className = `${block.dataset.blockName} block`;
+  block.append(wrapper);
+  block.className = `banner-section block ${block.dataset.blockName}`;
   block.dataset.blockStatus = 'loaded';
 }
