@@ -34,25 +34,38 @@
       "footerBrandFooter",
       "stickyNavigationBottomNav",
       "latestBlogsArticleListing",
-      "headerSection"
+      "headerSection",
+      "boingHeaderFooter",
+      "carouselBanner",
+      "banner",
+      "articleListing",
+      "spaceAdder"
     ]
   },
   {
-    "id": "bannerSection",
+    "id": "articleListing",
     "components": [
-      "bannerSection"
+      "article"
     ]
   },
   {
-    "id": "bannerVideo",
+    "id": "banner",
     "components": [
-      "bannerVideo"
+      "banner"
     ]
   },
   {
-    "id": "carousel",
+    "id": "boing-header-footer",
     "components": [
-      "carouselItem"
+      "sidebarMenuItem",
+      "footerListItem",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "carousel-banner",
+    "components": [
+      "banner"
     ]
   },
   {
@@ -62,45 +75,16 @@
     ]
   },
   {
-    "id": "footer-brand-footer",
-    "components": [
-      "footerNavList",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footer",
+    "id": "footerBrand",
     "components": [
       "footerLinkList",
-      "socialLink"
+      "footerSocialLink"
     ]
   },
   {
     "id": "footerLinkList",
     "components": [
       "footerLink"
-    ]
-  },
-  {
-    "id": "headerSection",
-    "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "headerSection",
-    "components": [
-      "menuItem",
-      "footerLink",
-      "socialMedia"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleListing",
-    "components": [
-      "article"
     ]
   },
   {

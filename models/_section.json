@@ -69,7 +69,12 @@
         "footerBrandFooter",
         "stickyNavigationBottomNav",
         "latestBlogsArticleListing",
-        "headerSection"
+        "headerSection",
+        "boingHeaderFooter",
+        "carouselBanner",
+        "banner",
+        "articleListing",
+        "spaceAdder"
       ]
     }
   ]
