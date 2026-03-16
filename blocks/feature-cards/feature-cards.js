@@ -2,114 +2,173 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const rootDiv = document.createElement('div');
-  rootDiv.classList.add('featurecards-container');
+  const featureCardsContainer = document.createElement('div');
+  featureCardsContainer.classList.add('feature-cards-container');
 
-  const textDiv = block.querySelector('.featurecards-featureCards-text');
-  if (textDiv) {
-    const headerContainer = document.createElement('div');
-    headerContainer.classList.add('featurecards-header-container');
-    moveInstrumentation(textDiv, headerContainer);
-    headerContainer.append(textDiv);
-    rootDiv.append(headerContainer);
+  // Handle the initial text/heading if present
+  const firstRow = block.children[0];
+  if (firstRow && firstRow.querySelector('h1')) {
+    const textWrapper = document.createElement('div');
+    textWrapper.classList.add('featurecards-featureCards-text');
+    const h1 = firstRow.querySelector('h1');
+    if (h1) {
+      textWrapper.append(h1.cloneNode(true));
+      moveInstrumentation(h1, textWrapper.querySelector('h1'));
+    }
+    featureCardsContainer.append(textWrapper);
+    firstRow.remove(); // Remove the processed row from the block
   }
 
-  const cardsWrapper = document.createElement('div');
-  cardsWrapper.classList.add('featurecards-cards-wrapper');
+  const cardWrapper = document.createElement('div');
+  cardWrapper.classList.add('featurecards-featureCards-card-wrapper');
 
-  const featureCards = block.querySelectorAll('[data-aue-model="featureCard"]');
-  featureCards.forEach((cardNode) => {
-    const linkElement = cardNode.querySelector('a');
-    const cardLink = document.createElement('a');
-    cardLink.classList.add('featurecards-featureCards-bolteSitare_cardSection', 'featurecards-featureCards-analytics_cta_click', 'featurecards-featureCards-text-decoration-none');
-    if (linkElement) {
-      cardLink.href = linkElement.href;
-      cardLink.title = linkElement.title;
-      if (linkElement.target) {
-        cardLink.target = linkElement.target;
+  [...block.children].forEach((row) => {
+    // Check if the row contains an anchor element, indicating a feature card
+    const link = row.querySelector('a');
+    if (link) {
+      const newLink = document.createElement('a');
+      newLink.href = link.href;
+      newLink.title = link.title;
+      if (link.target) {
+        newLink.target = link.target;
       }
-      moveInstrumentation(linkElement, cardLink);
-    }
+      newLink.classList.add('featurecards-featureCards-bolteSitare_cardSection', 'featurecards-featureCards-analytics_cta_click', 'featurecards-featureCards-text-decoration-none');
+      moveInstrumentation(link, newLink);
 
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('featurecards-featureCards-bolteSitare_cardSection--wrapper');
+      const wrapperDiv = document.createElement('div');
+      wrapperDiv.classList.add('featurecards-featureCards-bolteSitare_cardSection--wrapper');
 
-    const imgWrapper = document.createElement('div');
-    imgWrapper.classList.add('featurecards-featureCards-bolteSitare_cardSection--img');
-    const img = cardNode.querySelector('img[data-aue-prop="image"]');
-    if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt);
-      picture.querySelector('img').classList.add('featurecards-featureCards-h-100', 'featurecards-featureCards-w-100', 'featurecards-featureCards-card-img');
-      moveInstrumentation(img, picture);
-      imgWrapper.append(picture);
-    }
-    cardLink.append(imgWrapper);
-
-    const contentWrapper = document.createElement('div');
-    contentWrapper.classList.add('featurecards-featureCards-content-wrapper', 'featurecards-featureCards-d-flex', 'featurecards-featureCards-flex-column', 'featurecards-featureCards-justify-content-between');
-
-    const textContentDiv = document.createElement('div');
-
-    const titleElement = cardNode.querySelector('h2[data-aue-prop="title"]') || cardNode.querySelector('h2');
-    if (titleElement) {
-      titleElement.classList.add('featurecards-featureCards-bolteSitare_cardSection--title', 'featurecards-featureCards-boing--text__heading-3', 'featurecards-featureCards-text-boing-dark');
-      moveInstrumentation(titleElement, textContentDiv);
-      textContentDiv.append(titleElement);
-    }
-
-    const descriptionElement = cardNode.querySelector('p[data-aue-prop="description"]') || cardNode.querySelector('p');
-    if (descriptionElement) {
-      descriptionElement.classList.add('featurecards-featureCards-bolteSitare_cardSection--text', 'featurecards-featureCards-boing--text__body-3', 'featurecards-featureCards-text-boing-dark');
-      moveInstrumentation(descriptionElement, textContentDiv);
-      textContentDiv.append(descriptionElement);
-    }
-    contentWrapper.append(textContentDiv);
-
-    const buttonDiv = document.createElement('div');
-    const buttonTextElement = cardNode.querySelector('[data-aue-prop="buttonText"]') || cardNode.querySelector('.button-container a');
-    if (buttonTextElement) {
-      const button = document.createElement('button');
-      button.classList.add('featurecards-featureCards-bolteSitare_cardSection--btn', 'featurecards-featureCards-text-white', 'featurecards-featureCards-boing--text__body-4', 'featurecards-featureCards-d-inline-block');
-      button.textContent = buttonTextElement.textContent.trim();
-      moveInstrumentation(buttonTextElement, button);
-      buttonDiv.append(button);
-    } else {
-      const authoredButton = cardNode.querySelector('button');
-      if (authoredButton) {
-        authoredButton.classList.add('featurecards-featureCards-bolteSitare_cardSection--btn', 'featurecards-featureCards-text-white', 'featurecards-featureCards-boing--text__body-4', 'featurecards-featureCards-d-inline-block');
-        moveInstrumentation(authoredButton, buttonDiv);
-        buttonDiv.append(authoredButton);
+      const imgDiv = document.createElement('div');
+      imgDiv.classList.add('featurecards-featureCards-bolteSitare_cardSection--img');
+      const img = link.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        optimizedPic.querySelector('img').classList.add('featurecards-featureCards-h-100', 'featurecards-featureCards-w-100', 'featurecards-featureCards-card-img');
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        imgDiv.append(optimizedPic);
       }
+      wrapperDiv.append(imgDiv);
+
+      const contentWrapper = document.createElement('div');
+      contentWrapper.classList.add('featurecards-featureCards-content-wrapper', 'featurecards-featureCards-d-flex', 'featurecards-featureCards-flex-column', 'featurecards-featureCards-justify-content-between');
+
+      const textContentDiv = document.createElement('div');
+      const h2 = link.querySelector('h2');
+      if (h2) {
+        const newH2 = document.createElement('h2');
+        newH2.classList.add('featurecards-featureCards-bolteSitare_cardSection--title', 'featurecards-featureCards-boing--text__heading-3', 'featurecards-featureCards-text-boing-dark');
+        newH2.textContent = h2.textContent;
+        moveInstrumentation(h2, newH2);
+        textContentDiv.append(newH2);
+      }
+
+      const p = link.querySelector('p');
+      if (p) {
+        const newP = document.createElement('p');
+        newP.classList.add('featurecards-featureCards-bolteSitare_cardSection--text', 'featurecards-featureCards-boing--text__body-3', 'featurecards-featureCards-text-boing-dark');
+        newP.textContent = p.textContent;
+        moveInstrumentation(p, newP);
+        textContentDiv.append(newP);
+      }
+      contentWrapper.append(textContentDiv);
+
+      const buttonDiv = document.createElement('div');
+      const button = link.querySelector('button');
+      if (button) {
+        const newButton = document.createElement('button');
+        newButton.classList.add('featurecards-featureCards-bolteSitare_cardSection--btn', 'featurecards-featureCards-text-white', 'featurecards-featureCards-boing--text__body-4', 'featurecards-featureCards-d-inline-block');
+        newButton.textContent = button.textContent;
+        moveInstrumentation(button, newButton);
+        buttonDiv.append(newButton);
+      }
+      contentWrapper.append(buttonDiv);
+
+      wrapperDiv.append(contentWrapper);
+      newLink.append(wrapperDiv);
+      cardWrapper.append(newLink);
     }
-    contentWrapper.append(buttonDiv);
-    cardLink.append(contentWrapper);
-    cardDiv.append(cardLink);
-    moveInstrumentation(cardNode, cardDiv);
-    cardsWrapper.append(cardDiv);
   });
 
-  rootDiv.append(cardsWrapper);
+  featureCardsContainer.append(cardWrapper);
 
+  // Handle the curve container if it exists
   const curveContainer = block.querySelector('.featurecards-featureCards-curve-container');
   if (curveContainer) {
-    const curveWrapper = document.createElement('div');
-    curveWrapper.classList.add('featurecards-curve-wrapper');
-    moveInstrumentation(curveContainer, curveWrapper);
-    curveWrapper.append(curveContainer);
-    rootDiv.append(curveWrapper);
+    featureCardsContainer.append(curveContainer.cloneNode(true));
+    curveContainer.remove(); // Remove the original
   }
 
-  const sectionElement = block.querySelector('.featurecards-featureCards-feature_card--Section');
-  if (sectionElement) {
-    const sectionWrapper = document.createElement('div');
-    sectionWrapper.classList.add('featurecards-section-wrapper');
-    moveInstrumentation(sectionElement, sectionWrapper);
-    sectionWrapper.append(sectionElement);
-    rootDiv.append(sectionWrapper);
+  // Handle the section with feature_card class
+  const featureCardSection = block.querySelector('.featurecards-featureCards-feature_card--Section');
+  if (featureCardSection) {
+    const newFeatureCardSection = document.createElement('section');
+    newFeatureCardSection.classList.add('featurecards-featureCards-d-block', 'featurecards-featureCards-feature_card--Section', 'featurecards-featureCards-feature_card', 'featurecards-featureCards-mx-auto');
+    moveInstrumentation(featureCardSection, newFeatureCardSection);
+
+    const link = featureCardSection.querySelector('a');
+    if (link) {
+      const newLink = document.createElement('a');
+      newLink.href = link.href;
+      newLink.title = link.title;
+      newLink.classList.add('featurecards-featureCards-d-flex', 'featurecards-featureCards-flex-column', 'featurecards-featureCards-analytics_cta_click', 'featurecards-featureCards-text-decoration-none');
+      moveInstrumentation(link, newLink);
+
+      const imgDiv = document.createElement('div');
+      imgDiv.classList.add('featurecards-featureCards-feature_card--image', 'featurecards-featureCards-w-100', 'featurecards-featureCards-pb-4');
+      const img = link.querySelector('img');
+      if (img) {
+        const optimizedPic = createOptimizedPicture(img.src, img.alt);
+        optimizedPic.querySelector('img').classList.add('featurecards-featureCards-w-100', 'featurecards-featureCards-h-100');
+        moveInstrumentation(img, optimizedPic.querySelector('img'));
+        imgDiv.append(optimizedPic);
+      }
+      newLink.append(imgDiv);
+
+      const textCenterDiv = document.createElement('div');
+      textCenterDiv.classList.add('featurecards-featureCards-text-center');
+
+      const h2 = link.querySelector('h2');
+      if (h2) {
+        const newH2 = document.createElement('h2');
+        newH2.classList.add('featurecards-featureCards-feature_card--title', 'featurecards-featureCards-boing--text__heading-1');
+        newH2.textContent = h2.textContent;
+        moveInstrumentation(h2, newH2);
+        textCenterDiv.append(newH2);
+      }
+
+      const pDiv = document.createElement('div');
+      pDiv.classList.add('featurecards-featureCards-pb-5');
+      const p = link.querySelector('p');
+      if (p) {
+        const newP = document.createElement('p');
+        newP.classList.add('featurecards-featureCards-feature_card--desc', 'featurecards-featureCards-boing--text__body-2', 'featurecards-featureCards-text-boing-dark');
+        newP.textContent = p.textContent;
+        moveInstrumentation(p, newP);
+        pDiv.append(newP);
+      }
+      textCenterDiv.append(pDiv);
+
+      const redirectedBtnDiv = document.createElement('div');
+      redirectedBtnDiv.classList.add('featurecards-featureCards-redirected_btn', 'featurecards-featureCards-d-none');
+      const button = link.querySelector('button');
+      if (button) {
+        const newButton = document.createElement('button');
+        newButton.type = 'button';
+        newButton.role = 'button';
+        newButton.classList.add('featurecards-featureCards-arrow-icon-btn');
+        newButton.textContent = button.textContent;
+        moveInstrumentation(button, newButton);
+        redirectedBtnDiv.append(newButton);
+      }
+      textCenterDiv.append(redirectedBtnDiv);
+
+      newLink.append(textCenterDiv);
+      newFeatureCardSection.append(newLink);
+    }
+    featureCardsContainer.append(newFeatureCardSection);
+    featureCardSection.remove(); // Remove the original
   }
 
   block.textContent = '';
-  block.append(rootDiv);
-  block.className = `${block.dataset.blockName} block`;
-  block.dataset.blockStatus = 'loaded';
+  block.append(featureCardsContainer);
 }

@@ -38,26 +38,26 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Image",
+          "label": "Blog Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Blog Image",
           "name": "image",
           "valueType": "string"
         },
         {
           "component": "date-time",
-          "label": "Published Date",
-          "name": "publishedDate",
+          "label": "Publish Date",
+          "name": "publishDate",
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Title",
+          "component": "text",
+          "label": "Blog Title",
           "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "Blog Link",
-          "name": "link",
           "valueType": "string"
         }
       ]

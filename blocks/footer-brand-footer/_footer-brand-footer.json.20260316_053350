@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Footer Link List",
+      "title": "FooterLinkList",
       "id": "footerLinkList",
       "plugins": {
         "xwalk": {
@@ -25,14 +25,14 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "footerLinkList",
-              "name": "Footer Link List"
+              "name": "FooterLinkList"
             }
           }
         }
       }
     },
     {
-      "title": "Footer Social Link",
+      "title": "FooterSocialLink",
       "id": "footerSocialLink",
       "plugins": {
         "xwalk": {
@@ -40,7 +40,7 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "footerSocialLink",
-              "name": "Footer Social Link"
+              "name": "FooterSocialLink"
             }
           }
         }
@@ -53,24 +53,36 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Logo Image",
-          "name": "logoImage",
+          "label": "Primary Logo",
+          "name": "logo",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Secondary Logo Image",
-          "name": "secondaryLogoImage",
+          "label": "Secondary Logo",
+          "name": "secondaryLogo",
           "valueType": "string"
         },
         {
-          "component": "reference",
+          "component": "footerLinkList",
+          "label": "Footer Link Lists",
+          "multiple": true,
+          "name": "linkLists"
+        },
+        {
+          "component": "footerSocialLink",
+          "label": "Footer Social Links",
+          "multiple": true,
+          "name": "socialLinks"
+        },
+        {
+          "component": "aem-content",
           "label": "ITC Portal Link",
           "name": "itcPortalLink",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Copyright Text",
           "name": "copyrightText",
           "valueType": "string"
@@ -81,15 +93,15 @@
       "id": "footerLinkList",
       "fields": [
         {
-          "component": "text",
-          "label": "Link Label",
-          "name": "label",
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Link URL",
-          "name": "link",
+          "component": "text",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         }
       ]
@@ -98,15 +110,15 @@
       "id": "footerSocialLink",
       "fields": [
         {
-          "component": "reference",
-          "label": "Social Link URL",
-          "name": "socialUrl",
+          "component": "aem-content",
+          "label": "Social Link",
+          "name": "socialLink",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Icon Image",
-          "name": "iconImage",
+          "label": "Social Icon",
+          "name": "icon",
           "valueType": "string"
         }
       ]

@@ -23,59 +23,38 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Video Source",
-          "name": "videoSrc",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Video Title",
-          "name": "videoTitle",
-          "valueType": "string"
-        },
-        {
-          "component": "boolean",
-          "label": "Autoplay",
-          "name": "autoplay"
-        },
-        {
-          "component": "boolean",
-          "label": "Muted",
-          "name": "muted"
-        },
-        {
-          "component": "boolean",
-          "label": "Loop",
-          "name": "loop"
-        },
-        {
-          "component": "reference",
-          "label": "Play Icon",
-          "name": "playIcon",
+          "label": "Video",
+          "name": "video",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Pause Icon",
-          "name": "pauseIcon",
+          "label": "Icon Play",
+          "name": "iconPlay",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Mute Icon",
-          "name": "muteIcon",
+          "label": "Icon Pause",
+          "name": "iconPause",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Unmute Icon",
-          "name": "unmuteIcon",
+          "label": "Icon Mute",
+          "name": "iconMute",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "No Audio Icon",
-          "name": "noAudioIcon",
+          "label": "Icon Unmute",
+          "name": "iconUnmute",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Icon No Audio",
+          "name": "iconNoAudio",
           "valueType": "string"
         }
       ]

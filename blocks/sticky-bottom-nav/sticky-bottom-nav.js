@@ -2,67 +2,53 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const popUpDiv = document.getElementById('pop-up');
-  if (popUpDiv) {
-    popUpDiv.remove();
-  }
-
-  const stickyNavigationTransPopUp = document.querySelector('.sticky-navigation-trans-pop-up');
-  if (stickyNavigationTransPopUp) {
-    stickyNavigationTransPopUp.remove();
-  }
-
-  const section = document.createElement('section');
-  section.className = 'sticky-navigation-sticky-bottom-nav sticky-navigation-position-fixed sticky-navigation-bottom-0 sticky-navigation-p-3 sticky-navigation-d-flex sticky-navigation-align-items-center sticky-navigation-boing-container sticky-navigation-bg-boing-primary';
-
   const ul = document.createElement('ul');
-  ul.className = 'sticky-navigation-sticky-bottom-nav__list sticky-navigation-d-flex sticky-navigation-justify-content-around sticky-navigation-align-items-center sticky-navigation-flex-grow-1';
+  ul.classList.add('sticky-bottom-nav__list', 'd-flex', 'justify-content-around', 'align-items-center', 'flex-grow-1');
 
-  const items = block.querySelectorAll('[data-aue-model="stickyBottomNavItem"]');
-  items.forEach((itemNode) => {
+  const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
+  navItems.forEach((itemNode) => {
     const li = document.createElement('li');
-    li.className = 'sticky-navigation-sticky-bottom-nav__item sticky-navigation-position-relative';
+    li.classList.add('sticky-bottom-nav__item', 'position-relative');
 
-    const linkElement = itemNode.querySelector('[data-aue-prop="link"]');
-    const linkHref = linkElement ? linkElement.href : '#';
-    const linkDataConsent = linkElement ? linkElement.dataset.consent : 'false';
-    const linkDataLink = linkElement ? linkElement.dataset.link : '';
+    const linkElement = itemNode.querySelector('a');
+    if (linkElement) {
+      const link = document.createElement('a');
+      link.classList.add('sticky-bottom-nav__link', 'd-flex', 'flex-column', 'align-items-center', 'gap-1', 'analytics_cta_click');
+      link.href = linkElement.href;
+      if (linkElement.dataset.consent) {
+        link.dataset.consent = linkElement.dataset.consent;
+      }
+      if (linkElement.dataset.link) {
+        link.dataset.link = linkElement.dataset.link;
+      }
 
-    const a = document.createElement('a');
-    a.href = linkHref;
-    a.className = 'sticky-navigation-sticky-bottom-nav__link sticky-navigation-d-flex sticky-navigation-flex-column sticky-navigation-align-items-center sticky-navigation-gap-1 sticky-navigation-analytics_cta_click';
-    a.dataset.consent = linkDataConsent;
-    a.dataset.link = linkDataLink;
+      const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
+      if (imgElement) {
+        const picture = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{ width: '40' }]);
+        picture.querySelector('img').classList.add('sticky-bottom-nav__icon');
+        link.append(picture);
+        moveInstrumentation(imgElement, picture);
+      }
 
-    const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
-    if (imgElement) {
-      const altText = itemNode.querySelector('[data-aue-prop="altText"]')?.textContent || imgElement.alt;
-      const picture = createOptimizedPicture(imgElement.src, altText, false, [{ width: '40' }]);
-      const img = picture.querySelector('img');
-      img.className = 'sticky-navigation-sticky-bottom-nav__icon';
-      a.append(picture);
-      moveInstrumentation(imgElement, picture);
+      const labelElement = itemNode.querySelector('[data-aue-prop="label"]');
+      if (labelElement) {
+        const span = document.createElement('span');
+        span.classList.add('sticky-bottom-nav__label');
+        span.textContent = labelElement.textContent;
+        link.append(span);
+        moveInstrumentation(labelElement, span);
+      }
+
+      li.append(link);
+      moveInstrumentation(linkElement, link);
     }
 
-    const labelElement = itemNode.querySelector('[data-aue-prop="label"]');
-    if (labelElement) {
-      const span = document.createElement('span');
-      span.className = 'sticky-navigation-sticky-bottom-nav__label';
-      span.textContent = labelElement.textContent;
-      a.append(span);
-      moveInstrumentation(labelElement, span);
-    }
-
-    li.append(a);
-    moveInstrumentation(linkElement, a);
     ul.append(li);
     moveInstrumentation(itemNode, li);
   });
 
-  section.append(ul);
-
   block.textContent = '';
-  block.className = `${block.dataset.blockName} block`;
-  block.append(section);
+  block.append(ul);
+  block.classList.add('sticky-bottom-nav', 'position-fixed', 'bottom-0', 'p-3', 'd-flex', 'align-items-center', 'boing-container', 'bg-boing-primary');
   block.dataset.blockStatus = 'loaded';
 }

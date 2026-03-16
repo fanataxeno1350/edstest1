@@ -33,7 +33,9 @@
       "latestBlogsList",
       "footerBrandFooter",
       "stickyNavigationBottomNav",
-      "latestBlogsArticleListing"
+      "latestBlogsArticleListing",
+      "headerSection",
+      "spaceAdder"
     ]
   },
   {
@@ -102,6 +104,14 @@
     ]
   },
   {
+    "id": "headerSection",
+    "components": [
+      "sidebarMenuItem",
+      "footerLinkItem",
+      "socialLinkItem"
+    ]
+  },
+  {
     "id": "header",
     "components": [
       "headerMenuItem",
@@ -140,9 +150,12 @@
     ]
   },
   {
+    "id": "spaceAdder"
+  },
+  {
     "id": "stickyBottomNav",
     "components": [
-      "stickyBottomNavItem"
+      "navItem"
     ]
   },
   {
