@@ -2,58 +2,57 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const mainNav = document.createElement('ul');
-  mainNav.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__list', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-justify-content-around', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-flex-grow-1');
+  const navList = document.createElement('ul');
+  navList.classList.add('sticky-bottom-nav__list', 'd-flex', 'justify-content-around', 'align-items-center', 'flex-grow-1');
 
-  const navItems = block.querySelectorAll('[data-aue-model="stickyNavigationItem"]');
-  navItems.forEach((itemNode) => {
+  const items = block.querySelectorAll('[data-aue-model="stickyNavigationItem"]');
+  items.forEach((itemNode) => {
     const listItem = document.createElement('li');
-    listItem.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__item', 'stickynavigation-stickyNavigation-position-relative');
+    listItem.classList.add('sticky-bottom-nav__item', 'position-relative');
 
-    const linkElement = itemNode.querySelector('.stickynavigation-stickyNavigation-sticky-bottom-nav__link');
-    if (linkElement) {
-      const newLink = document.createElement('a');
-      newLink.href = linkElement.href;
-      newLink.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__link', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-flex-column', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-gap-1', 'stickynavigation-stickyNavigation-analytics_cta_click');
+    const linkElement = itemNode.querySelector('a');
+    const linkHref = linkElement ? linkElement.href : '#';
+    const linkConsent = linkElement ? linkElement.dataset.consent : 'false';
+    const linkDataLink = linkElement ? linkElement.dataset.link : '';
 
-      // Copy data attributes
-      if (linkElement.dataset.consent) {
-        newLink.dataset.consent = linkElement.dataset.consent;
-      }
-      if (linkElement.dataset.link) {
-        newLink.dataset.link = linkElement.dataset.link;
-      }
+    const anchor = document.createElement('a');
+    anchor.href = linkHref;
+    anchor.classList.add('sticky-bottom-nav__link', 'd-flex', 'flex-column', 'align-items-center', 'gap-1', 'analytics_cta_click');
+    anchor.dataset.consent = linkConsent;
+    anchor.dataset.link = linkDataLink;
 
-      const iconElement = itemNode.querySelector('[data-aue-prop="icon"]');
-      if (iconElement) {
-        const picture = createOptimizedPicture(iconElement.src, iconElement.alt, false, [{
-          width: '400',
-        }]);
-        const img = picture.querySelector('img');
-        img.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__icon');
-        newLink.append(picture);
-        moveInstrumentation(iconElement, picture);
-      }
-
-      const labelElement = itemNode.querySelector('[data-aue-prop="label"]');
-      if (labelElement) {
-        const span = document.createElement('span');
-        span.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav__label');
-        span.textContent = labelElement.textContent;
-        newLink.append(span);
-        moveInstrumentation(labelElement, span);
-      }
-
-      listItem.append(newLink);
-      moveInstrumentation(linkElement, newLink);
+    const iconImg = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (iconImg) {
+      const picture = createOptimizedPicture(iconImg.src, iconImg.alt);
+      picture.classList.add('sticky-bottom-nav__icon');
+      anchor.append(picture);
+      moveInstrumentation(iconImg, picture);
     }
 
-    mainNav.append(listItem);
+    const labelSpan = document.createElement('span');
+    labelSpan.classList.add('sticky-bottom-nav__label');
+    const labelText = itemNode.querySelector('[data-aue-prop="label"]');
+    if (labelText) {
+      labelSpan.textContent = labelText.textContent;
+      anchor.append(labelSpan);
+      moveInstrumentation(labelText, labelSpan);
+    } else {
+      // Fallback for label if data-aue-prop is not found
+      const firstP = itemNode.querySelector('p');
+      if (firstP) {
+        labelSpan.textContent = firstP.textContent;
+        anchor.append(labelSpan);
+        moveInstrumentation(firstP, labelSpan);
+      }
+    }
+
+    listItem.append(anchor);
+    navList.append(listItem);
     moveInstrumentation(itemNode, listItem);
   });
 
   block.textContent = '';
-  block.append(mainNav);
-  block.classList.add('stickynavigation-stickyNavigation-sticky-bottom-nav', 'stickynavigation-stickyNavigation-position-fixed', 'stickynavigation-stickyNavigation-bottom-0', 'stickynavigation-stickyNavigation-p-3', 'stickynavigation-stickyNavigation-d-flex', 'stickynavigation-stickyNavigation-align-items-center', 'stickynavigation-stickyNavigation-boing-container', 'stickynavigation-stickyNavigation-bg-boing-primary');
+  block.classList.add('sticky-bottom-nav', 'position-fixed', 'bottom-0', 'p-3', 'd-flex', 'align-items-center', 'boing-container', 'bg-boing-primary');
+  block.append(navList);
   block.dataset.blockStatus = 'loaded';
 }

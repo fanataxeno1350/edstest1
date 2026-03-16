@@ -50,8 +50,8 @@
         },
         {
           "component": "aem-content",
-          "label": "CTA Link",
-          "name": "ctaLink",
+          "label": "View All Link",
+          "name": "viewAllLink",
           "valueType": "string"
         }
       ]
@@ -60,27 +60,27 @@
       "id": "blog",
       "fields": [
         {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        },
-        {
           "component": "reference",
           "label": "Image",
           "name": "image",
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "aem-content",
+          "label": "Blog Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "date-time",
           "label": "Date",
           "name": "date",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Headline",
-          "name": "headline",
+          "label": "Blog Title",
+          "name": "blogTitle",
           "valueType": "string"
         }
       ]

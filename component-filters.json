@@ -54,6 +54,12 @@
     ]
   },
   {
+    "id": "bannerVideo",
+    "components": [
+      "bannerVideo"
+    ]
+  },
+  {
     "id": "banner",
     "components": [
       "banner"
@@ -80,6 +86,12 @@
     ]
   },
   {
+    "id": "featureCards",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "footerBrand",
     "components": [
       "footerBrandLogo",
@@ -91,16 +103,14 @@
   {
     "id": "footer",
     "components": [
-      "footerLogo",
-      "footerNavGroup",
-      "footerSocialLink",
-      "footerNavLink"
+      "footerLinkGroup",
+      "socialLink"
     ]
   },
   {
-    "id": "footerNavGroup",
+    "id": "footerLinkGroup",
     "components": [
-      "footerNavLink"
+      "footerLink"
     ]
   },
   {
@@ -114,8 +124,8 @@
   {
     "id": "header",
     "components": [
-      "menuLink",
-      "footerLink",
+      "menuItem",
+      "footerListItem",
       "socialLink"
     ]
   },

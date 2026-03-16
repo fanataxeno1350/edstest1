@@ -1,0 +1,56 @@
+button.featurecards-swiper-pagination-bullet{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;-webkit-box-shadow:none;box-shadow:none;margin:0;padding:0}
+
+button,html,input,select,textarea{color:#222}
+
+@media print{
+  *{background:transparent !important;-webkit-box-shadow:none !important;box-shadow:none !important;color:#000 !important;text-shadow:none !important}
+  a,a:visited{text-decoration:none}
+  a[href]:after{content:" (" attr(href) ")"}
+  img,tr{page-break-inside:avoid}
+  img{max-width:100% !important}
+  h2,h3,p{orphans:3;widows:3}
+  h2,h3{page-break-after:avoid}
+}
+
+button,html,input,select,textarea{font-family:sans-serif}
+
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;vertical-align:middle}
+
+button,input{line-height:normal}
+
+button,select{text-transform:none}
+
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;overflow:visible}
+
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+
+button,input,optgroup,select,textarea{font:inherit}
+
+button.featurecards-swiper-pagination-bullet { appearance: none; border: 0px; box-shadow: none; margin: 0px; padding: 0px; }
+
+button, html, input, select, textarea { color: rgb(34, 34, 34); }
+
+@media print {
+  * { background: transparent !important; box-shadow: none !important; color: rgb(0, 0, 0) !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: none; }
+  img, tr { break-inside: avoid; }
+  img { max-width: 100% !important; }
+  h2, h3, p { orphans: 3; widows: 3; }
+  h2, h3 { break-after: avoid; }
+}
+
+button, html, input, select, textarea { font-family: sans-serif; }
+
+button, input, select, textarea { font-size: 100%; margin: 0px; vertical-align: middle; }
+
+button, input { line-height: normal; }
+
+button, select { text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] { appearance: button; cursor: pointer; overflow: visible; }
+
+button, input, optgroup, select, textarea { font: inherit; }
+
+/* Inline style: h1 */
+h1 { 	text-align: center;
+ }
