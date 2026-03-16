@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Carousel Item",
+      "title": "Carousel-Item",
       "id": "carouselItem",
       "plugins": {
         "xwalk": {
@@ -25,7 +25,7 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "carouselItem",
-              "name": "Carousel Item"
+              "name": "Carousel-Item"
             }
           }
         }
@@ -52,12 +52,6 @@
           "component": "aem-content",
           "label": "CTA Link",
           "name": "cta",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Alt Text",
-          "name": "altText",
           "valueType": "string"
         }
       ]

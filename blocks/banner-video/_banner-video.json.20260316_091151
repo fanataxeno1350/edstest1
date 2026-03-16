@@ -30,31 +30,31 @@
         {
           "component": "reference",
           "label": "Play Icon",
-          "name": "iconPlay",
+          "name": "playIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Pause Icon",
-          "name": "iconPause",
+          "name": "pauseIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Mute Icon",
-          "name": "iconMute",
+          "name": "muteIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Unmute Icon",
-          "name": "iconUnmute",
+          "name": "unmuteIcon",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "No Audio Icon",
-          "name": "iconNoAudio",
+          "name": "noAudioIcon",
           "valueType": "string"
         }
       ]

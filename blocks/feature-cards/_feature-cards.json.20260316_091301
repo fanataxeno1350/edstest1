@@ -1,31 +1,31 @@
 {
   "definitions": [
     {
-      "title": "Latest-Blogs-Article-Listing",
-      "id": "latestBlogsArticleListing",
+      "title": "Feature-Cards",
+      "id": "featureCards",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "filter": "latestBlogsArticleListing",
-              "model": "latestBlogsArticleListing",
-              "name": "Latest-Blogs-Article-Listing"
+              "filter": "featureCards",
+              "model": "featureCards",
+              "name": "Feature-Cards"
             }
           }
         }
       }
     },
     {
-      "title": "Article",
-      "id": "article",
+      "title": "Feature-Card",
+      "id": "featureCard",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "article",
-              "name": "Article"
+              "model": "featureCard",
+              "name": "Feature-Card"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "article",
+      "id": "featureCard",
       "fields": [
         {
           "component": "reference",
@@ -43,32 +43,15 @@
           "valueType": "string"
         },
         {
-          "component": "date-time",
-          "label": "Publish Date",
-          "name": "publishDate",
+          "component": "text",
+          "label": "Alt Text",
+          "name": "alt",
           "valueType": "string"
         },
         {
           "component": "richtext",
           "label": "Title",
           "name": "title",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "latestBlogsArticleListing",
-      "fields": [
-        {
-          "component": "richtext",
-          "label": "Heading",
-          "name": "heading",
           "valueType": "string"
         },
         {
@@ -79,8 +62,8 @@
         },
         {
           "component": "aem-content",
-          "label": "View All Link",
-          "name": "viewAllLink",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]
@@ -88,9 +71,9 @@
   ],
   "filters": [
     {
-      "id": "latestBlogsArticleListing",
+      "id": "featureCards",
       "components": [
-        "article"
+        "featureCard"
       ]
     }
   ]

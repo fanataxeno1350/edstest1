@@ -62,6 +62,13 @@
     ]
   },
   {
+    "id": "footer-brand-footer",
+    "components": [
+      "footerNavList",
+      "footerSocialLink"
+    ]
+  },
+  {
     "id": "footer",
     "components": [
       "footerLinkList",
@@ -83,15 +90,23 @@
     ]
   },
   {
-    "id": "latestBlogsArticleListing",
+    "id": "headerSection",
     "components": [
-      "blogCard"
+      "menuItem",
+      "footerLink",
+      "socialMedia"
     ]
   },
   {
-    "id": "sticky-bottom-nav",
+    "id": "latestBlogsArticleListing",
     "components": [
-      "navItem"
+      "article"
+    ]
+  },
+  {
+    "id": "stickyBottomNav",
+    "components": [
+      "stickyBottomNavItem"
     ]
   }
 ]

@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Article",
-      "id": "article",
+      "title": "Blog-Card",
+      "id": "blogCard",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "article",
-              "name": "Article"
+              "model": "blogCard",
+              "name": "Blog-Card"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "article",
+      "id": "blogCard",
       "fields": [
         {
           "component": "reference",
@@ -79,8 +79,20 @@
         },
         {
           "component": "aem-content",
-          "label": "View All Link",
-          "name": "viewAllLink",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "CTA Text",
+          "name": "ctaText",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "CTA Icon",
+          "name": "ctaIcon",
           "valueType": "string"
         }
       ]
@@ -90,7 +102,7 @@
     {
       "id": "latestBlogsArticleListing",
       "components": [
-        "article"
+        "blogCard"
       ]
     }
   ]
