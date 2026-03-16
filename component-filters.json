@@ -38,7 +38,8 @@
       "boingHeaderFooter",
       "carouselBanner",
       "banner",
-      "articleListing"
+      "articleListing",
+      "spaceAdder"
     ]
   },
   {
@@ -64,7 +65,7 @@
   {
     "id": "carousel",
     "components": [
-      "slide"
+      "carouselItem"
     ]
   },
   {
@@ -83,7 +84,34 @@
     ]
   },
   {
+    "id": "footer",
+    "components": [
+      "footerNavList",
+      "footerSocialList"
+    ]
+  },
+  {
+    "id": "header",
+    "components": [
+      "menuLink",
+      "footerLink",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "latestBlogsArticleList",
+    "components": [
+      "article"
+    ]
+  },
+  {
     "id": "sticky-bottom-nav",
+    "components": [
+      "navItem"
+    ]
+  },
+  {
+    "id": "stickyBottomNav",
     "components": [
       "navItem"
     ]

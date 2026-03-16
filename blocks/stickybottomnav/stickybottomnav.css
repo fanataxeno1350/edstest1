@@ -1,0 +1,113 @@
+.stickyNavigation-d-flex{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}
+
+.stickyNavigation-position-relative{position:relative !important}
+
+.stickyNavigation-position-fixed{position:fixed !important}
+
+.stickyNavigation-bottom-0{bottom:0 !important}
+
+.stickyNavigation-flex-column,.flex-row{-webkit-box-direction:normal !important}
+
+.stickyNavigation-flex-column{-webkit-box-orient:vertical !important;-ms-flex-direction:column !important;flex-direction:column !important}
+
+.stickyNavigation-flex-grow-1{-webkit-box-flex:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}
+
+.stickyNavigation-justify-content-around{-ms-flex-pack:distribute !important;justify-content:space-around !important}
+
+.stickyNavigation-align-items-center{-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}
+
+.stickyNavigation-p-3{padding:.5rem !important}
+
+.stickyNavigation-gap-1{gap:.125rem !important}
+
+.stickyNavigation-bg-boing-primary,.bg-boing-primary-active:active,.bg-boing-primary-disabled:disabled,.bg-boing-primary-focus:focus,.bg-boing-primary-hover:hover{--bs-bg-opacity:1;background-color:#aa1f30 !important}
+
+.stickyNavigation-boing-container{--bs-gutter-x:0;--bs-gutter-y:0;margin-left:auto;margin-right:auto;max-width:33.75rem;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100%}
+
+audio,canvas,img,video{vertical-align:middle}
+
+a:focus{outline:0}
+
+a{color:#000;outline:0 !important}
+
+@media print{
+  a,a:visited{text-decoration:none}
+  a[href]:after{content:" (" attr(href) ")"}
+  img,tr{page-break-inside:avoid}
+  img{max-width:100% !important}
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+
+a:focus{outline:thin dotted}
+
+a:active,a:hover{outline:0}
+
+dl,menu,ol,ul{margin:1em 0}
+
+menu,ol,ul{padding:0 0 0 40px}
+
+img{-ms-interpolation-mode:bicubic;border:0}
+
+a img{border:0}
+
+a,a:hover{text-decoration:none}
+
+li,ul{list-style:none;margin:0;padding:0}
+
+.stickyNavigation-d-flex { display: flex !important; }
+
+.stickyNavigation-position-relative { position: relative !important; }
+
+.stickyNavigation-position-fixed { position: fixed !important; }
+
+.stickyNavigation-bottom-0 { bottom: 0px !important; }
+
+.stickyNavigation-flex-column, .flex-row { -webkit-box-direction: normal !important; }
+
+.stickyNavigation-flex-column { -webkit-box-orient: vertical !important; flex-direction: column !important; }
+
+.stickyNavigation-flex-grow-1 { -webkit-box-flex: 1 !important; flex-grow: 1 !important; }
+
+.stickyNavigation-justify-content-around { justify-content: space-around !important; }
+
+.stickyNavigation-align-items-center { -webkit-box-align: center !important; align-items: center !important; }
+
+.stickyNavigation-p-3 { padding: 0.5rem !important; }
+
+.stickyNavigation-gap-1 { gap: 0.125rem !important; }
+
+.stickyNavigation-bg-boing-primary, .bg-boing-primary-active:active, .bg-boing-primary-disabled:disabled, .bg-boing-primary-focus:focus, .bg-boing-primary-hover:hover { --bs-bg-opacity: 1; background-color: rgb(170, 31, 48) !important; }
+
+.stickyNavigation-boing-container { --bs-gutter-x: 0; --bs-gutter-y: 0; margin-left: auto; margin-right: auto; max-width: 33.75rem; padding-left: calc(var(--bs-gutter-x)*.5); padding-right: calc(var(--bs-gutter-x)*.5); width: 100%; }
+
+audio, canvas, img, video { vertical-align: middle; }
+
+a:focus { outline: 0px; }
+
+a { color: rgb(0, 0, 0); outline: 0px !important; }
+
+@media print {
+  a, a:visited { text-decoration: none; }
+  a[href]::after { content: " (" attr(href) ")"; }
+  img, tr { break-inside: avoid; }
+  img { max-width: 100% !important; }
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+a:focus { outline: dotted thin; }
+
+a:active, a:hover { outline: 0px; }
+
+dl, menu, ol, ul { margin: 1em 0px; }
+
+menu, ol, ul { padding: 0px 0px 0px 40px; }
+
+img { border: 0px; }
+
+a img { border: 0px; }
+
+a, a:hover { text-decoration: none; }
+
+li, ul { list-style: none; margin: 0px; padding: 0px; }
