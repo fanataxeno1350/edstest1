@@ -1,0 +1,29 @@
+.latestblogs-position-relative{position:relative !important}
+
+.latestblogs-m-0{margin:0 !important}
+
+.latestblogs-mb-3{margin-bottom:.latestblogs-5rem !important}
+
+.latestblogs-p-0{padding:0 !important}
+
+.latestblogs-pb-3{padding-bottom:.latestblogs-5rem !important}
+
+.latestblogs-pb-4{padding-bottom:.latestblogs-75rem !important}
+
+.latestblogs-text-center{text-align:center !important}
+
+.latestblogs-text-white,.latestblogs-text-white-active:active,.latestblogs-text-white-disabled:disabled,.latestblogs-text-white-focus:focus,.latestblogs-text-white-hover:hover{--bs-text-opacity:1;color:#fff !important}
+
+.latestblogs-boing--text__heading-0,.latestblogs-boing--text__heading-1{font-family:Barlow;font-weight:700;line-height:normal}
+
+.latestblogs-boing--text__heading-1{font-size:1.latestblogs-5rem}
+
+.latestblogs-boing--text__title-3,.latestblogs-primary-btn,.latestblogs-secondary-btn,.latestblogs-tertiary-btn{font-family:Barlow;font-size:1rem;font-weight:600;line-height:normal}
+
+.latestblogs-boing--text__body-1,.latestblogs-boing--text__body-2{font-family:Barlow;font-weight:400;line-height:normal}
+
+.latestblogs-boing--text__body-2{font-size:1rem}
+
+.latestblogs-boing--text__body-5{font-family:Barlow;font-size:.latestblogs-75rem;font-weight:500;line-height:normal}
+
+.latestblogs-article_listing--wrapper .latestblogs-article_listing_section--second .latestblogs-article_listing--cards .latestblogs-boing--text__body{-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;overflow:hidden}

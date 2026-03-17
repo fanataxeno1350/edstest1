@@ -4,10 +4,6 @@
 
 .featurecards-d-none{display:none !important}
 
-.featurecards-w-100{width:100% !important}
-
-.featurecards-h-100{height:100% !important}
-
 .featurecards-flex-column,.featurecards-flex-row{-webkit-box-direction:normal !important}
 
 .featurecards-flex-column{-webkit-box-orient:vertical !important;-ms-flex-direction:column !important;flex-direction:column !important}
@@ -44,60 +40,8 @@
 
 .featurecards-boing--text__body-4{font-family:Barlow;font-size:.featurecards-75rem;font-weight:600;line-height:1rem}
 
-.featurecards-cmp-text h1,.featurecards-cmp-text h2{color:#161616;font-size:1.featurecards-5rem;font-weight:700;line-height:normal}
-
-.featurecards-cmp-text h1.featurecards-light_title,.featurecards-cmp-text h2.featurecards-light_title{color:#fff}
-
-.featurecards-cmp-text h3{color:#161616;font-size:1.featurecards-25rem;font-weight:600;line-height:normal}
-
-.featurecards-cmp-text h3.featurecards-light_title{color:#fff}
-
-.featurecards-cmp-text p{color:#414141;font-size:1rem;font-weight:400;line-height:normal;margin-top:.featurecards-25rem}
-
-.featurecards-cmp-text p.featurecards-light_subtitle{color:#fff}
-
-.featurecards-cmp-text p.featurecards-dark_subtitle{color:#030303}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text p{color:#414141;font-family:Barlow;font-size:1rem;font-weight:400;line-height:normal;margin:0;padding:0}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text ul{padding-left:1.featurecards-625rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text ul li{color:#414141;font-family:Barlow;font-size:1rem;font-weight:400;line-height:1.featurecards-1875rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-accordion__panel .featurecards-baseContainer .featurecards-cmp-text{padding-bottom:.featurecards-75rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-text p{color:#414141;font-family:Barlow;font-size:.featurecards-75rem;font-weight:400;line-height:normal}
-
-.featurecards-baseContainer.featurecards-baseContainer_Blog_Details .featurecards-text .featurecards-cmp-text p{color:#030303;font-family:Barlow;font-size:.featurecards-875rem;font-weight:400;line-height:1.featurecards-125rem;margin:0;padding:0}
-
-.featurecards-baseContainer.featurecards-baseContainer_Blog_Details .featurecards-text .featurecards-cmp-text h1{padding:24px 0}
-
-.featurecards-lets-doodle .featurecards-baseContainer .featurecards-accordion .featurecards-cmp-accordion__panel .featurecards-cmp-text p{font-family:Roboto,sans-serif;font-size:.featurecards-75rem;line-height:1.featurecards-125rem}
-
-.featurecards-lets-doodle .featurecards-baseContainer .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-text p{color:#000;max-width:95%}
-
-.featurecards-blogListing .featurecards-cmp-text{padding:1.featurecards-75rem 1rem .featurecards-75rem}
-
-@media(max-width:768px){
-  .featurecards-lets-doodle .featurecards-card-carousel .featurecards-cmp-text.featurecards-famlf-carousel-text{margin-bottom:-70px}
-}
-
-.featurecards-bolte_sitare--headingText .featurecards-cmp-text{padding-bottom:4px !important;text-align:left !important}
-
 .featurecards-featureCards{padding:1.featurecards-5rem 1rem 1rem;position:relative}
 
 .featurecards-featureCards .featurecards-cmp-text{font-family:Barlow;font-size:1.featurecards-5rem;font-weight:700;line-height:1.featurecards-75rem;padding-bottom:1rem}
 
 .featurecards-featureCards .featurecards-cmp-text-partial{color:#aa1f30}
-
-.featurecards-gridCards .featurecards-cmp-text{padding:1.featurecards-75rem 1rem 1rem}
-
-.featurecards-login-signup__section .featurecards-signup-screen .featurecards-cmp-text{padding:0}
-
-.featurecards-numerology-report__report-container .featurecards-cmp-text h1{color:#81151d;font-family:Poppins,sans-serif;font-size:1.featurecards-6875rem;font-weight:400;margin:0 0 .featurecards-625rem}
-
-.featurecards-numerology-report__report-container .featurecards-cmp-text p{color:#000;font-family:Poppins,sans-serif;font-size:.featurecards-9375rem;font-weight:400;margin:0 0 .featurecards-625rem}
-
-.featurecards-profile-details__edit-form-title .featurecards-cmp-text{padding:0}
-
-.featurecards-text.featurecards-textWrapper .featurecards-cmp-text p{color:#030303;font-family:Barlow;font-size:.featurecards-875rem;font-weight:400;line-height:1.featurecards-125rem;margin:0;padding:0}

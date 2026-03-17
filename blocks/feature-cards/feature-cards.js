@@ -3,91 +3,82 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const rootDiv = document.createElement('div');
-  rootDiv.classList.add('featureCards-container');
+  rootDiv.className = 'feature-cards-wrapper';
 
-  // Extract and move the heading
-  const headingContainer = block.querySelector('div:first-child');
-  if (headingContainer) {
-    const headingDiv = document.createElement('div');
-    headingDiv.classList.add('featureCards-heading-container');
-    const heading = headingContainer.querySelector('.cmp-text h1');
-    if (heading) {
-      headingDiv.append(heading);
-      moveInstrumentation(headingContainer, headingDiv);
-      rootDiv.append(headingDiv);
-    }
+  // Extract and move the main title
+  const titleContainer = block.querySelector('.featureCards-cmp-text');
+  if (titleContainer) {
+    const titleWrapper = document.createElement('div');
+    titleWrapper.className = 'feature-cards-title-wrapper';
+    titleWrapper.append(titleContainer);
+    moveInstrumentation(titleContainer, titleWrapper);
+    rootDiv.append(titleWrapper);
   }
 
   const cardsWrapper = document.createElement('div');
-  cardsWrapper.classList.add('featureCards-wrapper');
+  cardsWrapper.className = 'feature-cards-grid';
 
-  const featureCards = block.querySelectorAll('[data-aue-model="featureCard"]');
+  // Extract multifield items using data-aue-model="featureCard"
+  const authoredCards = block.querySelectorAll('[data-aue-model="featureCard"]');
 
-  featureCards.forEach((cardNode) => {
-    const link = cardNode.querySelector('a');
-    if (!link) return;
-
+  authoredCards.forEach((cardElement) => {
+    const link = cardElement.querySelector('a');
     const cardLink = document.createElement('a');
-    cardLink.classList.add('d-flex', 'flex-column', 'analytics_cta_click', 'text-decoration-none');
-    cardLink.href = link.href;
-    cardLink.title = link.title;
-    if (link.target) {
-      cardLink.target = link.target;
+    if (link) {
+      cardLink.href = link.href;
+      if (link.target) {
+        cardLink.target = link.target;
+      }
+      if (link.title) {
+        cardLink.title = link.title;
+      }
+      moveInstrumentation(link, cardLink);
     }
-    if (link.dataset.ctaLabel) {
-      cardLink.dataset.ctaLabel = link.dataset.ctaLabel;
-    }
+    cardLink.className = 'feature-card-item';
 
-    const imageDiv = document.createElement('div');
-    imageDiv.classList.add('featureCards-feature_card--image', 'w-100', 'pb-4');
-    const img = cardNode.querySelector('img');
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'feature-card-image';
+    const img = cardElement.querySelector('img');
     if (img) {
-      const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-      imageDiv.append(picture);
+      const picture = createOptimizedPicture(img.src, img.alt);
+      imageContainer.append(picture);
       moveInstrumentation(img, picture);
     }
-    cardLink.append(imageDiv);
+    cardLink.append(imageContainer);
 
-    const textContentDiv = document.createElement('div');
-    textContentDiv.classList.add('text-center');
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'feature-card-content';
 
-    const title = cardNode.querySelector('.featureCards-feature_card--title');
+    const title = cardElement.querySelector('h2');
     if (title) {
-      textContentDiv.append(title);
-      moveInstrumentation(title, textContentDiv);
+      contentWrapper.append(title);
+      moveInstrumentation(title, contentWrapper);
     }
 
-    const descriptionWrapper = document.createElement('div');
-    descriptionWrapper.classList.add('pb-5');
-    const description = cardNode.querySelector('.featureCards-feature_card--desc');
+    const description = cardElement.querySelector('p');
     if (description) {
-      descriptionWrapper.append(description);
-      moveInstrumentation(description, descriptionWrapper);
+      contentWrapper.append(description);
+      moveInstrumentation(description, contentWrapper);
     }
-    textContentDiv.append(descriptionWrapper);
 
-    const buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('featureCards-redirected_btn', 'd-none');
-    const button = cardNode.querySelector('.featureCards-arrow-icon-btn');
+    const button = cardElement.querySelector('button');
     if (button) {
-      buttonDiv.append(button);
-      moveInstrumentation(button, buttonDiv);
+      const buttonWrapper = document.createElement('div');
+      buttonWrapper.className = 'feature-card-button';
+      buttonWrapper.append(button);
+      moveInstrumentation(button, buttonWrapper);
+      contentWrapper.append(buttonWrapper);
     }
-    textContentDiv.append(buttonDiv);
 
-    cardLink.append(textContentDiv);
-
-    const section = document.createElement('section');
-    section.classList.add('d-block', 'featureCards-feature_card--Section', 'featureCards-feature_card', 'mx-auto');
-    section.append(cardLink);
-    moveInstrumentation(cardNode, section);
-    cardsWrapper.append(section);
+    cardLink.append(contentWrapper);
+    cardsWrapper.append(cardLink);
+    moveInstrumentation(cardElement, cardLink);
   });
 
   rootDiv.append(cardsWrapper);
 
   block.textContent = '';
   block.append(rootDiv);
-  block.classList.add('feature-cards', 'block');
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

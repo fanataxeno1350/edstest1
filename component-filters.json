@@ -51,15 +51,28 @@
     ]
   },
   {
+    "id": "banner",
+    "components": [
+      "banner"
+    ]
+  },
+  {
     "id": "carousel",
     "components": [
-      "slide"
+      "carouselItem"
     ]
   },
   {
     "id": "featureCards",
     "components": [
       "featureCard"
+    ]
+  },
+  {
+    "id": "footerBrand",
+    "components": [
+      "footerLink",
+      "socialLink"
     ]
   },
   {
@@ -77,15 +90,32 @@
     ]
   },
   {
+    "id": "header",
+    "components": [
+      "headerMenuItem",
+      "footerLink",
+      "socialLink"
+    ]
+  },
+  {
     "id": "latestBlogsArticleListing",
     "components": [
       "blogCard"
     ]
   },
   {
+    "id": "latestBlogsArticleList",
+    "components": [
+      "latestBlogsArticle"
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
     "id": "stickyBottomNav",
     "components": [
-      "stickyNavItem"
+      "navItem"
     ]
   }
 ]
