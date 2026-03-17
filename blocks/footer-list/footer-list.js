@@ -1,42 +1,43 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const ul = document.createElement('ul');
-  ul.className = 'footerList-list d-flex align-items-center justify-content-center align-items-md-start flex-column';
+  const footerListWrapper = document.createElement('div');
+  footerListWrapper.className = 'footerList';
 
-  const authoredItems = block.querySelectorAll('div[data-aue-model="footerListItem"]');
-  authoredItems.forEach((itemNode) => {
-    const li = document.createElement('li');
-    li.className = 'footerList-list__item';
+  const ulElement = document.createElement('ul');
+  ulElement.className = 'footerList-list d-flex align-items-center justify-content-center align-items-md-start flex-column';
 
-    const linkElement = itemNode.querySelector('a[data-aue-prop="link"]');
-    const linkTextElement = itemNode.querySelector('[data-aue-prop="text"]');
+  const footerLinks = block.querySelectorAll('[data-aue-model="footerLink"]');
 
-    const a = document.createElement('a');
-    a.className = 'cta-analytics analytics_cta_click footerList-list__item--link d-inline-block';
-    a.setAttribute('data-link-region', 'Footer List');
+  footerLinks.forEach((linkItem) => {
+    const liElement = document.createElement('li');
+    liElement.className = 'footerList-list__item';
 
-    if (linkElement) {
-      a.href = linkElement.href;
-      moveInstrumentation(linkElement, a);
+    const linkElement = document.createElement('a');
+    linkElement.className = 'cta-analytics analytics_cta_click footerList-list__item--link d-inline-block';
+    linkElement.setAttribute('data-link-region', 'Footer List');
+
+    const linkHref = linkItem.querySelector('[data-aue-prop="link"]');
+    if (linkHref) {
+      linkElement.href = linkHref.textContent.trim();
+      moveInstrumentation(linkHref, linkElement);
     }
 
-    if (linkTextElement) {
-      a.textContent = linkTextElement.textContent;
-      moveInstrumentation(linkTextElement, a);
-    } else if (linkElement) {
-      // Fallback if text is not explicitly defined but link is
-      a.textContent = linkElement.textContent;
+    const linkText = linkItem.querySelector('[data-aue-prop="text"]');
+    if (linkText) {
+      linkElement.textContent = linkText.textContent.trim();
+      moveInstrumentation(linkText, linkElement);
     }
 
-    li.append(a);
-    moveInstrumentation(itemNode, li);
-    ul.append(li);
+    liElement.append(linkElement);
+    ulElement.append(liElement);
+    moveInstrumentation(linkItem, liElement);
   });
 
+  footerListWrapper.append(ulElement);
+
   block.textContent = '';
-  block.append(ul);
-  block.className = 'footerList block';
+  block.append(footerListWrapper);
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

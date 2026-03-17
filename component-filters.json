@@ -59,7 +59,7 @@
   {
     "id": "carousel",
     "components": [
-      "carouselItem"
+      "carouselSlide"
     ]
   },
   {
@@ -78,15 +78,15 @@
   {
     "id": "footerList",
     "components": [
-      "footerListItem"
+      "footerLink"
     ]
   },
   {
-    "id": "header-boing",
+    "id": "headerBoing",
     "components": [
-      "menuItem",
-      "footerLink",
-      "footerSocial"
+      "sidebarMenuItem",
+      "footerListItem",
+      "footerSocialItem"
     ]
   },
   {
