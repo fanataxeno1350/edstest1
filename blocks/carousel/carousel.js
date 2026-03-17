@@ -8,74 +8,59 @@ export default function decorate(block) {
   const slidesContainer = document.createElement('div');
   slidesContainer.classList.add('slides-container');
 
-  const items = block.querySelectorAll('[data-aue-model="carouselItem"]');
-  items.forEach((itemNode) => {
-    const slide = document.createElement('div');
-    slide.classList.add('carousel-slide');
+  const authoredSlides = block.querySelectorAll('[data-aue-model="carouselItem"]');
 
-    const videoEl = itemNode.querySelector('[data-aue-prop="video"]');
-    const imageEl = itemNode.querySelector('[data-aue-prop="image"]');
-    const ctaLinkEl = itemNode.querySelector('[data-aue-prop="ctaLink"]');
-    const ctaTextEl = itemNode.querySelector('[data-aue-prop="ctaText"]');
+  authoredSlides.forEach((slide) => {
+    const slideWrapper = document.createElement('div');
+    slideWrapper.classList.add('slide');
 
-    if (videoEl) {
+    const videoElement = slide.querySelector('[data-aue-prop="video"]');
+    const imageElement = slide.querySelector('[data-aue-prop="image"]');
+    const ctaLinkElement = slide.querySelector('[data-aue-prop="ctaLink"]');
+    const ctaTextElement = slide.querySelector('[data-aue-prop="ctaText"]');
+
+    if (videoElement) {
       const videoWrapper = document.createElement('div');
       videoWrapper.classList.add('video-wrapper');
       const video = document.createElement('video');
-      video.setAttribute('muted', '');
       video.setAttribute('autoplay', '');
-      video.setAttribute('playsinline', '');
       video.setAttribute('loop', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
       video.setAttribute('preload', 'metadata');
-      video.setAttribute('fetchpriority', 'high');
       const source = document.createElement('source');
-      source.src = videoEl.href;
+      source.src = videoElement.href || videoElement.textContent.trim();
       source.type = 'video/mp4';
       video.append(source);
       videoWrapper.append(video);
-      slide.append(videoWrapper);
-      moveInstrumentation(videoEl, videoWrapper);
-    } else if (imageEl) {
-      const picture = createOptimizedPicture(imageEl.src, imageEl.alt, true, [{ width: '2000' }]);
-      slide.append(picture);
-      moveInstrumentation(imageEl, picture);
+      slideWrapper.append(videoWrapper);
+      moveInstrumentation(videoElement, videoWrapper);
+    } else if (imageElement) {
+      const picture = createOptimizedPicture(imageElement.src, imageElement.alt);
+      slideWrapper.append(picture);
+      moveInstrumentation(imageElement, picture);
     }
 
-    if (ctaLinkEl || ctaTextEl) {
-      const ctaContainer = document.createElement('div');
-      ctaContainer.classList.add('cta-container');
-      const link = document.createElement('a');
-      link.href = ctaLinkEl ? ctaLinkEl.href : '#';
-      link.textContent = ctaTextEl ? ctaTextEl.textContent : 'Learn More';
-      ctaContainer.append(link);
-      slide.append(ctaContainer);
-
-      if (ctaLinkEl) moveInstrumentation(ctaLinkEl, link);
-      if (ctaTextEl) moveInstrumentation(ctaTextEl, link);
+    if (ctaLinkElement && ctaTextElement) {
+      const ctaWrapper = document.createElement('div');
+      ctaWrapper.classList.add('cta-wrapper');
+      const ctaLink = document.createElement('a');
+      ctaLink.href = ctaLinkElement.href || ctaLinkElement.textContent.trim();
+      ctaLink.textContent = ctaTextElement.textContent.trim();
+      ctaWrapper.append(ctaLink);
+      slideWrapper.append(ctaWrapper);
+      moveInstrumentation(ctaLinkElement, ctaLink);
+      moveInstrumentation(ctaTextElement, ctaLink);
     }
 
-    slidesContainer.append(slide);
-    moveInstrumentation(itemNode, slide);
+    slidesContainer.append(slideWrapper);
+    moveInstrumentation(slide, slideWrapper);
   });
 
   carouselWrapper.append(slidesContainer);
 
-  const buttons = document.createElement('div');
-  buttons.classList.add('carousel-buttons');
-
-  const prevButton = document.createElement('button');
-  prevButton.classList.add('carousel-prev');
-  prevButton.textContent = 'Previous';
-
-  const nextButton = document.createElement('button');
-  nextButton.classList.add('carousel-next');
-  nextButton.textContent = 'Next';
-
-  buttons.append(prevButton, nextButton);
-  carouselWrapper.append(buttons);
-
   block.textContent = '';
   block.append(carouselWrapper);
-  block.className = 'carousel block';
+  block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

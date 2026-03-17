@@ -86,9 +86,16 @@
     ]
   },
   {
-    "id": "featureCards",
+    "id": "featurecards",
     "components": [
-      "card"
+      "featurecard"
+    ]
+  },
+  {
+    "id": "footerBrandFooter",
+    "components": [
+      "footerNavList",
+      "footerSocialLink"
     ]
   },
   {
@@ -124,8 +131,8 @@
   {
     "id": "header",
     "components": [
-      "menuItem",
-      "footerListItem",
+      "sidebarMenuItem",
+      "footerLink",
       "socialLink"
     ]
   },
@@ -133,6 +140,12 @@
     "id": "latestBlogsList",
     "components": [
       "blog"
+    ]
+  },
+  {
+    "id": "latestBlogs",
+    "components": [
+      "blogCard"
     ]
   },
   {
@@ -150,7 +163,7 @@
   {
     "id": "stickyNavigation",
     "components": [
-      "stickyNavigationItem"
+      "navigationItem"
     ]
   },
   {
