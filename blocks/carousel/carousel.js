@@ -6,55 +6,75 @@ export default function decorate(block) {
   carouselWrapper.classList.add('carousel-wrapper');
 
   const slidesContainer = document.createElement('div');
-  slidesContainer.classList.add('slides-container');
+  slidesContainer.classList.add('carousel-slides');
 
-  const authoredSlides = block.querySelectorAll('[data-aue-model="carouselItem"]');
+  const slideElements = block.querySelectorAll('[data-aue-model="slide"]');
 
-  authoredSlides.forEach((slide) => {
-    const slideWrapper = document.createElement('div');
-    slideWrapper.classList.add('slide');
+  slideElements.forEach((slideEl) => {
+    const slideDiv = document.createElement('div');
+    slideDiv.classList.add('carousel-slide');
 
-    const videoElement = slide.querySelector('[data-aue-prop="video"]');
-    const imageElement = slide.querySelector('[data-aue-prop="image"]');
-    const ctaLinkElement = slide.querySelector('[data-aue-prop="ctaLink"]');
-    const ctaTextElement = slide.querySelector('[data-aue-prop="ctaText"]');
+    const imageEl = slideEl.querySelector('[data-aue-prop="image"]');
+    const videoEl = slideEl.querySelector('[data-aue-prop="video"]');
+    const ctaLinkEl = slideEl.querySelector('[data-aue-prop="ctaLink"]');
+    const ctaLabelEl = slideEl.querySelector('[data-aue-prop="ctaLabel"]');
 
-    if (videoElement) {
-      const videoWrapper = document.createElement('div');
-      videoWrapper.classList.add('video-wrapper');
-      const video = document.createElement('video');
-      video.setAttribute('autoplay', '');
-      video.setAttribute('loop', '');
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('preload', 'metadata');
-      const source = document.createElement('source');
-      source.src = videoElement.href || videoElement.textContent.trim();
-      source.type = 'video/mp4';
-      video.append(source);
-      videoWrapper.append(video);
-      slideWrapper.append(videoWrapper);
-      moveInstrumentation(videoElement, videoWrapper);
-    } else if (imageElement) {
-      const picture = createOptimizedPicture(imageElement.src, imageElement.alt);
-      slideWrapper.append(picture);
-      moveInstrumentation(imageElement, picture);
+    let mediaElement;
+    if (videoEl) {
+      const videoSource = videoEl.querySelector('source');
+      if (videoSource && videoSource.src) {
+        mediaElement = document.createElement('video');
+        mediaElement.setAttribute('controls', '');
+        mediaElement.setAttribute('autoplay', '');
+        mediaElement.setAttribute('muted', '');
+        mediaElement.setAttribute('loop', '');
+        mediaElement.setAttribute('playsinline', '');
+        mediaElement.setAttribute('preload', 'auto');
+        const source = document.createElement('source');
+        source.src = videoSource.src;
+        source.type = 'video/mp4'; // Assuming mp4, adjust if other types are possible
+        mediaElement.append(source);
+        moveInstrumentation(videoEl, slideDiv);
+      }
+    } else if (imageEl) {
+      mediaElement = createOptimizedPicture(imageEl.src, imageEl.alt);
+      moveInstrumentation(imageEl, slideDiv);
     }
 
-    if (ctaLinkElement && ctaTextElement) {
+    if (mediaElement) {
+      const mediaWrapper = document.createElement('div');
+      mediaWrapper.classList.add('carousel-media');
+      mediaWrapper.append(mediaElement);
+      slideDiv.append(mediaWrapper);
+    }
+
+    if (ctaLinkEl && ctaLabelEl) {
       const ctaWrapper = document.createElement('div');
-      ctaWrapper.classList.add('cta-wrapper');
-      const ctaLink = document.createElement('a');
-      ctaLink.href = ctaLinkElement.href || ctaLinkElement.textContent.trim();
-      ctaLink.textContent = ctaTextElement.textContent.trim();
-      ctaWrapper.append(ctaLink);
-      slideWrapper.append(ctaWrapper);
-      moveInstrumentation(ctaLinkElement, ctaLink);
-      moveInstrumentation(ctaTextElement, ctaLink);
+      ctaWrapper.classList.add('carousel-cta');
+      const link = document.createElement('a');
+      link.href = ctaLinkEl.href || '#';
+      link.textContent = ctaLabelEl.textContent || '';
+      ctaWrapper.append(link);
+      slideDiv.append(ctaWrapper);
+      moveInstrumentation(ctaLinkEl, ctaWrapper);
+      moveInstrumentation(ctaLabelEl, ctaWrapper);
+    } else if (ctaLinkEl) {
+      // Fallback for button inside a container
+      const buttonContainer = slideEl.querySelector('.button-container a');
+      if (buttonContainer) {
+        const ctaWrapper = document.createElement('div');
+        ctaWrapper.classList.add('carousel-cta');
+        const link = document.createElement('a');
+        link.href = buttonContainer.href;
+        link.textContent = buttonContainer.textContent.trim();
+        ctaWrapper.append(link);
+        slideDiv.append(ctaWrapper);
+        moveInstrumentation(buttonContainer, ctaWrapper);
+      }
     }
 
-    slidesContainer.append(slideWrapper);
-    moveInstrumentation(slide, slideWrapper);
+    slidesContainer.append(slideDiv);
+    moveInstrumentation(slideEl, slideDiv);
   });
 
   carouselWrapper.append(slidesContainer);

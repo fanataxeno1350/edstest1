@@ -2,144 +2,148 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const headingWrapper = block.querySelector('.featurecards-featureCards-text');
-  const cards = block.querySelectorAll('a.featurecards-featureCards-bolteSitare_cardSection');
-  const featureCardSection = block.querySelector('section.featurecards-featureCards-feature_card--Section');
+  const rootDiv = document.createElement('div');
+  rootDiv.classList.add('featureCards-container');
 
-  const section = document.createElement('section');
-  section.classList.add('feature-cards-section');
-
-  if (headingWrapper) {
-    const headingDiv = document.createElement('div');
-    headingDiv.classList.add('feature-cards-heading');
-    moveInstrumentation(headingWrapper, headingDiv);
-    headingDiv.append(headingWrapper.querySelector('h1'));
-    section.append(headingDiv);
+  const textDiv = document.querySelector('.featureCards-text');
+  if (textDiv) {
+    const headerDiv = document.createElement('div');
+    headerDiv.classList.add('featureCards-header');
+    const h1 = textDiv.querySelector('h1');
+    if (h1) {
+      headerDiv.append(h1);
+      moveInstrumentation(textDiv, headerDiv);
+      rootDiv.append(headerDiv);
+    }
   }
 
-  if (cards.length > 0) {
-    const cardsWrapper = document.createElement('div');
-    cardsWrapper.classList.add('feature-cards-wrapper');
+  const cardsWrapper = document.createElement('div');
+  cardsWrapper.classList.add('featureCards-wrapper');
 
-    cards.forEach((card) => {
-      const cardLink = document.createElement('a');
-      cardLink.classList.add('feature-card');
-      cardLink.href = card.href;
-      cardLink.title = card.title;
-      if (card.target) {
-        cardLink.target = card.target;
-      }
+  const authoredCards = block.querySelectorAll('a.featureCards-bolteSitare_cardSection');
 
-      const cardImageWrapper = card.querySelector('.featurecards-featureCards-bolteSitare_cardSection--img');
-      const cardContentWrapper = card.querySelector('.featurecards-featureCards-content-wrapper');
+  authoredCards.forEach((cardLink) => {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('featureCards-card');
 
-      if (cardImageWrapper) {
-        const img = cardImageWrapper.querySelector('img');
-        if (img) {
-          const picture = createOptimizedPicture(img.src, img.alt);
-          picture.querySelector('img').classList.add('feature-card-image');
-          cardLink.append(picture);
-          moveInstrumentation(img, picture);
-        }
-      }
+    const link = document.createElement('a');
+    link.classList.add('featureCards-bolteSitare_cardSection', 'featureCards-analytics_cta_click', 'featureCards-text-decoration-none');
+    link.href = cardLink.href;
+    if (cardLink.title) {
+      link.title = cardLink.title;
+    }
+    if (cardLink.dataset.title) {
+      link.dataset.title = cardLink.dataset.title;
+    }
+    if (cardLink.target) {
+      link.target = cardLink.target;
+    }
 
-      if (cardContentWrapper) {
-        const contentDiv = document.createElement('div');
-        contentDiv.classList.add('feature-card-content');
+    const cardWrapper = document.createElement('div');
+    cardWrapper.classList.add('featureCards-bolteSitare_cardSection--wrapper');
 
-        const heading = cardContentWrapper.querySelector('h2');
-        if (heading) {
-          contentDiv.append(heading);
-          moveInstrumentation(heading, contentDiv);
-        }
+    const imgWrapper = document.createElement('div');
+    imgWrapper.classList.add('featureCards-bolteSitare_cardSection--img');
+    const img = cardLink.querySelector('img');
+    if (img) {
+      const picture = createOptimizedPicture(img.src, img.alt);
+      imgWrapper.append(picture);
+      picture.querySelector('img').classList.add('featureCards-h-100', 'featureCards-w-100', 'featureCards-card-img');
+      moveInstrumentation(img, picture);
+    }
 
-        const description = cardContentWrapper.querySelector('p');
-        if (description) {
-          contentDiv.append(description);
-          moveInstrumentation(description, contentDiv);
-        }
+    const contentWrapper = document.createElement('div');
+    contentWrapper.classList.add('featureCards-content-wrapper', 'featureCards-d-flex', 'featureCards-flex-column', 'featureCards-justify-content-between');
 
-        const button = cardContentWrapper.querySelector('button');
-        if (button) {
-          const buttonWrapper = document.createElement('div');
-          buttonWrapper.classList.add('feature-card-button');
-          buttonWrapper.append(button);
-          moveInstrumentation(button, buttonWrapper);
-          contentDiv.append(buttonWrapper);
-        }
-        cardLink.append(contentDiv);
-        moveInstrumentation(cardContentWrapper, contentDiv);
-      }
-      cardsWrapper.append(cardLink);
-      moveInstrumentation(card, cardLink);
-    });
-    section.append(cardsWrapper);
+    const textContentDiv = document.createElement('div');
+    const title = cardLink.querySelector('h2.featureCards-bolteSitare_cardSection--title');
+    if (title) {
+      textContentDiv.append(title);
+    }
+    const description = cardLink.querySelector('p.featureCards-bolteSitare_cardSection--text');
+    if (description) {
+      textContentDiv.append(description);
+    }
+
+    const buttonDiv = document.createElement('div');
+    const button = cardLink.querySelector('button.featureCards-bolteSitare_cardSection--btn');
+    if (button) {
+      buttonDiv.append(button);
+    }
+
+    contentWrapper.append(textContentDiv, buttonDiv);
+    cardWrapper.append(imgWrapper, contentWrapper);
+    link.append(cardWrapper);
+    cardDiv.append(link);
+    cardsWrapper.append(cardDiv);
+    moveInstrumentation(cardLink, cardDiv);
+  });
+
+  rootDiv.append(cardsWrapper);
+
+  const curveContainer = block.querySelector('.featureCards-curve-container');
+  if (curveContainer) {
+    rootDiv.append(curveContainer);
+    moveInstrumentation(curveContainer, rootDiv);
   }
 
+  const featureCardSection = block.querySelector('section.featureCards-feature_card--Section');
   if (featureCardSection) {
-    const featureCardLink = featureCardSection.querySelector('a.featurecards-featureCards-d-flex');
+    const featureCardDiv = document.createElement('div');
+    featureCardDiv.classList.add('featureCards-feature_card--Section', 'featureCards-feature_card', 'featureCards-mx-auto');
+
+    const featureCardLink = featureCardSection.querySelector('a');
     if (featureCardLink) {
-      const singleFeatureCard = document.createElement('a');
-      singleFeatureCard.classList.add('single-feature-card');
-      singleFeatureCard.href = featureCardLink.href;
-      singleFeatureCard.title = featureCardLink.title;
+      const linkElement = document.createElement('a');
+      linkElement.classList.add('featureCards-d-flex', 'featureCards-flex-column', 'featureCards-analytics_cta_click', 'featureCards-text-decoration-none');
+      linkElement.href = featureCardLink.href;
+      if (featureCardLink.title) {
+        linkElement.title = featureCardLink.title;
+      }
       if (featureCardLink.dataset.ctaLabel) {
-        singleFeatureCard.dataset.ctaLabel = featureCardLink.dataset.ctaLabel;
+        linkElement.dataset.ctaLabel = featureCardLink.dataset.ctaLabel;
       }
 
-      const imageWrapper = featureCardLink.querySelector('.featurecards-featureCards-feature_card--image');
-      if (imageWrapper) {
-        const img = imageWrapper.querySelector('img');
-        if (img) {
-          const picture = createOptimizedPicture(img.src, img.alt);
-          picture.querySelector('img').classList.add('single-feature-card-image');
-          singleFeatureCard.append(picture);
-          moveInstrumentation(img, picture);
-        }
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('featureCards-feature_card--image', 'featureCards-w-100', 'featureCards-pb-4');
+      const featureImg = featureCardLink.querySelector('img');
+      if (featureImg) {
+        const picture = createOptimizedPicture(featureImg.src, featureImg.alt);
+        imageWrapper.append(picture);
+        picture.querySelector('img').classList.add('featureCards-w-100', 'featureCards-h-100');
+        moveInstrumentation(featureImg, picture);
       }
 
-      const textCenterDiv = featureCardLink.querySelector('.featurecards-featureCards-text-center');
-      if (textCenterDiv) {
-        const contentDiv = document.createElement('div');
-        contentDiv.classList.add('single-feature-card-content');
+      const textCenterDiv = document.createElement('div');
+      textCenterDiv.classList.add('featureCards-text-center');
 
-        const heading = textCenterDiv.querySelector('h2');
-        if (heading) {
-          contentDiv.append(heading);
-          moveInstrumentation(heading, contentDiv);
-        }
-
-        const descriptionWrapper = textCenterDiv.querySelector('.featurecards-featureCards-pb-5');
-        if (descriptionWrapper) {
-          const description = descriptionWrapper.querySelector('p');
-          if (description) {
-            contentDiv.append(description);
-            moveInstrumentation(description, contentDiv);
-          }
-        }
-
-        const buttonDiv = textCenterDiv.querySelector('.featurecards-featureCards-redirected_btn');
-        if (buttonDiv) {
-          const button = buttonDiv.querySelector('button');
-          if (button) {
-            const buttonWrapper = document.createElement('div');
-            buttonWrapper.classList.add('single-feature-card-button');
-            buttonWrapper.append(button);
-            moveInstrumentation(button, buttonWrapper);
-            contentDiv.append(buttonWrapper);
-          }
-        }
-        singleFeatureCard.append(contentDiv);
-        moveInstrumentation(textCenterDiv, contentDiv);
+      const featureTitle = featureCardLink.querySelector('h2.featureCards-feature_card--title');
+      if (featureTitle) {
+        textCenterDiv.append(featureTitle);
       }
-      section.append(singleFeatureCard);
-      moveInstrumentation(featureCardLink, singleFeatureCard);
-      moveInstrumentation(featureCardSection, section);
+
+      const pb5Div = document.createElement('div');
+      pb5Div.classList.add('featureCards-pb-5');
+      const featureDesc = featureCardLink.querySelector('p.featureCards-feature_card--desc');
+      if (featureDesc) {
+        pb5Div.append(featureDesc);
+      }
+      textCenterDiv.append(pb5Div);
+
+      const redirectedBtn = featureCardLink.querySelector('.featureCards-redirected_btn');
+      if (redirectedBtn) {
+        textCenterDiv.append(redirectedBtn);
+      }
+
+      linkElement.append(imageWrapper, textCenterDiv);
+      featureCardDiv.append(linkElement);
+      rootDiv.append(featureCardDiv);
+      moveInstrumentation(featureCardSection, featureCardDiv);
     }
   }
 
   block.textContent = '';
-  block.append(section);
-  block.className = `${block.dataset.blockName} block`;
+  block.append(rootDiv);
+  block.className = `feature-cards block`;
   block.dataset.blockStatus = 'loaded';
 }

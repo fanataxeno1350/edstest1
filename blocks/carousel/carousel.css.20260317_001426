@@ -174,6 +174,10 @@ button.carousel-swiper-pagination-bullet{-webkit-appearance:none;-moz-appearance
 
 .carousel-boing-input__text.carousel-disabled input:disabled::placeholder{color:#414141}
 
+input:checked~.carousel-boing-input__checkbox{background-image:url(clientlib-boing/resources/images/static/checkbox-tick.carousel-svg);background-position:50%;background-repeat:no-repeat;background-size:cover;border:0}
+
+input:disabled~.carousel-boing-input__checkbox{border:.carousel-09375rem solid #b8b8b8}
+
 .carousel-banner-section .carousel-banner-media{border-radius:.carousel-5rem;-o-object-position:center;object-position:center}
 
 .carousel-banner-section .carousel-banner-content{height:100%}
@@ -272,7 +276,7 @@ button.carousel-swiper-pagination-bullet{-webkit-appearance:none;-moz-appearance
 
 .carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active:before{border:0;border-radius:50%;content:"";height:.carousel-539375rem;left:50%;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:.carousel-539375rem}
 
-.carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active:after{background-image:url(clientlib-boing/resources/images/static/yellow-star.svg);background-position:50%;background-repeat:no-repeat;background-size:contain;content:"";display:block;height:.carousel-625rem;width:.carousel-625rem}
+.carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active:after{background-image:url(clientlib-boing/resources/images/static/yellow-star.carousel-svg);background-position:50%;background-repeat:no-repeat;background-size:contain;content:"";display:block;height:.carousel-625rem;width:.carousel-625rem}
 
 .carousel-lets-doodle .carousel-famlf-carousel-cta.carousel-primary-btn{background-color:#bb1f3b;color:#fff !important}
 
@@ -440,9 +444,37 @@ button.carousel-swiper-pagination-bullet{-webkit-appearance:none;-moz-appearance
 
 .carousel-tedhe-medhe-highlights__card .carousel-video-wrapper .carousel-video-icon-volume{height:1.carousel-5rem;width:1.carousel-5rem}
 
+button,html,input,select,textarea{color:#222}
+
+@media print{
+  *{background:transparent !important;-webkit-box-shadow:none !important;box-shadow:none !important;color:#000 !important;text-shadow:none !important}
+  a,a:visited{text-decoration:none}
+  a[href]:after{content:" (" attr(href) ")"}
+  img,tr{page-break-inside:avoid}
+  img{max-width:100% !important}
+}
+
+audio,canvas,video{zoom:1;display:inline-block;display:inline}
+
+button,html,input,select,textarea{font-family:sans-serif}
+
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;vertical-align:middle}
+
+button,input{line-height:normal}
+
+button,select{text-transform:none}
+
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;overflow:visible}
+
+button[disabled],html input[disabled]{cursor:default}
+
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+
 .carousel-primary-btn{color:#fff;display:inline-block}
 
 .carousel-primary-btn,.carousel-primary-btn:active,.carousel-primary-btn:hover{background-color:#aa1f30}
+
+button,input,optgroup,select,textarea{font:inherit}
 
 .carousel-cmp-carousel__action { appearance: none; }
 
@@ -614,6 +646,10 @@ button.carousel-swiper-pagination-bullet { appearance: none; border: 0px; box-sh
 
 .carousel-boing-input__text.carousel-disabled input:disabled::placeholder { color: rgb(65, 65, 65); }
 
+input:checked ~ .carousel-boing-input__checkbox { background-image: url("clientlib-boing/resources/images/static/checkbox-tick.carousel-svg"); background-position: 50% center; background-repeat: no-repeat; background-size: cover; border: 0px; }
+
+input:disabled ~ .carousel-boing-input__checkbox { border: 0.carousel-09375rem solid rgb(184, 184, 184); }
+
 .carousel-banner-section .carousel-banner-media { border-radius: 0.carousel-5rem; object-position: center center; }
 
 .carousel-banner-section .carousel-banner-content { height: 100%; }
@@ -712,7 +748,7 @@ button.carousel-swiper-pagination-bullet { appearance: none; border: 0px; box-sh
 
 .carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active::before { border: 0px; border-radius: 50%; content: ""; height: 0.carousel-539375rem; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 0.carousel-539375rem; }
 
-.carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active::after { background-image: url("clientlib-boing/resources/images/static/yellow-star.svg"); background-position: 50% center; background-repeat: no-repeat; background-size: contain; content: ""; display: block; height: 0.carousel-625rem; width: 0.carousel-625rem; }
+.carousel-lets-doodle .carousel-primary-swiper .carousel-swiper-pagination .carousel-swiper-pagination-bullet-active::after { background-image: url("clientlib-boing/resources/images/static/yellow-star.carousel-svg"); background-position: 50% center; background-repeat: no-repeat; background-size: contain; content: ""; display: block; height: 0.carousel-625rem; width: 0.carousel-625rem; }
 
 .carousel-lets-doodle .carousel-famlf-carousel-cta.carousel-primary-btn { background-color: rgb(187, 31, 59); color: rgb(255, 255, 255) !important; }
 
@@ -880,9 +916,34 @@ button.carousel-swiper-pagination-bullet { appearance: none; border: 0px; box-sh
 
 .carousel-tedhe-medhe-highlights__card .carousel-video-wrapper .carousel-video-icon-volume { height: 1.carousel-5rem; width: 1.carousel-5rem; }
 
+button, html, input, select, textarea { color: rgb(34, 34, 34); }
+
+@media print {
+  * { background: transparent !important; box-shadow: none !important; color: rgb(0, 0, 0) !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: none; }
+  img, tr { break-inside: avoid; }
+  img { max-width: 100% !important; }
+}
+
+audio, canvas, video { zoom: 1; display: inline; }
+
+button, html, input, select, textarea { font-family: sans-serif; }
+
+button, input, select, textarea { font-size: 100%; margin: 0px; vertical-align: middle; }
+
+button, input { line-height: normal; }
+
+button, select { text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] { appearance: button; cursor: pointer; overflow: visible; }
+
+button[disabled], html input[disabled] { cursor: default; }
+
 .carousel-primary-btn { color: rgb(255, 255, 255); display: inline-block; }
 
 .carousel-primary-btn, .carousel-primary-btn:active, .carousel-primary-btn:hover { background-color: rgb(170, 31, 48); }
+
+button, input, optgroup, select, textarea { font: inherit; }
 
 /* Inline style: a.carousel-header__login-btn-wrapper.carousel-analytics_cta_click */
 a.carousel-header__login-btn-wrapper.carousel-analytics_cta_click { display: inline; }

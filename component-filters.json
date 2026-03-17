@@ -76,13 +76,13 @@
   {
     "id": "carousel",
     "components": [
-      "carouselItem"
+      "slide"
     ]
   },
   {
     "id": "featureCards",
     "components": [
-      "card"
+      "featureCard"
     ]
   },
   {
@@ -101,10 +101,8 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerBrandLogo",
-      "footerBrandNavList",
-      "footerBrandSocialLink",
-      "footerBrandLeftLink"
+      "footerNavList",
+      "footerSocialLink"
     ]
   },
   {
@@ -124,8 +122,8 @@
     "id": "headerSection",
     "components": [
       "sidebarMenuItem",
-      "footerLink",
-      "socialLink"
+      "footerLinkItem",
+      "socialLinkItem"
     ]
   },
   {
@@ -134,6 +132,12 @@
       "sidebarMenuItem",
       "footerLink",
       "socialLink"
+    ]
+  },
+  {
+    "id": "latestBlogsArticleList",
+    "components": [
+      "latestBlogCard"
     ]
   },
   {

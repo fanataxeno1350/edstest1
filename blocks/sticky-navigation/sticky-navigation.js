@@ -2,64 +2,94 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const stickyNavContainer = document.createElement('section');
-  stickyNavContainer.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav stickynavigation-stickyNavigation-position-fixed stickynavigation-stickyNavigation-bottom-0 stickynavigation-stickyNavigation-p-3 stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-boing-container stickynavigation-stickyNavigation-bg-boing-primary';
+  const rootDiv = document.createElement('div');
+  rootDiv.classList.add('sticky-navigation-wrapper');
 
-  const navList = document.createElement('ul');
-  navList.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__list stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-justify-content-around stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-flex-grow-1';
+  const navElement = document.createElement('nav');
+  navElement.classList.add(
+    'sticky-bottom-nav',
+    'position-fixed',
+    'bottom-0',
+    'p-3',
+    'd-flex',
+    'align-items-center',
+    'boing-container',
+    'bg-boing-primary',
+  );
+
+  const ul = document.createElement('ul');
+  ul.classList.add(
+    'sticky-bottom-nav__list',
+    'd-flex',
+    'justify-content-around',
+    'align-items-center',
+    'flex-grow-1',
+  );
 
   const navItems = block.querySelectorAll('[data-aue-model="navigationItem"]');
-
   navItems.forEach((itemNode) => {
-    const listItem = document.createElement('li');
-    listItem.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__item stickynavigation-stickyNavigation-position-relative';
+    const li = document.createElement('li');
+    li.classList.add('sticky-bottom-nav__item', 'position-relative');
 
-    const linkElement = itemNode.querySelector('a');
-    if (linkElement) {
-      const newLink = document.createElement('a');
-      newLink.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__link stickynavigation-stickyNavigation-d-flex stickynavigation-stickyNavigation-flex-column stickynavigation-stickyNavigation-align-items-center stickynavigation-stickyNavigation-gap-1 stickynavigation-stickyNavigation-analytics_cta_click';
-      newLink.href = linkElement.href;
-      if (linkElement.dataset.consent) {
-        newLink.dataset.consent = linkElement.dataset.consent;
-      }
-      if (linkElement.dataset.link) {
-        newLink.dataset.link = linkElement.dataset.link;
-      }
+    const linkElement = itemNode.querySelector('.button-container a');
+    const linkHref = linkElement ? linkElement.href : '#';
+    const linkText = linkElement ? linkElement.textContent : '';
 
-      const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
-      if (imgElement) {
-        const picture = createOptimizedPicture(imgElement.src, imgElement.alt, false, [{
-          width: '40'
-        }]);
-        picture.querySelector('img').className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__icon';
-        newLink.append(picture);
-        moveInstrumentation(imgElement, picture);
-      }
+    const a = document.createElement('a');
+    a.href = linkHref;
+    a.classList.add(
+      'sticky-bottom-nav__link',
+      'd-flex',
+      'flex-column',
+      'align-items-center',
+      'gap-1',
+      'analytics_cta_click',
+    );
 
-      const labelSpan = document.createElement('span');
-      labelSpan.className = 'stickynavigation-stickyNavigation-sticky-bottom-nav__label';
-      const labelText = itemNode.querySelector('[data-aue-prop="label"]');
-      if (labelText) {
-        labelSpan.textContent = labelText.textContent;
-        newLink.append(labelSpan);
-        moveInstrumentation(labelText, labelSpan);
-      } else if (linkElement.textContent) {
-        labelSpan.textContent = linkElement.textContent.trim();
-        newLink.append(labelSpan);
-      }
-
-      listItem.append(newLink);
-      moveInstrumentation(linkElement, newLink);
+    const dataConsent = linkElement ? linkElement.dataset.consent : 'false';
+    if (dataConsent) {
+      a.setAttribute('data-consent', dataConsent);
     }
 
-    navList.append(listItem);
-    moveInstrumentation(itemNode, listItem);
+    const dataLink = linkElement ? linkElement.dataset.link : '';
+    if (dataLink) {
+      a.setAttribute('data-link', dataLink);
+    }
+
+    const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (imgElement) {
+      const picture = createOptimizedPicture(imgElement.src, imgElement.alt || '', false, [{ width: '40' }]);
+      const icon = picture.querySelector('img');
+      icon.classList.add('sticky-bottom-nav__icon');
+      a.append(picture);
+      moveInstrumentation(imgElement, picture);
+    }
+
+    const labelSpan = document.createElement('span');
+    labelSpan.classList.add('sticky-bottom-nav__label');
+    const labelText = itemNode.querySelector('[data-aue-prop="label"]') || itemNode.querySelector('p:last-of-type');
+    if (labelText) {
+      labelSpan.textContent = labelText.textContent;
+      a.append(labelSpan);
+      moveInstrumentation(labelText, labelSpan);
+    } else if (linkText) {
+      labelSpan.textContent = linkText;
+      a.append(labelSpan);
+    }
+
+    li.append(a);
+    ul.append(li);
+    moveInstrumentation(itemNode, li);
+    if (linkElement) {
+      moveInstrumentation(linkElement, a);
+    }
   });
 
-  stickyNavContainer.append(navList);
+  navElement.append(ul);
+  rootDiv.append(navElement);
 
   block.textContent = '';
-  block.append(stickyNavContainer);
+  block.append(rootDiv);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }
