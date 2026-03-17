@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Feature-Card",
+      "title": "FeatureCard",
       "id": "featureCard",
       "plugins": {
         "xwalk": {
@@ -25,7 +25,7 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "featureCard",
-              "name": "Feature-Card"
+              "name": "FeatureCard"
             }
           }
         }
@@ -40,6 +40,12 @@
           "component": "reference",
           "label": "Image",
           "name": "image",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
           "valueType": "string"
         },
         {

@@ -263,6 +263,12 @@
       },
       {
         "component": "text",
+        "label": "Alt Text",
+        "name": "altText",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "label": "Title",
         "name": "title",
         "valueType": "string"
@@ -803,6 +809,38 @@
     ]
   },
   {
+    "id": "blogCard",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Date",
+        "name": "date",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
     "id": "navItem",
     "fields": [
       {
@@ -814,13 +852,7 @@
       {
         "component": "text",
         "label": "Alt Text",
-        "name": "altText",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Label",
-        "name": "label",
+        "name": "alt",
         "valueType": "string"
       },
       {
@@ -830,10 +862,10 @@
         "valueType": "string"
       },
       {
-        "component": "boolean",
-        "label": "Consent",
-        "name": "consent",
-        "valueType": "boolean"
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
       }
     ]
   }

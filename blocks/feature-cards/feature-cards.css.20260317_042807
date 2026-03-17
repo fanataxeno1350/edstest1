@@ -1,0 +1,47 @@
+.featurecards-d-inline-block{display:inline-block !important}
+
+.featurecards-d-block{display:block !important}
+
+.featurecards-d-none{display:none !important}
+
+.featurecards-flex-column,.featurecards-flex-row{-webkit-box-direction:normal !important}
+
+.featurecards-flex-column{-webkit-box-orient:vertical !important;-ms-flex-direction:column !important;flex-direction:column !important}
+
+.featurecards-justify-content-between{-webkit-box-pack:justify !important;-ms-flex-pack:justify !important;justify-content:space-between !important}
+
+.featurecards-mx-auto{margin-left:auto !important;margin-right:auto !important}
+
+.featurecards-pb-4{padding-bottom:.featurecards-75rem !important}
+
+.featurecards-pb-5{padding-bottom:1rem !important}
+
+.featurecards-text-center{text-align:center !important}
+
+.featurecards-text-decoration-none{text-decoration:none !important}
+
+.featurecards-text-white,.featurecards-text-white-active:active,.featurecards-text-white-disabled:disabled,.featurecards-text-white-focus:focus,.featurecards-text-white-hover:hover{--bs-text-opacity:1;color:#fff !important}
+
+.featurecards-text-boing-dark,.featurecards-text-boing-dark-active:active,.featurecards-text-boing-dark-disabled:disabled,.featurecards-text-boing-dark-focus:focus,.featurecards-text-boing-dark-hover:hover{--bs-text-opacity:1;color:#030303 !important}
+
+.featurecards-boing--text__heading-0,.featurecards-boing--text__heading-1{font-family:Barlow;font-weight:700;line-height:normal}
+
+.featurecards-boing--text__heading-1{font-size:1.featurecards-5rem}
+
+.featurecards-boing--text__heading-2,.featurecards-boing--text__heading-3{font-family:Barlow;font-weight:700;line-height:normal}
+
+.featurecards-boing--text__heading-3{font-size:1rem}
+
+.featurecards-boing--text__body-1,.featurecards-boing--text__body-2{font-family:Barlow;font-weight:400;line-height:normal}
+
+.featurecards-boing--text__body-2{font-size:1rem}
+
+.featurecards-boing--text__body-3{font-family:Barlow;font-size:.featurecards-75rem;font-weight:400;line-height:normal}
+
+.featurecards-boing--text__body-4{font-family:Barlow;font-size:.featurecards-75rem;font-weight:600;line-height:1rem}
+
+.featurecards-featureCards{padding:1.featurecards-5rem 1rem 1rem;position:relative}
+
+.featurecards-featureCards .featurecards-cmp-text{font-family:Barlow;font-size:1.featurecards-5rem;font-weight:700;line-height:1.featurecards-75rem;padding-bottom:1rem}
+
+.featurecards-featureCards .featurecards-cmp-text-partial{color:#aa1f30}

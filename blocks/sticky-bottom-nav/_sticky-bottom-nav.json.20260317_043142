@@ -45,7 +45,13 @@
         {
           "component": "text",
           "label": "Alt Text",
-          "name": "alt",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Label",
+          "name": "label",
           "valueType": "string"
         },
         {
@@ -55,10 +61,10 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Label",
-          "name": "label",
-          "valueType": "string"
+          "component": "boolean",
+          "label": "Consent",
+          "name": "consent",
+          "valueType": "boolean"
         }
       ]
     }

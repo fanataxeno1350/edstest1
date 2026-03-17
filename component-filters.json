@@ -110,6 +110,15 @@
     ]
   },
   {
+    "id": "latestBlogsArticleListing",
+    "components": [
+      "blogCard"
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
     "id": "stickyBottomNav",
     "components": [
       "navItem"
