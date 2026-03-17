@@ -74,7 +74,9 @@
         "carouselBanner",
         "banner",
         "articleListing",
-        "spaceAdder"
+        "spaceAdder",
+        "headerBoing",
+        "footerList"
       ]
     }
   ]

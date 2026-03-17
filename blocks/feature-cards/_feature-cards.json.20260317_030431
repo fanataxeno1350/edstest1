@@ -34,18 +34,32 @@
   ],
   "models": [
     {
+      "id": "featureCards",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Header",
+          "name": "header",
+          "valueType": "string"
+        },
+        {
+          "component": "container",
+          "items": {
+            "type": "featureCard"
+          },
+          "label": "Cards",
+          "name": "cards",
+          "valueType": "array"
+        }
+      ]
+    },
+    {
       "id": "featureCard",
       "fields": [
         {
           "component": "reference",
           "label": "Image",
           "name": "image",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "Alt Text",
-          "name": "altText",
           "valueType": "string"
         },
         {

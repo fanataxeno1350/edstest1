@@ -16,48 +16,46 @@ export default function decorate(block) {
   const ul = document.createElement('ul');
   ul.className = 'stickyNavigation-sticky-bottom-nav__list d-flex justify-content-around align-items-center flex-grow-1';
 
-  const items = block.querySelectorAll('[data-aue-model="stickyNavItem"]');
-  items.forEach((itemNode) => {
+  const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
+  navItems.forEach((itemNode) => {
     const li = document.createElement('li');
     li.className = 'stickyNavigation-sticky-bottom-nav__item position-relative';
 
     const linkElement = itemNode.querySelector('[data-aue-prop="link"]');
     const linkHref = linkElement ? linkElement.href : '#';
-    const linkText = itemNode.querySelector('[data-aue-prop="label"]') || itemNode.querySelector('.stickyNavigation-sticky-bottom-nav__label');
+    const linkText = itemNode.querySelector('[data-aue-prop="label"]')?.textContent || '';
+    const dataConsent = linkElement ? linkElement.getAttribute('data-consent') : 'false';
+    const dataLink = linkElement ? linkElement.getAttribute('data-link') : '';
 
     const a = document.createElement('a');
     a.href = linkHref;
     a.className = 'stickyNavigation-sticky-bottom-nav__link d-flex flex-column align-items-center gap-1 analytics_cta_click';
-
-    // Extract data-consent and data-link attributes if they exist on the authored link
-    if (linkElement) {
-      if (linkElement.dataset.consent) {
-        a.dataset.consent = linkElement.dataset.consent;
-      }
-      if (linkElement.dataset.link) {
-        a.dataset.link = linkElement.dataset.link;
-      }
+    if (dataConsent) {
+      a.setAttribute('data-consent', dataConsent);
+    }
+    if (dataLink) {
+      a.setAttribute('data-link', dataLink);
     }
 
-    const iconElement = itemNode.querySelector('[data-aue-prop="icon"]');
-    if (iconElement) {
-      const picture = createOptimizedPicture(iconElement.src, iconElement.alt, false, [{ width: '40' }]);
+    const iconImg = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (iconImg) {
+      const picture = createOptimizedPicture(iconImg.src, iconImg.alt || '', false, [{ width: '40' }]);
       picture.querySelector('img').className = 'stickyNavigation-sticky-bottom-nav__icon';
       a.append(picture);
-      moveInstrumentation(iconElement, picture);
+      moveInstrumentation(iconImg, picture);
     }
 
-    const span = document.createElement('span');
-    span.className = 'stickyNavigation-sticky-bottom-nav__label';
-    if (linkText) {
-      span.textContent = linkText.textContent;
-      moveInstrumentation(linkText, span);
+    const labelSpan = document.createElement('span');
+    labelSpan.className = 'stickyNavigation-sticky-bottom-nav__label';
+    labelSpan.textContent = linkText;
+    if (itemNode.querySelector('[data-aue-prop="label"]')) {
+      moveInstrumentation(itemNode.querySelector('[data-aue-prop="label"]'), labelSpan);
     }
-    a.append(span);
 
+    a.append(labelSpan);
     li.append(a);
-    ul.append(li);
     moveInstrumentation(itemNode, li);
+    ul.append(li);
   });
 
   section.append(ul);

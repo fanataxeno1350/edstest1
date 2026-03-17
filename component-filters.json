@@ -39,13 +39,9 @@
       "carouselBanner",
       "banner",
       "articleListing",
-      "spaceAdder"
-    ]
-  },
-  {
-    "id": "articleListing",
-    "components": [
-      "articleCard"
+      "spaceAdder",
+      "headerBoing",
+      "footerList"
     ]
   },
   {
@@ -55,29 +51,9 @@
     ]
   },
   {
-    "id": "bannerVideo",
-    "components": [
-      "bannerVideo"
-    ]
-  },
-  {
-    "id": "banner",
-    "components": [
-      "banner"
-    ]
-  },
-  {
-    "id": "boingHeaderFooter",
-    "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "socialLink"
-    ]
-  },
-  {
     "id": "carousel",
     "components": [
-      "carouselItem"
+      "slide"
     ]
   },
   {
@@ -87,76 +63,17 @@
     ]
   },
   {
-    "id": "featurecards",
+    "id": "footerList",
     "components": [
-      "featurecard"
+      "footerListItem"
     ]
   },
   {
-    "id": "footerBrandFooter",
+    "id": "header-boing",
     "components": [
-      "footerNavList",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "footer-brand",
-    "components": [
+      "menuItem",
       "footerLink",
       "footerSocial"
-    ]
-  },
-  {
-    "id": "footer",
-    "components": [
-      "footerLinkGroup",
-      "socialLink"
-    ]
-  },
-  {
-    "id": "footerLinkGroup",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "headerSection",
-    "components": [
-      "sidebarMenuItem",
-      "footerLinkItem",
-      "socialLinkItem"
-    ]
-  },
-  {
-    "id": "header",
-    "components": [
-      "headerMenuItem",
-      "footerListItem",
-      "socialIcon"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleList",
-    "components": [
-      "latestBlogCard"
-    ]
-  },
-  {
-    "id": "latestBlogsList",
-    "components": [
-      "blog"
-    ]
-  },
-  {
-    "id": "latestBlogs",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleList",
-    "components": [
-      "article"
     ]
   },
   {
@@ -168,19 +85,7 @@
   {
     "id": "stickyBottomNav",
     "components": [
-      "navItem"
-    ]
-  },
-  {
-    "id": "stickyNavigation",
-    "components": [
-      "navigationItem"
-    ]
-  },
-  {
-    "id": "stickyBottomNav",
-    "components": [
-      "navItem"
+      "stickyNavItem"
     ]
   }
 ]
