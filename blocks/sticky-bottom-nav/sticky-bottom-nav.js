@@ -7,59 +7,58 @@ export default function decorate(block) {
   moveInstrumentation(block.querySelector('#pop-up'), popUpDiv);
 
   const transPopUpDiv = document.createElement('div');
-  transPopUpDiv.className = 'trans-pop-up';
-  moveInstrumentation(block.querySelector('.trans-pop-up'), transPopUpDiv);
+  transPopUpDiv.className = 'stickyNavigation-trans-pop-up';
+  moveInstrumentation(block.querySelector('.stickyNavigation-trans-pop-up'), transPopUpDiv);
 
   const section = document.createElement('section');
-  section.className = 'sticky-bottom-nav position-fixed bottom-0 p-3 d-flex align-items-center boing-container bg-boing-primary';
-  moveInstrumentation(block.querySelector('section'), section);
+  section.className = 'stickyNavigation-sticky-bottom-nav position-fixed bottom-0 p-3 d-flex align-items-center boing-container bg-boing-primary';
 
   const ul = document.createElement('ul');
-  ul.className = 'sticky-bottom-nav__list d-flex justify-content-around align-items-center flex-grow-1';
-  section.append(ul);
+  ul.className = 'stickyNavigation-sticky-bottom-nav__list d-flex justify-content-around align-items-center flex-grow-1';
 
   const navItems = block.querySelectorAll('[data-aue-model="navItem"]');
   navItems.forEach((itemNode) => {
     const li = document.createElement('li');
-    li.className = 'sticky-bottom-nav__item position-relative';
+    li.className = 'stickyNavigation-sticky-bottom-nav__item position-relative';
 
-    const linkElement = itemNode.querySelector('a');
+    const linkElement = itemNode.querySelector('[data-aue-prop="link"]');
     const linkHref = linkElement ? linkElement.href : '#';
-    const linkDataConsent = linkElement ? linkElement.dataset.consent : 'false';
-    const linkDataLink = linkElement ? linkElement.dataset.link : '';
+    const linkText = itemNode.querySelector('[data-aue-prop="label"]')?.textContent || '';
+    const dataConsent = linkElement ? linkElement.getAttribute('data-consent') : 'false';
+    const dataLink = linkElement ? linkElement.getAttribute('data-link') : '';
 
     const a = document.createElement('a');
     a.href = linkHref;
-    a.className = 'sticky-bottom-nav__link d-flex flex-column align-items-center gap-1 analytics_cta_click';
-    a.dataset.consent = linkDataConsent;
-    a.dataset.link = linkDataLink;
+    a.className = 'stickyNavigation-sticky-bottom-nav__link d-flex flex-column align-items-center gap-1 analytics_cta_click';
+    if (dataConsent) {
+      a.setAttribute('data-consent', dataConsent);
+    }
+    if (dataLink) {
+      a.setAttribute('data-link', dataLink);
+    }
 
-    const imgElement = itemNode.querySelector('[data-aue-prop="icon"]');
-    if (imgElement) {
-      const picture = createOptimizedPicture(imgElement.src, imgElement.alt);
+    const iconImg = itemNode.querySelector('[data-aue-prop="icon"]');
+    if (iconImg) {
+      const picture = createOptimizedPicture(iconImg.src, iconImg.alt || '', false, [{ width: '40' }]);
+      picture.querySelector('img').className = 'stickyNavigation-sticky-bottom-nav__icon';
       a.append(picture);
-      moveInstrumentation(imgElement, picture);
+      moveInstrumentation(iconImg, picture);
     }
 
     const labelSpan = document.createElement('span');
-    labelSpan.className = 'sticky-bottom-nav__label';
-    const labelText = itemNode.querySelector('[data-aue-prop="label"]');
-    if (labelText) {
-      labelSpan.textContent = labelText.textContent;
-      moveInstrumentation(labelText, labelSpan);
-    } else if (linkElement) {
-      // Fallback for label if data-aue-prop is missing
-      labelSpan.textContent = linkElement.textContent.trim();
+    labelSpan.className = 'stickyNavigation-sticky-bottom-nav__label';
+    labelSpan.textContent = linkText;
+    if (itemNode.querySelector('[data-aue-prop="label"]')) {
+      moveInstrumentation(itemNode.querySelector('[data-aue-prop="label"]'), labelSpan);
     }
-    a.append(labelSpan);
 
+    a.append(labelSpan);
     li.append(a);
-    ul.append(li);
     moveInstrumentation(itemNode, li);
-    if (linkElement) {
-      moveInstrumentation(linkElement, a);
-    }
+    ul.append(li);
   });
+
+  section.append(ul);
 
   block.textContent = '';
   block.append(popUpDiv, transPopUpDiv, section);

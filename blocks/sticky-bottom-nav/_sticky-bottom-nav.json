@@ -43,6 +43,12 @@
           "valueType": "string"
         },
         {
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
+          "valueType": "string"
+        },
+        {
           "component": "aem-content",
           "label": "Link",
           "name": "link",
@@ -59,7 +65,7 @@
   ],
   "filters": [
     {
-      "id": "sticky-bottom-nav",
+      "id": "stickyBottomNav",
       "components": [
         "navItem"
       ]

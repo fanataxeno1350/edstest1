@@ -73,7 +73,8 @@
         "boingHeaderFooter",
         "carouselBanner",
         "banner",
-        "articleListing"
+        "articleListing",
+        "spaceAdder"
       ]
     }
   ]

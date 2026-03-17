@@ -38,7 +38,8 @@
       "boingHeaderFooter",
       "carouselBanner",
       "banner",
-      "articleListing"
+      "articleListing",
+      "spaceAdder"
     ]
   },
   {
@@ -76,7 +77,7 @@
   {
     "id": "carousel",
     "components": [
-      "slide"
+      "carouselItem"
     ]
   },
   {
@@ -99,10 +100,10 @@
     ]
   },
   {
-    "id": "footerBrand",
+    "id": "footer-brand",
     "components": [
-      "footerNavList",
-      "footerSocialLink"
+      "footerLink",
+      "footerSocial"
     ]
   },
   {
@@ -129,9 +130,9 @@
   {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerLink",
-      "socialLink"
+      "headerMenuItem",
+      "footerListItem",
+      "socialIcon"
     ]
   },
   {
@@ -159,7 +160,16 @@
     ]
   },
   {
-    "id": "sticky-bottom-nav",
+    "id": "latestBlogsArticleListing",
+    "components": [
+      "blogCard"
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
+    "id": "stickyBottomNav",
     "components": [
       "navItem"
     ]
