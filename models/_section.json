@@ -61,7 +61,11 @@
         "stickyBottomNavigation",
         "latestBlogsArticleListing",
         "stickyBottomNav",
-        "headerFooterBlock"
+        "headerFooterBlock",
+        "headerFooter",
+        "spaceadder",
+        "footer",
+        "stickyNavigation"
       ]
     }
   ]

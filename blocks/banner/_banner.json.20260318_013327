@@ -22,39 +22,39 @@
       "id": "banner",
       "fields": [
         {
-          "component": "aem-content",
+          "component": "reference",
           "label": "Video",
           "name": "video",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Play Icon",
-          "name": "playIcon",
+          "label": "Icon Play",
+          "name": "iconPlay",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Pause Icon",
-          "name": "pauseIcon",
+          "label": "Icon Pause",
+          "name": "iconPause",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Mute Icon",
-          "name": "muteIcon",
+          "label": "Icon Mute",
+          "name": "iconMute",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "Unmute Icon",
-          "name": "unmuteIcon",
+          "label": "Icon Unmute",
+          "name": "iconUnmute",
           "valueType": "string"
         },
         {
           "component": "reference",
-          "label": "No Audio Icon",
-          "name": "noAudioIcon",
+          "label": "Icon No Audio",
+          "name": "iconNoAudio",
           "valueType": "string"
         }
       ]
