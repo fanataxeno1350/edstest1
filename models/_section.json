@@ -72,7 +72,9 @@
         "spaceadder-container",
         "sidebarMenu",
         "footerList",
-        "bannerCTA"
+        "bannerCTA",
+        "bannerSectionList",
+        "latestblogs"
       ]
     }
   ]

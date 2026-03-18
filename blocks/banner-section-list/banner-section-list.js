@@ -3,21 +3,22 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('header-section-position-relative', 'header-mb-15');
+  section.classList.add('banner-section');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
+    item.classList.add('banner-section__wrapper', 'banner-position-relative', 'banner-boing');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.querySelector('span')) {
-        div.classList.add('header-app-name', 'header-d-none');
-      } else if (div.querySelector('header')) {
-        div.classList.add('header-boing-container', 'header-main', 'header-d-flex', 'header-justify-content-between', 'header-align-items-center', 'header-h-15', 'header-px-5', 'header-py-2', 'header-fixed-top', 'header-w-100', 'header-bg-white');
-      } else if (div.querySelector('aside')) {
-        div.classList.add('header-sidebar', 'header-start-0', 'header-bg-white', 'header-position-absolute');
+      if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
+        div.className = 'banner-video-wrapper';
+      } else if (div.querySelector('img')) {
+        div.classList.add('banner-section-image', 'banner-w-100', 'banner-h-100', 'banner-object-fit-cover', 'banner-media');
+      } else if (div.querySelector('a')) {
+        div.classList.add('banner-boing__banner--cta', 'banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100');
       } else {
-        div.classList.add('header-submenu-container', 'header-position-fixed', 'header-top-0', 'header-start-0', 'header-end-0', 'header-m-auto', 'header-overflow-hidden');
+        div.classList.add('banner-boing__banner--cta', 'banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100');
       }
     });
     section.append(item);

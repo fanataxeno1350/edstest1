@@ -1,0 +1,232 @@
+.footer-brand-section {
+  padding-bottom: 6rem; /* Equivalent to 96px assuming 16px base */
+  padding-top: 11.0625rem; /* Equivalent to 177px assuming 16px base */
+  position: relative;
+}
+.footer-brand-section .footer-brand-wrapper {
+  background-color: #161616;
+  position: relative;
+}
+.footer-brand-section .footer-brand-primary-section {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 3.75rem 1rem; /* Equivalent to 0px 60px 16px assuming 16px base */
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container {
+  padding: 0;
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-primary-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 7.5rem; /* Equivalent to 32px 120px assuming 16px base */
+  justify-content: flex-start;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left {
+  align-items: center;
+  display: flex;
+  gap: 3.75rem; /* Equivalent to 60px assuming 16px base */
+  justify-content: center;
+  padding-inline: 2.25rem; /* Equivalent to 36px assuming 16px base */
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left .footer-brand-logo {
+  height: 3.9375rem; /* Equivalent to 63px assuming 16px base */
+  min-width: 3.375rem; /* Equivalent to 54px assuming 16px base */
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left .footer-brand-logo .footer-brand-object-fit-contain {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left .footer-brand-secondary-logo {
+  display: inline-block;
+  max-height: 100%;
+  min-width: 4.375rem; /* Equivalent to 70px assuming 16px base */
+  width: 4.375rem; /* Equivalent to 70px assuming 16px base */
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left .footer-brand-secondary-logo .footer-brand-object-fit-contain {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right {
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-brand-navbar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-list-wrapper {
+  height: 50%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-list-wrapper .footer-list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  justify-content: space-between;
+  list-style: none;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-list-wrapper .footer-list .footer-list-item {
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-list-wrapper .footer-list .footer-list-item .footer-list-item-link {
+  color: #fff;
+  cursor: pointer;
+  font-family: Barlow;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: normal;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-list-wrapper .footer-list .footer-list-item .footer-list-item-link:hover {
+  text-decoration: underline;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-navbar-left {
+  align-items: flex-start;
+  border-right: 1px solid rgba(255, 255, 255, 0.302);
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-right: 2rem; /* Equivalent to 32px assuming 16px base */
+  width: 100%;
+}
+.footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-navbar-right {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem; /* Equivalent to 36px assuming 16px base */
+  padding-left: 2rem; /* Equivalent to 32px assuming 16px base */
+  width: 100%;
+}
+.footer-brand-section .footer-brand-secondary-section {
+  padding: 1rem 1.5rem; /* Equivalent to 16px 24px assuming 16px base */
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container {
+  padding: 0;
+  width: 100%;
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-secondary-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  justify-content: space-between;
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right .footer-brand-social-media-title {
+  color: #fff;
+  font-family: Barlow;
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700;
+  line-height: 2rem; /* Equivalent to 32px assuming 16px base */
+  padding-bottom: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  text-align: center;
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right .footer-brand-right-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Equivalent to 16px assuming 16px base */
+  justify-content: center;
+  list-style: none;
+  max-width: 100%;
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right .footer-brand-right-list .footer-brand-right-item {
+  align-items: center;
+  border-color: #f6bb00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right .footer-brand-right-list .footer-brand-right-item .footer-brand-right-link {
+  align-items: center;
+  display: flex;
+  height: 2.6875rem; /* Equivalent to 43px assuming 16px base */
+  justify-content: center;
+  transition: transform 0.2s linear;
+  width: 2.6875rem; /* Equivalent to 43px assuming 16px base */
+}
+.footer-brand-section .footer-brand-secondary-section .footer-brand-container .footer-brand-right .footer-brand-right-list .footer-brand-right-item .footer-brand-right-link:hover {
+  transform: scale(1.3334);
+}
+.footer-brand-section .footer-brand-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  padding-top: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  justify-content: center;
+  list-style: none;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-item {
+  border-right: 0.125rem solid rgba(255, 255, 255, 0.302);
+  padding: 0 1.5rem; /* Equivalent to 0px 24px assuming 16px base */
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-item:first-child {
+  padding-left: 0;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-item:last-child {
+  border: 0;
+  padding-right: 0;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-item .footer-brand-left-link {
+  color: #fff;
+  display: inline-block;
+  font-family: Barlow;
+  font-size: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-item .footer-brand-left-link:hover {
+  text-decoration: underline;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-copyright {
+  display: inline-block;
+  font-family: Barlow;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+.footer-brand-section .footer-brand-left .footer-brand-left-copyright .footer-brand-left-text {
+  color: #fff;
+}
+
+@media (max-width: 440px) {
+  .footer-brand-section {
+    padding-top: 9rem; /* Equivalent to 144px assuming 16px base */
+  }
+}
+@media (min-width: 768px) {
+  .footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-primary-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 992px) {
+  .footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-left {
+    min-height: 55px;
+  }
+  .footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-brand-navbar-left {
+    border-right: 1px solid rgba(255, 255, 255, 0.302);
+    padding-right: 2rem; /* Equivalent to 32px assuming 16px base */
+  }
+  .footer-brand-section .footer-brand-primary-section .footer-brand-container .footer-brand-right .footer-brand-navbar-right {
+    padding-left: 2rem; /* Equivalent to 32px assuming 16px base */
+  }
+}
