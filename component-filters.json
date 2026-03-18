@@ -169,9 +169,6 @@
     ]
   },
   {
-    "id": "spaceadder"
-  },
-  {
     "id": "sticky-bottom-nav",
     "components": [
       "navItem"
