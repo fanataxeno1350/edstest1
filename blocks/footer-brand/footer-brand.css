@@ -62,8 +62,6 @@
   .footer-align-items-md-start{-webkit-box-align:start !important;-ms-flex-align:start !important;align-items:flex-start !important}
 }
 
-.header .footer-submenu-container .footer-brand__primary:before,.header .footer-submenu-container .footer-brand__secondary:after{display:none !important}
-
 .header .footer-sidebar .footer-brand .footer-background-pattern{height:6rem !important}
 
 .footer-brand{padding-bottom:6rem;padding-top:11.footer-0625rem;position:relative}
@@ -223,15 +221,3 @@
 .footer-lets-doodle .header .footer-brand .footer-brand__secondary .footer-brand__right--list{gap:1rem !important}
 
 .footer-hide-footer__cta .footer-brand__cta,.footer-lets-doodle .header .footer-brand .footer-brand__cta{display:none !important}
-
-/* Inline style: section.footer-brand__primary */
-section.footer-brand__primary { background-color: ; }
-
-/* Inline style: section.footer-brand__secondary */
-section.footer-brand__secondary { background-color: ; }
-
-/* Inline style: section.footer-brand__primary */
-section.footer-brand__primary { background-color: ; }
-
-/* Inline style: section.footer-brand__secondary */
-section.footer-brand__secondary { background-color: ; }

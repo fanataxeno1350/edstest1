@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "FeatureCard",
+      "title": "Feature-Card",
       "id": "featureCard",
       "plugins": {
         "xwalk": {
@@ -25,7 +25,7 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "model": "featureCard",
-              "name": "FeatureCard"
+              "name": "Feature-Card"
             }
           }
         }
@@ -49,6 +49,12 @@
           "valueType": "string"
         },
         {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
           "component": "text",
           "label": "Title",
           "name": "title",
@@ -58,12 +64,6 @@
           "component": "richtext",
           "label": "Description",
           "name": "description",
-          "valueType": "string"
-        },
-        {
-          "component": "aem-content",
-          "label": "Link",
-          "name": "link",
           "valueType": "string"
         }
       ]

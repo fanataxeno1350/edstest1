@@ -16,38 +16,14 @@
       "cards",
       "columns",
       "fragment",
-      "headerFooter",
-      "carousel",
-      "bannerSection",
-      "featureCards",
-      "latestBlogs",
-      "footerBrand",
-      "stickyBottomNav",
       "header",
-      "featurecards",
-      "stickyNavigation",
-      "latestBlogsListing",
-      "latestBlogsArticleList",
-      "footer",
-      "bannerVideo",
-      "latestBlogsList",
-      "footerBrandFooter",
-      "stickyNavigationBottomNav",
-      "latestBlogsArticleListing",
-      "headerSection",
-      "boingHeaderFooter",
-      "carouselBanner",
+      "carousel",
       "banner",
-      "articleListing",
+      "featureCards",
+      "latestBlogsArticleList",
       "spaceAdder",
-      "headerBoing",
-      "footerList"
-    ]
-  },
-  {
-    "id": "bannerSection",
-    "components": [
-      "bannerSection"
+      "footerBrand",
+      "stickyBottomNavigation"
     ]
   },
   {
@@ -59,7 +35,7 @@
   {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "carouselItem"
     ]
   },
   {
@@ -71,54 +47,38 @@
   {
     "id": "footerBrand",
     "components": [
+      "footerLinkGroup",
       "footerLink",
       "socialLink"
     ]
   },
   {
-    "id": "footerList",
+    "id": "footerLinkGroup",
     "components": [
       "footerLink"
     ]
   },
   {
-    "id": "headerBoing",
+    "id": "header",
     "components": [
       "sidebarMenuItem",
       "footerListItem",
-      "footerSocialItem"
-    ]
-  },
-  {
-    "id": "header",
-    "components": [
-      "headerMenuItem",
-      "footerLink",
-      "socialLink"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleListing",
-    "components": [
-      "blogCard"
+      "footerSocialLink"
     ]
   },
   {
     "id": "latestBlogsArticleList",
     "components": [
-      "latestBlogsArticle"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleListing",
-    "components": [
       "blogCard"
     ]
   },
   {
-    "id": "stickyBottomNav",
+    "id": "spaceAdder"
+  },
+  {
+    "id": "stickyBottomNavigation",
     "components": [
-      "navItem"
+      "navigationItem"
     ]
   }
 ]

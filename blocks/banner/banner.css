@@ -54,6 +54,8 @@
 
 .banner-blog-detail__video .banner-section .banner-gradient{display:none}
 
+.banner-shortBanner_section .banner-media{border-radius:.banner-5rem;height:100%;-o-object-fit:cover;object-fit:cover;width:100%}
+
 .banner-lets-doodle .banner-banner{border-radius:1.banner-5625rem}
 
 .banner-lets-doodle .banner-swiper-slide:nth-child(odd) .banner-banner{background-color:#aa1f30}
