@@ -1,17 +1,18 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { createOptimizedPicture } from '../../../scripts/aem.js';
+import { moveInstrumentation } from '../../../scripts/scripts.js';
 
 export default function decorate(block) {
   const wrapper = document.createElement('div');
+  wrapper.classList.add('featurecards-container');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('a');
     moveInstrumentation(row, item);
-    item.classList.add('featurecards-link');
+    item.classList.add('featurecards-bolte-sitare-card', 'analytics_cta_click', 'featurecards-hide-mobile', 'text-decoration-none');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.querySelector('img')) {
-        div.className = 'featurecards-image';
+        div.className = 'featurecards-bolte-sitare-card-img';
       } else {
         div.className = 'featurecards-content-wrapper';
       }

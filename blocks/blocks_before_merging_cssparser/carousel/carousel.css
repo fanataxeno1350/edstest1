@@ -1,0 +1,381 @@
+.carousel-position-relative {
+  position: relative;
+}
+
+.carousel-primary-swiper {
+  display: block;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  /* Assumes 16px base font-size */
+  padding-inline: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+
+.carousel-primary-swiper-wrapper {
+  box-sizing: content-box;
+  display: flex;
+  height: 100%;
+  position: relative;
+  transition-property: transform, -webkit-transform;
+  transition-timing-function: ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.carousel-z-0 {
+  z-index: 0 !important;
+}
+
+.carousel-primary-swiper-slide {
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  transition-property: transform, -webkit-transform;
+  width: 100%;
+  /* Assumes 16px base font-size */
+  --carousel-bs-aspect-ratio: 133.3333333333%;
+}
+.carousel-primary-swiper-slide::before {
+  content: "";
+  display: block;
+  padding-top: var(--carousel-bs-aspect-ratio);
+}
+
+.carousel-banner {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.carousel-banner-section {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-boing {
+  padding-inline: 0.046875rem;
+}
+
+.carousel-banner-section__wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-video-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-w-100 {
+  width: 100% !important;
+}
+
+.carousel-object-fit-cover {
+  object-fit: cover !important;
+}
+
+.carousel-banner-media {
+  border-radius: 0.5rem;
+  object-position: center;
+}
+
+.carousel-banner-video {
+  border-radius: 0.5rem;
+}
+
+.carousel-position-absolute {
+  position: absolute !important;
+}
+
+.carousel-h-100 {
+  height: 100% !important;
+}
+
+.carousel-start-0 {
+  left: 0 !important;
+}
+
+.carousel-top-0 {
+  top: 0 !important;
+}
+
+.carousel-d-flex {
+  display: flex !important;
+}
+
+.carousel-justify-content-center {
+  justify-content: center !important;
+}
+
+.carousel-align-items-center {
+  align-items: center !important;
+}
+
+.carousel-cursor-pointer {
+  cursor: pointer;
+}
+
+.carousel-d-none {
+  display: none !important;
+}
+
+.carousel-video-icon {
+  display: none;
+  height: 3rem; /* Equivalent to 48px assuming 16px base */
+  width: 3rem; /* Equivalent to 48px assuming 16px base */
+}
+
+.carousel-d-block {
+  display: block !important;
+}
+
+.carousel-mute-icon {
+  bottom: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  display: none;
+  right: 0.6875rem; /* Equivalent to 11px assuming 16px base */
+}
+
+.carousel-video-icon-volume {
+  height: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  width: 1.5rem; /* Equivalent to 24px assuming 16px base */
+}
+
+.carousel-start-50 {
+  left: 50% !important;
+}
+
+.carousel-translate-middle-x {
+  transform: translateX(-50%) !important;
+}
+
+.carousel-boing__banner--cta {
+  bottom: 1.875rem; /* Equivalent to 30px assuming 16px base */
+}
+
+.carousel-banner-image {
+  border-radius: 0.5rem;
+  object-position: center;
+}
+
+.carousel-text-center {
+  text-align: center !important;
+}
+
+.carousel-cmp-button {
+  text-decoration: none;
+}
+
+.carousel-analytics_cta_click {
+  cursor: pointer;
+}
+
+.carousel-cta-layout {
+  display: inline;
+}
+
+.carousel-cmp-button__text {
+  text-align: center;
+  background-color: rgb(170, 31, 48);
+  color: rgb(255, 255, 255) !important;
+  display: inline-block;
+  font-family: Barlow;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 600;
+  line-height: normal;
+  width: 75% !important;
+  /* Assumes 16px base font-size */
+  padding: 1rem !important; /* Equivalent to 16px assuming 16px base */
+  border-radius: 50rem !important;
+  /* Assumes 16px base font-size */
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.carousel-primary-btn {
+  background-color: rgb(170, 31, 48);
+  color: rgb(255, 255, 255);
+  display: inline-block;
+}
+
+.carousel-rounded-pill {
+  border-radius: 50rem !important;
+}
+
+.carousel-d-inline-flex {
+  display: inline-flex !important;
+}
+
+.carousel-famlf-cta-btn {
+  font-family: Barlow;
+}
+
+.carousel-pop-up {
+  display: none;
+}
+
+.carousel-cmp-carousel__actions {
+  display: none;
+}
+
+.carousel-cmp-carousel__action {
+  appearance: none;
+}
+
+.carousel-cmp-carousel__action--previous,
+.carousel-cmp-carousel__action--next,
+.carousel-cmp-carousel__action--pause,
+.carousel-cmp-carousel__action--play {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.carousel-cmp-carousel__action-icon {
+  display: block;
+  height: 10px;
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.carousel-cmp-carousel__action-text {
+  display: none;
+}
+
+.swiper-container {
+  background-color: transparent;
+  height: 0;
+}
+
+.carousel-primary-swiper__buttonNext,
+.carousel-primary-swiper__buttonPrev {
+  height: 2.8125rem; /* Equivalent to 45px assuming 16px base */
+  margin-top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.8125rem; /* Equivalent to 45px assuming 16px base */
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+@media (min-width: 576px) {
+  .carousel-primary-swiper__buttonNext,
+.carousel-primary-swiper__buttonPrev {
+    display: block;
+  }
+}
+@media (min-width: 992px) {
+  .carousel-primary-swiper__buttonNext,
+.carousel-primary-swiper__buttonPrev {
+    top: calc(50% - 1.25rem); /* Equivalent to calc(50% - 20px) assuming 16px base */
+  }
+}
+
+.carousel-primary-swiper__buttonNext {
+  right: 7.5rem; /* Equivalent to 120px assuming 16px base */
+}
+
+.carousel-primary-swiper__buttonPrev {
+  left: 7.5rem; /* Equivalent to 120px assuming 16px base */
+}
+
+.carousel-swiper-buttonBg {
+  background-color: transparent;
+}
+
+.carousel-d-sm-block {
+  display: block !important;
+}
+
+.carousel-disabled {
+  cursor: default;
+}
+
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transform: translateZ(0);
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+.carousel-primary-swiper-pagination {
+  bottom: 0;
+  transform: translateX(0);
+  /* Assumes 16px base font-size */
+  margin-top: 1rem !important; /* Equivalent to 16px assuming 16px base */
+  position: relative !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-pagination-set {
+  /* Assumes 16px base font-size */
+  margin-bottom: 0.625rem; /* Equivalent to 10px assuming 16px base */
+  margin-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+@media (min-width: 768px) {
+  .carousel-pagination-set {
+    /* Assumes 16px base font-size */
+    margin-bottom: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  }
+}
+
+.swiper-pagination-clickable {
+  cursor: pointer;
+}
+
+.swiper-pagination-bullets {
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+}
+
+.swiper-pagination-horizontal {
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: rgb(65, 65, 65);
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.323125rem; /* Equivalent to 5.17px assuming 16px base */
+  opacity: 1 !important;
+  width: 0.323125rem; /* Equivalent to 5.17px assuming 16px base */
+  /* Assumes 16px base font-size */
+  margin: 0 0.25rem; /* Equivalent to 4px assuming 16px base */
+}
+
+.swiper-pagination-bullet-active {
+  background: rgb(170, 31, 48);
+  border-radius: 50%;
+  height: 0.29375rem; /* Equivalent to 4.7px assuming 16px base */
+  position: relative;
+  width: 0.29375rem; /* Equivalent to 4.7px assuming 16px base */
+  z-index: 2;
+}
+.swiper-pagination-bullet-active::before {
+  border: 0.05rem solid rgb(170, 31, 48); /* Equivalent to 0.8px solid assuming 16px base */
+  border-radius: 50%;
+  content: "";
+  height: 0.539375rem; /* Equivalent to 8.63px assuming 16px base */
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.539375rem; /* Equivalent to 8.63px assuming 16px base */
+}

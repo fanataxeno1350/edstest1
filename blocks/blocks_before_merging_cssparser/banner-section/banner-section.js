@@ -1,4 +1,4 @@
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { moveInstrumentation } from '../../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
@@ -7,12 +7,12 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('position-relative', 'banner-section__wrapper');
+    item.classList.add('banner-section__wrapper', 'position-relative', 'banner');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
         div.className = 'banner-video-wrapper';
-      } else if (div.querySelector('a')) {
+      } else {
         div.className = 'banner-cta-wrapper';
       }
     });

@@ -24,57 +24,60 @@
         {
           "component": "reference",
           "label": "Video Source",
-          "name": "videoSrc",
+          "name": "video",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Play Icon",
-          "name": "playIcon",
+          "name": "iconPlay",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Pause Icon",
-          "name": "pauseIcon",
+          "name": "iconPause",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Mute Icon",
-          "name": "muteIcon",
+          "name": "iconMute",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "Unmute Icon",
-          "name": "unmuteIcon",
+          "name": "iconUnmute",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "No Audio Icon",
-          "name": "noAudioIcon",
+          "name": "iconNoAudio",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "CTA Link",
-          "name": "ctaHref",
-          "valueType": "string"
+          "component": "boolean",
+          "label": "Is Autoplay",
+          "name": "isAutoplay"
         },
         {
-          "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
-          "valueType": "string"
+          "component": "boolean",
+          "label": "Is Loop",
+          "name": "isLoop"
+        },
+        {
+          "component": "boolean",
+          "label": "Is Muted",
+          "name": "isMuted"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "banner-section",
+      "id": "bannerSection",
       "components": [
         "bannerSection"
       ]

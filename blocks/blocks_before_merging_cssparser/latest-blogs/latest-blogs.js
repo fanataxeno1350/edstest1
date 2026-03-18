@@ -1,22 +1,20 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { createOptimizedPicture } from '../../../scripts/aem.js';
+import { moveInstrumentation } from '../../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('footer-brand-section');
+  section.classList.add('latestblogs-wrapper');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('footer-brand-container');
+    item.classList.add('latestblogs-listing');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) {
-        div.classList.add('footer-brand-logo', 'footer-brand-secondary-logo');
-      } else if (div.querySelector('a')) {
-        div.classList.add('footer-list-item-link', 'footer-brand-right-link', 'footer-brand-left-link');
-      } else {
-        div.classList.add('footer-brand-primary-content', 'footer-brand-social-media-title', 'footer-brand-left-copyright');
+      if (div.querySelector('div:first-child')) {
+        div.classList.add('latestblogs-listing_section--first', 'latestblogs-text-white', 'latestblogs-text-center');
+      } else if (div.querySelector('div:last-child')) {
+        div.classList.add('latestblogs-listing_section--second', 'latestblogs-d-flex');
       }
     });
     section.append(item);

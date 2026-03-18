@@ -44,12 +44,6 @@
         },
         {
           "component": "text",
-          "label": "Image Alt Text",
-          "name": "alt",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
           "label": "Title",
           "name": "title",
           "valueType": "string"
@@ -62,25 +56,14 @@
         },
         {
           "component": "text",
-          "label": "Link URL",
+          "label": "Link",
           "name": "link",
           "valueType": "string"
         },
         {
           "component": "text",
-          "label": "CTA Label",
-          "name": "ctaLabel",
-          "valueType": "string"
-        }
-      ]
-    },
-    {
-      "id": "featurecards",
-      "fields": [
-        {
-          "component": "richtext",
-          "label": "Heading",
-          "name": "heading",
+          "label": "Button Label",
+          "name": "buttonLabel",
           "valueType": "string"
         }
       ]

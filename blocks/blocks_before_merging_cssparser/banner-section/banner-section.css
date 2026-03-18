@@ -1,0 +1,35 @@
+.banner-section {
+  /* No direct styles for .banner-section itself, acts as a container */
+}
+.banner-section__wrapper {
+  padding-inline: 0.046875rem; /* Equivalent to 0.75px assuming 16px base */
+}
+.banner-section__wrapper .banner-cta-wrapper {
+  bottom: 1.875rem; /* Equivalent to 30px assuming 16px base */
+}
+@media (min-width: 540px) {
+  .banner-section__wrapper .banner-cta-wrapper .cmp-button__text {
+    width: 50% !important;
+  }
+}
+.banner-media {
+  border-radius: 0.5rem; /* Equivalent to 8px assuming 16px base */
+  object-position: center;
+}
+.banner-video-wrapper .banner-video {
+  border-radius: 0.5rem; /* Equivalent to 8px assuming 16px base */
+}
+.banner-video-wrapper .banner-video-icon {
+  display: none;
+  height: 3rem; /* Equivalent to 48px assuming 16px base */
+  width: 3rem; /* Equivalent to 48px assuming 16px base */
+}
+.banner-video-wrapper .banner-mute-icon {
+  bottom: 0.8125rem; /* Equivalent to 13px assuming 16px base */
+  display: none;
+  right: 0.6875rem; /* Equivalent to 11px assuming 16px base */
+}
+.banner-video-wrapper .banner-video-icon-volume {
+  height: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  width: 1.5rem; /* Equivalent to 24px assuming 16px base */
+}

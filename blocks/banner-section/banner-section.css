@@ -1,35 +1,89 @@
 .banner-section {
-  /* No direct styles for .banner-section itself, acts as a container */
+  /* Assuming 16px base, 0.046875rem = 0.75px */
+  padding-inline: 0.046875rem;
 }
-.banner-section__wrapper {
-  padding-inline: 0.046875rem; /* Equivalent to 0.75px assuming 16px base */
+.banner-section .banner-video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
-.banner-section__wrapper .banner-cta-wrapper {
-  bottom: 1.875rem; /* Equivalent to 30px assuming 16px base */
-}
-@media (min-width: 540px) {
-  .banner-section__wrapper .banner-cta-wrapper .cmp-button__text {
-    width: 50% !important;
-  }
-}
-.banner-media {
-  border-radius: 0.5rem; /* Equivalent to 8px assuming 16px base */
+.banner-section .banner-video-wrapper .banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
+  border-radius: 0.5rem;
 }
-.banner-video-wrapper .banner-video {
-  border-radius: 0.5rem; /* Equivalent to 8px assuming 16px base */
+.banner-section .banner-video-wrapper .banner-video-controls-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.banner-video-wrapper .banner-video-icon {
+.banner-section .banner-video-wrapper .banner-video-controls-wrapper .banner-video-icon {
   display: none;
   height: 3rem; /* Equivalent to 48px assuming 16px base */
   width: 3rem; /* Equivalent to 48px assuming 16px base */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-.banner-video-wrapper .banner-mute-icon {
+.banner-section .banner-video-wrapper .banner-mute-icon-wrapper {
+  position: absolute;
   bottom: 0.8125rem; /* Equivalent to 13px assuming 16px base */
-  display: none;
   right: 0.6875rem; /* Equivalent to 11px assuming 16px base */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.banner-video-wrapper .banner-video-icon-volume {
+.banner-section .banner-video-wrapper .banner-mute-icon-wrapper .banner-video-icon-volume {
   height: 1.5rem; /* Equivalent to 24px assuming 16px base */
   width: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.banner-section .banner-cta-wrapper {
+  position: absolute;
+  bottom: 1.875rem; /* Equivalent to 30px assuming 16px base */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+@media (min-width: 540px) {
+  .banner-section .banner-cta-wrapper .banner-cta .banner-button__text {
+    width: 50% !important;
+  }
+}
+.banner-section .banner-cta-wrapper .banner-cta .banner-button {
+  text-decoration: none;
+  text-align: center;
+}
+.banner-section .banner-cta-wrapper .banner-cta .banner-button__text {
+  background-color: #aa1f30;
+  color: #fff;
+  font-family: Barlow;
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 600;
+  line-height: normal;
+  width: 75%;
+  padding: 1rem; /* Equivalent to 16px assuming 16px base */
+  border-radius: 50rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-section .banner-cta-wrapper .banner-cta .banner-pop-up {
+  display: none;
 }

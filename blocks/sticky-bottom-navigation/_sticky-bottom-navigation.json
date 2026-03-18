@@ -43,16 +43,28 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
           "label": "Label",
           "name": "label",
           "valueType": "string"
         },
         {
-          "component": "aem-content",
+          "component": "text",
           "label": "Link",
-          "name": "link",
+          "name": "href",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Data Link",
+          "name": "dataLink",
+          "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "label": "Data Consent",
+          "name": "dataConsent",
+          "valueType": "boolean"
         }
       ]
     }

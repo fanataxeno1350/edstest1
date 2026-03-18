@@ -41,30 +41,15 @@
     ]
   },
   {
-    "id": "bannerCTA"
-  },
-  {
-    "id": "bannerSection",
+    "id": "banner-section",
     "components": [
       "bannerSection"
     ]
   },
   {
-    "id": "banner",
-    "components": [
-      "banner"
-    ]
-  },
-  {
     "id": "carousel",
     "components": [
-      "carouselItem"
-    ]
-  },
-  {
-    "id": "featureCards",
-    "components": [
-      "featureCard"
+      "carouselSlide"
     ]
   },
   {
@@ -76,69 +61,22 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLinkGroup",
-      "socialLink"
+      "footerBrandLinkColumn",
+      "footerBrandSocialLink"
     ]
   },
   {
-    "id": "footerLinkGroup",
+    "id": "footerBrandLinkColumn",
     "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "footerList",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "footer",
-    "components": [
-      "footerLinkList",
-      "socialLink"
-    ]
-  },
-  {
-    "id": "footerLinkList",
-    "components": [
-      "footerLink"
-    ]
-  },
-  {
-    "id": "headerFooterBlock",
-    "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "socialLinkItem"
-    ]
-  },
-  {
-    "id": "headerFooter",
-    "components": [
-      "menuItem",
-      "footerLink",
-      "socialLink"
+      "footerBrandLink"
     ]
   },
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
-      "headerFooterListItem",
-      "socialLink"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleList",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleListing",
-    "components": [
-      "articleCard"
+      "sidebarMenuItem",
+      "footerLinkItem",
+      "footerSocialItem"
     ]
   },
   {
@@ -148,40 +86,10 @@
     ]
   },
   {
-    "id": "latestBlogsArticleList",
-    "components": [
-      "article"
-    ]
-  },
-  {
-    "id": "latestBlogsArticleListing",
-    "components": [
-      "article"
-    ]
-  },
-  {
-    "id": "sidebarMenu",
-    "components": [
-      "sidebarMenuItem",
-      "footerBrandLogo",
-      "footerLink",
-      "footerSocialLink"
-    ]
-  },
-  {
-    "id": "sticky-bottom-nav",
-    "components": [
-      "navItem"
-    ]
+    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
-    "components": [
-      "navigationItem"
-    ]
-  },
-  {
-    "id": "sticky-navigation",
     "components": [
       "navigationItem"
     ]

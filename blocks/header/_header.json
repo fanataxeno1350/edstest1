@@ -17,45 +17,45 @@
       }
     },
     {
-      "title": "HeaderMenuItem",
-      "id": "headerMenuItem",
+      "title": "Sidebar Menu Item",
+      "id": "sidebarMenuItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "headerMenuItem",
-              "name": "HeaderMenuItem"
+              "model": "sidebarMenuItem",
+              "name": "Sidebar Menu Item"
             }
           }
         }
       }
     },
     {
-      "title": "HeaderFooterListItem",
-      "id": "headerFooterListItem",
+      "title": "Footer Link Item",
+      "id": "footerLinkItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "headerFooterListItem",
-              "name": "HeaderFooterListItem"
+              "model": "footerLinkItem",
+              "name": "Footer Link Item"
             }
           }
         }
       }
     },
     {
-      "title": "SocialLink",
-      "id": "socialLink",
+      "title": "Footer Social Item",
+      "id": "footerSocialItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "socialLink",
-              "name": "SocialLink"
+              "model": "footerSocialItem",
+              "name": "Footer Social Item"
             }
           }
         }
@@ -79,39 +79,46 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Login URL",
-          "name": "loginUrl",
+          "component": "text",
+          "label": "Logo Image Alt",
+          "name": "logoImageAlt",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Login Button Text",
-          "name": "loginButtonText",
+          "component": "text",
+          "label": "Logo Link",
+          "name": "logoLink",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Login Link",
+          "name": "loginLink",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Login Text",
+          "name": "loginText",
           "valueType": "string"
         },
         {
           "component": "container",
-          "itemModel": "headerMenuItem",
-          "label": "Menu Items",
-          "name": "menuItems"
-        },
-        {
-          "component": "container",
-          "itemModel": "headerFooterListItem",
-          "label": "Footer List Items",
-          "name": "footerListItems"
-        },
-        {
-          "component": "container",
-          "itemModel": "socialLink",
-          "label": "Social Links",
-          "name": "socialLinks"
+          "itemType": "sidebarMenuItem",
+          "label": "Sidebar Menu Items",
+          "name": "sidebarMenuItems",
+          "valueType": "array"
         },
         {
           "component": "reference",
           "label": "Footer Logo 1",
           "name": "footerLogo1",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Footer Logo 1 Alt",
+          "name": "footerLogo1Alt",
           "valueType": "string"
         },
         {
@@ -122,6 +129,65 @@
         },
         {
           "component": "text",
+          "label": "Footer Logo 2 Alt",
+          "name": "footerLogo2Alt",
+          "valueType": "string"
+        },
+        {
+          "component": "container",
+          "itemType": "footerLinkItem",
+          "label": "Footer Links 1",
+          "name": "footerLinks1",
+          "valueType": "array"
+        },
+        {
+          "component": "container",
+          "itemType": "footerLinkItem",
+          "label": "Footer Links 2",
+          "name": "footerLinks2",
+          "valueType": "array"
+        },
+        {
+          "component": "container",
+          "itemType": "footerLinkItem",
+          "label": "Footer Links 3",
+          "name": "footerLinks3",
+          "valueType": "array"
+        },
+        {
+          "component": "container",
+          "itemType": "footerLinkItem",
+          "label": "Footer Links 4",
+          "name": "footerLinks4",
+          "valueType": "array"
+        },
+        {
+          "component": "richtext",
+          "label": "Footer Social Title",
+          "name": "footerSocialTitle",
+          "valueType": "string"
+        },
+        {
+          "component": "container",
+          "itemType": "footerSocialItem",
+          "label": "Footer Social Items",
+          "name": "footerSocialItems",
+          "valueType": "array"
+        },
+        {
+          "component": "reference",
+          "label": "Footer Bottom Link Href",
+          "name": "footerBottomLinkHref",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Footer Bottom Link Text",
+          "name": "footerBottomLinkText",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
           "label": "Copyright Text",
           "name": "copyrightText",
           "valueType": "string"
@@ -129,7 +195,7 @@
       ]
     },
     {
-      "id": "headerMenuItem",
+      "id": "sidebarMenuItem",
       "fields": [
         {
           "component": "reference",
@@ -139,38 +205,50 @@
         },
         {
           "component": "text",
-          "label": "Label",
-          "name": "label",
+          "label": "Icon Alt",
+          "name": "iconAlt",
           "valueType": "string"
         },
         {
-          "component": "reference",
+          "component": "text",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Text",
+          "name": "text",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "headerFooterListItem",
+      "id": "footerLinkItem",
       "fields": [
         {
           "component": "text",
-          "label": "Label",
-          "name": "label",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Link",
-          "name": "link",
+          "component": "richtext",
+          "label": "Text",
+          "name": "text",
           "valueType": "string"
         }
       ]
     },
     {
-      "id": "socialLink",
+      "id": "footerSocialItem",
       "fields": [
+        {
+          "component": "text",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
         {
           "component": "reference",
           "label": "Icon",
@@ -178,9 +256,9 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "label": "Link",
-          "name": "link",
+          "component": "text",
+          "label": "Platform",
+          "name": "platform",
           "valueType": "string"
         }
       ]
@@ -190,9 +268,9 @@
     {
       "id": "header",
       "components": [
-        "headerMenuItem",
-        "headerFooterListItem",
-        "socialLink"
+        "sidebarMenuItem",
+        "footerLinkItem",
+        "footerSocialItem"
       ]
     }
   ]

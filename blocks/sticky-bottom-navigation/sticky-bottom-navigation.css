@@ -1,23 +1,101 @@
-.stickynavigation-position-relative{position:relative !important}
-
-.stickynavigation-position-fixed{position:fixed !important}
-
-.stickynavigation-bottom-0{bottom:0 !important}
-
-.stickynavigation-flex-column,.stickynavigation-flex-row{-webkit-box-direction:normal !important}
-
-.stickynavigation-flex-column{-webkit-box-orient:vertical !important;-ms-flex-direction:column !important;flex-direction:column !important}
-
-.stickynavigation-flex-grow-1{-webkit-box-flex:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}
-
-.stickynavigation-justify-content-around{-ms-flex-pack:distribute !important;justify-content:space-around !important}
-
-.stickynavigation-align-items-center{-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}
-
-.stickynavigation-p-3{padding:.stickynavigation-5rem !important}
-
-.stickynavigation-gap-1{gap:.stickynavigation-125rem !important}
-
-.stickynavigation-bg-boing-primary,.stickynavigation-bg-boing-primary-active:active,.stickynavigation-bg-boing-primary-disabled:disabled,.stickynavigation-bg-boing-primary-focus:focus,.stickynavigation-bg-boing-primary-hover:hover{--bs-bg-opacity:1;background-color:#aa1f30 !important}
-
-.stickynavigation-boing-container{--bs-gutter-x:0;--bs-gutter-y:0;margin-left:auto;margin-right:auto;max-width:33.stickynavigation-75rem;padding-left:calc(var(--bs-gutter-x)*.stickynavigation-5);padding-right:calc(var(--bs-gutter-x)*.stickynavigation-5);width:100%}
+.stickyNavigation-pop-up {
+  /* Assuming 16px base */
+  height: 100%;
+  position: absolute;
+}
+.stickyNavigation-trans-pop-up {
+  /* Assuming 16px base */
+  background: #000;
+  display: none;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 33.75rem; /* Equivalent to 540px assuming 16px base */
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.stickyNavigation-sticky-bottom-nav {
+  /* Assuming 16px base */
+  border-radius: 1rem 1rem 0 0; /* Equivalent to 16px assuming 16px base */
+  box-shadow: 0.125rem -0.25rem 1rem 0 rgba(0, 0, 0, 0.431); /* Equivalent to 2px -4px 16px 0px assuming 16px base */
+  height: 4.375rem; /* Equivalent to 70px assuming 16px base */
+  padding: 0.625rem 0; /* Equivalent to 10px 0px assuming 16px base */
+  z-index: 997;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #aa1f30;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 33.75rem; /* Equivalent to 540px assuming 16px base */
+  width: 100%;
+}
+.stickyNavigation-sticky-bottom-nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.stickyNavigation-sticky-bottom-nav__item {
+  text-align: center;
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.stickyNavigation-sticky-bottom-nav__link {
+  /* Assuming 16px base */
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+}
+.stickyNavigation-sticky-bottom-nav__link.active {
+  color: #f6bb00;
+}
+.stickyNavigation-sticky-bottom-nav__link.active:after {
+  /* Assuming 16px base */
+  background-color: #f6bb00;
+  border: 0.070625rem; /* Equivalent to 1.13px assuming 16px base */
+  bottom: -0.3125rem; /* Equivalent to -5px assuming 16px base */
+  content: "";
+  display: block;
+  height: 0.0625rem; /* Equivalent to 1px assuming 16px base */
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0.625rem; /* Equivalent to 10px assuming 16px base */
+}
+.stickyNavigation-sticky-bottom-nav__icon {
+  /* Assuming 16px base */
+  display: block;
+  height: 1.125rem; /* Equivalent to 18px assuming 16px base */
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+  width: 1.125rem; /* Equivalent to 18px assuming 16px base */
+}
+.stickyNavigation-sticky-bottom-nav__label {
+  /* Assuming 16px base */
+  color: #fff;
+  display: block;
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 400;
+  line-height: 0.9rem; /* Equivalent to 14.4px assuming 16px base */
+}
