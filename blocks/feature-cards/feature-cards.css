@@ -1,73 +1,166 @@
-.featurecards-boing--text__heading-0,.featurecards-boing--text__heading-1{font-family:Barlow;font-weight:700;line-height:normal}
-
-.featurecards-boing--text__heading-1{font-size:1.featurecards-5rem}
-
-.featurecards-boing--text__heading-2,.featurecards-boing--text__heading-3{font-family:Barlow;font-weight:700;line-height:normal}
-
-.featurecards-boing--text__heading-3{font-size:1rem}
-
-.featurecards-boing--text__body-1,.featurecards-boing--text__body-2{font-family:Barlow;font-weight:400;line-height:normal}
-
-.featurecards-boing--text__body-2{font-size:1rem}
-
-.featurecards-boing--text__body-3{font-family:Barlow;font-size:.featurecards-75rem;font-weight:400;line-height:normal}
-
-.featurecards-boing--text__body-4{font-family:Barlow;font-size:.featurecards-75rem;font-weight:600;line-height:1rem}
-
-.featurecards-cmp-text h1,.featurecards-cmp-text h2{color:#161616;font-size:1.featurecards-5rem;font-weight:700;line-height:normal}
-
-.featurecards-cmp-text h1.featurecards-light_title,.featurecards-cmp-text h2.featurecards-light_title{color:#fff}
-
-.featurecards-cmp-text h3{color:#161616;font-size:1.featurecards-25rem;font-weight:600;line-height:normal}
-
-.featurecards-cmp-text h3.featurecards-light_title{color:#fff}
-
-.featurecards-cmp-text p{color:#414141;font-size:1rem;font-weight:400;line-height:normal;margin-top:.featurecards-25rem}
-
-.featurecards-cmp-text p.featurecards-light_subtitle{color:#fff}
-
-.featurecards-cmp-text p.featurecards-dark_subtitle{color:#030303}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text p{color:#414141;font-family:Barlow;font-size:1rem;font-weight:400;line-height:normal;margin:0;padding:0}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text ul{padding-left:1.featurecards-625rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-cmp-text ul li{color:#414141;font-family:Barlow;font-size:1rem;font-weight:400;line-height:1.featurecards-1875rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-accordion__panel .featurecards-baseContainer .featurecards-cmp-text{padding-bottom:.featurecards-75rem}
-
-.featurecards-baseContainer.featurecards-baseContainer_Wrapper .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-text p{color:#414141;font-family:Barlow;font-size:.featurecards-75rem;font-weight:400;line-height:normal}
-
-.featurecards-baseContainer.featurecards-baseContainer_Blog_Details .featurecards-text .featurecards-cmp-text p{color:#030303;font-family:Barlow;font-size:.featurecards-875rem;font-weight:400;line-height:1.featurecards-125rem;margin:0;padding:0}
-
-.featurecards-baseContainer.featurecards-baseContainer_Blog_Details .featurecards-text .featurecards-cmp-text h1{padding:24px 0}
-
-.featurecards-lets-doodle .featurecards-baseContainer .featurecards-accordion .featurecards-cmp-accordion__panel .featurecards-cmp-text p{font-family:Roboto,sans-serif;font-size:.featurecards-75rem;line-height:1.featurecards-125rem}
-
-.featurecards-lets-doodle .featurecards-baseContainer .featurecards-accordion .featurecards-cmp-accordion .featurecards-cmp-text p{color:#000;max-width:95%}
-
-.featurecards-blogListing .featurecards-cmp-text{padding:1.featurecards-75rem 1rem .featurecards-75rem}
-
-@media(max-width:768px){
-  .featurecards-lets-doodle .featurecards-card-carousel .featurecards-cmp-text.featurecards-famlf-carousel-text{margin-bottom:-70px}
+.featurecards-container {
+  padding: 1.5rem 1rem 1rem; /* Equivalent to 24px 16px 16px assuming 16px base */
+  position: relative;
 }
-
-.featurecards-bolte_sitare--headingText .featurecards-cmp-text{padding-bottom:4px !important;text-align:left !important}
-
-.featurecards-featureCards{padding:1.featurecards-5rem 1rem 1rem;position:relative}
-
-.featurecards-featureCards .featurecards-cmp-text{font-family:Barlow;font-size:1.featurecards-5rem;font-weight:700;line-height:1.featurecards-75rem;padding-bottom:1rem}
-
-.featurecards-featureCards .featurecards-cmp-text-partial{color:#aa1f30}
-
-.featurecards-gridCards .featurecards-cmp-text{padding:1.featurecards-75rem 1rem 1rem}
-
-.featurecards-login-signup__section .featurecards-signup-screen .featurecards-cmp-text{padding:0}
-
-.featurecards-numerology-report__report-container .featurecards-cmp-text h1{color:#81151d;font-family:Poppins,sans-serif;font-size:1.featurecards-6875rem;font-weight:400;margin:0 0 .featurecards-625rem}
-
-.featurecards-numerology-report__report-container .featurecards-cmp-text p{color:#000;font-family:Poppins,sans-serif;font-size:.featurecards-9375rem;font-weight:400;margin:0 0 .featurecards-625rem}
-
-.featurecards-profile-details__edit-form-title .featurecards-cmp-text{padding:0}
-
-.featurecards-text.featurecards-textWrapper .featurecards-cmp-text p{color:#030303;font-family:Barlow;font-size:.featurecards-875rem;font-weight:400;line-height:1.featurecards-125rem;margin:0;padding:0}
+.featurecards-container .featurecards-text-wrapper {
+  font-family: Barlow;
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700;
+  line-height: 1.75rem; /* Equivalent to 28px assuming 16px base */
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.featurecards-container .featurecards-title {
+  text-align: center;
+  color: #161616; /* Explicitly defined */
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700; /* Explicitly defined */
+  line-height: normal; /* Explicitly defined */
+}
+.featurecards-container .featurecards-title-highlight {
+  color: #aa1f30; /* Explicitly defined */
+}
+.featurecards-container .featurecards-bolte-sitare-card {
+  border-radius: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  box-shadow: 0.125rem 0.25rem 1rem 0 rgba(0, 0, 0, 0.22); /* Equivalent to 2px 4px 16px 0px assuming 16px base */
+  margin-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+  padding: 0.75rem 1.125rem 0.75rem 0.75rem; /* Equivalent to 12px 18px 12px 12px assuming 16px base */
+  position: relative;
+  z-index: 11;
+  display: none; /* Hide by default, will be overridden by JS */
+}
+.featurecards-container .featurecards-bolte-sitare-card:first-of-type {
+  padding-top: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+.featurecards-container .featurecards-bolte-sitare-card:last-of-type {
+  margin-bottom: 3.375rem; /* Equivalent to 54px assuming 16px base */
+}
+.featurecards-container .featurecards-bolte-sitare-card-wrapper {
+  display: flex;
+  gap: 0.75rem; /* Equivalent to 12px assuming 16px base */
+}
+.featurecards-container .featurecards-bolte-sitare-card .featurecards-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.featurecards-container .featurecards-bolte-sitare-card-img {
+  border-radius: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  height: 6.8125rem; /* Equivalent to 109px assuming 16px base */
+  width: 8.3125rem; /* Equivalent to 133px assuming 16px base */
+}
+.featurecards-container .featurecards-bolte-sitare-card-img .featurecards-card-img {
+  border-radius: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.featurecards-container .featurecards-bolte-sitare-card-title {
+  padding-bottom: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  color: #161616; /* Explicitly defined */
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 700; /* Explicitly defined */
+  line-height: normal; /* Explicitly defined */
+  font-family: Barlow; /* Explicitly defined */
+}
+.featurecards-container .featurecards-bolte-sitare-card-text {
+  color: #161616; /* Explicitly defined */
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 400; /* Explicitly defined */
+  line-height: normal; /* Explicitly defined */
+  font-family: Barlow; /* Explicitly defined */
+}
+.featurecards-container .featurecards-bolte-sitare-card-btn {
+  background-color: #aa1f30; /* Explicitly defined */
+  border-radius: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  cursor: pointer;
+  height: 1.8125rem; /* Equivalent to 29px assuming 16px base */
+  line-height: 1.8125rem; /* Equivalent to 29px assuming 16px base */
+  padding: 0 1rem; /* Equivalent to 0px 16px assuming 16px base */
+  text-align: center;
+  text-decoration: none;
+  color: #fff; /* Explicitly defined */
+  font-size: 0.75rem; /* Equivalent to 12px assuming 16px base */
+  font-weight: 600; /* Explicitly defined */
+  font-family: Barlow; /* Explicitly defined */
+}
+.featurecards-container .featurecards-curve-container {
+  background-color: #fff; /* Explicitly defined */
+  border-radius: 0 0 2rem 2rem; /* Equivalent to 0px 0px 32px 32px assuming 16px base */
+  bottom: -3.6875rem; /* Equivalent to -59px assuming 16px base */
+  height: 6.25rem; /* Equivalent to 100px assuming 16px base */
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transform: skewY(-6.2deg);
+  width: 100%;
+  z-index: 10;
+  display: none; /* Hidden by default */
+}
+.featurecards-section {
+  margin-inline: auto;
+  padding-bottom: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  display: block; /* Explicitly defined */
+}
+.featurecards-section .featurecards-card-image {
+  height: 12.0625rem; /* Equivalent to 193px assuming 16px base */
+  width: 100%;
+  padding-bottom: 0.75rem; /* Equivalent to 12px assuming 16px base */
+}
+.featurecards-section .featurecards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.featurecards-section .featurecards-text-center {
+  text-align: center;
+}
+.featurecards-section .featurecards-card-title {
+  color: #aa1f30; /* Explicitly defined */
+  margin-bottom: 0.25rem; /* Equivalent to 4px assuming 16px base */
+  font-size: 1.5rem; /* Equivalent to 24px assuming 16px base */
+  font-weight: 700; /* Explicitly defined */
+  line-height: normal; /* Explicitly defined */
+  font-family: Barlow; /* Explicitly defined */
+}
+.featurecards-section .featurecards-pb-5 {
+  padding-bottom: 1rem; /* Equivalent to 16px assuming 16px base */
+}
+.featurecards-section .featurecards-card-desc {
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  color: #030303; /* Explicitly defined */
+  font-size: 1rem; /* Equivalent to 16px assuming 16px base */
+  font-weight: 400; /* Explicitly defined */
+  line-height: normal; /* Explicitly defined */
+  font-family: Barlow; /* Explicitly defined */
+}
+.featurecards-section .featurecards-redirected-btn {
+  display: none;
+}
+.featurecards-section .featurecards-arrow-icon-btn {
+  background-color: #aa1f30; /* Explicitly defined */
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  width: 2.5rem; /* Equivalent to 40px assuming 16px base */
+  border: none; /* Explicitly defined */
+  padding: 0; /* Explicitly defined */
+  display: flex; /* Explicitly defined */
+  align-items: center; /* Explicitly defined */
+  justify-content: center; /* Explicitly defined */
+}
+.featurecards-section .featurecards-arrow-icon-btn .featurecards-icon-svg {
+  height: 1.25rem; /* Equivalent to 20px assuming 16px base */
+  width: 1.25rem; /* Equivalent to 20px assuming 16px base */
+}
+.featurecards-hide-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .featurecards-hide-mobile {
+    display: block;
+  }
+}

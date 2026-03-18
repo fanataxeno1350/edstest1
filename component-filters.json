@@ -76,8 +76,14 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLink",
-      "footerSocialLink"
+      "footerLinkGroup",
+      "socialLink"
+    ]
+  },
+  {
+    "id": "footerLinkGroup",
+    "components": [
+      "footerLink"
     ]
   },
   {
@@ -118,8 +124,8 @@
   {
     "id": "header",
     "components": [
-      "menuItem",
-      "footerLink",
+      "headerMenuItem",
+      "headerFooterListItem",
       "socialLink"
     ]
   },
@@ -163,6 +169,9 @@
     ]
   },
   {
+    "id": "spaceadder"
+  },
+  {
     "id": "sticky-bottom-nav",
     "components": [
       "navItem"
@@ -175,7 +184,7 @@
     ]
   },
   {
-    "id": "stickyNavigation",
+    "id": "sticky-navigation",
     "components": [
       "navigationItem"
     ]

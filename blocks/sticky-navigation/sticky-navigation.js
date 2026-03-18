@@ -3,17 +3,16 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('stickynavigation-sticky-navigation-bottom-nav', 'stickynavigation-sticky-navigation-position-fixed', 'stickynavigation-sticky-navigation-bottom-0', 'stickynavigation-sticky-navigation-p-3', 'stickynavigation-sticky-navigation-d-flex', 'stickynavigation-sticky-navigation-align-items-center', 'stickynavigation-sticky-navigation-boing-container', 'stickynavigation-sticky-navigation-bg-boing-primary');
+  section.classList.add('sticky-navigation-section', 'position-fixed', 'bottom-0', 'p-3', 'd-flex', 'align-items-center', 'sticky-navigation-boing-container', 'bg-boing-primary');
 
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
-    li.classList.add('stickynavigation-sticky-navigation-bottom-nav__item', 'stickynavigation-sticky-navigation-position-relative');
+    li.classList.add('sticky-navigation-item', 'position-relative');
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.querySelector('a')) {
-        div.classList.add('stickynavigation-sticky-navigation-bottom-nav__link', 'stickynavigation-sticky-navigation-d-flex', 'stickynavigation-sticky-navigation-flex-column', 'stickynavigation-sticky-navigation-align-items-center', 'stickynavigation-sticky-navigation-gap-1', 'stickynavigation-sticky-navigation-analytics_cta_click');
-      } else {
+        div.classList.add('sticky-navigation-link', 'd-flex', 'flex-column', 'align-items-center', 'gap-1', 'analytics_cta_click');
       }
     });
     section.append(li);

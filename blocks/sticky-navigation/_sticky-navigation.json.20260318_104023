@@ -53,13 +53,18 @@
           "label": "Link",
           "name": "link",
           "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "label": "Consent Required",
+          "name": "consentRequired"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "sticky-navigation",
+      "id": "stickyNavigation",
       "components": [
         "navigationItem"
       ]

@@ -6,15 +6,15 @@ export default function decorate(block) {
   section.classList.add('latestblogs-wrapper');
 
   [...block.children].forEach((row) => {
-    const item = document.createElement('a');
+    const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('latestblogs-cardWrapper', 'latestblogs-analytics_cta_click');
+    item.classList.add('latestblogs-listing');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.querySelector('img')) {
-        div.className = 'latestblogs-cardImageWrapper';
-      } else {
-        div.className = 'latestblogs-cards_content--wrapper';
+      if (div.querySelector('div:first-child')) {
+        div.classList.add('latestblogs-listing_section--first', 'latestblogs-text-white', 'latestblogs-text-center');
+      } else if (div.querySelector('div:last-child')) {
+        div.classList.add('latestblogs-listing_section--second', 'latestblogs-d-flex');
       }
     });
     section.append(item);

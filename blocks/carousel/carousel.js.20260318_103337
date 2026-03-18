@@ -3,18 +3,20 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const wrapper = document.createElement('div');
-  wrapper.classList.add('featurecards-container');
+  wrapper.classList.add('position-relative');
 
   [...block.children].forEach((row) => {
-    const item = document.createElement('a');
+    const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('featurecards-bolte-sitare-card', 'analytics_cta_click', 'featurecards-hide-mobile', 'text-decoration-none');
+    item.classList.add('swiper-slide', 'carousel-primary-swiper-slide');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.querySelector('img')) {
-        div.className = 'featurecards-bolte-sitare-card-img';
+      if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
+        div.className = 'video-wrapper';
+      } else if (div.querySelector('a')) {
+        div.className = 'banner-cta';
       } else {
-        div.className = 'featurecards-content-wrapper';
+        div.classList.add('position-relative', 'boing', 'banner-section__wrapper');
       }
     });
     wrapper.append(item);

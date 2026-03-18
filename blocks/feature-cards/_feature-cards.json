@@ -44,12 +44,12 @@
         },
         {
           "component": "text",
-          "label": "Image Alt",
+          "label": "Alt Text",
           "name": "alt",
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "text",
           "label": "Title",
           "name": "title",
           "valueType": "string"
@@ -61,7 +61,13 @@
           "valueType": "string"
         },
         {
-          "component": "aem-content",
+          "component": "text",
+          "label": "Button Label",
+          "name": "buttonLabel",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
           "label": "Link",
           "name": "link",
           "valueType": "string"
