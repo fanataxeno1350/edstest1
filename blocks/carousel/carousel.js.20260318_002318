@@ -1,0 +1,133 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const carouselItems = block.querySelectorAll('[data-aue-model="carouselItem"]');
+
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('carousel-wrapper');
+
+  const swiperWrapper = document.createElement('div');
+  swiperWrapper.classList.add('swiper-wrapper');
+
+  carouselItems.forEach((itemNode) => {
+    const slideDiv = document.createElement('div');
+    slideDiv.classList.add('swiper-slide');
+
+    const bannerSection = document.createElement('section');
+    bannerSection.classList.add('banner-section');
+
+    const bannerWrapper = document.createElement('div');
+    bannerWrapper.classList.add('position-relative', 'boing', 'banner-section__wrapper');
+
+    const videoEl = itemNode.querySelector('[data-aue-prop="video"]');
+    const imageEl = itemNode.querySelector('[data-aue-prop="image"]');
+    const ctaEl = itemNode.querySelector('[data-aue-prop="cta"]');
+
+    if (videoEl) {
+      const videoWrapper = document.createElement('div');
+      videoWrapper.classList.add('video-wrapper');
+
+      const video = document.createElement('video');
+      video.classList.add('w-100', 'object-fit-cover', 'banner-media', 'banner-video');
+      video.setAttribute('title', 'Video');
+      video.setAttribute('aria-label', 'Video');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('preload', 'metadata');
+      video.setAttribute('fetchpriority', 'high');
+      video.setAttribute('loop', 'false');
+      video.setAttribute('muted', 'true');
+      video.setAttribute('autoplay', 'true');
+
+      const source = document.createElement('source');
+      source.setAttribute('src', videoEl.getAttribute('href') || videoEl.textContent.trim());
+      source.setAttribute('type', 'video/mp4');
+      video.append(source);
+
+      videoWrapper.append(video);
+
+      // Add play/pause and mute icons if they exist in the authored HTML
+      const playPauseContainer = itemNode.querySelector('.video-wrapper > .position-absolute.w-100.h-100');
+      if (playPauseContainer) {
+        videoWrapper.append(playPauseContainer);
+        moveInstrumentation(playPauseContainer, videoWrapper);
+      }
+
+      const muteIconContainer = itemNode.querySelector('.video-wrapper > .position-absolute.z-2');
+      if (muteIconContainer) {
+        videoWrapper.append(muteIconContainer);
+        moveInstrumentation(muteIconContainer, videoWrapper);
+      }
+
+      bannerWrapper.append(videoWrapper);
+      moveInstrumentation(videoEl, videoWrapper);
+    } else if (imageEl) {
+      const picture = createOptimizedPicture(imageEl.src, imageEl.alt);
+      picture.querySelector('img').classList.add('w-100', 'h-100', 'object-fit-cover', 'banner-media', 'banner-image');
+      picture.querySelector('img').setAttribute('loading', 'eager');
+      picture.querySelector('img').setAttribute('fetchpriority', 'high');
+      picture.querySelector('img').setAttribute('decoding', 'async');
+      bannerWrapper.append(picture);
+      moveInstrumentation(imageEl, picture);
+    }
+
+    if (ctaEl) {
+      const ctaContainer = document.createElement('div');
+      ctaContainer.classList.add('position-absolute', 'start-50', 'translate-middle-x', 'w-100', 'boing__banner--cta');
+
+      const bannerCta = document.createElement('div');
+      bannerCta.classList.add('banner-cta');
+
+      const textCenterDiv = document.createElement('div');
+      textCenterDiv.classList.add('text-center');
+
+      const ctaLink = ctaEl.querySelector('a');
+      if (ctaLink) {
+        textCenterDiv.append(ctaLink);
+        moveInstrumentation(ctaLink, textCenterDiv);
+      }
+
+      const popUpDiv = ctaEl.querySelector('.pop-up');
+      if (popUpDiv) {
+        textCenterDiv.append(popUpDiv);
+        moveInstrumentation(popUpDiv, textCenterDiv);
+      }
+
+      bannerCta.append(textCenterDiv);
+      moveInstrumentation(ctaEl, bannerCta);
+      ctaContainer.append(bannerCta);
+      bannerWrapper.append(ctaContainer);
+    }
+
+    bannerSection.append(bannerWrapper);
+    slideDiv.append(bannerSection);
+    swiperWrapper.append(slideDiv);
+    moveInstrumentation(itemNode, slideDiv);
+  });
+
+  wrapper.append(swiperWrapper);
+
+  // Add navigation and pagination if they exist in the authored HTML
+  const actions = block.querySelector('.cmp-carousel__actions');
+  if (actions) {
+    wrapper.append(actions);
+    moveInstrumentation(actions, wrapper);
+  }
+
+  const swiperContainer = block.querySelector('.swiper-container');
+  if (swiperContainer) {
+    wrapper.append(swiperContainer);
+    moveInstrumentation(swiperContainer, wrapper);
+  }
+
+  const pagination = block.querySelector('.swiper-pagination');
+  if (pagination) {
+    wrapper.append(pagination);
+    moveInstrumentation(pagination, wrapper);
+  }
+
+  block.textContent = '';
+  block.append(wrapper);
+  block.className = `${block.dataset.blockName} block`;
+  block.dataset.blockStatus = 'loaded';
+}

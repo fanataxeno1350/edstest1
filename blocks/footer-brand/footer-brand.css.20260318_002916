@@ -1,10 +1,66 @@
+.footer-container,.footer-container-fluid,.footer-container-lg,.footer-container-md,.footer-container-sm,.footer-container-xl,.footer-container-xxl{--bs-gutter-x:1.footer-5rem;--bs-gutter-y:0;margin-left:auto;margin-right:auto;padding-left:calc(var(--bs-gutter-x)*.footer-5);padding-right:calc(var(--bs-gutter-x)*.footer-5);width:100%}
+
+@media(min-width:576px){
+  .footer-container,.footer-container-sm{max-width:540px}
+}
+
+@media(min-width:768px){
+  .footer-container,.footer-container-md,.footer-container-sm{max-width:45pc}
+}
+
+@media(min-width:992px){
+  .footer-container,.footer-container-lg,.footer-container-md,.footer-container-sm{max-width:60pc}
+}
+
+@media(min-width:1200px){
+  .footer-container,.footer-container-lg,.footer-container-md,.footer-container-sm,.footer-container-xl{max-width:855pt}
+}
+
+@media(min-width:1400px){
+  .footer-container,.footer-container-lg,.footer-container-md,.footer-container-sm,.footer-container-xl,.footer-container-xxl{max-width:990pt}
+}
+
 .footer-object-fit-contain{-o-object-fit:contain !important;object-fit:contain !important}
+
+.footer-d-inline-block{display:inline-block !important}
+
+.footer-d-grid{display:grid !important}
+
+.footer-flex-column,.footer-flex-row{-webkit-box-direction:normal !important}
+
+.footer-flex-column{-webkit-box-orient:vertical !important;-ms-flex-direction:column !important;flex-direction:column !important}
+
+.footer-flex-wrap{-ms-flex-wrap:wrap !important;flex-wrap:wrap !important}
+
+.footer-justify-content-center{-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}
+
+.footer-align-items-center{-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}
+
+.footer-p-0{padding:0 !important}
+
+.footer-px-10{padding-left:2.footer-25rem !important;padding-right:2.footer-25rem !important}
+
+.footer-py-5{padding-bottom:1rem !important;padding-top:1rem !important}
+
+.footer-pb-5{padding-bottom:1rem !important}
 
 .footer-gap-3{gap:.footer-5rem !important}
 
 .footer-gap-16{gap:3.footer-75rem !important}
 
-.header .footer-submenu-container .footer-brand__primary:before,.header .footer-submenu-container .footer-brand__secondary:after{display:none !important}
+.footer-text-center{text-align:center !important}
+
+.footer-text-white,.footer-text-white-active:active,.footer-text-white-disabled:disabled,.footer-text-white-focus:focus,.footer-text-white-hover:hover{--bs-text-opacity:1;color:#fff !important}
+
+.footer-bg-boing-neutral-gray-600,.footer-bg-boing-neutral-gray-600-active:active,.footer-bg-boing-neutral-gray-600-disabled:disabled,.footer-bg-boing-neutral-gray-600-focus:focus,.footer-bg-boing-neutral-gray-600-hover:hover{--bs-bg-opacity:1;background-color:#161616 !important}
+
+@media(min-width:768px){
+  .footer-d-md-flex{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}
+  .footer-flex-md-row{-webkit-box-orient:horizontal !important;-ms-flex-direction:row !important;flex-direction:row !important}
+  .footer-flex-md-column,.footer-flex-md-row{-webkit-box-direction:normal !important}
+  .footer-justify-content-md-between{-webkit-box-pack:justify !important;-ms-flex-pack:justify !important;justify-content:space-between !important}
+  .footer-align-items-md-start{-webkit-box-align:start !important;-ms-flex-align:start !important;align-items:flex-start !important}
+}
 
 .header .footer-sidebar .footer-brand .footer-background-pattern{height:6rem !important}
 
@@ -165,15 +221,3 @@
 .footer-lets-doodle .header .footer-brand .footer-brand__secondary .footer-brand__right--list{gap:1rem !important}
 
 .footer-hide-footer__cta .footer-brand__cta,.footer-lets-doodle .header .footer-brand .footer-brand__cta{display:none !important}
-
-/* Inline style: section.footer-brand__primary */
-section.footer-brand__primary { background-color: ; }
-
-/* Inline style: section.footer-brand__secondary */
-section.footer-brand__secondary { background-color: ; }
-
-/* Inline style: section.footer-brand__primary */
-section.footer-brand__primary { background-color: ; }
-
-/* Inline style: section.footer-brand__secondary */
-section.footer-brand__secondary { background-color: ; }

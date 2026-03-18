@@ -1,12 +1,18 @@
+.banner-object-fit-cover{-o-object-fit:cover !important;object-fit:cover !important}
+
 .banner-position-relative{position:relative !important}
 
 .banner-position-absolute{position:absolute !important}
+
+.banner-top-0{top:0 !important}
+
+.banner-start-0{left:0 !important}
 
 .banner-start-50{left:50% !important}
 
 .banner-translate-middle-x{-webkit-transform:translateX(-50%) !important;transform:translateX(-50%) !important}
 
-.banner-w-100{width:100% !important}
+.banner-z-2{z-index:2 !important}
 
 .banner-nani-boing-lp-class .banner-banner .banner-icon-pause:before{color:unset !important;content:none !important}
 
@@ -38,8 +44,6 @@
 
 .banner-blog-detail__video .banner-section .banner-gradient{display:none}
 
-.banner-shortBanner_section .banner-media{border-radius:.banner-5rem;height:100%;-o-object-fit:cover;object-fit:cover;width:100%}
-
 .banner-lets-doodle .banner-banner{border-radius:1.banner-5625rem}
 
 .banner-lets-doodle .banner-swiper-slide:nth-child(odd) .banner-banner{background-color:#aa1f30}
@@ -53,6 +57,8 @@
 .banner-baseContainer.banner-baseContainer_404_Page .banner-cta{padding-inline:1rem}
 
 .banner-baseContainer.banner-baseContainer_404_Page .banner-cta .banner-tertiary-btn{text-align:center;width:100% !important}
+
+.banner-blogListing_section--wrapperInner .banner-video_thumbnail .banner-video-icon{height:3.banner-75rem;width:3.banner-75rem}
 
 .banner-baseContainer_Blog_Details .banner-section .banner-video-wrapper .banner-mute-icon{right:.banner-625rem}
 

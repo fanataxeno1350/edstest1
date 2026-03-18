@@ -34,8 +34,6 @@
 
 .header-d-grid{display:grid !important}
 
-.header-d-flex{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}
-
 .header-d-none{display:none !important}
 
 .header-position-relative{position:relative !important}
@@ -55,10 +53,6 @@
 .header-border-boing-neutral-gray-200,.header-border-boing-neutral-gray-200-active:active,.header-border-boing-neutral-gray-200-disabled:disabled,.header-border-boing-neutral-gray-200-focus:focus,.header-border-boing-neutral-gray-200-hover:hover{--bs-border-opacity:1;border-color:#d9d9d9 !important}
 
 .header-w-25{width:25% !important}
-
-.header-w-100{width:100% !important}
-
-.header-h-100{height:100% !important}
 
 .header-flex-column,.header-flex-row{-webkit-box-direction:normal !important}
 

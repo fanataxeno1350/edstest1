@@ -1,0 +1,97 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const rootDiv = document.createElement('div');
+  rootDiv.className = 'featureCards-wrapper';
+
+  const headingContainer = block.querySelector('div:first-child');
+  if (headingContainer) {
+    const headingText = headingContainer.querySelector('.cmp-text h1');
+    if (headingText) {
+      const headingWrapper = document.createElement('div');
+      headingWrapper.className = 'featureCards-heading-container';
+      headingWrapper.append(headingText);
+      moveInstrumentation(headingContainer, headingWrapper);
+      rootDiv.append(headingWrapper);
+    }
+  }
+
+  const cardsContainer = document.createElement('div');
+  cardsContainer.className = 'featureCards-cards-container';
+  rootDiv.append(cardsContainer);
+
+  const featureCards = block.querySelectorAll('a.featureCards-bolteSitare_cardSection');
+  featureCards.forEach((cardLink) => {
+    const cardWrapper = document.createElement('div');
+    cardWrapper.className = 'featureCards-card-wrapper';
+
+    const link = document.createElement('a');
+    link.className = 'd-flex flex-column analytics_cta_click text-decoration-none';
+    link.href = cardLink.href;
+    link.title = cardLink.title;
+    if (cardLink.target) {
+      link.target = cardLink.target;
+    }
+    if (cardLink.dataset.title) {
+      link.dataset.ctaLabel = cardLink.dataset.title;
+    }
+
+    const imageDiv = document.createElement('div');
+    imageDiv.className = 'featureCards-feature_card--image w-100 pb-4';
+    const img = cardLink.querySelector('img');
+    if (img) {
+      imageDiv.append(createOptimizedPicture(img.src, img.alt));
+      moveInstrumentation(img, imageDiv);
+    }
+    link.append(imageDiv);
+
+    const textContentDiv = document.createElement('div');
+    textContentDiv.className = 'text-center';
+
+    const title = cardLink.querySelector('.featureCards-bolteSitare_cardSection--title');
+    if (title) {
+      const h2 = document.createElement('h2');
+      h2.className = 'featureCards-feature_card--title boing--text__heading-1';
+      h2.textContent = title.textContent;
+      moveInstrumentation(title, h2);
+      textContentDiv.append(h2);
+    }
+
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.className = 'pb-5';
+    const description = cardLink.querySelector('.featureCards-bolteSitare_cardSection--text');
+    if (description) {
+      const p = document.createElement('p');
+      p.className = 'featureCards-feature_card--desc boing--text__body-2 text-boing-dark';
+      p.textContent = description.textContent;
+      moveInstrumentation(description, p);
+      descriptionDiv.append(p);
+    }
+    textContentDiv.append(descriptionDiv);
+
+    const buttonDiv = document.createElement('div');
+    buttonDiv.className = 'featureCards-redirected_btn d-none';
+    const button = cardLink.querySelector('.featureCards-bolteSitare_cardSection--btn');
+    if (button) {
+      const newButton = document.createElement('button');
+      newButton.type = 'button';
+      newButton.role = 'button';
+      newButton.className = 'featureCards-arrow-icon-btn';
+      newButton.textContent = button.textContent;
+      moveInstrumentation(button, newButton);
+      buttonDiv.append(newButton);
+    }
+    textContentDiv.append(buttonDiv);
+
+    link.append(textContentDiv);
+    cardWrapper.append(link);
+    moveInstrumentation(cardLink, cardWrapper);
+    cardsContainer.append(cardWrapper);
+  });
+
+  block.textContent = '';
+  block.append(rootDiv);
+  block.className = `${block.dataset.blockName} block`;
+  block.dataset.blockStatus = 'loaded';
+}

@@ -1,12 +1,28 @@
+.banner-object-fit-cover{-o-object-fit:cover !important;object-fit:cover !important}
+
+.banner-d-block{display:block !important}
+
+.banner-d-none{display:none !important}
+
 .banner-position-relative{position:relative !important}
 
 .banner-position-absolute{position:absolute !important}
+
+.banner-top-0{top:0 !important}
+
+.banner-start-0{left:0 !important}
 
 .banner-start-50{left:50% !important}
 
 .banner-translate-middle-x{-webkit-transform:translateX(-50%) !important;transform:translateX(-50%) !important}
 
-.banner-w-100{width:100% !important}
+.banner-justify-content-center{-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}
+
+.banner-align-items-center{-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}
+
+.banner-bg-transparent,.banner-bg-transparent-active:active,.banner-bg-transparent-disabled:disabled,.banner-bg-transparent-focus:focus,.banner-bg-transparent-hover:hover{--bs-bg-opacity:1;background-color:transparent !important}
+
+.banner-z-2{z-index:2 !important}
 
 .banner-nani-boing-lp-class .banner-banner .banner-icon-pause:before{color:unset !important;content:none !important}
 
@@ -53,6 +69,8 @@
 .banner-baseContainer.banner-baseContainer_404_Page .banner-cta{padding-inline:1rem}
 
 .banner-baseContainer.banner-baseContainer_404_Page .banner-cta .banner-tertiary-btn{text-align:center;width:100% !important}
+
+.banner-blogListing_section--wrapperInner .banner-video_thumbnail .banner-video-icon{height:3.banner-75rem;width:3.banner-75rem}
 
 .banner-baseContainer_Blog_Details .banner-section .banner-video-wrapper .banner-mute-icon{right:.banner-625rem}
 

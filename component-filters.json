@@ -23,7 +23,9 @@
       "latestBlogsArticleList",
       "spaceAdder",
       "footerBrand",
-      "stickyBottomNavigation"
+      "stickyBottomNavigation",
+      "latestBlogsArticleListing",
+      "stickyBottomNav"
     ]
   },
   {
@@ -47,13 +49,12 @@
   {
     "id": "footerBrand",
     "components": [
-      "footerLinkGroup",
-      "footerLink",
-      "socialLink"
+      "footerLinkColumn",
+      "footerSocialLink"
     ]
   },
   {
-    "id": "footerLinkGroup",
+    "id": "footerLinkColumn",
     "components": [
       "footerLink"
     ]
@@ -61,9 +62,9 @@
   {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "footerSocialLink"
+      "menuItem",
+      "footerLink",
+      "socialLink"
     ]
   },
   {
@@ -73,7 +74,19 @@
     ]
   },
   {
+    "id": "latestBlogsArticleListing",
+    "components": [
+      "article"
+    ]
+  },
+  {
     "id": "spaceAdder"
+  },
+  {
+    "id": "stickyBottomNav",
+    "components": [
+      "navItem"
+    ]
   },
   {
     "id": "stickyBottomNavigation",

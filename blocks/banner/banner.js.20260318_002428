@@ -1,0 +1,122 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const bannerSection = document.createElement('section');
+  bannerSection.classList.add('banner-section');
+
+  const positionRelativeDiv = document.createElement('div');
+  positionRelativeDiv.classList.add('position-relative', 'boing', 'banner-section__wrapper');
+
+  const bannerVideoWrapper = document.createElement('div');
+  bannerVideoWrapper.classList.add('banner-video-wrapper');
+
+  const videoElement = document.createElement('video');
+  videoElement.classList.add('w-100', 'object-fit-cover', 'banner-section-media', 'banner-video');
+  videoElement.setAttribute('title', 'Video');
+  videoElement.setAttribute('aria-label', 'Video');
+  videoElement.setAttribute('data-is-autoplay', 'true');
+  videoElement.setAttribute('playsinline', '');
+  videoElement.setAttribute('preload', 'metadata');
+  videoElement.setAttribute('fetchpriority', 'high');
+  videoElement.setAttribute('loop', 'false');
+  videoElement.setAttribute('muted', 'true');
+  videoElement.setAttribute('autoplay', 'true');
+
+  const videoSource = block.querySelector('[data-aue-prop="video"]');
+  if (videoSource) {
+    const sourceElement = document.createElement('source');
+    sourceElement.setAttribute('src', videoSource.getAttribute('href'));
+    sourceElement.setAttribute('type', 'video/mp4');
+    videoElement.append(sourceElement);
+    moveInstrumentation(videoSource, videoElement);
+  }
+
+  bannerVideoWrapper.append(videoElement);
+
+  // Play/Pause controls
+  const playPauseWrapper = document.createElement('div');
+  playPauseWrapper.classList.add('position-absolute', 'w-100', 'h-100', 'start-0', 'top-0', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer');
+
+  const playButton = document.createElement('button');
+  playButton.setAttribute('type', 'button');
+  playButton.classList.add('d-none', 'banner-video-icon', 'icon-play', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
+  const iconPlay = block.querySelector('[data-aue-prop="iconPlay"]');
+  if (iconPlay) {
+    playButton.innerHTML = iconPlay.innerHTML;
+    moveInstrumentation(iconPlay, playButton);
+  }
+
+  const pauseButton = document.createElement('button');
+  pauseButton.setAttribute('type', 'button');
+  pauseButton.classList.add('d-block', 'banner-video-icon', 'icon-pause', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
+  const iconPause = block.querySelector('[data-aue-prop="iconPause"]');
+  if (iconPause) {
+    pauseButton.innerHTML = iconPause.innerHTML;
+    moveInstrumentation(iconPause, pauseButton);
+  }
+
+  playPauseWrapper.append(playButton, pauseButton);
+  bannerVideoWrapper.append(playPauseWrapper);
+
+  // Mute/Unmute controls
+  const muteUnmuteWrapper = document.createElement('div');
+  muteUnmuteWrapper.classList.add('position-absolute', 'z-2', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer', 'banner-mute-icon');
+
+  const muteButton = document.createElement('button');
+  muteButton.setAttribute('type', 'button');
+  muteButton.classList.add('banner-video-icon-volume', 'icon-mute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
+  const iconMute = block.querySelector('[data-aue-prop="iconMute"]');
+  if (iconMute) {
+    muteButton.innerHTML = iconMute.innerHTML;
+    moveInstrumentation(iconMute, muteButton);
+  }
+
+  const unmuteButton = document.createElement('button');
+  unmuteButton.setAttribute('type', 'button');
+  unmuteButton.classList.add('banner-video-icon-volume', 'icon-unmute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
+  const iconUnmute = block.querySelector('[data-aue-prop="iconUnmute"]');
+  if (iconUnmute) {
+    unmuteButton.innerHTML = iconUnmute.innerHTML;
+    moveInstrumentation(iconUnmute, unmuteButton);
+  }
+
+  const noAudioButton = document.createElement('button');
+  noAudioButton.setAttribute('type', 'button');
+  noAudioButton.classList.add('banner-video-icon-volume', 'no-audio-icon', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
+  const iconNoAudio = block.querySelector('[data-aue-prop="iconNoAudio"]');
+  if (iconNoAudio) {
+    noAudioButton.innerHTML = iconNoAudio.innerHTML;
+    moveInstrumentation(iconNoAudio, noAudioButton);
+  }
+
+  muteUnmuteWrapper.append(muteButton, unmuteButton, noAudioButton);
+  bannerVideoWrapper.append(muteUnmuteWrapper);
+
+  positionRelativeDiv.append(bannerVideoWrapper);
+
+  const ctaWrapper = document.createElement('div');
+  ctaWrapper.classList.add('position-absolute', 'start-50', 'translate-middle-x', 'w-100', 'boing__banner--cta');
+
+  const bannerCta = document.createElement('div');
+  bannerCta.classList.add('banner-cta');
+  // Assuming CTA content is directly within the block and needs to be moved
+  // The provided sample HTML does not have data-aue-prop for CTA, so we look for existing content
+  const existingCta = block.querySelector('.banner-cta');
+  if (existingCta) {
+    while (existingCta.firstChild) {
+      bannerCta.append(existingCta.firstChild);
+    }
+    moveInstrumentation(existingCta, bannerCta);
+  }
+
+  ctaWrapper.append(bannerCta);
+  positionRelativeDiv.append(ctaWrapper);
+
+  bannerSection.append(positionRelativeDiv);
+
+  block.textContent = '';
+  block.append(bannerSection);
+  block.className = `${block.dataset.blockName} block`;
+  block.dataset.blockStatus = 'loaded';
+}

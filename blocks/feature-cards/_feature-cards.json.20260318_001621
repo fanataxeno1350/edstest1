@@ -43,21 +43,27 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
-          "label": "Heading",
-          "name": "heading",
-          "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "label": "Description",
-          "name": "description",
+          "component": "text",
+          "label": "Alt Text",
+          "name": "altText",
           "valueType": "string"
         },
         {
           "component": "aem-content",
           "label": "Link",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Title",
+          "name": "title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Description",
+          "name": "description",
           "valueType": "string"
         }
       ]

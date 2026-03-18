@@ -58,7 +58,9 @@
         "latestBlogsArticleList",
         "spaceAdder",
         "footerBrand",
-        "stickyBottomNavigation"
+        "stickyBottomNavigation",
+        "latestBlogsArticleListing",
+        "stickyBottomNav"
       ]
     }
   ]

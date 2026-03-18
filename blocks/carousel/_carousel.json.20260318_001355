@@ -50,8 +50,8 @@
         },
         {
           "component": "aem-content",
-          "label": "CTA Link",
-          "name": "cta",
+          "label": "Link",
+          "name": "link",
           "valueType": "string"
         }
       ]

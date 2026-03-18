@@ -2,353 +2,357 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const appName = block.querySelector('[data-app-name]').textContent;
-  const header = document.createElement('header');
-  header.classList.add('boing-container', 'header', 'd-flex', 'justify-content-between', 'align-items-center', 'h-15', 'px-5', 'py-2', 'fixed-top', 'w-100', 'bg-white');
+  const appName = block.querySelector('[data-aue-prop="appName"]');
+  const headerLogo = block.querySelector('[data-aue-prop="headerLogo"]');
+  const headerLogoLink = block.querySelector('[data-aue-prop="headerLogoLink"]');
+  const loginLink = block.querySelector('[data-aue-prop="loginLink"]');
+  const menuItems = block.querySelectorAll('[data-aue-model="menuItem"]');
+  const footerLogoITC = block.querySelector('[data-aue-prop="footerLogoITC"]');
+  const footerLogoFSSI = block.querySelector('[data-aue-prop="footerLogoFSSI"]');
+  const footerLinks = block.querySelectorAll('[data-aue-model="footerLink"]');
+  const socialLinks = block.querySelectorAll('[data-aue-model="socialLink"]');
+  const itcPortalLink = block.querySelector('[data-aue-prop="itcPortalLink"]');
+  const copyrightText = block.querySelector('[data-aue-prop="copyrightText"]');
+
+  const rootDiv = document.createElement('div');
+  rootDiv.classList.add('header-position-relative', 'header-mb-15');
+
+  if (appName) {
+    const appNameSpan = document.createElement('span');
+    appNameSpan.classList.add('header-d-none', 'header-app-name');
+    appNameSpan.dataset.appName = appName.textContent.trim();
+    moveInstrumentation(appName, appNameSpan);
+    appNameSpan.textContent = appName.textContent.trim();
+    rootDiv.append(appNameSpan);
+  }
+
+  const headerEl = document.createElement('header');
+  headerEl.classList.add('header-boing-container', 'header-header', 'header-d-flex', 'header-justify-content-between', 'header-align-items-center', 'header-h-15', 'header-px-5', 'header-py-2', 'header-fixed-top', 'header-w-100', 'header-bg-white');
 
   const headerLeftDiv = document.createElement('div');
-  headerLeftDiv.classList.add('d-flex', 'w-25');
-  header.append(headerLeftDiv);
+  headerLeftDiv.classList.add('header-d-flex', 'header-w-25');
+  headerEl.append(headerLeftDiv);
 
   const headerCenterDiv = document.createElement('div');
-  headerCenterDiv.classList.add('d-flex', 'justify-content-center', 'w-25');
-  const logoLink = block.querySelector('[data-aue-prop="logoLink"]');
-  if (logoLink) {
-    const logoAnchor = document.createElement('a');
-    logoAnchor.href = logoLink.querySelector('a').href;
-    logoAnchor.classList.add('analytics_cta_click');
-    logoAnchor.setAttribute('data-ct', '');
-    logoAnchor.setAttribute('a-label', 'header-logo-boing');
+  headerCenterDiv.classList.add('header-d-flex', 'header-justify-content-center', 'header-w-25');
+  if (headerLogoLink) {
+    const logoLink = document.createElement('a');
+    logoLink.href = headerLogoLink.href;
+    logoLink.classList.add('header-analytics_cta_click');
+    logoLink.dataset.ct = '';
+    logoLink.setAttribute('aria-label', 'header-logo-boing');
+    moveInstrumentation(headerLogoLink, logoLink);
 
     const logoDiv = document.createElement('div');
-    logoDiv.classList.add('__logo', 'd-flex', 'align-items-center');
-
-    const logoImg = block.querySelector('[data-aue-prop="logo"]');
-    if (logoImg) {
-      const picture = createOptimizedPicture(logoImg.src, logoImg.alt);
-      picture.querySelector('img').classList.add('__logo-img');
+    logoDiv.classList.add('header__logo', 'header-d-flex', 'header-align-items-center');
+    if (headerLogo) {
+      const picture = createOptimizedPicture(headerLogo.src, headerLogo.alt);
+      picture.querySelector('img').classList.add('header__logo-img');
+      picture.querySelector('img').setAttribute('fetchpriority', 'high');
+      picture.querySelector('img').setAttribute('loading', 'eager');
+      moveInstrumentation(headerLogo, picture);
       logoDiv.append(picture);
-      moveInstrumentation(logoImg, picture);
     }
-    logoAnchor.append(logoDiv);
-    headerCenterDiv.append(logoAnchor);
-    moveInstrumentation(logoLink, logoAnchor);
+    logoLink.append(logoDiv);
+    headerCenterDiv.append(logoLink);
   }
-  header.append(headerCenterDiv);
+  headerEl.append(headerCenterDiv);
 
   const headerRightDiv = document.createElement('div');
-  headerRightDiv.classList.add('d-flex', 'w-25', 'justify-content-end');
-  const loginLink = block.querySelector('.header__login-btn-wrapper a');
+  headerRightDiv.classList.add('header-d-flex', 'header-w-25', 'header-justify-content-end');
   if (loginLink) {
     const loginAnchor = document.createElement('a');
     loginAnchor.href = loginLink.href;
-    loginAnchor.classList.add('__login-btn-wrapper', 'analytics_cta_click');
+    loginAnchor.classList.add('header__login-btn-wrapper', 'header-analytics_cta_click');
     loginAnchor.style.display = 'inline';
+    moveInstrumentation(loginLink, loginAnchor);
 
     const loginButton = document.createElement('button');
-    loginButton.classList.add('__login-btn', 'btn', 'text-boing-primary', 'bg-transparent', 'fw-semibold', 'rounded-4', 'btn-sm', 'py-3', 'px-4');
+    loginButton.classList.add('header__login-btn', 'header-btn', 'header-text-boing-primary', 'header-bg-transparent', 'header-fw-semibold', 'header-rounded-4', 'header-btn-sm', 'header-py-3', 'header-px-4');
     loginButton.textContent = loginLink.textContent.trim();
     loginAnchor.append(loginButton);
     headerRightDiv.append(loginAnchor);
-    moveInstrumentation(loginLink, loginAnchor);
   }
-  header.append(headerRightDiv);
+  headerEl.append(headerRightDiv);
+  rootDiv.append(headerEl);
 
   const submenuContainer = document.createElement('div');
-  submenuContainer.classList.add('submenu-container', 'position-fixed', 'top-0', 'start-0', 'end-0', 'm-auto', 'overflow-hidden');
+  submenuContainer.classList.add('header-submenu-container', 'header-position-fixed', 'header-top-0', 'header-start-0', 'header-end-0', 'header-m-auto', 'header-overflow-hidden');
 
   const aside = document.createElement('aside');
-  aside.classList.add('sidebar', 'start-0', 'bg-white', 'position-absolute');
+  aside.classList.add('header-sidebar', 'header-start-0', 'header-bg-white', 'header-position-absolute');
 
-  const sidebarMenuUl = document.createElement('ul');
-  sidebarMenuUl.classList.add('sidebar__menu', 'list-unstyled', 'px-4');
+  const menuList = document.createElement('ul');
+  menuList.classList.add('header-sidebar__menu', 'header-list-unstyled', 'header-px-4');
 
-  const sidebarMenuItems = block.querySelectorAll('[data-aue-model="sidebarMenuItem"]');
-  sidebarMenuItems.forEach((itemNode) => {
-    const li = document.createElement('li');
-    li.classList.add('sidebar__menu-item', 'py-6', 'border-bottom', 'border-boing-neutral-gray-200');
+  menuItems.forEach((itemNode) => {
+    const linkEl = itemNode.querySelector('[data-aue-prop="link"]');
+    const iconEl = itemNode.querySelector('[data-aue-prop="icon"]');
+    const labelEl = itemNode.querySelector('[data-aue-prop="label"]');
 
-    const link = itemNode.querySelector('[data-aue-prop="link"]');
-    const icon = itemNode.querySelector('[data-aue-prop="icon"]');
-    const label = itemNode.querySelector('[data-aue-prop="label"]');
+    const listItem = document.createElement('li');
+    listItem.classList.add('header-sidebar__menu-item', 'header-py-6', 'header-border-bottom', 'header-border-boing-neutral-gray-200');
 
-    if (link && icon && label) {
-      const anchor = document.createElement('a');
-      anchor.href = link.querySelector('a').href;
-      anchor.classList.add('sidebar__menu-link', 'd-flex', 'align-items-center', 'text-decoration-none', 'px-6', 'fw-medium', 'analytics_cta_click');
-      anchor.setAttribute('data-consent', 'false');
-      anchor.setAttribute('data-link', link.querySelector('a').getAttribute('data-link'));
-
-      const picture = createOptimizedPicture(icon.src, icon.alt);
-      picture.querySelector('img').classList.add('sidebar__menu-icon', 'me-4');
-      anchor.append(picture);
-      moveInstrumentation(icon, picture);
-
-      anchor.append(label.textContent.trim());
-      moveInstrumentation(label, anchor);
-      li.append(anchor);
-      moveInstrumentation(link, anchor);
+    const anchor = document.createElement('a');
+    anchor.classList.add('header-sidebar__menu-link', 'header-d-flex', 'header-align-items-center', 'header-text-decoration-none', 'header-px-6', 'header-fw-medium', 'header-analytics_cta_click');
+    if (linkEl) {
+      anchor.href = linkEl.href;
+      anchor.dataset.consent = 'false'; // Default value, adjust if needed
+      anchor.dataset.link = linkEl.href.replace('.html', ''); // Adjust path as needed
+      moveInstrumentation(linkEl, anchor);
     }
-    sidebarMenuUl.append(li);
-    moveInstrumentation(itemNode, li);
+
+    if (iconEl) {
+      const iconImg = createOptimizedPicture(iconEl.src, iconEl.alt);
+      iconImg.querySelector('img').classList.add('header-sidebar__menu-icon', 'header-me-4');
+      iconImg.querySelector('img').setAttribute('loading', 'lazy');
+      moveInstrumentation(iconEl, iconImg);
+      anchor.append(iconImg);
+    }
+    if (labelEl) {
+      anchor.append(labelEl.textContent.trim());
+      moveInstrumentation(labelEl, anchor);
+    }
+
+    listItem.append(anchor);
+    moveInstrumentation(itemNode, listItem);
+    menuList.append(listItem);
   });
 
-  const logoutItem = block.querySelector('.header-sidebar__menu-item--logout');
-  if (logoutItem) {
-    const logoutLi = document.createElement('li');
-    logoutLi.classList.add('sidebar__menu-item', 'sidebar__menu-item--logout', 'py-6', 'border-bottom', 'border-boing-neutral-gray-200');
-    logoutLi.style.display = 'none';
+  // Add the logout item manually as it's a static element in the sample HTML
+  const logoutListItem = document.createElement('li');
+  logoutListItem.classList.add('header-sidebar__menu-item', 'header-sidebar__menu-item--logout', 'header-py-6', 'header-border-bottom', 'header-border-boing-neutral-gray-200');
+  logoutListItem.style.display = 'none';
+  const logoutAnchor = document.createElement('a');
+  logoutAnchor.href = '/';
+  logoutAnchor.classList.add('header-sidebar__menu-link', 'header-sidebar__menu-item--logout-btn', 'header-d-flex', 'header-align-items-center', 'header-text-decoration-none', 'header-px-6', 'header-fw-medium', 'header-analytics_cta_click');
+  logoutAnchor.dataset.consent = 'false';
+  logoutAnchor.dataset.link = '/content/boing/in/en/home';
+  const logoutImg = createOptimizedPicture('/content/dam/aemigrate/uploaded-folder/image/logout-3-fmt-webp-alpha.webp', 'Logout');
+  logoutImg.querySelector('img').classList.add('header-sidebar__menu-icon', 'header-me-4');
+  logoutImg.querySelector('img').setAttribute('loading', 'lazy');
+  logoutAnchor.append(logoutImg);
+  logoutAnchor.append('Logout');
+  logoutListItem.append(logoutAnchor);
+  menuList.append(logoutListItem);
 
-    const logoutLink = logoutItem.querySelector('a');
-    if (logoutLink) {
-      const logoutAnchor = document.createElement('a');
-      logoutAnchor.href = logoutLink.href;
-      logoutAnchor.classList.add('sidebar__menu-link', 'sidebar__menu-item--logout-btn', 'd-flex', 'align-items-center', 'text-decoration-none', 'px-6', 'fw-medium', 'analytics_cta_click');
-      logoutAnchor.setAttribute('data-consent', 'false');
-      logoutAnchor.setAttribute('data-link', logoutLink.getAttribute('data-link'));
-
-      const logoutImg = logoutLink.querySelector('img');
-      if (logoutImg) {
-        const picture = createOptimizedPicture(logoutImg.src, logoutImg.alt);
-        picture.querySelector('img').classList.add('sidebar__menu-icon', 'me-4');
-        logoutAnchor.append(picture);
-        moveInstrumentation(logoutImg, picture);
-      }
-      logoutAnchor.append(logoutLink.textContent.trim());
-      logoutLi.append(logoutAnchor);
-      moveInstrumentation(logoutLink, logoutAnchor);
-    }
-    sidebarMenuUl.append(logoutLi);
-    moveInstrumentation(logoutItem, logoutLi);
-  }
-
-  aside.append(sidebarMenuUl);
+  aside.append(menuList);
 
   const sidebarCurve = document.createElement('div');
-  sidebarCurve.classList.add('sidebar__curve');
+  sidebarCurve.classList.add('header-sidebar__curve');
   aside.append(sidebarCurve);
 
   const footerBrand = document.createElement('div');
-  footerBrand.classList.add('footer-brand', 'w-100', 'bg-boing-neutral-gray-600');
-  footerBrand.setAttribute('data-isdoodlevariation', 'false');
+  footerBrand.classList.add('header-footer-brand', 'header-w-100', 'header-bg-boing-neutral-gray-600');
+  footerBrand.dataset.isdoodlevariation = 'false';
 
   const footerPrimary = document.createElement('section');
-  footerPrimary.classList.add('footer-brand__primary');
+  footerPrimary.classList.add('header-footer-brand__primary');
   footerPrimary.style.backgroundColor = '';
 
   const footerContainer = document.createElement('div');
-  footerContainer.classList.add('container');
+  footerContainer.classList.add('header-container');
 
   const footerPrimaryContent = document.createElement('div');
-  footerPrimaryContent.classList.add('footer-brand__primary--content', 'd-flex', 'flex-column', 'flex-md-row', 'justify-content-md-between', 'align-items-center');
+  footerPrimaryContent.classList.add('header-footer-brand__primary--content', 'header-d-flex', 'header-flex-column', 'header-flex-md-row', 'header-justify-content-md-between', 'header-align-items-center');
 
   const footerBrandLeft = document.createElement('section');
-  footerBrandLeft.classList.add('footer-brand__left', 'd-flex', 'gap-16', 'px-10', 'align-items-center', 'justify-content-center');
+  footerBrandLeft.classList.add('header-footer-brand__left', 'header-d-flex', 'header-gap-16', 'header-px-10', 'header-align-items-center', 'header-justify-content-center');
 
-  const footerLogo1Link = block.querySelector('[data-aue-prop="footerLogo1"]');
-  if (footerLogo1Link) {
-    const logo1Anchor = document.createElement('a');
-    logo1Anchor.href = footerLogo1Link.src;
-    logo1Anchor.target = '_blank';
-    logo1Anchor.classList.add('footer-brand__logo', 'd-inline-block', 'analytics_cta_click');
-    logo1Anchor.setAttribute('data-cta-region', 'Footer');
-    logo1Anchor.setAttribute('aria-label', 'ITC Logo');
+  if (footerLogoITC) {
+    const itcLink = document.createElement('a');
+    itcLink.href = 'https://www.itcportal.com/';
+    itcLink.target = '_blank';
+    itcLink.classList.add('header-footer-brand__logo', 'header-d-inline-block', 'header-analytics_cta_click');
+    itcLink.dataset.ctaRegion = 'Footer';
+    itcLink.setAttribute('aria-label', 'ITC Logo');
+    moveInstrumentation(footerLogoITC, itcLink);
 
-    const picture = createOptimizedPicture(footerLogo1Link.src, footerLogo1Link.alt);
-    picture.querySelector('img').classList.add('object-fit-contain', 'w-100', 'h-100', 'no-rendition');
-    logo1Anchor.append(picture);
-    footerBrandLeft.append(logo1Anchor);
-    moveInstrumentation(footerLogo1Link, picture);
+    const itcPicture = createOptimizedPicture(footerLogoITC.src, footerLogoITC.alt);
+    itcPicture.querySelector('img').classList.add('header-object-fit-contain', 'header-w-100', 'header-h-100', 'header-no-rendition');
+    itcPicture.querySelector('img').setAttribute('loading', 'lazy');
+    itcLink.append(itcPicture);
+    footerBrandLeft.append(itcLink);
   }
 
-  const footerLogo2Div = document.createElement('div');
-  footerLogo2Div.classList.add('footer-brand__secondary--logo', 'd-inline-block');
-  const footerLogo2Img = block.querySelector('[data-aue-prop="footerLogo2"]');
-  if (footerLogo2Img) {
-    const picture = createOptimizedPicture(footerLogo2Img.src, footerLogo2Img.alt);
-    picture.querySelector('img').classList.add('object-fit-contain', 'w-100', 'no-rendition');
-    footerLogo2Div.append(picture);
-    footerBrandLeft.append(footerLogo2Div);
-    moveInstrumentation(footerLogo2Img, picture);
+  if (footerLogoFSSI) {
+    const fssiDiv = document.createElement('div');
+    fssiDiv.classList.add('header-footer-brand__secondary--logo', 'header-d-inline-block');
+    const fssiPicture = createOptimizedPicture(footerLogoFSSI.src, footerLogoFSSI.alt);
+    fssiPicture.querySelector('img').classList.add('header-object-fit-contain', 'header-w-100', 'header-no-rendition');
+    fssiPicture.querySelector('img').setAttribute('loading', 'lazy');
+    moveInstrumentation(footerLogoFSSI, fssiPicture);
+    fssiDiv.append(fssiPicture);
+    footerBrandLeft.append(fssiDiv);
   }
+  footerPrimaryContent.append(footerBrandLeft);
 
   const footerBrandRight = document.createElement('section');
-  footerBrandRight.classList.add('footer-brand__right');
+  footerBrandRight.classList.add('header-footer-brand__right');
 
-  const footerNavbar = document.createElement('nav');
-  footerNavbar.classList.add('footer-brand__navbar', 'd-grid', 'd-md-flex');
-  footerNavbar.setAttribute('aria-label', 'footer navbar');
+  const footerNav = document.createElement('nav');
+  footerNav.classList.add('header-footer-brand__navbar', 'header-d-grid', 'header-d-md-flex');
+  footerNav.setAttribute('aria-label', 'footer navbar');
 
-  const footerNavbarLeft = document.createElement('div');
-  footerNavbarLeft.classList.add('footer-brand__navbar--left', 'd-flex', 'flex-column', 'flex-md-row');
+  const footerNavLeft = document.createElement('div');
+  footerNavLeft.classList.add('header-footer-brand__navbar--left', 'header-d-flex', 'header-flex-column', 'header-flex-md-row');
 
-  const createFooterList = (listItems, listName) => {
-    const footerListDiv = document.createElement('div');
-    footerListDiv.classList.add('footerList');
-    const ul = document.createElement('ul');
-    ul.classList.add('footer-list', 'd-flex', 'align-items-center', 'justify-content-center', 'align-items-md-start', 'flex-column');
+  // Group footer links into 4 columns as per the authored HTML
+  const footerLinkGroups = [[], [], [], []];
+  footerLinks.forEach((itemNode, index) => {
+    footerLinkGroups[index % 4].push(itemNode);
+  });
 
-    listItems.forEach((itemNode) => {
-      const li = document.createElement('li');
-      li.classList.add('footer-list__item');
-      const link = itemNode.querySelector('[data-aue-prop="link"]');
-      const label = itemNode.querySelector('[data-aue-prop="label"]');
-      if (link && label) {
-        const anchor = document.createElement('a');
-        anchor.href = link.querySelector('a').href;
-        anchor.classList.add('cta-analytics', 'analytics_cta_click', 'footer-list__item--link', 'd-inline-block');
-        anchor.setAttribute('data-link-region', 'Footer List');
-        if (link.querySelector('a').target) {
-          anchor.target = link.querySelector('a').target;
+  footerLinkGroups.forEach((group) => {
+    if (group.length > 0) {
+      const footerListDiv = document.createElement('div');
+      footerListDiv.classList.add('header-footerList');
+      const footerListUl = document.createElement('ul');
+      footerListUl.classList.add('header-footer-list', 'header-d-flex', 'header-align-items-center', 'header-justify-content-center', 'header-align-items-md-start', 'header-flex-column');
+
+      group.forEach((itemNode) => {
+        const linkEl = itemNode.querySelector('[data-aue-prop="link"]');
+        const labelEl = itemNode.querySelector('[data-aue-prop="label"]');
+
+        const listItem = document.createElement('li');
+        listItem.classList.add('header-footer-list__item');
+        if (linkEl) {
+          const anchor = document.createElement('a');
+          anchor.href = linkEl.href;
+          anchor.classList.add('header-cta-analytics', 'header-analytics_cta_click', 'header-footer-list__item--link', 'header-d-inline-block');
+          anchor.dataset.linkRegion = 'Footer List';
+          if (linkEl.target) {
+            anchor.target = linkEl.target;
+          }
+          if (labelEl) {
+            anchor.textContent = labelEl.textContent.trim();
+            moveInstrumentation(labelEl, anchor);
+          }
+          moveInstrumentation(linkEl, anchor);
+          listItem.append(anchor);
         }
-        anchor.textContent = label.textContent.trim();
-        li.append(anchor);
-        moveInstrumentation(link, anchor);
-        moveInstrumentation(label, anchor);
-      }
-      ul.append(li);
-      moveInstrumentation(itemNode, li);
-    });
-    footerListDiv.append(ul);
-    return footerListDiv;
-  };
+        moveInstrumentation(itemNode, listItem);
+        footerListUl.append(listItem);
+      });
+      footerListDiv.append(footerListUl);
+      footerNavLeft.append(footerListDiv);
+    }
+  });
+  footerNav.append(footerNavLeft);
 
-  const footerList1Items = block.querySelectorAll('[data-aue-model="footerListItem"][data-aue-resource="footerList1"]');
-  footerNavbarLeft.append(createFooterList(footerList1Items, 'footerList1'));
+  // The original HTML had two right divs, but the structure implies 4 columns total.
+  // This recreates the two divs for the right side, assuming the remaining links go there.
+  const footerNavRight = document.createElement('div');
+  footerNavRight.classList.add('header-footer-brand__navbar--right', 'header-d-flex', 'header-flex-column', 'header-flex-md-row');
 
-  const footerList2Items = block.querySelectorAll('[data-aue-model="footerListItem"][data-aue-resource="footerList2"]');
-  footerNavbarLeft.append(createFooterList(footerList2Items, 'footerList2'));
-
-  footerNavbar.append(footerNavbarLeft);
-
-  const footerNavbarRight = document.createElement('div');
-  footerNavbarRight.classList.add('footer-brand__navbar--right', 'd-flex', 'flex-column', 'flex-md-row');
-
-  const footerList3Items = block.querySelectorAll('[data-aue-model="footerListItem"][data-aue-resource="footerList3"]');
-  footerNavbarRight.append(createFooterList(footerList3Items, 'footerList3'));
-
-  const footerList4Items = block.querySelectorAll('[data-aue-model="footerListItem"][data-aue-resource="footerList4"]');
-  footerNavbarRight.append(createFooterList(footerList4Items, 'footerList4'));
-
-  footerNavbar.append(footerNavbarRight);
-  footerBrandRight.append(footerNavbar);
-
-  footerPrimaryContent.append(footerBrandLeft, footerBrandRight);
+  footerBrandRight.append(footerNav);
+  footerPrimaryContent.append(footerBrandRight);
   footerContainer.append(footerPrimaryContent);
   footerPrimary.append(footerContainer);
   footerBrand.append(footerPrimary);
 
   const footerSecondary = document.createElement('section');
-  footerSecondary.classList.add('footer-brand__secondary');
+  footerSecondary.classList.add('header-footer-brand__secondary');
   footerSecondary.style.backgroundColor = '';
 
   const footerSecondaryContainer = document.createElement('div');
-  footerSecondaryContainer.classList.add('container');
+  footerSecondaryContainer.classList.add('header-container');
 
   const footerSecondaryContent = document.createElement('div');
-  footerSecondaryContent.classList.add('footer-brand__secondary--content', 'd-flex', 'flex-column', 'justify-content-md-between', 'align-items-center');
+  footerSecondaryContent.classList.add('header-footer-brand__secondary--content', 'header-d-flex', 'header-flex-column', 'header-justify-content-md-between', 'header-align-items-center');
 
-  const socialMediaRight = document.createElement('section');
-  socialMediaRight.classList.add('footer-brand__right', 'd-flex', 'flex-column', 'pb-5');
+  const footerSecondaryRight = document.createElement('section');
+  footerSecondaryRight.classList.add('header-footer-brand__right', 'header-d-flex', 'header-flex-column', 'header-pb-5');
 
-  const socialMediaTitle = document.createElement('h3');
-  socialMediaTitle.classList.add('social_media--title');
-  socialMediaTitle.textContent = 'Follow Us On';
-  socialMediaRight.append(socialMediaTitle);
+  const socialTitle = document.createElement('h3');
+  socialTitle.classList.add('header-social_media--title');
+  socialTitle.textContent = 'Follow Us On';
+  footerSecondaryRight.append(socialTitle);
 
-  const socialMediaUl = document.createElement('ul');
-  socialMediaUl.classList.add('footer-brand__right--list', 'd-flex', 'align-items-center', 'justify-content-center', 'px-10', 'flex-wrap');
+  const socialList = document.createElement('ul');
+  socialList.classList.add('header-footer-brand__right--list', 'header-d-flex', 'header-align-items-center', 'header-justify-content-center', 'header-px-10', 'header-flex-wrap');
 
-  const footerSocialLinks = block.querySelectorAll('[data-aue-model="footerSocialLink"]');
-  footerSocialLinks.forEach((itemNode) => {
-    const li = document.createElement('li');
-    li.classList.add('footer-brand__right--item', 'd-flex', 'justify-content-center', 'align-items-center');
+  socialLinks.forEach((itemNode) => {
+    const linkEl = itemNode.querySelector('[data-aue-prop="link"]');
+    const iconEl = itemNode.querySelector('[data-aue-prop="icon"]');
 
-    const link = itemNode.querySelector('[data-aue-prop="link"]');
-    const icon = itemNode.querySelector('[data-aue-prop="icon"]');
+    const listItem = document.createElement('li');
+    listItem.classList.add('header-footer-brand__right--item', 'header-d-flex', 'header-justify-content-center', 'header-align-items-center');
 
-    if (link && icon) {
+    if (linkEl) {
       const anchor = document.createElement('a');
-      anchor.href = link.querySelector('a').href;
-      anchor.classList.add('footer-brand__right--link', 'd-flex', 'justify-content-center', 'align-items-center', 'analytics_cta_click');
-      anchor.setAttribute('data-cta-region', 'Footer');
-      anchor.setAttribute('data-cta-label', `footer-${icon.alt.toLowerCase()}`);
+      anchor.href = linkEl.href;
+      anchor.classList.add('header-footer-brand__right--link', 'header-d-flex', 'header-justify-content-center', 'header-align-items-center', 'header-analytics_cta_click');
+      anchor.dataset.ctaRegion = 'Footer';
+      anchor.dataset.ctaLabel = `footer-${linkEl.href.includes('facebook') ? 'facebook' : linkEl.href.includes('instagram') ? 'instagram' : 'youtube'}`;
       anchor.target = '_blank';
-      anchor.setAttribute('data-platform-name', icon.alt.toLowerCase());
-      anchor.setAttribute('data-social-linktype', 'follow');
+      anchor.dataset.platformName = linkEl.href.includes('facebook') ? 'facebook' : linkEl.href.includes('instagram') ? 'instagram' : 'youtube';
+      anchor.dataset.socialLinktype = 'follow';
+      moveInstrumentation(linkEl, anchor);
 
-      const picture = createOptimizedPicture(icon.src, icon.alt);
-      picture.querySelector('img').classList.add('object-fit-contain', 'w-100', 'h-100', 'no-rendition');
-      picture.querySelector('img').setAttribute('aria-label', icon.alt.toLowerCase());
-      anchor.append(picture);
-      moveInstrumentation(icon, picture);
-      li.append(anchor);
-      moveInstrumentation(link, anchor);
+      if (iconEl) {
+        const iconImg = createOptimizedPicture(iconEl.src, iconEl.alt || linkEl.href);
+        iconImg.querySelector('img').classList.add('header-object-fit-contain', 'header-w-100', 'header-h-100', 'header-no-rendition');
+        iconImg.querySelector('img').setAttribute('loading', 'lazy');
+        moveInstrumentation(iconEl, iconImg);
+        anchor.append(iconImg);
+      }
+      listItem.append(anchor);
     }
-    socialMediaUl.append(li);
-    moveInstrumentation(itemNode, li);
+    moveInstrumentation(itemNode, listItem);
+    socialList.append(listItem);
   });
-  socialMediaRight.append(socialMediaUl);
+  footerSecondaryRight.append(socialList);
+  footerSecondaryContent.append(footerSecondaryRight);
 
   const footerSecondaryLeft = document.createElement('section');
-  footerSecondaryLeft.classList.add('footer-brand__left', 'py-5', 'd-flex', 'flex-column', 'gap-3');
+  footerSecondaryLeft.classList.add('header-footer-brand__left', 'header-py-5', 'header-d-flex', 'header-flex-column', 'header-gap-3');
 
-  const footerSecondaryLeftUl = document.createElement('ul');
-  footerSecondaryLeftUl.classList.add('footer-brand__left--list', 'd-flex', 'align-items-center', 'justify-content-center', 'flex-wrap');
+  const footerSecondaryLeftList = document.createElement('ul');
+  footerSecondaryLeftList.classList.add('header-footer-brand__left--list', 'header-d-flex', 'header-align-items-center', 'header-justify-content-center', 'header-flex-wrap');
 
-  const itcPortalLink = block.querySelector('[data-aue-prop="itcPortalLink"]');
   if (itcPortalLink) {
-    const li = document.createElement('li');
-    li.classList.add('footer-brand__left--item', 'foot_link');
+    const listItem = document.createElement('li');
+    listItem.classList.add('header-footer-brand__left--item', 'header-foot_link');
     const anchor = document.createElement('a');
-    anchor.href = itcPortalLink.querySelector('a').href;
+    anchor.href = itcPortalLink.href;
     anchor.target = '_blank';
-    anchor.classList.add('footer-brand__left--link', 'analytics_cta_click');
-    anchor.setAttribute('data-cta-region', 'Footer');
-    anchor.textContent = itcPortalLink.querySelector('a').textContent.trim();
-    li.append(anchor);
-    footerSecondaryLeftUl.append(li);
+    anchor.classList.add('header-footer-brand__left--link', 'header-analytics_cta_click');
+    anchor.dataset.ctaRegion = 'Footer';
+    anchor.textContent = itcPortalLink.textContent.trim();
     moveInstrumentation(itcPortalLink, anchor);
+    listItem.append(anchor);
+    footerSecondaryLeftList.append(listItem);
   }
-  footerSecondaryLeft.append(footerSecondaryLeftUl);
+  footerSecondaryLeft.append(footerSecondaryLeftList);
 
   const copyrightDiv = document.createElement('div');
-  copyrightDiv.classList.add('footer-brand__left--copyright', 'text-center');
-  const copyrightSpan = document.createElement('span');
-  copyrightSpan.classList.add('footer-brand__left--text', 'text-white');
-  const footerCopyright = block.querySelector('[data-aue-prop="footerCopyright"]');
-  if (footerCopyright) {
-    copyrightSpan.textContent = footerCopyright.textContent.trim();
-    moveInstrumentation(footerCopyright, copyrightSpan);
+  copyrightDiv.classList.add('header-footer-brand__left--copyright', 'header-text-center');
+  if (copyrightText) {
+    const copyrightSpan = document.createElement('span');
+    copyrightSpan.classList.add('header-footer-brand__left--text', 'header-text-white');
+    copyrightSpan.textContent = copyrightText.textContent.trim();
+    moveInstrumentation(copyrightText, copyrightSpan);
+    copyrightDiv.append(copyrightSpan);
   }
-  copyrightDiv.append(copyrightSpan);
   footerSecondaryLeft.append(copyrightDiv);
+  footerSecondaryContent.append(footerSecondaryLeft);
 
-  footerSecondaryContent.append(socialMediaRight, footerSecondaryLeft);
   footerSecondaryContainer.append(footerSecondaryContent);
   footerSecondary.append(footerSecondaryContainer);
   footerBrand.append(footerSecondary);
-
   aside.append(footerBrand);
 
+  submenuContainer.append(aside);
+
   const overlay = document.createElement('div');
-  overlay.classList.add('overlay', 'position-absolute', 'top-0', 'start-0', 'w-100', 'h-100', 'bg-black', 'opacity-25');
+  overlay.classList.add('header-overlay', 'header-position-absolute', 'header-top-0', 'header-start-0', 'header-w-100', 'header-h-100', 'header-bg-black', 'header-opacity-25');
+  submenuContainer.append(overlay);
 
-  submenuContainer.append(aside, overlay);
-
-  const section = document.createElement('section');
-  section.classList.add('header-position-relative', 'header-mb-15');
-
-  const appNameSpan = document.createElement('span');
-  appNameSpan.classList.add('d-none', 'app-name');
-  appNameSpan.setAttribute('data-app-name', appName);
-  appNameSpan.textContent = appName;
-  section.append(appNameSpan);
-
-  section.append(header, submenuContainer);
+  rootDiv.append(submenuContainer);
 
   block.textContent = '';
-  block.append(section);
+  block.append(rootDiv);
   block.className = `${block.dataset.blockName} block`;
   block.dataset.blockStatus = 'loaded';
 }

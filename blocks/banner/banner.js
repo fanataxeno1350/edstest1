@@ -8,110 +8,71 @@ export default function decorate(block) {
   const positionRelativeDiv = document.createElement('div');
   positionRelativeDiv.classList.add('position-relative', 'boing', 'banner-section__wrapper');
 
-  const bannerVideoWrapper = document.createElement('div');
-  bannerVideoWrapper.classList.add('banner-video-wrapper');
+  const videoWrapper = document.createElement('div');
+  videoWrapper.classList.add('banner-video-wrapper');
 
-  const videoElement = document.createElement('video');
-  videoElement.classList.add('w-100', 'object-fit-cover', 'banner-media', 'banner-video');
-  videoElement.setAttribute('title', 'Video');
-  videoElement.setAttribute('aria-label', 'Video');
-  videoElement.setAttribute('data-is-autoplay', 'true');
-  videoElement.setAttribute('playsinline', '');
-  videoElement.setAttribute('preload', 'metadata');
-  videoElement.setAttribute('fetchpriority', 'high');
-  videoElement.setAttribute('loop', 'false');
-  videoElement.setAttribute('muted', 'true');
-  videoElement.setAttribute('autoplay', 'true');
-
-  const videoSource = block.querySelector('[data-aue-prop="video"]');
-  if (videoSource) {
-    const sourceElement = document.createElement('source');
-    sourceElement.setAttribute('src', videoSource.textContent.trim());
-    sourceElement.setAttribute('type', 'video/mp4');
-    videoElement.append(sourceElement);
-    moveInstrumentation(videoSource, sourceElement);
+  const videoElement = block.querySelector('video');
+  if (videoElement) {
+    videoElement.classList.add('banner-video-w-100', 'banner-video-object-fit-cover', 'banner-media', 'banner-video');
+    videoWrapper.append(videoElement);
+    moveInstrumentation(videoElement, videoWrapper);
   }
-
-  bannerVideoWrapper.append(videoElement);
 
   const playPauseWrapper = document.createElement('div');
-  playPauseWrapper.classList.add('position-absolute', 'w-100', 'h-100', 'start-0', 'top-0', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer');
+  playPauseWrapper.classList.add('position-absolute', 'banner-video-w-100', 'banner-video-h-100', 'banner-video-start-0', 'banner-video-top-0', 'banner-video-d-flex', 'banner-video-justify-content-center', 'banner-video-align-items-center', 'banner-video-cursor-pointer');
 
-  const playButton = document.createElement('button');
-  playButton.setAttribute('type', 'button');
-  playButton.classList.add('d-none', 'banner-video-icon', 'icon-play', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  const iconPlay = block.querySelector('[data-aue-prop="iconPlay"]');
-  if (iconPlay) {
-    playButton.innerHTML = iconPlay.innerHTML;
-    moveInstrumentation(iconPlay, playButton);
+  const playButton = block.querySelector('.banner-video-icon-play');
+  if (playButton) {
+    playButton.classList.add('banner-video-bg-transparent', 'banner-video-d-flex', 'banner-video-align-items-center', 'banner-video-justify-content-center', 'banner-video-cursor-pointer');
+    playPauseWrapper.append(playButton);
+    moveInstrumentation(playButton, playPauseWrapper);
   }
-  playPauseWrapper.append(playButton);
 
-  const pauseButton = document.createElement('button');
-  pauseButton.setAttribute('type', 'button');
-  pauseButton.classList.add('d-block', 'banner-video-icon', 'icon-pause', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  const iconPause = block.querySelector('[data-aue-prop="iconPause"]');
-  if (iconPause) {
-    pauseButton.innerHTML = iconPause.innerHTML;
-    moveInstrumentation(iconPause, pauseButton);
+  const pauseButton = block.querySelector('.banner-video-icon-pause');
+  if (pauseButton) {
+    pauseButton.classList.add('banner-video-bg-transparent', 'banner-video-d-flex', 'banner-video-align-items-center', 'banner-video-justify-content-center', 'banner-video-cursor-pointer');
+    playPauseWrapper.append(pauseButton);
+    moveInstrumentation(pauseButton, playPauseWrapper);
   }
-  playPauseWrapper.append(pauseButton);
-  bannerVideoWrapper.append(playPauseWrapper);
+  videoWrapper.append(playPauseWrapper);
 
-  const muteUnmuteWrapper = document.createElement('div');
-  muteUnmuteWrapper.classList.add('position-absolute', 'z-2', 'd-flex', 'justify-content-center', 'align-items-center', 'cursor-pointer', 'banner-mute-icon');
+  const muteIconWrapper = document.createElement('div');
+  muteIconWrapper.classList.add('position-absolute', 'banner-video-z-2', 'banner-video-d-flex', 'banner-video-justify-content-center', 'banner-video-align-items-center', 'banner-video-cursor-pointer', 'banner-mute-icon');
 
-  const muteButton = document.createElement('button');
-  muteButton.setAttribute('type', 'button');
-  muteButton.classList.add('banner-video-icon-volume', 'icon-mute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
-  const iconMute = block.querySelector('[data-aue-prop="iconMute"]');
-  if (iconMute) {
-    muteButton.innerHTML = iconMute.innerHTML;
-    moveInstrumentation(iconMute, muteButton);
+  const muteButton = block.querySelector('.banner-icon-mute');
+  if (muteButton) {
+    muteButton.classList.add('banner-video-icon-volume', 'banner-video-bg-transparent', 'banner-video-d-flex', 'banner-video-align-items-center', 'banner-video-justify-content-center', 'banner-video-cursor-pointer');
+    muteIconWrapper.append(muteButton);
+    moveInstrumentation(muteButton, muteIconWrapper);
   }
-  muteUnmuteWrapper.append(muteButton);
 
-  const unmuteButton = document.createElement('button');
-  unmuteButton.setAttribute('type', 'button');
-  unmuteButton.classList.add('banner-video-icon-volume', 'icon-unmute', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer', 'd-none');
-  const iconUnmute = block.querySelector('[data-aue-prop="iconUnmute"]');
-  if (iconUnmute) {
-    unmuteButton.innerHTML = iconUnmute.innerHTML;
-    moveInstrumentation(iconUnmute, unmuteButton);
+  const unmuteButton = block.querySelector('.banner-icon-unmute');
+  if (unmuteButton) {
+    unmuteButton.classList.add('banner-video-icon-volume', 'banner-video-bg-transparent', 'banner-video-d-flex', 'banner-video-align-items-center', 'banner-video-justify-content-center', 'banner-video-cursor-pointer');
+    muteIconWrapper.append(unmuteButton);
+    moveInstrumentation(unmuteButton, muteIconWrapper);
   }
-  muteUnmuteWrapper.append(unmuteButton);
 
-  const noAudioButton = document.createElement('button');
-  noAudioButton.setAttribute('type', 'button');
-  noAudioButton.classList.add('banner-video-icon-volume', 'no-audio-icon', 'bg-transparent', 'd-flex', 'align-items-center', 'justify-content-center', 'cursor-pointer');
-  const iconNoAudio = block.querySelector('[data-aue-prop="iconNoAudio"]');
-  if (iconNoAudio) {
-    noAudioButton.innerHTML = iconNoAudio.innerHTML;
-    moveInstrumentation(iconNoAudio, noAudioButton);
+  const noAudioButton = block.querySelector('.banner-no-audio-icon');
+  if (noAudioButton) {
+    noAudioButton.classList.add('banner-video-icon-volume', 'banner-video-bg-transparent', 'banner-video-d-flex', 'banner-video-align-items-center', 'banner-video-justify-content-center', 'banner-video-cursor-pointer');
+    muteIconWrapper.append(noAudioButton);
+    moveInstrumentation(noAudioButton, muteIconWrapper);
   }
-  muteUnmuteWrapper.append(noAudioButton);
-  bannerVideoWrapper.append(muteUnmuteWrapper);
+  videoWrapper.append(muteIconWrapper);
 
-  positionRelativeDiv.append(bannerVideoWrapper);
+  positionRelativeDiv.append(videoWrapper);
 
   const ctaWrapper = document.createElement('div');
-  ctaWrapper.classList.add('position-absolute', 'start-50', 'translate-middle-x', 'w-100', 'boing__banner--cta');
+  ctaWrapper.classList.add('position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100', 'banner-boing__banner--cta');
 
-  const bannerCtaDiv = document.createElement('div');
-  bannerCtaDiv.classList.add('banner-cta');
-  // Assuming the CTA content is directly within the block but not explicitly mapped in JSON
-  // If there's a specific authored element for CTA, it should be queried.
-  // For now, we'll just append the bannerCtaDiv as an empty container if no content is found.
-  // If the authored HTML has content for banner-cta, it should be moved.
-  const authoredCtaContent = block.querySelector('.banner-cta');
-  if (authoredCtaContent) {
-    bannerCtaDiv.append(...authoredCtaContent.children);
-    moveInstrumentation(authoredCtaContent, bannerCtaDiv);
+  const bannerCta = block.querySelector('.banner-cta');
+  if (bannerCta) {
+    ctaWrapper.append(bannerCta);
+    moveInstrumentation(bannerCta, ctaWrapper);
   }
 
-  ctaWrapper.append(bannerCtaDiv);
   positionRelativeDiv.append(ctaWrapper);
-
   bannerSection.append(positionRelativeDiv);
 
   block.textContent = '';
