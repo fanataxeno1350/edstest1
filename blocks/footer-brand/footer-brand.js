@@ -3,20 +3,20 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('footer-brand-section', 'footer-p-0');
+  section.classList.add('footer-brand-container-hd', 'p-0');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('footer-brand-wrapper', 'footer-w-100', 'footer-bg-boing-neutral-gray-600');
+    item.classList.add('footer-brand', 'w-100', 'footer-brand-bg-boing-neutral-gray-600');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) {
         div.className = 'footer-brand-logo';
       } else if (div.querySelector('a')) {
-        div.classList.add('footer-list-item--link', 'footer-brand-right--link', 'footer-brand-left--link');
+        div.className = 'footer-brand-logo';
       } else {
-        div.classList.add('footer-brand-secondary--logo', 'footer-list-wrapper', 'footer-brand-left--copyright');
+        div.className = 'footer-brand-secondary--logo';
       }
     });
     section.append(item);

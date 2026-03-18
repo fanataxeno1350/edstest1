@@ -1,0 +1,35 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('carousel-container', 'carousel-position-relative');
+
+  [...block.children].forEach((row) => {
+    const item = document.createElement('div');
+    moveInstrumentation(row, item);
+    item.classList.add('carousel-swiper-slide', 'carousel-primary-swiper-slide');
+    while (row.firstElementChild) item.append(row.firstElementChild);
+    [...item.children].forEach((div) => {
+      if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
+        div.className = 'carousel-video-wrapper';
+      } else if (div.querySelector('img')) {
+        div.classList.add('carousel-banner-media', 'carousel-banner-image');
+      } else if (div.querySelector('a')) {
+        div.className = 'carousel-banner-cta-component';
+      } else {
+        div.className = 'carousel-banner-component';
+      }
+    });
+    wrapper.append(item);
+  });
+
+  wrapper.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+
+  block.textContent = '';
+  block.append(wrapper);
+}

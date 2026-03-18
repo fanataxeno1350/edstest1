@@ -44,12 +44,12 @@
         },
         {
           "component": "text",
-          "label": "Alt Text",
-          "name": "altText",
+          "label": "Image Alt",
+          "name": "alt",
           "valueType": "string"
         },
         {
-          "component": "text",
+          "component": "richtext",
           "label": "Title",
           "name": "title",
           "valueType": "string"

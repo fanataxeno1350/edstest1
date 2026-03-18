@@ -3,22 +3,20 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const wrapper = document.createElement('div');
-  wrapper.classList.add('carousel-container', 'carousel-position-relative');
+  wrapper.classList.add('position-relative');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('carousel-swiper-slide', 'carousel-primary-swiper-slide');
+    item.classList.add('swiper-slide', 'carousel-primary-swiper-slide');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
-        div.className = 'carousel-video-wrapper';
-      } else if (div.querySelector('img')) {
-        div.classList.add('carousel-banner-media', 'carousel-banner-image');
+        div.className = 'video-wrapper';
       } else if (div.querySelector('a')) {
-        div.className = 'carousel-banner-cta-component';
+        div.className = 'banner-cta';
       } else {
-        div.className = 'carousel-banner-component';
+        div.classList.add('position-relative', 'boing', 'banner-section__wrapper');
       }
     });
     wrapper.append(item);

@@ -14,8 +14,10 @@ export default function decorate(block) {
         div.classList.add('header-d-none', 'header-app-name');
       } else if (div.querySelector('header')) {
         div.classList.add('header-boing-container', 'header-header', 'header-d-flex', 'header-justify-content-between', 'header-align-items-center', 'header-h-15', 'header-px-5', 'header-py-2', 'header-fixed-top', 'header-w-100', 'header-bg-white');
+      } else if (div.querySelector('aside')) {
+        div.classList.add('header-sidebar', 'header-start-0', 'header-bg-white', 'header-position-absolute');
       } else if (div.querySelector('div')) {
-        div.classList.add('header-submenu-container', 'header-position-fixed', 'header-top-0', 'header-start-0', 'header-end-0', 'header-m-auto', 'header-overflow-hidden');
+        div.classList.add('header-overlay', 'header-position-absolute', 'header-top-0', 'header-start-0', 'header-w-100', 'header-h-100', 'header-bg-black', 'header-opacity-25');
       }
     });
     section.append(item);

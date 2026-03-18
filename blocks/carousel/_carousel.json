@@ -17,15 +17,15 @@
       }
     },
     {
-      "title": "Slide",
-      "id": "slide",
+      "title": "Carousel Item",
+      "id": "carouselItem",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "model": "slide",
-              "name": "Slide"
+              "model": "carouselItem",
+              "name": "Carousel Item"
             }
           }
         }
@@ -34,7 +34,7 @@
   ],
   "models": [
     {
-      "id": "slide",
+      "id": "carouselItem",
       "fields": [
         {
           "component": "reference",
@@ -49,21 +49,9 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Image Alt Text",
-          "name": "imageAlt",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
+          "component": "aem-content",
           "label": "CTA Link",
           "name": "ctaLink",
-          "valueType": "string"
-        },
-        {
-          "component": "text",
-          "label": "CTA Text",
-          "name": "ctaText",
           "valueType": "string"
         }
       ]
@@ -73,7 +61,7 @@
     {
       "id": "carousel",
       "components": [
-        "slide"
+        "carouselItem"
       ]
     }
   ]

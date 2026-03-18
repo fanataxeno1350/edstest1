@@ -1,0 +1,32 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('footer-brand', 'w-100', 'bg-boing-neutral-gray-600');
+
+  [...block.children].forEach((row) => {
+    const item = document.createElement('div');
+    moveInstrumentation(row, item);
+    while (row.firstElementChild) item.append(row.firstElementChild);
+    [...item.children].forEach((div) => {
+      if (div.children.length === 1 && div.querySelector('picture')) {
+        div.classList.add('footer-brand__logo', 'footer-brand__secondary--logo');
+      } else if (div.querySelector('a')) {
+        div.classList.add('footer-list__item--link', 'footer-brand__left--link', 'footer-brand__right--link');
+      } else {
+        div.classList.add('footer-brand__left--copyright', 'footer-brand__right--item', 'footer-list__item', 'social_media--title');
+      }
+    });
+    wrapper.append(item);
+  });
+
+  wrapper.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+
+  block.textContent = '';
+  block.append(wrapper);
+}

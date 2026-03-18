@@ -22,7 +22,7 @@
       "id": "banner",
       "fields": [
         {
-          "component": "aem-content",
+          "component": "reference",
           "label": "Video",
           "name": "video",
           "valueType": "string"

@@ -69,7 +69,10 @@
         "featurecards",
         "latestBlogs",
         "bannerSection",
-        "spaceadder-container"
+        "spaceadder-container",
+        "sidebarMenu",
+        "footerList",
+        "bannerCTA"
       ]
     }
   ]

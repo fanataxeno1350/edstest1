@@ -1,25 +1,23 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const section = document.createElement('section');
-  section.classList.add('banner-section');
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('banner-section__wrapper', 'position-relative', 'boing');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
-    item.classList.add('banner-section__wrapper', 'banner-position-relative', 'banner-boing');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
         div.className = 'banner-video-wrapper';
-      } else if (div.querySelector('a')) {
-        div.classList.add('banner-position-absolute', 'banner-start-50', 'banner-translate-middle-x', 'banner-w-100', 'banner-boing__banner--cta');
       } else {
+        div.classList.add('banner-cta', 'boing__banner--cta');
       }
     });
-    section.append(item);
+    wrapper.append(item);
   });
 
   block.textContent = '';
-  block.append(section);
+  block.append(wrapper);
 }
