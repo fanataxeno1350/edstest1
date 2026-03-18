@@ -3,20 +3,18 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('footer-brand-container', 'footer-p-0');
+  section.classList.add('latestblogs-wrapper');
 
   [...block.children].forEach((row) => {
-    const item = document.createElement('div');
+    const item = document.createElement('a');
     moveInstrumentation(row, item);
-    item.classList.add('footer-brand', 'footer-brand-wrapper', 'footer-bg-boing-neutral-gray-600');
+    item.classList.add('latestblogs-cardWrapper', 'latestblogs-analytics_cta_click');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) {
-        div.className = 'footer-brand-logo';
-      } else if (div.querySelector('a')) {
-        div.classList.add('footer-list-item-link', 'footer-brand-right-link', 'footer-brand-left-link');
+      if (div.querySelector('img')) {
+        div.className = 'latestblogs-cardImageWrapper';
       } else {
-        div.classList.add('footer-brand-primary', 'footer-brand-secondary');
+        div.className = 'latestblogs-cards_content--wrapper';
       }
     });
     section.append(item);

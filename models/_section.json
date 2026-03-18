@@ -65,7 +65,9 @@
         "headerFooter",
         "spaceadder",
         "footer",
-        "stickyNavigation"
+        "stickyNavigation",
+        "featurecards",
+        "latestBlogs"
       ]
     }
   ]

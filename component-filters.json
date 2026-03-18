@@ -30,7 +30,9 @@
       "headerFooter",
       "spaceadder",
       "footer",
-      "stickyNavigation"
+      "stickyNavigation",
+      "featurecards",
+      "latestBlogs"
     ]
   },
   {
@@ -42,7 +44,7 @@
   {
     "id": "carousel",
     "components": [
-      "carouselSlide"
+      "slide"
     ]
   },
   {
@@ -52,16 +54,16 @@
     ]
   },
   {
-    "id": "footerBrand",
+    "id": "featurecards",
     "components": [
-      "footerLinkGroup",
-      "footerSocialLink"
+      "featurecard"
     ]
   },
   {
-    "id": "footerLinkGroup",
+    "id": "footerBrand",
     "components": [
-      "footerLink"
+      "footerLink",
+      "footerSocialLink"
     ]
   },
   {
@@ -96,9 +98,9 @@
   {
     "id": "header",
     "components": [
-      "menuItem",
-      "footerLink",
-      "socialLink"
+      "sidebarMenuItem",
+      "footerListItem",
+      "footerSocialItem"
     ]
   },
   {
@@ -111,6 +113,12 @@
     "id": "latestBlogsArticleListing",
     "components": [
       "articleCard"
+    ]
+  },
+  {
+    "id": "latestBlogs",
+    "components": [
+      "blogCard"
     ]
   },
   {
@@ -132,9 +140,9 @@
     ]
   },
   {
-    "id": "stickyNavigation",
+    "id": "sticky-navigation",
     "components": [
-      "navItem"
+      "navigationItem"
     ]
   }
 ]
