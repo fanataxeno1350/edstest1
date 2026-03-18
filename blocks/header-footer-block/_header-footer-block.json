@@ -1,0 +1,199 @@
+{
+  "definitions": [
+    {
+      "title": "Header-Footer-Block",
+      "id": "headerFooterBlock",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "filter": "headerFooterBlock",
+              "model": "headerFooterBlock",
+              "name": "Header-Footer-Block"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Sidebar-Menu-Item",
+      "id": "sidebarMenuItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "sidebarMenuItem",
+              "name": "Sidebar-Menu-Item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Footer-List-Item",
+      "id": "footerListItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "footerListItem",
+              "name": "Footer-List-Item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Social-Link-Item",
+      "id": "socialLinkItem",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "model": "socialLinkItem",
+              "name": "Social-Link-Item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "sidebarMenuItem",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "footerListItem",
+      "fields": [
+        {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Label",
+          "name": "label",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "socialLinkItem",
+      "fields": [
+        {
+          "component": "aem-content",
+          "label": "Link",
+          "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Icon",
+          "name": "icon",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "headerFooterBlock",
+      "fields": [
+        {
+          "component": "reference",
+          "label": "Header Logo",
+          "name": "headerLogo",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Header Logo Link",
+          "name": "headerLogoLink",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Login Button Link",
+          "name": "loginLink",
+          "valueType": "string"
+        },
+        {
+          "block": "sidebarMenuItem",
+          "component": "block",
+          "label": "Sidebar Menu",
+          "name": "sidebarMenu"
+        },
+        {
+          "component": "reference",
+          "label": "Footer Logo 1",
+          "name": "footerLogo1",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Footer Logo 2",
+          "name": "footerLogo2",
+          "valueType": "string"
+        },
+        {
+          "block": "footerListItem",
+          "component": "block",
+          "label": "Footer List",
+          "name": "footerList"
+        },
+        {
+          "block": "socialLinkItem",
+          "component": "block",
+          "label": "Social Links",
+          "name": "socialLinks"
+        },
+        {
+          "component": "aem-content",
+          "label": "ITC Portal Link",
+          "name": "itcPortalLink",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Copyright Text",
+          "name": "copyrightText",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "headerFooterBlock",
+      "components": [
+        "sidebarMenuItem",
+        "footerListItem",
+        "socialLinkItem"
+      ]
+    }
+  ]
+}

@@ -59,7 +59,7 @@
   ],
   "filters": [
     {
-      "id": "sticky-bottom-nav",
+      "id": "stickyBottomNav",
       "components": [
         "navItem"
       ]

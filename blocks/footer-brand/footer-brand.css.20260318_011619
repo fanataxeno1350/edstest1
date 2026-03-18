@@ -1,3 +1,9 @@
+.footer-object-fit-contain{-o-object-fit:contain !important;object-fit:contain !important}
+
+.footer-gap-3{gap:.footer-5rem !important}
+
+.footer-gap-16{gap:3.footer-75rem !important}
+
 .header .footer-submenu-container .footer-brand__primary:before,.header .footer-submenu-container .footer-brand__secondary:after{display:none !important}
 
 .header .footer-sidebar .footer-brand .footer-background-pattern{height:6rem !important}

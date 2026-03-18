@@ -60,7 +60,8 @@
         "footerBrand",
         "stickyBottomNavigation",
         "latestBlogsArticleListing",
-        "stickyBottomNav"
+        "stickyBottomNav",
+        "headerFooterBlock"
       ]
     }
   ]

@@ -152,32 +152,32 @@
       },
       {
         "component": "reference",
-        "label": "Play Icon",
-        "name": "playIcon",
+        "label": "Icon Play",
+        "name": "iconPlay",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Pause Icon",
-        "name": "pauseIcon",
+        "label": "Icon Pause",
+        "name": "iconPause",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Mute Icon",
-        "name": "muteIcon",
+        "label": "Icon Mute",
+        "name": "iconMute",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Unmute Icon",
-        "name": "unmuteIcon",
+        "label": "Icon Unmute",
+        "name": "iconUnmute",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "No Audio Icon",
-        "name": "noAudioIcon",
+        "label": "Icon No Audio",
+        "name": "iconNoAudio",
         "valueType": "string"
       }
     ]
@@ -215,9 +215,9 @@
         "valueType": "string"
       },
       {
-        "component": "richtext",
-        "label": "Heading",
-        "name": "heading",
+        "component": "text",
+        "label": "Title",
+        "name": "title",
         "valueType": "string"
       },
       {
@@ -239,27 +239,33 @@
     "fields": [
       {
         "component": "reference",
-        "label": "Primary Logo",
+        "label": "Logo 1",
         "name": "logo1",
         "valueType": "string"
       },
       {
+        "component": "aem-tag",
+        "label": "Logo 1 Link",
+        "name": "logo1Link",
+        "valueType": "string"
+      },
+      {
         "component": "reference",
-        "label": "Secondary Logo",
+        "label": "Logo 2",
         "name": "logo2",
         "valueType": "string"
       },
       {
-        "component": "container",
-        "itemType": "footerLinkColumn",
-        "label": "Footer Link Columns",
-        "name": "footerLinkColumns"
+        "component": "block",
+        "label": "Footer Link Groups",
+        "name": "footerLinkGroups",
+        "reference": "footerLinkGroup"
       },
       {
-        "component": "container",
-        "itemType": "footerSocialLink",
+        "component": "block",
         "label": "Footer Social Links",
-        "name": "footerSocialLinks"
+        "name": "footerSocialLinks",
+        "reference": "footerSocialLink"
       },
       {
         "component": "aem-content",
@@ -269,25 +275,82 @@
       },
       {
         "component": "richtext",
-        "label": "Copyright",
-        "name": "copyright",
+        "label": "Copyright Text",
+        "name": "copyrightText",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "footerLinkColumn",
+    "id": "footerLinkGroup",
     "fields": [
       {
-        "component": "container",
-        "itemType": "footerLink",
-        "label": "Links",
-        "name": "links"
+        "component": "block",
+        "label": "Footer Links",
+        "name": "footerLinks",
+        "reference": "footerLink"
       }
     ]
   },
   {
     "id": "footerLink",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Link Text",
+        "name": "text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerSocialLink",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Social Link",
+        "name": "socialLink",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Social Icon",
+        "name": "socialIcon",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "sidebarMenuItem",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Icon",
+        "name": "icon",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Label",
+        "name": "label",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "footerListItem",
     "fields": [
       {
         "component": "aem-content",
@@ -304,18 +367,83 @@
     ]
   },
   {
-    "id": "footerSocialLink",
+    "id": "socialLinkItem",
     "fields": [
       {
         "component": "aem-content",
-        "label": "Social Link",
+        "label": "Link",
         "name": "link",
         "valueType": "string"
       },
       {
         "component": "reference",
-        "label": "Social Icon",
+        "label": "Icon",
         "name": "icon",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "headerFooterBlock",
+    "fields": [
+      {
+        "component": "reference",
+        "label": "Header Logo",
+        "name": "headerLogo",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Header Logo Link",
+        "name": "headerLogoLink",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "label": "Login Button Link",
+        "name": "loginLink",
+        "valueType": "string"
+      },
+      {
+        "block": "sidebarMenuItem",
+        "component": "block",
+        "label": "Sidebar Menu",
+        "name": "sidebarMenu"
+      },
+      {
+        "component": "reference",
+        "label": "Footer Logo 1",
+        "name": "footerLogo1",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Footer Logo 2",
+        "name": "footerLogo2",
+        "valueType": "string"
+      },
+      {
+        "block": "footerListItem",
+        "component": "block",
+        "label": "Footer List",
+        "name": "footerList"
+      },
+      {
+        "block": "socialLinkItem",
+        "component": "block",
+        "label": "Social Links",
+        "name": "socialLinks"
+      },
+      {
+        "component": "aem-content",
+        "label": "ITC Portal Link",
+        "name": "itcPortalLink",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Copyright Text",
+        "name": "copyrightText",
         "valueType": "string"
       }
     ]
@@ -516,41 +644,12 @@
     ]
   },
   {
-    "id": "article",
-    "fields": [
-      {
-        "component": "reference",
-        "label": "Image",
-        "name": "image",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "label": "Published Date",
-        "name": "date",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "label": "Title",
-        "name": "title",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "label": "Article Link",
-        "name": "link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "latestBlogsArticleListing",
     "fields": [
       {
         "component": "richtext",
-        "label": "Heading",
-        "name": "heading",
+        "label": "Title",
+        "name": "title",
         "valueType": "string"
       },
       {
@@ -564,8 +663,46 @@
         "label": "View All Link",
         "name": "viewAllLink",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "View All Icon",
+        "name": "viewAllIcon",
+        "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "articleCard",
+    "fields": [
+      {
+        "component": "aem-content",
+        "label": "Article Link",
+        "name": "articleLink",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "image",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Date",
+        "name": "date",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "label": "Card Title",
+        "name": "title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "navItem",
