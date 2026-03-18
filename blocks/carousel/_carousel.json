@@ -49,15 +49,21 @@
           "valueType": "string"
         },
         {
-          "component": "aem-content",
-          "label": "CTA Label",
-          "name": "ctaLabel",
+          "component": "text",
+          "label": "Image Alt Text",
+          "name": "imageAlt",
           "valueType": "string"
         },
         {
           "component": "reference",
           "label": "CTA Link",
           "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Text",
+          "name": "ctaText",
           "valueType": "string"
         }
       ]

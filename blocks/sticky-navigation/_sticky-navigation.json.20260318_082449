@@ -50,21 +50,27 @@
         },
         {
           "component": "text",
-          "label": "Link",
-          "name": "link",
+          "label": "Href",
+          "name": "href",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Data Link",
+          "name": "dataLink",
           "valueType": "string"
         },
         {
           "component": "boolean",
-          "label": "Consent Required",
-          "name": "consentRequired"
+          "label": "Data Consent",
+          "name": "dataConsent"
         }
       ]
     }
   ],
   "filters": [
     {
-      "id": "stickyNavigation",
+      "id": "sticky-navigation",
       "components": [
         "navigationItem"
       ]

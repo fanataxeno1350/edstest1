@@ -44,8 +44,8 @@
         },
         {
           "component": "text",
-          "label": "Image Alt Text",
-          "name": "alt",
+          "label": "Image Alt",
+          "name": "imageAlt",
           "valueType": "string"
         },
         {
@@ -62,8 +62,8 @@
         },
         {
           "component": "text",
-          "label": "Link URL",
-          "name": "link",
+          "label": "CTA URL",
+          "name": "ctaUrl",
           "valueType": "string"
         },
         {

@@ -38,8 +38,8 @@
       "fields": [
         {
           "component": "richtext",
-          "label": "Heading",
-          "name": "heading",
+          "label": "Title",
+          "name": "title",
           "valueType": "string"
         },
         {
@@ -61,7 +61,7 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Link",
+          "label": "Blog Link",
           "name": "link",
           "valueType": "string"
         },
@@ -72,15 +72,15 @@
           "valueType": "string"
         },
         {
-          "component": "richtext",
+          "component": "date-time",
           "label": "Date",
           "name": "date",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "label": "Title",
-          "name": "title",
+          "label": "Headline",
+          "name": "headline",
           "valueType": "string"
         }
       ]

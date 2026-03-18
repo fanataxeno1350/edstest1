@@ -32,7 +32,15 @@
       "footer",
       "stickyNavigation",
       "featurecards",
-      "latestBlogs"
+      "latestBlogs",
+      "bannerSection",
+      "spaceadder-container"
+    ]
+  },
+  {
+    "id": "bannerSection",
+    "components": [
+      "bannerSection"
     ]
   },
   {
@@ -63,7 +71,7 @@
     "id": "footerBrand",
     "components": [
       "footerLink",
-      "footerSocialLink"
+      "socialLink"
     ]
   },
   {
@@ -98,9 +106,9 @@
   {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
+      "headerMenuItem",
       "footerListItem",
-      "footerSocialItem"
+      "socialItem"
     ]
   },
   {
@@ -128,6 +136,9 @@
     ]
   },
   {
+    "id": "spaceadder-container"
+  },
+  {
     "id": "sticky-bottom-nav",
     "components": [
       "navItem"
@@ -140,7 +151,7 @@
     ]
   },
   {
-    "id": "sticky-navigation",
+    "id": "stickyNavigation",
     "components": [
       "navigationItem"
     ]

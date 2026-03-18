@@ -13,7 +13,6 @@ export default function decorate(block) {
     [...li.children].forEach((div) => {
       if (div.querySelector('a')) {
         div.classList.add('stickynavigation-sticky-navigation-bottom-nav__link', 'stickynavigation-sticky-navigation-d-flex', 'stickynavigation-sticky-navigation-flex-column', 'stickynavigation-sticky-navigation-align-items-center', 'stickynavigation-sticky-navigation-gap-1', 'stickynavigation-sticky-navigation-analytics_cta_click');
-      } else {
       }
     });
     section.append(li);
