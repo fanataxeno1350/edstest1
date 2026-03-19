@@ -34,6 +34,17 @@
   ],
   "models": [
     {
+      "id": "featureCards",
+      "fields": [
+        {
+          "component": "richtext",
+          "label": "Title",
+          "name": "title",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
       "id": "featureCard",
       "fields": [
         {
@@ -44,14 +55,14 @@
         },
         {
           "component": "text",
-          "label": "Alt Text",
-          "name": "alt",
+          "label": "Image Alt Text",
+          "name": "altText",
           "valueType": "string"
         },
         {
-          "component": "text",
-          "label": "Title",
-          "name": "title",
+          "component": "richtext",
+          "label": "Heading",
+          "name": "heading",
           "valueType": "string"
         },
         {
@@ -62,8 +73,20 @@
         },
         {
           "component": "text",
-          "label": "Link",
+          "label": "Link URL",
           "name": "link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "Link Title",
+          "name": "linkTitle",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]

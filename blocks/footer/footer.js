@@ -3,19 +3,20 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const section = document.createElement('section');
-  section.classList.add('header-position-relative', 'header-mb-15');
+  section.classList.add('footer-container-hd', 'footer-p-0');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
     moveInstrumentation(row, item);
+    item.classList.add('footer-brand', 'footer-brand-w-100', 'footer-brand-bg-boing-neutral-gray-600');
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
-      if (div.querySelector('span.header-app-name')) {
-        div.classList.add('header-d-none', 'header-app-name');
-      } else if (div.querySelector('header.header-boing-container')) {
-        div.classList.add('header-boing-container', 'header-header', 'header-d-flex', 'header-justify-content-between', 'header-align-items-center', 'header-h-15', 'header-px-5', 'header-py-2', 'header-fixed-top', 'header-w-100', 'header-bg-white');
-      } else if (div.querySelector('div.header-submenu-container')) {
-        div.classList.add('header-submenu-container', 'header-position-fixed', 'header-top-0', 'header-start-0', 'header-end-0', 'header-m-auto', 'header-overflow-hidden');
+      if (div.children.length === 1 && div.querySelector('picture')) {
+        div.classList.add('footer-brand-logo', 'footer-brand-secondary--logo');
+      } else if (div.querySelector('a')) {
+        div.classList.add('footer-list-item', 'footer-brand-right--item', 'footer-brand-left--item');
+      } else {
+        div.classList.add('footer-brand-primary', 'footer-brand-secondary', 'footer-footerList', 'footer-brand-right', 'footer-brand-left--copyright');
       }
     });
     section.append(item);

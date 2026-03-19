@@ -3,8 +3,8 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const wrapper = document.createElement('div');
-  wrapper.classList.add('carousel-position-relative', 'carousel-swiper', 'carousel-primary-swiper', 'carousel-primary-swiper-carousel-419d8524f7', 'carousel-swiper-initialized', 'carousel-swiper-horizontal', 'carousel-swiper-backface-hidden');
-  wrapper.setAttribute('data-swiper-id', '.primary-swiper-carousel-419d8524f7');
+  wrapper.classList.add('carousel-position-relative', 'carousel-primary-swiper', 'carousel-primary-swiper-carousel-419d8524f7', 'carousel-swiper-initialized', 'carousel-swiper-horizontal', 'carousel-swiper-backface-hidden');
+  wrapper.setAttribute('data-swiper-id', '.carousel-primary-swiper-carousel-419d8524f7');
   wrapper.setAttribute('id', 'carousel-419d8524f7');
   wrapper.setAttribute('role', 'group');
   wrapper.setAttribute('aria-live', 'polite');
@@ -22,13 +22,13 @@ export default function decorate(block) {
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.querySelector('video') || div.querySelector('a[href$=".mp4"]')) {
-        div.className = 'carousel-video-wrapper';
+        div.className = 'carousel-banner';
       } else if (div.children.length === 1 && div.querySelector('picture')) {
-        div.classList.add('carousel-banner-media', 'carousel-banner-image');
+        div.className = 'carousel-banner';
       } else if (div.querySelector('a')) {
-        div.className = 'carousel-banner-cta';
+        div.className = 'carousel-banner';
       } else {
-        div.className = 'carousel-banner-section';
+        div.className = 'carousel-banner';
       }
     });
     wrapper.append(item);

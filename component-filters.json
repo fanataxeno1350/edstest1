@@ -39,19 +39,20 @@
       "footerList",
       "bannerCTA",
       "bannerSectionList",
-      "latestblogs"
+      "latestblogs",
+      "bannerVideo"
     ]
   },
   {
-    "id": "banner-section-list",
+    "id": "bannerVideo",
     "components": [
-      "bannerSection"
+      "bannerVideo"
     ]
   },
   {
     "id": "carousel",
     "components": [
-      "slide"
+      "carouselItem"
     ]
   },
   {
@@ -68,11 +69,30 @@
     ]
   },
   {
+    "id": "footer",
+    "components": [
+      "footerNavList",
+      "footerSocialLink"
+    ]
+  },
+  {
+    "id": "footerNavList",
+    "components": [
+      "footerNavLink"
+    ]
+  },
+  {
     "id": "header",
     "components": [
-      "sidebarMenuItem",
-      "footerListItem",
-      "socialLink"
+      "headerMenuItem",
+      "footerLink",
+      "footerSocial"
+    ]
+  },
+  {
+    "id": "latestBlogs",
+    "components": [
+      "blogCard"
     ]
   },
   {
@@ -80,6 +100,9 @@
     "components": [
       "blogCard"
     ]
+  },
+  {
+    "id": "spaceAdder"
   },
   {
     "id": "stickyBottomNavigation",
