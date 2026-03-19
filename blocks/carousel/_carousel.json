@@ -38,14 +38,26 @@
       "fields": [
         {
           "component": "reference",
-          "label": "Image/Video",
+          "label": "Video",
+          "name": "video",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "label": "Image",
           "name": "image",
           "valueType": "string"
         },
         {
           "component": "aem-content",
-          "label": "Link",
-          "name": "link",
+          "label": "CTA Link",
+          "name": "ctaLink",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "label": "CTA Label",
+          "name": "ctaLabel",
           "valueType": "string"
         }
       ]

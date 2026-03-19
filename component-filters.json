@@ -41,20 +41,13 @@
       "bannerSectionList",
       "latestblogs",
       "bannerVideo",
-      "latestBlogsList"
+      "latestBlogsList",
+      "bannerBanner",
+      "spaceAdd"
     ]
   },
   {
-    "id": "bannerVideo",
-    "components": [
-      "bannerVideo"
-    ]
-  },
-  {
-    "id": "banner",
-    "components": [
-      "banner"
-    ]
+    "id": "bannerBanner"
   },
   {
     "id": "carousel",
@@ -65,65 +58,34 @@
   {
     "id": "featureCards",
     "components": [
-      "card"
-    ]
-  },
-  {
-    "id": "footerBrand",
-    "components": [
-      "footerLink",
-      "socialLink"
+      "featureCard"
     ]
   },
   {
     "id": "footer",
     "components": [
-      "footerNavList",
-      "footerSocialLink"
+      "footerLinkList",
+      "socialLink"
     ]
   },
   {
-    "id": "footerNavList",
+    "id": "footerLinkList",
     "components": [
-      "footerNavLink"
+      "footerLink"
     ]
   },
   {
-    "id": "header",
+    "id": "headerFooter",
     "components": [
-      "menuItem",
-      "footerLink",
-      "footerSocial"
+      "sidebarMenuItem",
+      "footerLinkListItem",
+      "socialLink"
     ]
   },
   {
-    "id": "latestBlogsList",
+    "id": "latestBlogsArticleListing",
     "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestBlogs",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "latestblogs",
-    "components": [
-      "blogCard"
-    ]
-  },
-  {
-    "id": "stickyBottomNav",
-    "components": [
-      "navItem"
-    ]
-  },
-  {
-    "id": "stickyBottomNavigation",
-    "components": [
-      "navigationItem"
+      "articleCard"
     ]
   },
   {

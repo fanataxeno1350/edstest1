@@ -1,0 +1,15 @@
+.featurecards-boing--text__heading-0,.featurecards-boing--text__heading-1{font-family:Barlow;font-weight:700;line-height:normal}
+
+.featurecards-boing--text__heading-1{font-size:1.featurecards-5rem}
+
+.featurecards-boing--text__heading-2,.featurecards-boing--text__heading-3{font-family:Barlow;font-weight:700;line-height:normal}
+
+.featurecards-boing--text__heading-3{font-size:1rem}
+
+.featurecards-boing--text__body-1,.featurecards-boing--text__body-2{font-family:Barlow;font-weight:400;line-height:normal}
+
+.featurecards-boing--text__body-2{font-size:1rem}
+
+.featurecards-boing--text__body-3{font-family:Barlow;font-size:.featurecards-75rem;font-weight:400;line-height:normal}
+
+.featurecards-boing--text__body-4{font-family:Barlow;font-size:.featurecards-75rem;font-weight:600;line-height:1rem}

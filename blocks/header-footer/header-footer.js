@@ -2,8 +2,8 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('footer-brand', 'footer-w-100', 'footer-bg-boing-neutral-gray-600');
+  const section = document.createElement('section');
+  section.classList.add('header-position-relative', 'header-mb-15');
 
   [...block.children].forEach((row) => {
     const item = document.createElement('div');
@@ -11,22 +11,19 @@ export default function decorate(block) {
     while (row.firstElementChild) item.append(row.firstElementChild);
     [...item.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) {
-        div.classList.add('footer-brand__logo', 'footer-d-inline-block', 'footer-analytics_cta_click');
       } else if (div.querySelector('a')) {
-        div.classList.add('footer-brand__right--link', 'footer-d-flex', 'footer-justify-content-center', 'footer-align-items-center', 'footer-analytics_cta_click');
       } else {
-        div.classList.add('footer-brand__secondary--logo', 'footer-d-inline-block', 'footer-footerList', 'footer-brand__left--item', 'footer-foot_link', 'footer-brand__left--copyright');
       }
     });
-    wrapper.append(item);
+    section.append(item);
   });
 
-  wrapper.querySelectorAll('picture > img').forEach((img) => {
+  section.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
 
   block.textContent = '';
-  block.append(wrapper);
+  block.append(section);
 }

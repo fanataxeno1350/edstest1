@@ -76,7 +76,9 @@
         "bannerSectionList",
         "latestblogs",
         "bannerVideo",
-        "latestBlogsList"
+        "latestBlogsList",
+        "bannerBanner",
+        "spaceAdd"
       ]
     }
   ]
