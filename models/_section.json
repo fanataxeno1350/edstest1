@@ -75,7 +75,8 @@
         "bannerCTA",
         "bannerSectionList",
         "latestblogs",
-        "bannerVideo"
+        "bannerVideo",
+        "latestBlogsList"
       ]
     }
   ]

@@ -40,13 +40,20 @@
       "bannerCTA",
       "bannerSectionList",
       "latestblogs",
-      "bannerVideo"
+      "bannerVideo",
+      "latestBlogsList"
     ]
   },
   {
     "id": "bannerVideo",
     "components": [
       "bannerVideo"
+    ]
+  },
+  {
+    "id": "banner",
+    "components": [
+      "banner"
     ]
   },
   {
@@ -58,14 +65,14 @@
   {
     "id": "featureCards",
     "components": [
-      "featureCard"
+      "card"
     ]
   },
   {
     "id": "footerBrand",
     "components": [
       "footerLink",
-      "footerSocialLink"
+      "socialLink"
     ]
   },
   {
@@ -84,9 +91,15 @@
   {
     "id": "header",
     "components": [
-      "headerMenuItem",
+      "menuItem",
       "footerLink",
       "footerSocial"
+    ]
+  },
+  {
+    "id": "latestBlogsList",
+    "components": [
+      "blogCard"
     ]
   },
   {
@@ -99,6 +112,15 @@
     "id": "latestblogs",
     "components": [
       "blogCard"
+    ]
+  },
+  {
+    "id": "spaceAdder"
+  },
+  {
+    "id": "stickyBottomNav",
+    "components": [
+      "navItem"
     ]
   },
   {

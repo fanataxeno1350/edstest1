@@ -1,0 +1,31 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
+export default function decorate(block) {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('featurecards-featureCards', 'featurecards-aem-GridColumn', 'featurecards-aem-GridColumn--default--12');
+
+  [...block.children].forEach((row) => {
+    const section = document.createElement('section');
+    moveInstrumentation(row, section);
+    section.classList.add('featurecards-d-block', 'featurecards-featureCards-feature_card--Section', 'featurecards-featureCards-feature_card', 'featurecards-mx-auto');
+    while (row.firstElementChild) section.append(row.firstElementChild);
+    [...section.children].forEach((div) => {
+      if (div.querySelector('img')) {
+        div.classList.add('featurecards-w-100', 'featurecards-h-100');
+      } else {
+        div.className = 'featurecards-text-center';
+      }
+    });
+    wrapper.append(section);
+  });
+
+  wrapper.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+
+  block.textContent = '';
+  block.append(wrapper);
+}
